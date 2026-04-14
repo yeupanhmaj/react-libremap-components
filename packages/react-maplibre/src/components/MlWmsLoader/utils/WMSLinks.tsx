@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import CloseIcon from '@mui/icons-material/Close';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
 	Box,
 	Button,
@@ -8,14 +9,13 @@ import {
 	Grid,
 	Paper,
 	TextField,
-	Theme,
+	type Theme,
 	Typography,
 } from '@mui/material';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import CloseIcon from '@mui/icons-material/Close';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useEffect, useState } from 'react';
 
 const modalStyle = {
 	position: 'absolute',

@@ -1,6 +1,5 @@
-import MlGeojsonLayerWithSource from './MlGeojsonLayerWithSource';
-
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlGeojsonLayerWithSource from './MlGeojsonLayerWithSource';
 
 const storyoptions = {
 	title: 'MapComponents/MlGeojsonLayerWithSource',

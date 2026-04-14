@@ -1,11 +1,9 @@
-import { useRef, useEffect, useState } from 'react';
-
+import type { Feature, FeatureCollection } from 'geojson';
+import type { SymbolLayerSpecification } from 'maplibre-gl';
+import { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import useLayer from '../../hooks/useLayer';
 import useMap from '../../hooks/useMap';
-import { SymbolLayerSpecification } from 'maplibre-gl';
-import { Feature, FeatureCollection } from 'geojson';
 
 export interface MlImageMarkerLayerProps {
 	/**
@@ -70,7 +68,7 @@ const MlImageMarkerLayer = (props: MlImageMarkerLayerProps) => {
 		}
 
 		if (props.imgSrc && !mapHook.map.map.hasImage(imageIdRef.current)) {
-			mapHook.map.map.loadImage(props.imgSrc).then(function (res) {
+			mapHook.map.map.loadImage(props.imgSrc).then((res) => {
 				if (!res?.data) {
 					console.log('image ' + props.imgSrc + 'could not be loaded');
 					return;

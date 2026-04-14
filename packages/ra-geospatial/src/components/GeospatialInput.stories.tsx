@@ -1,10 +1,10 @@
 import type { Meta } from '@storybook/react-vite';
-import GeospatialInput from './GeospatialInput';
 import { ReactAdminDefaultDecorator } from '../decorators/ReactAdminDefaultDecorator';
+import GisLayout from '../layout/GisLayout';
 import { PoiEdit, PoiEditWebGis } from '../ra_components/Poi';
 import { PropertyEdit, PropertyEditWebGis } from '../ra_components/Property';
 import { RouteEdit, RouteEditWebGis } from '../ra_components/Route';
-import GisLayout from '../layout/GisLayout';
+import GeospatialInput from './GeospatialInput';
 
 const meta = {
 	component: GeospatialInput,

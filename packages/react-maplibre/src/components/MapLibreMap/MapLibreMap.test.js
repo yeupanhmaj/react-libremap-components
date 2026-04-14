@@ -1,8 +1,8 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React, { useContext, useState } from 'react';
 import MapContext, { MapComponentsProvider } from '../../contexts/MapContext';
 import MapLibreMap from './MapLibreMap';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 const MapLibreMapTestComponent = (props) => {
 	const mapContext = useContext(MapContext);

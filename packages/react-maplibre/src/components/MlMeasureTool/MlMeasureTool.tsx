@@ -1,7 +1,7 @@
+import * as turf from '@turf/turf';
+import type { Feature } from 'geojson';
 import { useEffect, useState } from 'react';
 import MlFeatureEditor from '../MlFeatureEditor/MlFeatureEditor';
-import * as turf from '@turf/turf';
-import { Feature } from 'geojson';
 
 export interface MlMeasureToolOnChangeOptions {
 	value: number;

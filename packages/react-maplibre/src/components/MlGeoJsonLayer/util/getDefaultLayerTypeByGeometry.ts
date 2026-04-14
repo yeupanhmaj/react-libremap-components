@@ -1,5 +1,5 @@
-import { Feature, FeatureCollection } from 'geojson';
-import { LayerSpecification } from 'maplibre-gl';
+import type { Feature, FeatureCollection } from 'geojson';
+import type { LayerSpecification } from 'maplibre-gl';
 
 const mapGeometryTypesToLayerTypes: Record<string, LayerSpecification['type']> = {
 	Position: 'circle',

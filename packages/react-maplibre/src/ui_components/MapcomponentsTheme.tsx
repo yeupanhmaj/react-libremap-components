@@ -1,6 +1,6 @@
-import { ListItemTextProps } from '@mui/material';
+import type { ListItemTextProps } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import { Theme } from '@mui/system';
+import type { Theme } from '@mui/system';
 
 declare module '@mui/material' {
 	interface Palette {
@@ -100,7 +100,7 @@ const getTheme = (mode: 'light' | 'dark' | undefined) => {
 	);
 
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
+	// @ts-expect-error
 	return createTheme(theme, {
 		components: {
 			MuiTypography: {

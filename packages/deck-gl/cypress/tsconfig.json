@@ -4,6 +4,7 @@
 		"allowJs": true,
 		"outDir": "../../dist/out-tsc",
 		"module": "commonjs",
+		"moduleResolution": "node",
 		"types": ["cypress", "node"],
 		"sourceMap": false,
 		"rootDir": "../"
@@ -20,6 +21,7 @@
 		"../**/*.cy.jsx",
 		"../**/*.d.ts",
 		"../src/**/**.tsx",
-		"../src/**/**.jsx"
+		"../src/**/**.jsx",
+		"../src/**/**.ts"
 	]
 }

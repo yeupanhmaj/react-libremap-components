@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
-import MlGpxViewer from './MlGpxViewer';
-import mapContextDecorator from '../../decorators/MapContextDecorator';
-import MlGpxViewerInstructions from './util/MlGpxViewerInstructions';
-import TopToolbar from '../../ui_components/TopToolbar';
 import { Button } from '@mui/material';
-import MlGpxDemoLoader from './util/MlGpxDemoLoader';
+import { useEffect, useState } from 'react';
+import mapContextDecorator from '../../decorators/MapContextDecorator';
+import type { MetadataType } from '../../hooks/useGpx/useGpx';
 import Dropzone from '../../ui_components/Dropzone';
-import UploadButton from '../../ui_components/UploadButton';
-import Metadata from './util/Metadata';
-import { MetadataType } from '../../hooks/useGpx/useGpx';
 import Sidebar from '../../ui_components/Sidebar';
+import TopToolbar from '../../ui_components/TopToolbar';
+import UploadButton from '../../ui_components/UploadButton';
+import MlGpxViewer from './MlGpxViewer';
+import Metadata from './util/Metadata';
+import MlGpxDemoLoader from './util/MlGpxDemoLoader';
+import MlGpxViewerInstructions from './util/MlGpxViewerInstructions';
 
 const storyoptions = {
 	title: 'MapComponents/MlGpxViewer',

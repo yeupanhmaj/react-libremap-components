@@ -1,6 +1,6 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Button, FormControl, TextField } from '@mui/material';
-import { LayerSpecification } from 'maplibre-gl';
+import type { LayerSpecification } from 'maplibre-gl';
+import React, { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 
 interface MbtilesLayerPropFormularProps {
 	setter: Dispatch<SetStateAction<LayerSpecification[]>>;

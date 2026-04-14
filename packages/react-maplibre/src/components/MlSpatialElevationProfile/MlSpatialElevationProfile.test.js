@@ -1,7 +1,7 @@
-import { layerRemovalTest, sourceRemovalTest } from '../../util';
-
-import MlSpatialElevationProfile from './MlSpatialElevationProfile';
 import { uuid_regex } from '../../setupTests';
+import { layerRemovalTest, sourceRemovalTest } from '../../util';
+import MlSpatialElevationProfile from './MlSpatialElevationProfile';
+
 const sampleGeojson = {
 	type: 'FeatureCollection',
 	features: [

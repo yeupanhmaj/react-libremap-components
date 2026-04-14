@@ -3,7 +3,7 @@ import config from './config';
 export default {
 	version: 8,
 	name: 'Gruvbox',
-	center: [8.542, 47.372],
+	center: [8.542, 47.372] as [number, number],
 	zoom: 11.6,
 	bearing: 0,
 	pitch: 0,

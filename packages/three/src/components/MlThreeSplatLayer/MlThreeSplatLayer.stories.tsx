@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { Sidebar, TopToolbar, useMap } from '@mapcomponents/react-maplibre';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import MlThreeSplatLayer from './MlThreeSplatLayer';
-import { useMap, TopToolbar, Sidebar } from '@mapcomponents/react-maplibre';
+import Typography from '@mui/material/Typography';
+import { useEffect, useState } from 'react';
 import MlThreeJsContextDecorator from '../../decorators/ThreejsContextDecorator';
 import { MlThreeObjectControls } from '../MlThreeObjectControls';
+import MlThreeSplatLayer from './MlThreeSplatLayer';
 
 const storyoptions = {
 	title: 'MapComponents/MlThreeSplatLayer',

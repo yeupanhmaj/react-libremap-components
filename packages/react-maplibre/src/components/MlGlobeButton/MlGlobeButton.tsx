@@ -1,8 +1,8 @@
-import { useState, useEffect, CSSProperties } from 'react';
-import useMap from '../../hooks/useMap';
-import { Button, styled } from '@mui/material';
 import MapIcon from '@mui/icons-material/Map';
 import PublicIcon from '@mui/icons-material/Public';
+import { Button, styled } from '@mui/material';
+import { type CSSProperties, useEffect, useState } from 'react';
+import useMap from '../../hooks/useMap';
 
 export interface MlGlobeButtonProps {
 	/**

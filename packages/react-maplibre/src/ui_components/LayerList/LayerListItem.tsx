@@ -1,26 +1,26 @@
+import DeleteIcon from '@mui/icons-material/Delete';
+import TuneIcon from '@mui/icons-material/Tune';
+import { IconButton, ListItemText, type SxProps, styled } from '@mui/material';
+import type { LayerSpecification } from 'maplibre-gl';
 import React, {
-	Dispatch,
-	ReactNode,
-	SetStateAction,
+	type Dispatch,
+	type ReactNode,
+	type SetStateAction,
 	useEffect,
 	useMemo,
 	useRef,
 	useState,
 } from 'react';
-import { LayerSpecification } from 'maplibre-gl';
-import { IconButton, ListItemText, styled, SxProps } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import TuneIcon from '@mui/icons-material/Tune';
+import getDefaultLayerTypeByGeometry from '../../components/MlGeoJsonLayer/util/getDefaultLayerTypeByGeometry';
+import getDefaultPaintPropsByType from '../../components/MlGeoJsonLayer/util/getDefaultPaintPropsByType';
+import ConfirmDialog from '../ConfirmDialog';
 import LayerListFolder from './LayerListFolder';
-import LayerPropertyForm from './util/LayerPropertyForm';
 import LayerListItemVectorLayer, {
 	CheckboxListItemIcon,
 	CheckboxStyled,
 	ListItemStyled,
 } from './util/LayerListItemVectorLayer';
-import ConfirmDialog from '../ConfirmDialog';
-import getDefaultLayerTypeByGeometry from '../../components/MlGeoJsonLayer/util/getDefaultLayerTypeByGeometry';
-import getDefaultPaintPropsByType from '../../components/MlGeoJsonLayer/util/getDefaultPaintPropsByType';
+import LayerPropertyForm from './util/LayerPropertyForm';
 import SortableContainer from './util/SortableContainer';
 
 const TuneIconButton = styled(IconButton)({

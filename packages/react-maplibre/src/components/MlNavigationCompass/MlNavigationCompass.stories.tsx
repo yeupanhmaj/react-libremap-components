@@ -1,5 +1,5 @@
-import MlNavigationCompass, { MlNavigationCompassProps } from './MlNavigationCompass';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlNavigationCompass, { type MlNavigationCompassProps } from './MlNavigationCompass';
 
 const storyoptions = {
 	title: 'MapComponents/MlNavigationCompass',

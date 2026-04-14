@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { InputProps, useInput, useRecordContext } from 'react-admin';
-import { parse as wellknownParse, stringify as wellknownStringify } from 'wellknown';
-
 import {
 	MapLibreMap,
 	MlFeatureEditor,
 	MlGeoJsonLayer,
 	useMap,
 } from '@mapcomponents/react-maplibre';
-import { LngLatLike } from 'maplibre-gl';
-import { centroid, feature } from '@turf/turf';
-import { Feature } from '@turf/helpers';
-import { Geometry } from 'geojson';
+import type { Feature } from '@turf/helpers';
+import { centroid, type feature } from '@turf/turf';
+import type { Geometry } from 'geojson';
+import type { LngLatLike } from 'maplibre-gl';
+import type React from 'react';
+import { useEffect, useState } from 'react';
+import { type InputProps, useInput, useRecordContext } from 'react-admin';
+import { parse as wellknownParse, stringify as wellknownStringify } from 'wellknown';
 
 export interface GeospatialInputMapProps extends InputProps<any> {
 	MapLibreMapProps?: React.ComponentProps<typeof MapLibreMap>;
@@ -21,7 +21,6 @@ export interface GeospatialInputMapProps extends InputProps<any> {
 }
 
 function GeospatialInputMap(props: GeospatialInputMapProps) {
-	const source = props?.source;
 	const record = useRecordContext();
 	const mapHook = useMap({ mapId: props?.mapId });
 
@@ -34,14 +33,15 @@ function GeospatialInputMap(props: GeospatialInputMapProps) {
 	} = input;
 
 	useEffect(() => {
-		if (typeof record === 'undefined' || !record[source]) return;
+		if (typeof record === 'undefined' || !record[props?.source]) return;
 
 		const _geoJson = {
 			type: 'Feature',
 			properties: {},
-			geometry: wellknownParse(record[source]),
+			geometry: wellknownParse(record[props?.source]),
 		};
 
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setGeojson(_geoJson as unknown as typeof feature);
 		setOldGeoJson(_geoJson as unknown as typeof feature);
 	}, [record, props.source]);
@@ -49,14 +49,15 @@ function GeospatialInputMap(props: GeospatialInputMapProps) {
 	useEffect(() => {
 		if (!mapHook.map) return;
 
-		if (typeof record !== 'undefined' && record[source]) {
-			const _center = centroid(wellknownParse(record[source]) as typeof Feature);
+		if (record?.[props?.source]) {
+			const _center = centroid(wellknownParse(record[props?.source]) as typeof Feature);
 
 			if (_center?.geometry?.coordinates) {
 				mapHook.map.setCenter(_center.geometry.coordinates as LngLatLike);
 			}
 		}
-	}, [mapHook.map]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [mapHook.map, props.source]);
 
 	return (
 		<>

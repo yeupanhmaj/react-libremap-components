@@ -1,3 +1,4 @@
+import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import {
 	Avatar,
 	DialogTitle,
@@ -7,7 +8,6 @@ import {
 	ListItemButton,
 	ListItemText,
 } from '@mui/material';
-import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 
 export interface LayerTypeFormProps {
 	onSelect: (type: string) => void;

@@ -1,27 +1,23 @@
-'use strict';
-
-const path = require('path');
-const camelcase = require('camelcase');
+import { basename, parse } from 'node:path';
+import camelcase from 'camelcase';
 
 // This is a custom Jest transformer turning file imports into filenames.
 // http://facebook.github.io/jest/docs/en/webpack.html
 
-module.exports = {
-	process(src, filename) {
-		const assetFilename = JSON.stringify(path.basename(filename));
+export function process(_src, filename) {
+	const assetFilename = JSON.stringify(basename(filename));
 
-		if (filename.match(/\.svg$/)) {
-			//return { code: 'module.exports = {};' };
+	if (filename.match(/\.svg$/)) {
+		//return { code: 'module.exports = {};' };
+		// Based on how SVGR generates a component name:
+		// https://github.com/smooth-code/svgr/blob/01b194cf967347d43d4cbe6b434404731b87cf27/packages/core/src/state.js#L6
+		const pascalCaseFilename = camelcase(parse(filename).name, {
+			pascalCase: true,
+		});
 
-			// Based on how SVGR generates a component name:
-			// https://github.com/smooth-code/svgr/blob/01b194cf967347d43d4cbe6b434404731b87cf27/packages/core/src/state.js#L6
-			const pascalCaseFilename = camelcase(path.parse(filename).name, {
-				pascalCase: true,
-			});
-
-			const componentName = `Svg${pascalCaseFilename}`;
-			return {
-				code: `const React = require('react');
+		const componentName = `Svg${pascalCaseFilename}`;
+		return {
+			code: `const React = require('react');
       module.exports = {
         __esModule: true,
         default: ${assetFilename},
@@ -37,9 +33,8 @@ module.exports = {
           };
         }),
       };`,
-			};
-		}
+		};
+	}
 
-		return { code: `module.exports = ${assetFilename};` };
-	},
-};
+	return { code: `module.exports = ${assetFilename};` };
+}

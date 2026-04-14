@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Button, Theme, Typography, useMediaQuery } from '@mui/material';
-import MlFeatureEditor from './MlFeatureEditor';
-import mapContextDecorator from '../../decorators/MapContextDecorator';
-import TopToolbar from '../../ui_components/TopToolbar';
+import { Box, Button, type Theme, Typography, useMediaQuery } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useFeatureEditorProps } from '../../hooks/useFeatureEditor/useFeatureEditor';
+import React, { useEffect, useState } from 'react';
+import mapContextDecorator from '../../decorators/MapContextDecorator';
+import type { useFeatureEditorProps } from '../../hooks/useFeatureEditor/useFeatureEditor';
+import TopToolbar from '../../ui_components/TopToolbar';
+import MlFeatureEditor from './MlFeatureEditor';
 
 const storyoptions = {
 	title: 'MapComponents/MlFeatureEditor',

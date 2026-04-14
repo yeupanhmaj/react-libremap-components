@@ -1,9 +1,9 @@
-import { RequestParameters } from 'maplibre-gl';
-import { FeatureCollection } from 'geojson';
-import * as csv2geojsonType from './csv2geojson';
 import * as csv2geojson from 'csv2geojson';
-import protocolPathParser from './utils/protocolPathParser';
+import type { FeatureCollection } from 'geojson';
+import type { RequestParameters } from 'maplibre-gl';
+import type * as csv2geojsonType from './csv2geojson';
 import getProtocolData from './utils/getProtocolData';
+import protocolPathParser from './utils/protocolPathParser';
 
 async function convertCsv(
 	filename: string,

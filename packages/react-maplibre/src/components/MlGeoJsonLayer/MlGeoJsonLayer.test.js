@@ -1,8 +1,7 @@
-import { layerRemovalTest, sourceRemovalTest } from '../../util';
-
-import MlGeoJsonLayer from './MlGeoJsonLayer';
-import geojson from './assets/sample_1.json';
 import { uuid_regex } from '../../setupTests';
+import { layerRemovalTest, sourceRemovalTest } from '../../util';
+import geojson from './assets/sample_1.json';
+import MlGeoJsonLayer from './MlGeoJsonLayer';
 
 const testComponent = <MlGeoJsonLayer type="line" geojson={geojson} />;
 

@@ -1,13 +1,15 @@
-import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
+import GpsFixedIcon from '@mui/icons-material/GpsFixed';
+import { Button } from '@mui/material';
+import { bbox, bboxPolygon, booleanContains, circle, lineArc, point } from '@turf/turf';
+import type { BBox, Feature, Point } from 'geojson';
+import type {
+	CircleLayerSpecification,
+	FillLayerSpecification,
+	LngLatBoundsLike,
+} from 'maplibre-gl';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useMap from '../../hooks/useMap';
 import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
-
-import { Button } from '@mui/material';
-import GpsFixedIcon from '@mui/icons-material/GpsFixed';
-
-import { point, circle, lineArc, bbox, booleanContains, bboxPolygon } from '@turf/turf';
-import { Feature, Point, BBox } from 'geojson';
-import { CircleLayerSpecification, FillLayerSpecification, LngLatBoundsLike } from 'maplibre-gl';
 
 export interface MlFollowGpsProps {
 	/**
@@ -132,6 +134,7 @@ const MlFollowGps = (props: MlFollowGpsProps) => {
 		const copy = arc;
 		copy.geometry.coordinates.push(userLocationGeoJson.geometry.coordinates);
 		copy.geometry.coordinates.slice(0, 0);
+
 		return copy;
 	}, [deviceOrientation, userLocationGeoJson]);
 
@@ -196,10 +199,12 @@ const MlFollowGps = (props: MlFollowGpsProps) => {
 				<MlGeoJsonLayer
 					geojson={accuracyGeoJson}
 					type={'fill'}
-					paint={{
-						'fill-color': '#cbd300',
-						'fill-opacity': 0.3,
-						...props.accuracyPaint,
+					options={{
+						paint: {
+							'fill-color': '#cbd300',
+							'fill-opacity': 0.3,
+							...props.accuracyPaint,
+						},
 					}}
 					insertBeforeLayer={props.insertBeforeLayer}
 				/>
@@ -209,11 +214,13 @@ const MlFollowGps = (props: MlFollowGpsProps) => {
 				<MlGeoJsonLayer
 					geojson={orientationCone}
 					type={'fill'}
-					paint={{
-						'fill-color': '#0000ff',
-						'fill-antialias': false,
-						'fill-opacity': 0.3,
-						...props.orientationConePaint,
+					options={{
+						paint: {
+							'fill-color': '#0000ff',
+							'fill-antialias': false,
+							'fill-opacity': 0.3,
+							...props.orientationConePaint,
+						},
 					}}
 					insertBeforeLayer={props.insertBeforeLayer}
 				/>
@@ -223,12 +230,14 @@ const MlFollowGps = (props: MlFollowGpsProps) => {
 				<MlGeoJsonLayer
 					geojson={userLocationGeoJson}
 					type={'circle'}
-					paint={{
-						'circle-color': '#009ee0',
-						'circle-radius': 5,
-						'circle-stroke-color': '#fafaff',
-						'circle-stroke-width': 1,
-						...props.circlePaint,
+					options={{
+						paint: {
+							'circle-color': '#009ee0',
+							'circle-radius': 5,
+							'circle-stroke-color': '#fafaff',
+							'circle-stroke-width': 1,
+							...props.circlePaint,
+						},
 					}}
 					insertBeforeLayer={props.insertBeforeLayer}
 				/>

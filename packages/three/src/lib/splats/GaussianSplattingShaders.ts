@@ -263,4 +263,4 @@ void main() {
 }
 `;
 
-export { vertexShaderSource, fragmentShaderSource };
+export { fragmentShaderSource, vertexShaderSource };

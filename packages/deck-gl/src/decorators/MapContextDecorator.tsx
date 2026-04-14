@@ -1,11 +1,5 @@
+import { getTheme, MapComponentsProvider, MapLibreMap } from '@mapcomponents/react-maplibre';
 import { useMemo } from 'react';
-
-import {
-	getTheme,
-	MapComponentsProvider,
-	MapLibreMap,
-	MlNavigationTools,
-} from '@mapcomponents/react-maplibre';
 import './style.css';
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import { DeckGlContextProvider } from '../contexts/DeckGlContext';
@@ -36,7 +30,6 @@ const decorators = [
 							}
 							mapId={context.mapId}
 						/>
-						<MlNavigationTools showZoomButtons={false} mapId="map_1" />
 					</MUIThemeProvider>
 				</MapComponentsProvider>
 			</div>

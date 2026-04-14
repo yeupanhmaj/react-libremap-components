@@ -1,35 +1,35 @@
-import React, { useMemo } from 'react';
-import { IconButton, styled } from '@mui/material';
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
-import CenterFocusWeakIcon from '@mui/icons-material/CenterFocusWeak';
-import LayerListItem from './LayerListItem';
-import MlGeoJsonLayer from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
-import MlWmsLoader from '../../components/MlWmsLoader/MlWmsLoader';
-import MlOrderLayers from '../../components/MlOrderLayers/MlOrderLayers';
-import { MlGeoJsonLayerProps } from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
-import { MlWmsLoaderProps } from '../../components/MlWmsLoader/MlWmsLoader';
-import MlVectorTileLayer, {
-	MlVectorTileLayerProps,
-} from '../../components/MlVectorTileLayer/MlVectorTileLayer';
-import useLayerContext from '../../hooks/useLayerContext';
-import { LayerConfig, wmsConfig } from '../../contexts/LayerContext';
 import {
 	closestCenter,
 	DndContext,
-	useSensor,
-	PointerSensor,
+	type DragEndEvent,
 	MouseSensor,
+	PointerSensor,
+	type UniqueIdentifier,
+	useSensor,
 	useSensors,
-	UniqueIdentifier,
-	DragEndEvent,
 } from '@dnd-kit/core';
-import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
-import useMap from '../../hooks/useMap';
+import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import CenterFocusWeakIcon from '@mui/icons-material/CenterFocusWeak';
+import { IconButton, styled } from '@mui/material';
 import { bbox } from '@turf/turf';
-import { LngLatBoundsLike, FitBoundsOptions } from 'maplibre-gl';
-import { Feature, FeatureCollection } from 'geojson';
+import type { Feature, FeatureCollection } from 'geojson';
+import type { FitBoundsOptions, LngLatBoundsLike } from 'maplibre-gl';
+import React, { useMemo } from 'react';
+import MlGeoJsonLayer, {
+	type MlGeoJsonLayerProps,
+} from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import MlOrderLayers from '../../components/MlOrderLayers/MlOrderLayers';
+import MlVectorTileLayer, {
+	type MlVectorTileLayerProps,
+} from '../../components/MlVectorTileLayer/MlVectorTileLayer';
+import MlWmsLoader, { type MlWmsLoaderProps } from '../../components/MlWmsLoader/MlWmsLoader';
+import type { LayerConfig, wmsConfig } from '../../contexts/LayerContext';
+import useLayerContext from '../../hooks/useLayerContext';
+import useMap from '../../hooks/useMap';
+import LayerListItem from './LayerListItem';
 
 const IconButtonStyled = styled(IconButton)({
 	padding: '4px',

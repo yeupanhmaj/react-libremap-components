@@ -1,10 +1,8 @@
-import { useState } from 'react';
-
-import MlVectorTileLayer, { MlVectorTileLayerProps } from './MlVectorTileLayer';
-import TopToolbar from '../../ui_components/TopToolbar';
-
-import mapContextDecorator from '../../decorators/MapContextDecorator';
 import { Button } from '@mui/material';
+import { useState } from 'react';
+import mapContextDecorator from '../../decorators/MapContextDecorator';
+import TopToolbar from '../../ui_components/TopToolbar';
+import MlVectorTileLayer, { type MlVectorTileLayerProps } from './MlVectorTileLayer';
 
 const storyoptions = {
 	title: 'MapComponents/MlVectorTileLayer',

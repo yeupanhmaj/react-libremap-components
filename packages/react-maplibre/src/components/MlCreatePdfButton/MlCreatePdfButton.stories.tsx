@@ -1,8 +1,7 @@
-import MlCreatePdfButton from './MlCreatePdfButton';
+import mapContextDecorator from '../../decorators/MapContextDecorator';
 
 import TopToolbar from '../../ui_components/TopToolbar';
-
-import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlCreatePdfButton from './MlCreatePdfButton';
 
 const storyoptions = {
 	title: 'MapComponents/MlCreatePdfButton',

@@ -1,8 +1,7 @@
-import { useRef, useEffect, useContext } from 'react';
-
-import MapContext from '../../contexts/MapContext';
+import { useContext, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import MapLibreGlWrapper from '../MapLibreMap/lib/MapLibreGlWrapper';
+import MapContext from '../../contexts/MapContext';
+import type MapLibreGlWrapper from '../MapLibreMap/lib/MapLibreGlWrapper';
 
 export interface MlWmsFeatureInfoPopupProps {
 	/**

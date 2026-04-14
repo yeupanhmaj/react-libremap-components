@@ -1,15 +1,15 @@
+import { Button, Typography } from '@mui/material';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import React, { useState } from 'react';
-import MlTemporalController, { MlTemporalControllerProps } from './MlTemporalController';
+import { fn } from 'storybook/test';
 import temporalControllerDecorator from '../../decorators/LowZoomDecorator';
-import { Typography, Button } from '@mui/material';
+import useMap from '../../hooks/useMap';
 import TopToolbar from '../../ui_components/TopToolbar';
 import african_independency from './assets/african_independency.json';
 import earthq_5plus from './assets/earthq_5plus.json';
 import jakobsweg from './assets/jackobsweg.json';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import useMap from '../../hooks/useMap';
-import { fn } from 'storybook/test';
+import MlTemporalController, { type MlTemporalControllerProps } from './MlTemporalController';
 
 const storyoptions = {
 	title: 'MapComponents/MlTemporalController',

@@ -1,20 +1,23 @@
-const glob = require('glob');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const Ajv = require('ajv');
+
+import Ajv from 'ajv';
+
 const ajv = new Ajv();
-const fs = require('fs');
+
+import { readFileSync, writeFileSync } from 'node:fs';
+import glob from 'glob';
 
 const options = {};
 const mc_meta = {};
 
-glob('src/**/**/*.meta.json', options, function (er, files) {
+glob('src/**/**/*.meta.json', options, (_er, files) => {
 	console.log(files);
 
 	// eslint-disable-next-line prefer-const
 	let i = 0,
 		len = files.length;
 	for (; i < len; i++) {
-		const rawdata = fs.readFileSync(files[i]);
+		const rawdata = readFileSync(files[i]);
 		const metaObj = JSON.parse(rawdata);
 		mc_meta[metaObj.name] = metaObj;
 	}
@@ -40,6 +43,6 @@ glob('src/**/**/*.meta.json', options, function (er, files) {
 			//if (!valid) console.log(validate.errors);
 
 			const data = JSON.stringify(mc_meta);
-			fs.writeFileSync('public/catalogue/mc_meta.json', data);
+			writeFileSync('public/catalogue/mc_meta.json', data);
 		});
 });

@@ -1,7 +1,7 @@
-import { layerRemovalTest, sourceRemovalTest } from '../../util';
 import React from 'react';
-import MlVectorTileLayer from './MlVectorTileLayer';
 import { uuid_regex } from '../../setupTests';
+import { layerRemovalTest, sourceRemovalTest } from '../../util';
+import MlVectorTileLayer from './MlVectorTileLayer';
 
 const testComponent = (
 	<MlVectorTileLayer
@@ -26,12 +26,7 @@ const testComponent = (
 	/>
 );
 
-layerRemovalTest(
-	'<MlVectorTileLayer />',
-	testComponent,
-	new RegExp('^.*"landuseLine".*$'),
-	'landuseLine'
-);
+layerRemovalTest('<MlVectorTileLayer />', testComponent, /^.*"landuseLine".*$/, 'landuseLine');
 sourceRemovalTest(
 	'<MlVectorTileLayer />',
 	testComponent,

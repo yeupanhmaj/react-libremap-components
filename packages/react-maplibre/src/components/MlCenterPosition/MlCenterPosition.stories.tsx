@@ -1,6 +1,5 @@
-import MlCenterPosition from './MlCenterPosition';
-
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlCenterPosition from './MlCenterPosition';
 
 const storyoptions = {
 	title: 'MapComponents/MlCenterPosition',

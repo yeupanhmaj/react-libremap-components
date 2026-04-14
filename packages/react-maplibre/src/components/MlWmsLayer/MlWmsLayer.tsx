@@ -1,6 +1,6 @@
-import { useMemo, useRef, useEffect, useCallback } from 'react';
+import type { RasterLayerSpecification, RasterSourceSpecification } from 'maplibre-gl';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import useMap from '../../hooks/useMap';
-import { RasterLayerSpecification, RasterSourceSpecification } from 'maplibre-gl';
 import { normalizeWmsParams } from '../../utils/wmsUtils';
 
 const defaultProps: MlWmsLayerProps = {

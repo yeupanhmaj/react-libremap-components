@@ -23,7 +23,11 @@
 		"**/*.cy.ts",
 		"**/*.cy.js",
 		"**/*.cy.tsx",
-		"**/*.cy.jsx"
+		"**/*.cy.jsx",
+		"**/*.stories.ts",
+		"**/*.stories.tsx",
+		"**/*.stories.js",
+		"**/*.stories.jsx"
 	],
 	"include": ["src", "src/**/*.json"]
 }

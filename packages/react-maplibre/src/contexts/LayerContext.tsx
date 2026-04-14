@@ -1,10 +1,10 @@
-import { LayerSpecification, StyleSpecification } from 'maplibre-gl';
-import React, { useEffect, useMemo, useCallback } from 'react';
-import { MlVectorTileLayerProps } from '../components/MlVectorTileLayer/MlVectorTileLayer';
-import config from '../omt_styles/config';
-import { MlGeoJsonLayerProps } from '../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import type { LayerSpecification, StyleSpecification } from 'maplibre-gl';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Layer } from 'wms-capabilities';
+import type { Layer } from 'wms-capabilities';
+import type { MlGeoJsonLayerProps } from '../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import type { MlVectorTileLayerProps } from '../components/MlVectorTileLayer/MlVectorTileLayer';
+import config from '../omt_styles/config';
 
 export interface LayerContextProps {
 	children: React.ReactNode;

@@ -1,6 +1,5 @@
-import MlFillExtrusionLayer, { MlFillExtrusionLayerProps } from './MlFillExtrusionLayer';
-
 import { makeMapContextDecorators } from '../../decorators/MapContextDecorator';
+import MlFillExtrusionLayer, { type MlFillExtrusionLayerProps } from './MlFillExtrusionLayer';
 
 const storyoptions = {
 	title: 'MapComponents/MlFillExtrusionLayer',

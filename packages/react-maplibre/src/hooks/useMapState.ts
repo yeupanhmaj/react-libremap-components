@@ -1,10 +1,8 @@
-import { useContext, useCallback, useState, useEffect, useRef } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import MapContext, { MapContextType } from '../contexts/MapContext';
-import MapLibreGlWrapper, {
-	LayerState,
-	ViewportState,
-} from '../components/MapLibreMap/lib/MapLibreGlWrapper';
+import type MapLibreGlWrapper from '../components/MapLibreMap/lib/MapLibreGlWrapper';
+import type { LayerState, ViewportState } from '../components/MapLibreMap/lib/MapLibreGlWrapper';
+import MapContext, { type MapContextType } from '../contexts/MapContext';
 
 type useMapStateType = {
 	layers: (LayerState | undefined)[];

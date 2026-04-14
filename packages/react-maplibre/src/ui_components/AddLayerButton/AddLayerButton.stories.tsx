@@ -1,18 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
-
-import LayerList from '../LayerList/LayerList';
-
-import EmptyMapDecorator from '../../decorators/EmptyMapDecorator';
-import Sidebar from '../Sidebar';
-
 import { Button } from '@mui/material';
+import type { LayerSpecification, StyleSpecification } from 'maplibre-gl';
+import { useContext, useEffect, useState } from 'react';
+import LayerContext, { type LayerConfig } from '../../contexts/LayerContext';
+import EmptyMapDecorator from '../../decorators/EmptyMapDecorator';
+import GruvboxStyle from '../../omt_styles/gruvbox';
+import LayerList from '../LayerList/LayerList';
+import LayerListItemFactory from '../LayerList/LayerListItemFactory';
+import SelectStyleButton from '../SelectStyleButton/SelectStyleButton';
+import Sidebar from '../Sidebar';
 import TopToolbar from '../TopToolbar';
 import AddLayerButton from './AddLayerButton';
-import LayerListItemFactory from '../LayerList/LayerListItemFactory';
-import LayerContext, { LayerConfig } from '../../contexts/LayerContext';
-import SelectStyleButton from '../SelectStyleButton/SelectStyleButton';
-import { LayerSpecification, StyleSpecification } from 'maplibre-gl';
-import GruvboxStyle from '../../omt_styles/gruvbox';
 
 const storyoptions = {
 	title: 'UiComponents/AddLayerButton',

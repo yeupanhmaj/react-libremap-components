@@ -1,29 +1,28 @@
-import React, { useContext, useMemo, useCallback, useState } from 'react';
-import PdfContext from './PdfContext';
-import PdfPreview from './PdfPreview';
 import {
-	FormControl,
-	MenuItem,
-	Select,
-	InputLabel,
 	Button,
-	FormLabel,
+	CircularProgress,
+	FormControl,
 	FormControlLabel,
+	FormLabel,
+	InputLabel,
+	MenuItem,
 	Radio,
 	RadioGroup,
-	CircularProgress,
+	Select,
+	type SxProps,
 	useMediaQuery,
-	SxProps,
 } from '@mui/material';
-
-import useMap from '../../../hooks/useMap';
-import useExportMap from '../../../hooks/useExportMap';
-import { createPdfResolverParams } from '../../../hooks/useExportMap/lib';
-
 import * as turf from '@turf/turf';
+import type React from 'react';
+import { useCallback, useContext, useMemo, useState } from 'react';
+import useExportMap from '../../../hooks/useExportMap';
+import type { createPdfResolverParams } from '../../../hooks/useExportMap/lib';
+import useMap from '../../../hooks/useMap';
+import PdfContext from './PdfContext';
+import PdfPreview from './PdfPreview';
 
 import templates from './pdf.templates';
-import { PdfPreviewOptions } from './pdfContext';
+import type { PdfPreviewOptions } from './pdfContext';
 
 const scaleOptions = [
 	{
@@ -159,7 +158,7 @@ export default function PdfForm(props: PdfFormProps) {
 	}, [mediaIsMobile, props.formControlStyles]);
 
 	return (
-		<>
+
 			<form id="createPdfFormID">
 				<FormControl fullWidth sx={formControlStyles}>
 					<Button
@@ -273,6 +272,6 @@ export default function PdfForm(props: PdfFormProps) {
 					/>
 				)}
 			</form>
-		</>
+
 	);
 }

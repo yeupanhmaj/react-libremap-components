@@ -1,8 +1,7 @@
-import React, { FunctionComponent, useEffect } from 'react';
-
-import useMapState from './useMapState';
-
+import type React from 'react';
+import { type FunctionComponent } from 'react';
 import mapContextDecoratorHooks from '../decorators/MapContextDecoratorHooks';
+import useMapState from './useMapState';
 
 interface StoryOptions {
 	title: string;
@@ -31,34 +30,28 @@ const Template: any = (props: {
 }) => {
 	const mapState = useMapState({ ...props });
 
-	useEffect(() => {
-		// Your useEffect logic here
-	}, [mapState.layers]);
-
 	return (
-		<>
-			<div
-				style={{
-					position: 'fixed',
-					zIndex: 10000,
-					display: 'flex',
-					flexWrap: 'wrap',
-					top: 0,
-					left: 0,
-					right: 0,
-					bottom: 0,
-					maxHeight: '100VH',
-					backgroundColor: 'rgba(80,80,80,.8)',
-					padding: '50px',
-					fontSize: '20px',
-					color: '#51ff09',
-					overflow: 'hidden',
-					pointerEvents: 'none',
-				}}
-			>
-				<pre>{JSON.stringify(mapState, null, '\t')}</pre>
-			</div>
-		</>
+		<div
+			style={{
+				position: 'fixed',
+				zIndex: 10000,
+				display: 'flex',
+				flexWrap: 'wrap',
+				top: 0,
+				left: 0,
+				right: 0,
+				bottom: 0,
+				maxHeight: '100VH',
+				backgroundColor: 'rgba(80,80,80,.8)',
+				padding: '50px',
+				fontSize: '20px',
+				color: '#51ff09',
+				overflow: 'hidden',
+				pointerEvents: 'none',
+			}}
+		>
+			<pre>{JSON.stringify(mapState, null, '\t')}</pre>
+		</div>
 	);
 };
 

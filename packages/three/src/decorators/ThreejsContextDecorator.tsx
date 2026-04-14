@@ -1,12 +1,12 @@
-import React, { useMemo } from 'react';
-import { ThreeProvider } from '../contexts/ThreeProvider';
 import {
+	getTheme,
 	MapComponentsProvider,
 	MapLibreMap,
 	MlNavigationTools,
-	getTheme,
 } from '@mapcomponents/react-maplibre';
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+import React, { useMemo } from 'react';
+import { ThreeProvider } from '../contexts/ThreeProvider';
 import './style.css';
 
 const decorators = [

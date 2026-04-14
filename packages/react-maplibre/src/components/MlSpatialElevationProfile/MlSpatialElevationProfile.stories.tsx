@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
-import MlSpatialElevationProfile from './MlSpatialElevationProfile';
-import MlGpxViewer from '../MlGpxViewer/MlGpxViewer';
-import useGpx, { MetadataType } from '../../hooks/useGpx/useGpx';
-import Dropzone from '../../ui_components/Dropzone';
-import UploadButton from '../../ui_components/UploadButton';
-import Metadata from '../MlGpxViewer/util/Metadata';
-import mapContextDecorator from '../../decorators/MapContextDecorator';
-import TopToolbar from '../../ui_components/TopToolbar';
-import useMap from '../../hooks/useMap';
-import MlGpxViewerInstructions from '../MlGpxViewer/util/MlGpxViewerInstructions';
 import { Button } from '@mui/material';
-import MlGpxDemoLoader from '../MlGpxViewer/util/MlGpxDemoLoader';
+import { useEffect, useState } from 'react';
+import mapContextDecorator from '../../decorators/MapContextDecorator';
+import useGpx, { type MetadataType } from '../../hooks/useGpx/useGpx';
+import useMap from '../../hooks/useMap';
+import Dropzone from '../../ui_components/Dropzone';
 import Sidebar from '../../ui_components/Sidebar';
+import TopToolbar from '../../ui_components/TopToolbar';
+import UploadButton from '../../ui_components/UploadButton';
+import MlGpxViewer from '../MlGpxViewer/MlGpxViewer';
+import Metadata from '../MlGpxViewer/util/Metadata';
+import MlGpxDemoLoader from '../MlGpxViewer/util/MlGpxDemoLoader';
+import MlGpxViewerInstructions from '../MlGpxViewer/util/MlGpxViewerInstructions';
+import MlSpatialElevationProfile from './MlSpatialElevationProfile';
 
 const storyoptions = {
 	title: 'MapComponents/MlSpatialElevationProfile',

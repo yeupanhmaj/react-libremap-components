@@ -1,6 +1,6 @@
+import { type AllGeoJSON, bbox } from '@turf/turf';
+import type { FitBoundsOptions, GeoJSONSource, LngLatBoundsLike } from 'maplibre-gl';
 import useMap from './useMap';
-import { bbox, AllGeoJSON } from '@turf/turf';
-import { LngLatBoundsLike, FitBoundsOptions, GeoJSONSource } from 'maplibre-gl';
 
 export interface useFitLayerBoundsPros {
 	layerId: string;
@@ -21,7 +21,7 @@ function useFitLayerBounds(props: useFitLayerBoundsPros) {
 	let geojson: AllGeoJSON | undefined;
 
 	if (source && (source as GeoJSONSource)._data) {
-		geojson = (source as GeoJSONSource)._data as AllGeoJSON;
+		geojson = (source as GeoJSONSource)._data as unknown as AllGeoJSON;
 	} else if (layerSource) {
 		const features = mapHook.map?.querySourceFeatures(layerSource);
 		if (features && features.length > 0) {

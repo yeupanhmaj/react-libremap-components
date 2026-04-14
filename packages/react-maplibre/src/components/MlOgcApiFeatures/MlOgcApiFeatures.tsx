@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import useMap from '../../hooks/useMap';
-import MlGeoJsonLayer, { MlGeoJsonLayerProps } from '../MlGeoJsonLayer/MlGeoJsonLayer';
+import MlGeoJsonLayer, { type MlGeoJsonLayerProps } from '../MlGeoJsonLayer/MlGeoJsonLayer';
 export type MlOgcApiFeaturesProps = {
 	visible?: boolean;
 	/**

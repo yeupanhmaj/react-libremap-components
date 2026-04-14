@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
-	ControlPosition,
-	CustomLayerInterface,
-	IControl,
-	LayerSpecification,
+	type ControlPosition,
+	type CustomLayerInterface,
+	type IControl,
+	type LayerSpecification,
 	Map,
-	Map as MapType,
-	MapEventType,
-	MapLayerEventType,
-	MapOptions as MapOptionsType,
-	SourceSpecification,
-	Style,
-	StyleImageInterface,
-	StyleImageMetadata,
+	type MapEventType,
+	type MapLayerEventType,
+	type MapOptions as MapOptionsType,
+	type Map as MapType,
+	type SourceSpecification,
+	type Style,
+	type StyleImageInterface,
+	type StyleImageMetadata,
 } from 'maplibre-gl';
 
 type WrapperEventArgArray = [MapLibreGlWrapperEventName, MapLibreGlWrapperEventHandlerType];
@@ -42,7 +42,7 @@ type ViewportState = {
  * @class
  */
 
-// @ts-ignore
+// @ts-expect-error
 
 interface MapLibreGlWrapper extends MapType {
 	addImage: (
@@ -149,14 +149,21 @@ class MapLibreGlWrapper {
 	};
 	initRegisteredElements: (componentId: string, force?: boolean | undefined) => void;
 	addNativeMaplibreFunctionsAndProps: () => void;
-	// @ts-ignore
+	// @ts-expect-error
 	map: MapType;
-	// @ts-ignore
+	// @ts-expect-error
 	style: Style;
 
-	// @ts-ignore
+	// @ts-expect-error
 	styleJson: object;
 	addSource: (id: string, source: SourceSpecification, componentId?: string | undefined) => this;
+	/**
+	 * Overrides MapLibre-gl-js addControl function providing an additional componentId parameter for the wrapper element registration.
+	 *
+	 * @param {object} control
+	 * @param {string} position
+	 * @param {string} componentId
+	 */
 	addControl: (
 		control: IControl | unknown,
 		position?: ControlPosition | undefined,
@@ -174,10 +181,6 @@ class MapLibreGlWrapper {
 		mapOptions: MapOptionsType;
 		onReady: (map: MapType, context: unknown) => void;
 	}) {
-		// closure variable to safely point to the object context of the current MapLibreGlWrapper instance
-		// eslint-disable-next-line @typescript-eslint/no-this-alias
-		const self = this;
-
 		// element registration and cleanup on a component level is experimental
 		this.registeredElements = {};
 
@@ -213,19 +216,19 @@ class MapLibreGlWrapper {
 				options?: object | string,
 				componentId?: string
 			) => {
-				if (!self.eventHandlers[eventName]) return;
+				if (!this.eventHandlers[eventName]) return;
 
 				if (typeof options === 'string') {
 					componentId = options;
 					options = {};
 				}
 
-				self.eventHandlers[eventName].push({ handler, options });
+				this.eventHandlers[eventName].push({ handler, options });
 
 				const _arguments: WrapperEventArgArray = [eventName, handler];
 				if (componentId && typeof componentId === 'string') {
-					self.initRegisteredElements(componentId);
-					self.registeredElements[componentId].wrapperEvents.push(_arguments);
+					this.initRegisteredElements(componentId);
+					this.registeredElements[componentId].wrapperEvents.push(_arguments);
 				}
 			},
 			/**
@@ -235,14 +238,14 @@ class MapLibreGlWrapper {
 			 * @param {function} handler
 			 * @returns {undefined}
 			 */
-			// @ts-ignore
+			// @ts-expect-error
 			off: (
 				eventName: MapLibreGlWrapperEventName,
 				handler: MapLibreGlWrapperEventHandlerType
 			): undefined => {
-				if (!self.eventHandlers[eventName]) return;
+				if (!this.eventHandlers[eventName]) return;
 
-				self.eventHandlers[eventName] = self.eventHandlers[eventName].filter((item) => {
+				this.eventHandlers[eventName] = this.eventHandlers[eventName].filter((item) => {
 					if (!Object.is(item.handler, handler)) {
 						return item;
 					}
@@ -256,22 +259,24 @@ class MapLibreGlWrapper {
 			 * @param {object} context
 			 * @returns {undefined}
 			 */
-			// @ts-ignore
+			// @ts-expect-error
 			fire: (eventName: MapLibreGlWrapperEventName, context: any): undefined => {
-				if (!self.eventHandlers[eventName]) return;
+				if (!this.eventHandlers[eventName]) return;
 
 				const scope = context || window;
 				const event = new Event(eventName);
 
-				self.eventHandlers[eventName].forEach(function (
-					item:
-						| MapLibreGlWrapper['eventHandlers']['layerchange'][0]
-						| MapLibreGlWrapper['eventHandlers']['viewportchange'][0]
-						| MapLibreGlWrapper['eventHandlers']['addsource'][0]
-						| MapLibreGlWrapper['eventHandlers']['addlayer'][0]
-				) {
-					item.handler.call(scope, event, self, context);
-				});
+				this.eventHandlers[eventName].forEach(
+					(
+						item:
+							| MapLibreGlWrapper['eventHandlers']['layerchange'][0]
+							| MapLibreGlWrapper['eventHandlers']['viewportchange'][0]
+							| MapLibreGlWrapper['eventHandlers']['addsource'][0]
+							| MapLibreGlWrapper['eventHandlers']['addlayer'][0]
+					) => {
+						item.handler.call(scope, event, this, context);
+					}
+				);
 			},
 			/**
 			 * Array containing an object for each layer in the MapLibre instance providing information on visibility, loading state, order, paint & layout properties
@@ -314,7 +319,7 @@ class MapLibreGlWrapper {
 					id: layer.id,
 					type: layer.type,
 					visible: layer.visibility === 'none' ? false : true,
-					baseLayer: self.baseLayers.indexOf(layer.id) !== -1,
+					baseLayer: this.baseLayers.indexOf(layer.id) !== -1,
 					//paint,
 					//layout,
 					//filter: layers[layerId].filter,
@@ -334,9 +339,9 @@ class MapLibreGlWrapper {
 			 * @returns array
 			 */
 			buildLayerObjects: () => {
-				return self.map.style._order
+				return this.map.style._order
 					.map((layerId: string) => {
-						return self.wrapper.buildLayerObject(self.map.style._layers[layerId]);
+						return this.wrapper.buildLayerObject(this.map.style._layers[layerId]);
 					})
 					.filter((n) => typeof n !== 'undefined') as LayerState[];
 			},
@@ -344,10 +349,10 @@ class MapLibreGlWrapper {
 			 * Updates layer state info objects
 			 */
 			refreshLayerState: () => {
-				self.wrapper.layerState = self.wrapper.buildLayerObjects();
-				if (JSON.stringify(self.wrapper.layerState) !== self.wrapper.layerStateString) {
-					self.wrapper.fire('layerchange');
-					self.wrapper.layerStateString = JSON.stringify(self.wrapper.layerState);
+				this.wrapper.layerState = this.wrapper.buildLayerObjects();
+				if (JSON.stringify(this.wrapper.layerState) !== this.wrapper.layerStateString) {
+					this.wrapper.fire('layerchange');
+					this.wrapper.layerStateString = JSON.stringify(this.wrapper.layerState);
 				}
 			},
 			/**
@@ -368,12 +373,12 @@ class MapLibreGlWrapper {
 			 */
 			oldViewportStateString: '{}',
 			getViewport: () =>
-				typeof self.map.getCenter === 'function'
+				typeof this.map.getCenter === 'function'
 					? {
-							center: (({ lng, lat }) => ({ lng, lat }))(self.map.getCenter()),
-							zoom: self.map.getZoom(),
-							bearing: self.map.getBearing(),
-							pitch: self.map.getPitch(),
+							center: (({ lng, lat }) => ({ lng, lat }))(this.map.getCenter()),
+							zoom: this.map.getZoom(),
+							bearing: this.map.getBearing(),
+							pitch: this.map.getPitch(),
 						}
 					: {
 							center: { lng: 0, lat: 0 },
@@ -382,7 +387,7 @@ class MapLibreGlWrapper {
 							pitch: 0,
 						},
 			refreshViewport: () => {
-				self.wrapper.viewportState = self.wrapper.getViewport();
+				this.wrapper.viewportState = this.wrapper.getViewport();
 			},
 		};
 
@@ -396,10 +401,10 @@ class MapLibreGlWrapper {
 		 */
 		this.initRegisteredElements = (componentId: string, force?: boolean | undefined) => {
 			if (
-				typeof self.registeredElements[componentId] === 'undefined' ||
+				typeof this.registeredElements[componentId] === 'undefined' ||
 				(typeof force !== 'undefined' && force)
 			) {
-				self.registeredElements[componentId] = {
+				this.registeredElements[componentId] = {
 					layers: [],
 					sources: [],
 					images: [],
@@ -418,20 +423,20 @@ class MapLibreGlWrapper {
 		 * @param {string} componentId
 		 */
 		this.addLayer = (layer, beforeId, componentId) => {
-			if (!self.map.style) {
+			if (!this.map.style) {
 				return this;
 			}
 			if (componentId && typeof componentId === 'string' && typeof layer.id !== 'undefined') {
-				self.initRegisteredElements(componentId);
-				self.registeredElements[componentId].layers.push(layer.id);
+				this.initRegisteredElements(componentId);
+				this.registeredElements[componentId].layers.push(layer.id);
 
 				if (layer?.source && typeof layer?.source !== 'string') {
-					self.registeredElements[componentId].sources.push(layer.id);
+					this.registeredElements[componentId].sources.push(layer.id);
 				}
 			}
 
-			self.map.addLayer(layer, beforeId);
-			self.wrapper.fire('addlayer', { layer_id: layer.id });
+			this.map.addLayer(layer, beforeId);
+			this.wrapper.fire('addlayer', { layer_id: layer.id });
 			return this;
 		};
 
@@ -445,16 +450,16 @@ class MapLibreGlWrapper {
 		 * @returns {undefined}
 		 */
 		this.addSource = (sourceId, source, componentId) => {
-			if (!self.map.style) {
+			if (!this.map.style) {
 				return this;
 			}
 			if (componentId && typeof componentId === 'string' && typeof sourceId !== 'undefined') {
-				self.initRegisteredElements(componentId);
-				self.registeredElements[componentId].sources.push(sourceId);
+				this.initRegisteredElements(componentId);
+				this.registeredElements[componentId].sources.push(sourceId);
 			}
 
-			self.map.addSource(sourceId, source);
-			self.wrapper.fire('addsource', { source_id: sourceId });
+			this.map.addSource(sourceId, source);
+			this.wrapper.fire('addsource', { source_id: sourceId });
 			return this;
 		};
 
@@ -467,18 +472,18 @@ class MapLibreGlWrapper {
 		 * @param {string} componentId
 		 */
 		this.addImage = (id, image, meta, componentId) => {
-			if (!self.map.style) {
+			if (!this.map.style) {
 				return this;
 			}
 			if (typeof meta === 'string' && typeof componentId === 'undefined') {
-				return self.addImage(id, image, undefined, meta);
+				return this.addImage(id, image, undefined, meta);
 			}
 			if (componentId && typeof componentId === 'string' && typeof id !== 'undefined') {
-				self.initRegisteredElements(componentId);
-				self.registeredElements[componentId].images.push(id);
+				this.initRegisteredElements(componentId);
+				this.registeredElements[componentId].images.push(id);
 			}
 
-			self.map.addImage(id, image, meta as Partial<StyleImageMetadata> | undefined);
+			this.map.addImage(id, image, meta as Partial<StyleImageMetadata> | undefined);
 			return this;
 		};
 
@@ -490,7 +495,7 @@ class MapLibreGlWrapper {
 		 * @param {function} handler
 		 * @param {string} componentId
 		 */
-		// @ts-ignore
+		// @ts-expect-error
 		this.on = (
 			type: MapLibreGlEventName,
 			layerId: string | ((ev: unknown) => void),
@@ -498,8 +503,8 @@ class MapLibreGlWrapper {
 			componentId?: string
 		) => {
 			if (typeof handler === 'string' && typeof layerId === 'function') {
-				// @ts-ignore
-				return self.on.call(self, type, undefined, layerId, handler);
+				// @ts-expect-error
+				return this.on.call(this, type, undefined, layerId, handler);
 			}
 
 			let _arguments: EventArgArray = [type as EventArgArray[0], layerId, handler];
@@ -508,12 +513,12 @@ class MapLibreGlWrapper {
 			}
 
 			if (componentId && typeof componentId === 'string') {
-				self.initRegisteredElements(componentId);
-				self.registeredElements[componentId].events.push(_arguments);
+				this.initRegisteredElements(componentId);
+				this.registeredElements[componentId].events.push(_arguments);
 			}
 
-			// @ts-ignore
-			self.map.on(..._arguments);
+			// @ts-expect-error
+			this.map.on(..._arguments);
 			return this;
 		};
 
@@ -526,11 +531,11 @@ class MapLibreGlWrapper {
 		 */
 		this.addControl = (control, position, componentId) => {
 			if (componentId && typeof componentId === 'string') {
-				self.initRegisteredElements(componentId);
-				self.registeredElements[componentId].controls.push(control);
+				this.initRegisteredElements(componentId);
+				this.registeredElements[componentId].controls.push(control);
 			}
 
-			self.map.addControl(control as IControl, position);
+			this.map.addControl(control as IControl, position);
 			return this;
 		};
 
@@ -540,50 +545,50 @@ class MapLibreGlWrapper {
 		 * @param {string} componentId
 		 */
 		this.cleanup = (componentId: string) => {
-			if (self.map.style && typeof self.registeredElements[componentId] !== 'undefined') {
+			if (this.map.style && typeof this.registeredElements[componentId] !== 'undefined') {
 				// cleanup layers
-				// @ts-ignore
-				self.registeredElements[componentId].layers.forEach((item: string) => {
-					if (self.map.style.getLayer(item)) {
-						self.map.style.removeLayer(item);
+				// @ts-expect-error
+				this.registeredElements[componentId].layers.forEach((item: string) => {
+					if (this.map.style.getLayer(item)) {
+						this.map.style.removeLayer(item);
 					}
 				});
 
 				// cleanup sources
-				// @ts-ignore
-				self.registeredElements[componentId].sources.forEach((item: string) => {
-					if (self.map.style.getSource(item)) {
-						self.map.style.removeSource(item);
+				// @ts-expect-error
+				this.registeredElements[componentId].sources.forEach((item: string) => {
+					if (this.map.style.getSource(item)) {
+						this.map.style.removeSource(item);
 					}
 				});
 
 				// cleanup images
-				// @ts-ignore
-				self.registeredElements[componentId].images.forEach((item: string) => {
-					if (self.map.hasImage(item)) {
-						self.map.style.removeImage(item);
+				// @ts-expect-error
+				this.registeredElements[componentId].images.forEach((item: string) => {
+					if (this.map.hasImage(item)) {
+						this.map.style.removeImage(item);
 					}
 				});
 
 				// cleanup events
-				// @ts-ignore
-				self.registeredElements[componentId].events.forEach((item: EventArgArray) => {
-					// @ts-ignore
-					self.map.off(...item);
+				// @ts-expect-error
+				this.registeredElements[componentId].events.forEach((item: EventArgArray) => {
+					// @ts-expect-error
+					this.map.off(...item);
 				});
 
 				// cleanup controls
-				self.registeredElements[componentId].controls.forEach((item: IControl | unknown) => {
-					self.map.removeControl(item as IControl);
+				this.registeredElements[componentId].controls.forEach((item: IControl | unknown) => {
+					this.map.removeControl(item as IControl);
 				});
 
 				// cleanup wrapper events
-				// @ts-ignore
-				self.registeredElements[componentId].wrapperEvents.forEach((item: WrapperEventArgArray) => {
-					self.wrapper.off(...item);
+				// @ts-expect-error
+				this.registeredElements[componentId].wrapperEvents.forEach((item: WrapperEventArgArray) => {
+					this.wrapper.off(...item);
 				});
 
-				self.initRegisteredElements(componentId, true);
+				this.initRegisteredElements(componentId, true);
 			}
 		};
 
@@ -597,12 +602,12 @@ class MapLibreGlWrapper {
 		];
 		updatingStyleFunctions.forEach((item) => {
 			this[item] = (...props: any[]) => {
-				//@ts-ignore
-				if (self.map && self.map.style && typeof self.map.style[item] === 'function') {
-					//@ts-ignore
-					self.map.style[item](...props);
+				//@ts-expect-error
+				if (this.map && this.map.style && typeof this.map.style[item] === 'function') {
+					//@ts-expect-error
+					this.map.style[item](...props);
 				}
-				return self.map._update ? self.map._update(true) : undefined;
+				return this.map._update ? this.map._update(true) : undefined;
 			};
 		});
 
@@ -617,9 +622,9 @@ class MapLibreGlWrapper {
 		];
 		styleFunctions.forEach((item) => {
 			this[item] = (...props: any[]) => {
-				if (self.map && self.map.style) {
-					//@ts-ignore
-					return self.map.style[item](...props);
+				if (this.map && this.map.style) {
+					//@ts-expect-error
+					return this.map.style[item](...props);
 				}
 				return false;
 			};
@@ -629,16 +634,16 @@ class MapLibreGlWrapper {
 			//	add MapLibre-gl functions
 			Object.getOwnPropertyNames(Object.getPrototypeOf(this.map)).forEach((item) => {
 				if (typeof this[item] === 'undefined') {
-					//@ts-ignore
-					this[item] = (...props: any[]) => self.map[item](...props);
+					//@ts-expect-error
+					this[item] = (...props: any[]) => this.map[item](...props);
 				}
 			});
 
 			//	add MapLibre-gl properties
 			Object.keys(this.map).forEach((item) => {
 				if (typeof this[item] === 'undefined') {
-					//@ts-ignore
-					this[item] = self.map[item];
+					//@ts-expect-error
+					this[item] = this.map[item];
 				}
 			});
 		};
@@ -677,10 +682,10 @@ class MapLibreGlWrapper {
 		];
 		missingFunctions.forEach((item) => {
 			this[item] = (...props: any[]) => {
-				//@ts-ignore
-				if (typeof self.map[item] === 'function') {
-					//@ts-ignore
-					return self.map[item].call(self.map, ...props);
+				//@ts-expect-error
+				if (typeof this.map[item] === 'function') {
+					//@ts-expect-error
+					return this.map[item].call(this.map, ...props);
 				}
 				return undefined;
 			};
@@ -703,12 +708,12 @@ class MapLibreGlWrapper {
 					})
 					.then((styleJson) => {
 						styleJson.layers.forEach((item: any) => {
-							self.baseLayers.push(item.id);
-							if (!self.firstSymbolLayer && item.type === 'symbol') {
-								self.firstSymbolLayer = item.id;
+							this.baseLayers.push(item.id);
+							if (!this.firstSymbolLayer && item.type === 'symbol') {
+								this.firstSymbolLayer = item.id;
 							}
 						});
-						self.styleJson = styleJson;
+						this.styleJson = styleJson;
 						props.mapOptions.style = styleJson;
 					})
 					.catch((error) => {
@@ -716,28 +721,28 @@ class MapLibreGlWrapper {
 					});
 			}
 
-			self.map = new Map(props.mapOptions) as MapType;
+			this.map = new Map(props.mapOptions) as MapType;
 
-			self.addNativeMaplibreFunctionsAndProps();
-			self.wrapper.refreshViewport();
-			self.wrapper.fire('viewportchange');
+			this.addNativeMaplibreFunctionsAndProps();
+			this.wrapper.refreshViewport();
+			this.wrapper.fire('viewportchange');
 
-			self.map.on('load', () => {
-				self.addNativeMaplibreFunctionsAndProps();
+			this.map.on('load', () => {
+				this.addNativeMaplibreFunctionsAndProps();
 			});
 
-			self.map.on('move', () => {
-				self.wrapper.viewportState = self.wrapper.getViewport();
-				self.wrapper.fire('viewportchange');
+			this.map.on('move', () => {
+				this.wrapper.viewportState = this.wrapper.getViewport();
+				this.wrapper.fire('viewportchange');
 			});
-			self.map.on('idle', () => {
-				self.wrapper.refreshLayerState();
+			this.map.on('idle', () => {
+				this.wrapper.refreshLayerState();
 			});
-			self.map.on('data', () => {
-				self.wrapper.refreshLayerState();
+			this.map.on('data', () => {
+				this.wrapper.refreshLayerState();
 			});
 			if (typeof props.onReady === 'function') {
-				props.onReady(self.map, self);
+				props.onReady(this.map, this);
 			}
 		};
 		initializeMapLibre();

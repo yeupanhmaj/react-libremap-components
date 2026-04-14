@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-
-import MlScaleReference, { MlScaleReferenceProps } from './MlScaleReference';
+import { type Theme, useMediaQuery } from '@mui/material';
 import Box from '@mui/material/Box';
-import TopToolbar from '../../ui_components/TopToolbar';
+import { useEffect, useState } from 'react';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
-import { useMediaQuery, Theme } from '@mui/material';
+import TopToolbar from '../../ui_components/TopToolbar';
+import MlScaleReference, { type MlScaleReferenceProps } from './MlScaleReference';
 
 const storyoptions = {
 	title: 'MapComponents/MlScaleReference',

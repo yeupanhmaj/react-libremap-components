@@ -1,9 +1,8 @@
-import { useRef, useEffect, useContext, useState, useCallback } from 'react';
-
-import MapContext from '../../contexts/MapContext';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import MapContext from '../../contexts/MapContext';
 import useMapState from '../../hooks/useMapState';
-import MapLibreGlWrapper from '../MapLibreMap/lib/MapLibreGlWrapper';
+import type MapLibreGlWrapper from '../MapLibreMap/lib/MapLibreGlWrapper';
 
 export interface MapState {
 	lat?: number;

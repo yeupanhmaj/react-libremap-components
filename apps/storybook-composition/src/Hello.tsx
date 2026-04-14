@@ -14,6 +14,7 @@ export default function Hello() {
 				height="165.654"
 				viewBox="0 0 480.685 82.827"
 			>
+				<title>Bran Logo</title>
 				<g id="Group_2" data-name="Group 2" transform="translate(-80 -211)">
 					<g id="bran_icon" data-name="bran icon" transform="translate(80 211)">
 						<path

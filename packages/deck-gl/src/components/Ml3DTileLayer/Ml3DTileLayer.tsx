@@ -1,6 +1,6 @@
-import { useEffect, useMemo } from 'react';
+import { Tile3DLayer, type Tile3DLayerProps } from '@deck.gl/geo-layers';
 import { useMap } from '@mapcomponents/react-maplibre';
-import { Tile3DLayer, Tile3DLayerProps } from '@deck.gl/geo-layers';
+import { useEffect, useMemo } from 'react';
 import useDeckGl from '../../hooks/useDeckGl';
 
 export interface Ml3DTileLayerProps extends Tile3DLayerProps {
@@ -26,19 +26,7 @@ const Ml3DTileLayer = (props: Ml3DTileLayerProps) => {
 			return new Tile3DLayer({
 				...Ml3DTileProps,
 			});
-	}, [
-		Ml3DTileProps.data,
-		Ml3DTileProps.id,
-		Ml3DTileProps.pickable,
-		Ml3DTileProps.onTileLoad,
-		Ml3DTileProps.onTileUnload,
-		Ml3DTileProps.loadOptions,
-		Ml3DTileProps.loaders,
-		Ml3DTileProps.visible,
-		Ml3DTileProps.opacity,
-		Ml3DTileProps.pointSize,
-		Ml3DTileProps.beforeId,
-	]);
+	}, [Ml3DTileProps]);
 
 	useEffect(() => {
 		if (!mapHook.map || !tile3dLayer) return;
@@ -51,7 +39,7 @@ const Ml3DTileLayer = (props: Ml3DTileLayerProps) => {
 		};
 	}, [mapHook.map, tile3dLayer]);
 
-	return <></>;
+	return null;
 };
 
 export default Ml3DTileLayer;

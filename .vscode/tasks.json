@@ -1,0 +1,199 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		// ─── Biome ────────────────────────────────────────────────────────────
+		{
+			"label": "Biome: Check all",
+			"type": "shell",
+			"command": "pnpm biome check --write --assist-enabled=true .",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		{
+			"label": "Biome: Lint all",
+			"type": "shell",
+			"command": "pnpm biome lint .",
+			"group": "test",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		{
+			"label": "Biome: Format all",
+			"type": "shell",
+			"command": "pnpm biome format --write .",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		{
+			"label": "Biome: Check react-maplibre",
+			"type": "shell",
+			"command": "pnpm biome check --write --assist-enabled=true packages/react-maplibre",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		{
+			"label": "Biome: Check deck-gl",
+			"type": "shell",
+			"command": "pnpm biome check --write --assist-enabled=true packages/deck-gl",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		{
+			"label": "Biome: Check ra-geospatial",
+			"type": "shell",
+			"command": "pnpm biome check --write --assist-enabled=true packages/ra-geospatial",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		{
+			"label": "Biome: Check three",
+			"type": "shell",
+			"command": "pnpm biome check --write --assist-enabled=true packages/three",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		// ─── ESLint ───────────────────────────────────────────────────────────
+		{
+			"label": "ESLint: Lint all (Nx)",
+			"type": "shell",
+			"command": "pnpm nx run-many -t lint",
+			"group": "test",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": ["$eslint-stylish"]
+		},
+		{
+			"label": "ESLint: Lint react-maplibre",
+			"type": "shell",
+			"command": "pnpm nx lint react-maplibre",
+			"group": "test",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": ["$eslint-stylish"]
+		},
+		{
+			"label": "ESLint: Lint deck-gl",
+			"type": "shell",
+			"command": "pnpm nx lint deck-gl",
+			"group": "test",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": ["$eslint-stylish"]
+		},
+		{
+			"label": "ESLint: Lint ra-geospatial",
+			"type": "shell",
+			"command": "pnpm nx lint ra-geospatial",
+			"group": "test",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": ["$eslint-stylish"]
+		},
+		// ─── Storybook ────────────────────────────────────────────────────────
+		{
+			"label": "Storybook: react-maplibre (port 4400)",
+			"type": "shell",
+			"command": "pnpm nx storybook react-maplibre",
+			"group": "build",
+			"isBackground": true,
+			"presentation": { "reveal": "always", "panel": "dedicated" },
+			"problemMatcher": [
+				{
+					"pattern": { "regexp": ".", "file": 1, "line": 2, "message": 3 },
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "Starting Storybook",
+						"endsPattern": "Storybook \\d+\\.\\d+\\.\\d+ for"
+					}
+				}
+			]
+		},
+		{
+			"label": "Storybook: deck-gl (port 4401)",
+			"type": "shell",
+			"command": "pnpm nx storybook deck-gl",
+			"group": "build",
+			"isBackground": true,
+			"presentation": { "reveal": "always", "panel": "dedicated" },
+			"problemMatcher": [
+				{
+					"pattern": { "regexp": ".", "file": 1, "line": 2, "message": 3 },
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "Starting Storybook",
+						"endsPattern": "Storybook \\d+\\.\\d+\\.\\d+ for"
+					}
+				}
+			]
+		},
+		{
+			"label": "Storybook: ra-geospatial",
+			"type": "shell",
+			"command": "pnpm nx storybook ra-geospatial",
+			"group": "build",
+			"isBackground": true,
+			"presentation": { "reveal": "always", "panel": "dedicated" },
+			"problemMatcher": []
+		},
+		{
+			"label": "Storybook: Build react-maplibre",
+			"type": "shell",
+			"command": "pnpm nx build-storybook react-maplibre",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		{
+			"label": "Storybook: Build deck-gl",
+			"type": "shell",
+			"command": "pnpm nx build-storybook deck-gl",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		// ─── Build ────────────────────────────────────────────────────────────
+		{
+			"label": "Build: all",
+			"type": "shell",
+			"command": "pnpm nx run-many -t build",
+			"group": { "kind": "build", "isDefault": true },
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": ["$tsc"]
+		},
+		{
+			"label": "Build: react-maplibre",
+			"type": "shell",
+			"command": "pnpm nx build react-maplibre",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": ["$tsc"]
+		},
+		{
+			"label": "Build: deck-gl",
+			"type": "shell",
+			"command": "pnpm nx build deck-gl",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": ["$tsc"]
+		},
+		{
+			"label": "Build: ra-geospatial",
+			"type": "shell",
+			"command": "pnpm nx build ra-geospatial",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": ["$tsc"]
+		},
+		// ─── Install ──────────────────────────────────────────────────────────
+		{
+			"label": "Install dependencies",
+			"type": "shell",
+			"command": "pnpm install",
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		}
+	]
+}

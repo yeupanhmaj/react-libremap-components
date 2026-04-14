@@ -1,0 +1,8 @@
+{
+	"name": "MlDeckGlTerrainLayer",
+	"title": "DeckGL Terrain Layer",
+	"description": "A component that renders a 3D terrain mesh using a deck.gl TerrainLayer. Requires terrain-rgb elevation tiles and an optional surface texture.",
+	"tags": ["Map layer", "deckGL", "terrain", "3D"],
+	"category": "Map layer",
+	"type": "component"
+}

@@ -1,5 +1,5 @@
-import { useRef, useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
+import { useEffect, useRef, useState } from 'react';
 
 type Props = {
 	setData: (data: string) => void;
@@ -73,7 +73,7 @@ export default function Dropzone(props: Props) {
 	return (
 		<div
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
+			// @ts-expect-error
 			onDrop={dropHandler}
 			ref={dropZone}
 			style={{

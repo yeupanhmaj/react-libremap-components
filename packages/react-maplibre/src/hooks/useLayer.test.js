@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { MapComponentsProvider } from '../contexts/MapContext';
-import MapLibreMap from '../components/MapLibreMap/MapLibreMap';
-import { waitFor, render, screen } from '@testing-library/react';
-import { mockMapLibreMethods } from '../setupTests';
-
-import useLayer from './useLayer';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React, { useState } from 'react';
+import MapLibreMap from '../components/MapLibreMap/MapLibreMap';
+import { MapComponentsProvider } from '../contexts/MapContext';
+import { mockMapLibreMethods } from '../setupTests';
+import useLayer from './useLayer';
 
 const UseLayerTestComponent = (props) => {
 	// Use a useRef hook to reference the layer object to be able to access it later inside useEffect hooks

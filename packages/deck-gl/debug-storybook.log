@@ -1,0 +1,58 @@
+[10:30:50.477] [INFO] storybook v10.3.3
+[10:30:51.397] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.
+[10:30:52.380] [DEBUG] Getting package.json info for C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/package.json...
+[10:30:52.382] [WARN] You are currently using Storybook [1m10.3.3[22m but you have packages which are incompatible with it:
+
+- @nx/storybook@21.2.2 which depends on >=7.0.0 <10.0.0
+ Repo: https://nx.dev
+
+Please consider updating your packages or contacting the maintainers for compatibility details.
+
+For more details on compatibility guidance, see:
+https://github.com/storybookjs/storybook/issues/32836
+[10:30:52.403] [ERROR] [38;2;241;97;97mSB_CORE-SERVER_0002 (CriticalPresetLoadError): Storybook failed to load the following preset: C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/packages/deck-gl/.storybook/main.ts.
+
+Please check whether your setup is correct, the Storybook dependencies (and their peer dependencies) are installed correctly and there are no package version clashes.
+
+If you believe this is a bug, please open an issue on Github.
+
+ReferenceError: require is not defined in ES module scope, you can use import instead
+    at getAbsolutePath (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/packages/deck-gl/.storybook/main.ts:25:18)
+    at file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/packages/deck-gl/.storybook/main.ts:4:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:329:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)
+    at async importModule (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-GMFDJH6Z.js:737:11)
+    at async loadMainConfig (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-NQBOIYE4.js:11678:12)
+    at async buildDevStandalone (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/core-server/index.js:7950:16)
+    at async withTelemetry (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-6PADJQ3N.js:218:12)
+    at async dev (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/bin/core.js:2736:3)
+    at async _Command.<anonymous> (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/bin/core.js:2806:92)
+
+More info: 
+[39m
+    at loadPreset (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-NQBOIYE4.js:10081:13)
+    at async Promise.all (index 1)
+    at async loadPresets (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-NQBOIYE4.js:10090:73)
+    at async getPresets (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-NQBOIYE4.js:10121:23)
+    at async buildDevStandalone (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/core-server/index.js:7964:52)
+    at async withTelemetry (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-6PADJQ3N.js:218:12)
+    at async dev (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/bin/core.js:2736:3)
+    at async _Command.<anonymous> (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/bin/core.js:2806:92)
+[10:30:52.414] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
+[10:30:52.419] [WARN]   Failed to load preset: "C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/packages/deck-gl/.storybook/main.ts"
+[10:30:52.419] [ERROR] [38;2;241;97;97mReferenceError: require is not defined in ES module scope, you can use import instead[39m
+    at getAbsolutePath (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/packages/deck-gl/.storybook/main.ts:25:18)
+    at file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/packages/deck-gl/.storybook/main.ts:4:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:329:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)
+    at async importModule (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-GMFDJH6Z.js:737:11)
+    at async loadMainConfig (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-NQBOIYE4.js:11678:12)
+    at async buildDevStandalone (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/core-server/index.js:7950:16)
+    at async withTelemetry (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/_node-chunks/chunk-6PADJQ3N.js:218:12)
+    at async dev (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/bin/core.js:2736:3)
+    at async _Command.<anonymous> (file:///C:/Users/nmhoang/Documents/Source/react-map-components-maplibre/node_modules/.pnpm/storybook@10.3.3_@testing-l_4f48ee5837fa3a7e669aa6d8211514d8/node_modules/storybook/dist/bin/core.js:2806:92)
+[10:30:52.426] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry
+[10:30:52.433] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.
+[10:30:52.915] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.
+[10:30:52.940] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.

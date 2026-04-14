@@ -1,6 +1,5 @@
-import SpeedDial from './SpeedDial';
-
 import mapContextDecorator from '../../decorators/NoNavToolsDecorator';
+import SpeedDial from './SpeedDial';
 
 const storyoptions = {
 	title: 'UiComponents/SpeedDial',

@@ -6,7 +6,7 @@
  */
 export function normalizeWmsParams(
 	params: { [key: string]: string | number } | URLSearchParams | undefined,
-	filterFn?: (key: string, value: string) => boolean
+	filterFn?: (key: string, value: string | number) => boolean
 ): { [key: string]: string | number } {
 	if (!params) {
 		return {};

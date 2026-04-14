@@ -1,6 +1,5 @@
-import MlUseMapDebugger, { MlUseMapDebuggerProps } from './MlUseMapDebugger';
-
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlUseMapDebugger, { type MlUseMapDebuggerProps } from './MlUseMapDebugger';
 
 const storyoptions = {
 	title: 'MapComponents/MlUseMapDebugger',

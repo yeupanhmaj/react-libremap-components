@@ -1,4 +1,4 @@
-import maplibregl, { AddProtocolAction } from 'maplibre-gl';
+import maplibregl, { type AddProtocolAction } from 'maplibre-gl';
 import { useEffect } from 'react';
 
 export interface useAddProtocolProps {

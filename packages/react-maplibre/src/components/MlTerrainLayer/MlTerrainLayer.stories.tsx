@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import MlTerrainLayer from './MlTerrainLayer';
-import MapContextDecorator from '../../decorators/MapContextDecorator';
-import TopToolbar from '../../ui_components/TopToolbar';
 import { Button } from '@mui/material';
+import { useEffect, useState } from 'react';
+import MapContextDecorator from '../../decorators/MapContextDecorator';
 import useMap from '../../hooks/useMap';
+import TopToolbar from '../../ui_components/TopToolbar';
+import MlTerrainLayer from './MlTerrainLayer';
 
 const storyoptions = {
 	title: 'MapComponents/MlTerrainLayer',
@@ -28,25 +28,21 @@ const Template: any = () => {
 		<>
 			<TopToolbar
 				unmovableButtons={
-					<>
-						<Button
-							variant={active ? 'contained' : 'outlined'}
-							className="terrainLayerButton"
-							onClick={() => setActive(!active)}
-						>
-							Terrain Layer
-						</Button>
-					</>
+					<Button
+						variant={active ? 'contained' : 'outlined'}
+						className="terrainLayerButton"
+						onClick={() => setActive(!active)}
+					>
+						Terrain Layer
+					</Button>
 				}
 			/>
 			{active && (
-				<>
-					<MlTerrainLayer
-						sourceOptions={{
-							tiles: ['https://wms.wheregroup.com/dem_tileserver/raster_dem/{z}/{x}/{y}.webp'],
-						}}
-					/>
-				</>
+				<MlTerrainLayer
+					sourceOptions={{
+						tiles: ['https://wms.wheregroup.com/dem_tileserver/raster_dem/{z}/{x}/{y}.webp'],
+					}}
+				/>
 			)}
 		</>
 	);

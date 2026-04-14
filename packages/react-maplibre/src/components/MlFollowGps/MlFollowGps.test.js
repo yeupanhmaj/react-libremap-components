@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { waitFor, screen, render } from '@testing-library/react';
-import { MapComponentsProvider } from '../../contexts/MapContext';
-import MlFollowGps from './MlFollowGps';
-import MapLibreMap from './../MapLibreMap/MapLibreMap';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React, { useState } from 'react';
+import { MapComponentsProvider } from '../../contexts/MapContext';
+import MapLibreMap from './../MapLibreMap/MapLibreMap';
+import MlFollowGps from './MlFollowGps';
 
 const mockGeolocation = {
 	watchPosition: jest.fn(() => 1),

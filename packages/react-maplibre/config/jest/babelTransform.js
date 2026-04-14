@@ -1,6 +1,4 @@
-'use strict';
-
-const babelJest = require('babel-jest');
+import { createTransformer } from 'babel-jest';
 
 const hasJsxRuntime = (() => {
 	if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -11,11 +9,15 @@ const hasJsxRuntime = (() => {
 		require.resolve('react/jsx-runtime');
 		return true;
 	} catch (e) {
+		console.error(
+			'The new JSX transform is not available in your version of React. Please upgrade to React 17 or later.',
+			e
+		);
 		return false;
 	}
 })();
 
-module.exports = babelJest.createTransformer({
+export default createTransformer({
 	presets: [
 		[
 			require.resolve('babel-preset-react-app'),

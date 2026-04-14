@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react';
+import type React from 'react';
+import { useMemo } from 'react';
 
 import { MapComponentsProvider } from '../index';
 import './style.css';
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+import type { StoryContext } from '@storybook/react-vite';
 import getTheme from '../ui_components/MapcomponentsTheme';
-import { StoryContext } from '@storybook/react-vite';
 
 const decorators = [
 	(Story: React.FC, context?: StoryContext): React.ReactElement => {

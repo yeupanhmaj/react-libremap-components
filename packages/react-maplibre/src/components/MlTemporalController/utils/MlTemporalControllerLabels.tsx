@@ -1,7 +1,7 @@
+import type { FeatureCollection } from 'geojson';
+import type { SymbolLayerSpecification } from 'maplibre-gl';
+import type { useLayerProps } from '../../../hooks/useLayer';
 import MlLayer from '../../MlLayer/MlLayer';
-import { SymbolLayerSpecification, SymbolLayoutProps } from 'maplibre-gl';
-import { FeatureCollection } from 'geojson';
-import { useLayerProps } from '../../../hooks/useLayer';
 
 interface MlTemporalControllerLabelsProps {
 	data: FeatureCollection;
@@ -15,7 +15,8 @@ interface MlTemporalControllerLabelsProps {
 	minVal: number;
 	accumulate: boolean;
 	isPlaying: boolean;
-	labelLayout?: SymbolLayoutProps;
+	labelLayout?: any;
+	// keep as any map to SymbolLayoutProps;
 	labelPaint?: SymbolLayerSpecification;
 }
 

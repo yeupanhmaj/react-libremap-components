@@ -1,22 +1,16 @@
-import { useEffect, useRef } from 'react';
-
-import useLayer from '../../hooks/useLayer';
-
-import { v4 as uuidv4 } from 'uuid';
-
-import getDefaultPaintPropsByType from './util/getDefaultPaintPropsByType';
-import getDefaultLayerTypeByGeometry from './util/getDefaultLayerTypeByGeometry';
-import { Feature, FeatureCollection, GeoJSON } from 'geojson';
-import { useLayerProps } from '../../hooks/useLayer';
-import useSource from '../../hooks/useSource';
-
-import {
-	LineLayerSpecification,
+import type { Feature, FeatureCollection, GeoJSON } from 'geojson';
+import type {
 	CircleLayerSpecification,
 	FillLayerSpecification,
 	LayerSpecification,
+	LineLayerSpecification,
 	RasterLayerSpecification,
 } from 'maplibre-gl';
+import { useEffect, useRef } from 'react';
+import useLayer, { type useLayerProps } from '../../hooks/useLayer';
+import useSource from '../../hooks/useSource';
+import getDefaultLayerTypeByGeometry from './util/getDefaultLayerTypeByGeometry';
+import getDefaultPaintPropsByType from './util/getDefaultPaintPropsByType';
 
 export type MlGeoJsonLayerProps = {
 	/**
@@ -117,12 +111,12 @@ export type MlGeoJsonLayerProps = {
 
 const MlGeoJsonLayer = (props: MlGeoJsonLayerProps) => {
 	const layerType = props.type || getDefaultLayerTypeByGeometry(props.geojson);
-	const layerId = useRef(props.layerId || 'MlGeoJsonLayer-' + uuidv4());
+	const layerId = useRef(props.layerId || `MlGeoJsonLayer-${crypto.randomUUID()}`);
 	const labelLayerId = `label-${layerId.current}`;
 
 	useEffect(() => {
 		if (!props.layerId) {
-			layerId.current = 'MlGeoJsonLayer-' + uuidv4();
+			layerId.current = `MlGeoJsonLayer-${crypto.randomUUID()}`;
 		} else {
 			layerId.current = props.layerId;
 		}
@@ -130,7 +124,7 @@ const MlGeoJsonLayer = (props: MlGeoJsonLayerProps) => {
 
 	useSource({
 		mapId: props.mapId,
-		sourceId: 'source-' + layerId.current,
+		sourceId: `source-${layerId.current}`,
 		source: {
 			type: 'geojson',
 			data: props.geojson as unknown as string | GeoJSON,
@@ -148,13 +142,14 @@ const MlGeoJsonLayer = (props: MlGeoJsonLayerProps) => {
 			...(typeof props?.options?.source !== 'undefined' &&
 			typeof props?.options?.source === 'string'
 				? { source: props.options.source }
-				: { source: 'source-' + layerId.current }),
+				: { source: `source-${layerId.current}` }),
 			paint: {
-				...(props.paint || getDefaultPaintPropsByType(layerType, props.defaultPaintOverrides)),
+				...(props?.options?.paint ||
+					getDefaultPaintPropsByType(layerType, props.defaultPaintOverrides)),
 				...props?.options?.paint,
 			},
 			layout: {
-				...(props?.layout || {}),
+				...(props?.options?.layout || {}),
 				...props?.options?.layout,
 			},
 			type: layerType as LayerSpecification['type'],
@@ -173,7 +168,7 @@ const MlGeoJsonLayer = (props: MlGeoJsonLayerProps) => {
 			...(typeof props?.options?.source !== 'undefined' &&
 			typeof props?.options?.source === 'string'
 				? { source: props.options.source }
-				: { source: 'source-' + layerId.current }),
+				: { source: `source-${layerId.current}` }),
 			id: labelLayerId,
 			type: 'symbol',
 			maxzoom: 24,
@@ -186,7 +181,8 @@ const MlGeoJsonLayer = (props: MlGeoJsonLayerProps) => {
 				'text-size': 12,
 				'text-anchor': 'top',
 				...(props?.labelOptions?.layout ? props.labelOptions.layout : {}),
-				visibility: props?.layout?.visibility ?? props?.options?.layout?.visibility ?? 'visible',
+				visibility:
+					props?.options?.layout?.visibility ?? props?.options?.layout?.visibility ?? 'visible',
 			},
 			paint: {
 				'text-halo-width': 1,
@@ -197,7 +193,7 @@ const MlGeoJsonLayer = (props: MlGeoJsonLayerProps) => {
 		} as useLayerProps['options'],
 	});
 
-	return <></>;
+	return null;
 };
 
 export default MlGeoJsonLayer;

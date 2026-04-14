@@ -1,7 +1,7 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { useMap } from '@mapcomponents/react-maplibre';
-import { Effect, Layer } from '@deck.gl/core';
+import type { Effect, Layer } from '@deck.gl/core';
 import { MapboxOverlay } from '@deck.gl/mapbox';
+import { useMap } from '@mapcomponents/react-maplibre';
+import React, { type ReactNode, useEffect, useRef, useState } from 'react';
 
 export interface DeckGlContextType {
 	deckGlLayerArray: Layer[];
@@ -34,7 +34,6 @@ const DeckGlContextProvider = ({ mapId, children }: DeckGlContextProviderProps) 
 		});
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
 		mapHook.map.addControl(overlayRef.current);
 
 		return () => {

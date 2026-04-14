@@ -1,20 +1,21 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
-import Sidebar from '../../../ui_components/Sidebar';
 import {
+	Checkbox,
+	FormControl,
+	ListItemText,
+	MenuItem,
 	Select,
-	Typography,
+	type SelectChangeEvent,
 	Slider,
 	Stack,
-	FormControl,
-	MenuItem,
-	Checkbox,
-	ListItemText,
-	SelectChangeEvent,
+	Typography,
 } from '@mui/material';
-import ColorPicker from '../../../ui_components/ColorPicker/ColorPicker';
-import MlGeoJsonLayer from '../MlGeoJsonLayer';
-import { GeoJSON, FeatureCollection } from 'geojson';
+import type { FeatureCollection, GeoJSON } from 'geojson';
+import type React from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import useMap from '../../../hooks/useMap';
+import ColorPicker from '../../../ui_components/ColorPicker/ColorPicker';
+import Sidebar from '../../../ui_components/Sidebar';
+import MlGeoJsonLayer from '../MlGeoJsonLayer';
 
 interface LineStylerProps {
 	geojson: GeoJSON;

@@ -1,5 +1,5 @@
-import PdfForm, { PdfFormProps } from './lib/PdfForm';
 import { PdfContextProvider } from './lib/PdfContext';
+import PdfForm, { type PdfFormProps } from './lib/PdfForm';
 
 /**
  * Create PDF Form Component

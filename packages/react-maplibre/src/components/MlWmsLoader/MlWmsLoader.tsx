@@ -1,25 +1,23 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-
-import MlWmsLayer from '../MlWmsLayer/MlWmsLayer';
-import MlMarker from '../MlMarker/MlMarker';
-import useWms, { useWmsReturnType } from '../../hooks/useWms';
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InfoIcon from '@mui/icons-material/Info';
+import { Box, Checkbox, ListItemIcon, Snackbar } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import IconButton from '@mui/material/IconButton';
-import { MapMouseEvent } from 'maplibre-gl';
-import useMap from '../../hooks/useMap';
-import { Box, Checkbox, ListItemIcon, Snackbar } from '@mui/material';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ConfirmDialog from '../../ui_components/ConfirmDialog';
-
 import * as turf from '@turf/turf';
+import type { MapMouseEvent } from 'maplibre-gl';
+import type React from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import useMap from '../../hooks/useMap';
+import useWms, { type useWmsReturnType } from '../../hooks/useWms';
+import ConfirmDialog from '../../ui_components/ConfirmDialog';
 import SortableContainer from '../../ui_components/LayerList/util/SortableContainer';
 import { normalizeWmsParams } from '../../utils/wmsUtils';
+import MlMarker from '../MlMarker/MlMarker';
+import MlWmsLayer from '../MlWmsLayer/MlWmsLayer';
 
 export interface WmsConfig {
 	/**
@@ -332,7 +330,7 @@ const MlWmsLoader = (props: MlWmsLoaderProps) => {
 			.join(' ');
 	}, [layers]);
 
-	const resetFeatureInfo = function () {
+	const resetFeatureInfo = () => {
 		setFeatureInfoLngLat(undefined);
 		setFeatureInfoContent(undefined);
 	};
@@ -461,7 +459,7 @@ const MlWmsLoader = (props: MlWmsLoaderProps) => {
 		const _getFeatureInfo = getFeatureInfo;
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore: ts appears not to consider overloads
+		// @ts-expect-error: ts appears not to consider overloads
 		mapHook.map.map.on('click', _getFeatureInfo);
 		return () => {
 			mapHook.map?.map.off?.('click', _getFeatureInfo);

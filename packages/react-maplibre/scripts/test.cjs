@@ -16,14 +16,15 @@ process.on('unhandledRejection', (err) => {
 require('../config/env.cjs');
 
 const jest = require('jest');
-const execSync = require('child_process').execSync;
-let argv = process.argv.slice(2);
+const execSync = require('node:child_process').execSync;
+const argv = process.argv.slice(2);
 
 function isInGitRepository() {
 	try {
 		execSync('git rev-parse --is-inside-work-tree', { stdio: 'ignore' });
 		return true;
-	} catch (e) {
+	} catch (_e) {
+		console.error('Git repository not found.', _e);
 		return false;
 	}
 }
@@ -32,7 +33,8 @@ function isInMercurialRepository() {
 	try {
 		execSync('hg --cwd . root', { stdio: 'ignore' });
 		return true;
-	} catch (e) {
+	} catch (_e) {
+		console.error('Mercurial repository not found.', _e);
 		return false;
 	}
 }

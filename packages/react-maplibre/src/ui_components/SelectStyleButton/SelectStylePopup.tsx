@@ -8,7 +8,7 @@ import {
 	ListItemButton,
 	ListItemText,
 } from '@mui/material';
-import { StyleSpecification } from 'maplibre-gl';
+import type { StyleSpecification } from 'maplibre-gl';
 
 export interface SelectStylePopupProps {
 	open: boolean;

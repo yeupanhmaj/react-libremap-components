@@ -1,13 +1,14 @@
-import React, { useRef, useEffect, useMemo } from 'react';
+import type { Units } from '@turf/turf';
+import * as turf from '@turf/turf';
+import type { Feature } from 'geojson';
+import type { LngLatLike, Map as MapType, PointLike } from 'maplibre-gl';
+import type React from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import Moveable from 'react-moveable';
 import useMap from '../../../hooks/useMap';
 import useMapState from '../../../hooks/useMapState';
-import * as turf from '@turf/turf';
-import { PdfPreviewOptions } from './pdfContext';
-import { LngLatLike, Map as MapType, PointLike } from 'maplibre-gl';
-import { Units } from '@turf/turf';
-import { Feature } from 'geojson';
+import type { PdfPreviewOptions } from './pdfContext';
 
 type Props = {
 	/**
@@ -262,7 +263,7 @@ export default function PdfPreview(props: Props) {
 				></div>
 				<Moveable
 					// eslint-disable-next-line
-					// @ts-ignore:
+					// @ts-expect-error:
 					ref={moveableRef}
 					target={targetRef}
 					container={null}

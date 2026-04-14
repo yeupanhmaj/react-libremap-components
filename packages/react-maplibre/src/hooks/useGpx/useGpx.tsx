@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import type { FeatureCollection } from 'geojson';
+import { useEffect, useState } from 'react';
 import toGeoJSON from './lib/gpxConverter';
-import { FeatureCollection } from 'geojson';
 
 export interface useGpxProps {
 	/**

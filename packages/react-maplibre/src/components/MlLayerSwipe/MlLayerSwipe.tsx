@@ -1,9 +1,10 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+// @ts-expect-error
 import syncMove from '@mapbox/mapbox-gl-sync-move';
+import type React from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import './style.css';
-import MapContext, { MapContextType } from '../../contexts/MapContext';
+import MapContext, { type MapContextType } from '../../contexts/MapContext';
 import SwipeIcon from './assets/SwipeIcon';
 
 export interface MlLayerSwipeProps {

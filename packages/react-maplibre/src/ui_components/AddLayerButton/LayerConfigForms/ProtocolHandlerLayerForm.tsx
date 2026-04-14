@@ -6,19 +6,19 @@ import {
 	InputLabel,
 	MenuItem,
 	Select,
-	SelectChangeEvent,
+	type SelectChangeEvent,
 } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
+import type { MlGeoJsonLayerProps } from '../../../components/MlGeoJsonLayer/MlGeoJsonLayer';
 import useAddProtocol from '../../../hooks/useAddProtocol/useAddProtocol';
-import CSVOptionsFormular from './utils/CSVOptionsFomular';
-import OsmOptionsFomular from './utils/OsmOptionsFomular';
 import useMap from '../../../hooks/useMap';
 import { CSVProtocolHandler } from '../../../protocol_handlers/csv';
-import { TopojsonProtocolHandler } from '../../../protocol_handlers/topojson';
+import type * as csv2geojsonType from '../../../protocol_handlers/csv2geojson';
 import { OSMProtocolHandler } from '../../../protocol_handlers/osm';
+import { TopojsonProtocolHandler } from '../../../protocol_handlers/topojson';
 import { XMLProtocolHandler } from '../../../protocol_handlers/xml';
-import * as csv2geojsonType from '../../../protocol_handlers/csv2geojson';
-import { MlGeoJsonLayerProps } from '../../../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import CSVOptionsFormular from './utils/CSVOptionsFomular';
+import OsmOptionsFomular from './utils/OsmOptionsFomular';
 
 export interface ProtocolHandlerLayerFormProps {
 	originType: string;

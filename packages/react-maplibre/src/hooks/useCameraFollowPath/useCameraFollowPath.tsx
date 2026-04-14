@@ -1,8 +1,7 @@
-import { useEffect, useCallback, useRef } from 'react';
-
 import * as turf from '@turf/turf';
+import type { LngLatBoundsLike, LngLatLike } from 'maplibre-gl';
+import { useCallback, useEffect, useRef } from 'react';
 import useMap from '../useMap';
-import { LngLatBoundsLike, LngLatLike } from 'maplibre-gl';
 
 interface useCameraFollowPathProps {
 	/**
@@ -31,6 +30,7 @@ interface useCameraFollowPathProps {
 	/* timeoutId is an useRef const */
 	timeoutId?: number;
 }
+
 export type { useCameraFollowPathProps };
 
 /**

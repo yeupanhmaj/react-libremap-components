@@ -1,11 +1,11 @@
-import { useMemo, useRef } from 'react';
 import { featureCollection } from '@turf/helpers';
-import { Feature, FeatureCollection, GeoJSON } from 'geojson';
+import type { Feature, FeatureCollection, GeoJSON } from 'geojson';
+import type { Coordinates, DataDrivenPropertyValueSpecification } from 'maplibre-gl';
+import { useMemo, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import useSource from '../../hooks/useSource';
 import useLayer from '../../hooks/useLayer';
+import useSource from '../../hooks/useSource';
 import getElevationData from './util/getElevationData';
-import { Coordinates, DataDrivenPropertyValueSpecification } from 'maplibre-gl';
 
 const defaultFillExtrusionColor: (string | number | string[])[] = [
 	'interpolate',
@@ -67,7 +67,7 @@ const MlSpatialElevationProfile = (props: MlSpatialElevationProfileProps) => {
 	const _geojsonInfo = useMemo(() => {
 		if (!props?.geojson?.features) return;
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
+		// @ts-expect-error
 		const line = props.geojson.features?.find((element: Feature) => {
 			return element.geometry.type === 'LineString';
 		});

@@ -2,17 +2,17 @@ const { glob } = require('glob');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const Ajv = require('ajv');
 const ajv = new Ajv();
-const fs = require('fs');
+const fs = require('node:fs');
 
-let options = {};
-let mc_meta = {};
+const options = {};
+const mc_meta = {};
 
-glob('src/**/**/*.meta.json', options).then(function (files) {
+glob('src/**/**/*.meta.json', options).then((files) => {
 	console.log(files);
 
-	for (var i = 0, len = files.length; i < len; i++) {
-		let rawdata = fs.readFileSync(files[i]);
-		let metaObj = JSON.parse(rawdata);
+	for (let i = 0; i < files.length; i++) {
+		const rawdata = fs.readFileSync(files[i]);
+		const metaObj = JSON.parse(rawdata);
 		mc_meta[metaObj.name] = metaObj;
 	}
 
@@ -36,7 +36,7 @@ glob('src/**/**/*.meta.json', options).then(function (files) {
 			if (!valid) throw new Error(JSON.stringify(validate.errors));
 			//if (!valid) console.log(validate.errors);
 
-			let data = JSON.stringify(mc_meta);
+			const data = JSON.stringify(mc_meta);
 			fs.writeFileSync('public/catalogue/mc_meta.json', data);
 		});
 });

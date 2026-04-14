@@ -1,10 +1,10 @@
 import type { Meta } from '@storybook/react-vite';
-import GeospatialShow from './GeospatialShow';
 import { ReactAdminDefaultDecorator } from '../decorators/ReactAdminDefaultDecorator';
+import GisLayout from '../layout/GisLayout';
 import { PoiShow, PoiShowWebGis } from '../ra_components/Poi';
 import { PropertyShow, PropertyShowWebGis } from '../ra_components/Property';
 import { RouteShow, RouteShowWebGis } from '../ra_components/Route';
-import GisLayout from '../layout/GisLayout';
+import GeospatialShow from './GeospatialShow';
 
 const meta = {
 	component: GeospatialShow,

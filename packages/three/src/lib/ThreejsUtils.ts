@@ -3,8 +3,8 @@
  * https://github.com/yangjs6/mapbox-3d-tiles
  */
 
-import { type Map as MaplibreMap, MercatorCoordinate, LngLatLike } from 'maplibre-gl';
-import { Vector3, Quaternion, Matrix4 } from 'three';
+import { type LngLatLike, type Map as MaplibreMap, MercatorCoordinate } from 'maplibre-gl';
+import { Matrix4, Quaternion, Vector3 } from 'three';
 
 type Position = number[];
 
@@ -40,14 +40,14 @@ export default class ThreejsUtils {
 		position: LngLatLike,
 		altitude?: number
 	): Vector3 {
-		return this.toScenePositionMercator(
+		return ThreejsUtils.toScenePositionMercator(
 			worldMatrixInv,
 			MercatorCoordinate.fromLngLat(position, altitude)
 		);
 	}
 
 	static toMapPosition(worldMatrix: Matrix4, position: Vector3): Position {
-		const mercator = this.toMapPositionMercator(worldMatrix, position);
+		const mercator = ThreejsUtils.toMapPositionMercator(worldMatrix, position);
 		const lngLat = mercator.toLngLat();
 		return [lngLat.lng, lngLat.lat, mercator.toAltitude()];
 	}

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import WMSCapabilities, { WMSCapabilitiesJSON } from 'wms-capabilities';
+import { useEffect, useState } from 'react';
+import WMSCapabilities, { type WMSCapabilitiesJSON } from 'wms-capabilities';
 import { normalizeWmsParams } from '../utils/wmsUtils';
 
 export interface useWmsProps {

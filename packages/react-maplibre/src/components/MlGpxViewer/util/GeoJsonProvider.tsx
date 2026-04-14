@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import type { FeatureCollection } from 'geojson';
+import type React from 'react';
+import { useState } from 'react';
 import { GeoJsonContextProvider } from './GeoJsonContext';
-import { FeatureCollection } from 'geojson';
 
 interface geoJsonProviderValue {
 	data: FeatureCollection;

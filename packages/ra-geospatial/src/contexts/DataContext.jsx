@@ -1,6 +1,6 @@
+import { feature, featureCollection } from '@turf/helpers';
 import React, { useEffect, useState } from 'react';
 import { parse as wellknownParse } from 'wellknown';
-import { feature, featureCollection } from '@turf/helpers';
 import { defaultData } from './dataProvider';
 
 export const DataContext = React.createContext();
@@ -38,7 +38,7 @@ export default function DataContextProvider(props) {
 		} else {
 			const features = [];
 			let counter = 0;
-			Object.values(defaultData).map((geomArray) => {
+			Object.values(defaultData).forEach((geomArray) => {
 				features.push({
 					name: counter === 0 ? 'pois' : counter === 1 ? 'properties' : 'routes',
 					featureCollection: {

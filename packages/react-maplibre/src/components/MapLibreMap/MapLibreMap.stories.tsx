@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import MapLibreMap, { MapLibreMapProps } from './MapLibreMap';
-import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
 import { Button } from '@mui/material';
+import type { StoryFn } from '@storybook/react-vite';
+import type { FeatureCollection } from 'geojson';
+import { useState } from 'react';
+import themeDecorator from '../../decorators/ThemeDecorator';
 import TopToolbar from '../../ui_components/TopToolbar';
 import sample_geojson_1 from '../MlGeoJsonLayer/assets/sample_1.json';
-import { FeatureCollection } from 'geojson';
-import themeDecorator from '../../decorators/ThemeDecorator';
-import { StoryFn } from '@storybook/react-vite';
+import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
+import MapLibreMap, { type MapLibreMapProps } from './MapLibreMap';
 
 const storyoptions = {
 	title: 'Core/MapLibreMap',

@@ -1,7 +1,7 @@
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import { MetadataType } from '../../../hooks/useGpx/useGpx';
+import type { MetadataType } from '../../../hooks/useGpx/useGpx';
 
 type Props = {
 	metadata: MetadataType[];

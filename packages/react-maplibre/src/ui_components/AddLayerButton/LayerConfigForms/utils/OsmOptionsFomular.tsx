@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { List, ListItem, Checkbox, Typography, Button } from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
+import { Button, Checkbox, List, ListItem, Typography } from '@mui/material';
+import { useState } from 'react';
 
 interface OsmOptionsFomularProps {
 	setter: any;

@@ -1,15 +1,14 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import MlNavigationTools, { MlNavigationToolsProps } from './MlNavigationTools';
-import noNavToolsDecorator from '../../decorators/NoNavToolsDecorator';
-import BuildIcon from '@mui/icons-material/Build';
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import Button from '@mui/material/Button';
-import Switch from '@mui/material/Switch';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import Switch from '@mui/material/Switch';
+import { useEffect, useState } from 'react';
+import noNavToolsDecorator from '../../decorators/NoNavToolsDecorator';
+import useMap from '../../hooks/useMap';
 import Sidebar from '../../ui_components/Sidebar';
 import TopToolbar from '../../ui_components/TopToolbar';
-import useMap from '../../hooks/useMap';
+import MlNavigationTools, { type MlNavigationToolsProps } from './MlNavigationTools';
 
 const storyoptions = {
 	title: 'MapComponents/MlNavigationTools',
@@ -95,10 +94,19 @@ const catalogueTemplate: any = () => {
 				{showCustomButton ? (
 					<Button
 						variant="navtools"
-						onClick={() => {}}
+						onClick={() => {
+							const elem = document.querySelector('.fullscreen_map') || document.documentElement;
+							if (!document.fullscreenElement) {
+								elem.requestFullscreen().catch((err) => {
+									console.error(`Error attempting to enable fullscreen: ${err.message}`);
+								});
+							} else if (document.exitFullscreen) {
+								document.exitFullscreen();
+							}
+						}}
 						sx={{ color: (theme) => theme.palette.navigation.buttonColor }}
 					>
-						<BuildIcon sx={{ fontSize: { xs: '1.4em', md: '1em' } }} />
+						<FullscreenIcon sx={{ fontSize: { xs: '1.4em', md: '1em' } }} />
 					</Button>
 				) : (
 					<></>
@@ -155,10 +163,19 @@ CustomButton.args = {
 	children: (
 		<Button
 			variant="navtools"
-			onClick={() => {}}
+			onClick={() => {
+				const elem = document.querySelector('.fullscreen_map') || document.documentElement;
+				if (!document.fullscreenElement) {
+					elem.requestFullscreen().catch((err) => {
+						console.error(`Error attempting to enable fullscreen: ${err.message}`);
+					});
+				} else if (document.exitFullscreen) {
+					document.exitFullscreen();
+				}
+			}}
 			sx={{ color: (theme) => theme.palette.navigation.buttonColor }}
 		>
-			<BuildIcon sx={{ fontSize: { xs: '1.4em', md: '1em' } }} />
+			<FullscreenIcon sx={{ fontSize: { xs: '1.4em', md: '1em' } }} />
 		</Button>
 	),
 };

@@ -1,18 +1,14 @@
-import { useState, useRef, useEffect } from 'react';
-
-import MlTransitionGeoJsonLayer, {
-	MlTransitionGeoJsonLayerProps,
-} from './MlTransitionGeoJsonLayer';
-
+import { Button } from '@mui/material';
+import type { Feature } from 'geojson';
+import { useEffect, useRef, useState } from 'react';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
 import useMap from '../../hooks/useMap';
 import TopToolbar from '../../ui_components/TopToolbar';
-
 import sample_geojson_1 from './assets/sample_1.json';
 import sample_geojson_2 from './assets/sample_2.json';
-
-import { Button } from '@mui/material';
-import { Feature } from 'geojson';
+import MlTransitionGeoJsonLayer, {
+	type MlTransitionGeoJsonLayerProps,
+} from './MlTransitionGeoJsonLayer';
 
 const storyoptions = {
 	title: 'MapComponents/MlTransitionGeoJsonLayer',

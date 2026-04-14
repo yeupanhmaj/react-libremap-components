@@ -1,5 +1,5 @@
-import React from 'react';
 import { List, styled } from '@mui/material';
+import type React from 'react';
 
 const ListStyled = styled(List)({
 	marginTop: '15px',

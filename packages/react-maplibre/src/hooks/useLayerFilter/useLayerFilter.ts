@@ -1,6 +1,6 @@
+import type { FilterSpecification } from 'maplibre-gl';
 import { useEffect } from 'react';
 import useMap from '../useMap';
-import { FilterSpecification } from 'maplibre-gl';
 
 export interface UseLayerFilterProps {
 	mapId?: string;

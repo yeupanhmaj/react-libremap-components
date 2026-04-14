@@ -1,8 +1,8 @@
+import { type Theme, useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
-import MlFollowGps, { MlFollowGpsProps } from './MlFollowGps';
 
 import noNavToolsDecorator from '../../decorators/NoNavToolsDecorator';
-import { Theme, useMediaQuery } from '@mui/material';
+import MlFollowGps, { type MlFollowGpsProps } from './MlFollowGps';
 
 const storyoptions = {
 	title: 'MapComponents/MlFollowGps',

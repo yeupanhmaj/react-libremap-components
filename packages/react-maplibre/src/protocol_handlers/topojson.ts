@@ -1,9 +1,9 @@
-import { LngLatLike, RequestParameters } from 'maplibre-gl';
-import { Feature, FeatureCollection } from 'geojson';
+import type { Feature, FeatureCollection } from 'geojson';
+import type { LngLatLike, RequestParameters } from 'maplibre-gl';
 import { feature as topojsonFeature } from 'topojson-client';
-import protocolPathParser from './utils/protocolPathParser';
+import type { Topology } from 'topojson-specification';
 import getProtocolData from './utils/getProtocolData';
-import { Topology } from 'topojson-specification';
+import protocolPathParser from './utils/protocolPathParser';
 
 type TopoJson = {
 	type?: 'Topology';
@@ -100,4 +100,4 @@ const TopojsonProtocolHandler = async (params: RequestParameters) => {
 	throw new Error('Topojson not found ' + parsedParams.filename);
 };
 
-export { TopojsonProtocolHandler, convertTopojson };
+export { convertTopojson, TopojsonProtocolHandler };

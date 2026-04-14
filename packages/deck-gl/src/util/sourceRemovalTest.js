@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
 import { mount } from 'enzyme';
-import { MapContext, MapComponentsProvider } from '../index';
+import { useContext, useState } from 'react';
 import MapLibreMap from '../components/MapLibreMap/MapLibreMap';
+import { MapComponentsProvider, MapContext } from '../index';
 
 const sourceRemovalTest = (
 	ComponentName,
@@ -23,6 +23,7 @@ const sourceRemovalTest = (
 				{layerVisible && Component}
 
 				<button
+					type="button"
 					className="toggle_layer_visible"
 					onClick={() => {
 						setLayerVisible(!layerVisible);
@@ -31,6 +32,7 @@ const sourceRemovalTest = (
 					toggle layer visible
 				</button>
 				<button
+					type="button"
 					className="trigger_refresh"
 					onClick={() => {
 						setRefreshTrigger(refreshTrigger + 1);
@@ -53,50 +55,42 @@ const sourceRemovalTest = (
 		);
 
 	describe(ComponentName, () => {
-		it(
-			"should add a Source with the id '" + humanReadableLayerName + "' to the MapLibre instance",
-			async () => {
-				if (typeof beforeWrapperInit === 'function') {
-					await beforeWrapperInit();
-				}
-
-				const wrapper = createWrapper();
-
-				if (typeof afterWrapperInit === 'function') {
-					await afterWrapperInit();
-				}
-
-				wrapper.find('.trigger_refresh').simulate('click');
-
-				expect(regexLayerNameTest.test(wrapper.find('.sources_json').text())).toEqual(true);
+		it(`should add a Source with the id '${humanReadableLayerName}' to the MapLibre instance`, async () => {
+			if (typeof beforeWrapperInit === 'function') {
+				await beforeWrapperInit();
 			}
-		);
 
-		it(
-			"should remove a Source with the id '" +
-				humanReadableLayerName +
-				"' from the MapLibre instance",
-			async () => {
-				if (typeof beforeWrapperInit === 'function') {
-					await beforeWrapperInit();
-				}
+			const wrapper = createWrapper();
 
-				const wrapper = createWrapper();
-
-				if (typeof afterWrapperInit === 'function') {
-					await afterWrapperInit();
-				}
-
-				wrapper.find('.trigger_refresh').simulate('click');
-
-				expect(regexLayerNameTest.test(wrapper.find('.sources_json').text())).toEqual(true);
-
-				wrapper.find('.toggle_layer_visible').simulate('click');
-				wrapper.find('.trigger_refresh').simulate('click');
-
-				expect(regexLayerNameTest.test(wrapper.find('.sources_json').text())).toEqual(false);
+			if (typeof afterWrapperInit === 'function') {
+				await afterWrapperInit();
 			}
-		);
+
+			wrapper.find('.trigger_refresh').simulate('click');
+
+			expect(regexLayerNameTest.test(wrapper.find('.sources_json').text())).toEqual(true);
+		});
+
+		it(`should remove a Source with the id '${humanReadableLayerName}' from the MapLibre instance`, async () => {
+			if (typeof beforeWrapperInit === 'function') {
+				await beforeWrapperInit();
+			}
+
+			const wrapper = createWrapper();
+
+			if (typeof afterWrapperInit === 'function') {
+				await afterWrapperInit();
+			}
+
+			wrapper.find('.trigger_refresh').simulate('click');
+
+			expect(regexLayerNameTest.test(wrapper.find('.sources_json').text())).toEqual(true);
+
+			wrapper.find('.toggle_layer_visible').simulate('click');
+			wrapper.find('.trigger_refresh').simulate('click');
+
+			expect(regexLayerNameTest.test(wrapper.find('.sources_json').text())).toEqual(false);
+		});
 	});
 };
 

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
+import type MapLibreGlWrapper from '../../components/MapLibreMap/lib/MapLibreGlWrapper';
 import useMap from '../useMap';
-import { createExport, createExportOptions } from './lib';
-import MapLibreGlWrapper from '../../components/MapLibreMap/lib/MapLibreGlWrapper';
+import { createExport, type createExportOptions } from './lib';
 
 interface exportMapProps {
 	/**

@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs';
+import { promises as fs } from 'node:fs';
 
 interface PackageChanges {
 	version: string;
@@ -13,7 +13,7 @@ async function resolveChangeLog(): Promise<PackageChanges[]> {
 	const splitByVersion: string[] = formatedData.split('[v');
 	for (const versionEntry of splitByVersion) {
 		if (versionEntry !== '') {
-			const completeVersionEntry: string = '[v' + versionEntry;
+			const completeVersionEntry: string = `[v${versionEntry}`;
 			const changesInVersion: string[] | undefined =
 				completeVersionEntry.split('## @mapcomponents/');
 			const version: string = changesInVersion[0];
@@ -62,13 +62,13 @@ async function writeChangelog(sortetEntries: { [key: string]: PackageChanges[] }
 			for (const entry of value) {
 				const trimmedVersion = entry.version.trim();
 				if (trimmedVersion !== '') {
-					await fs.appendFile(pathToChangeLog, '## ' + trimmedVersion);
+					await fs.appendFile(pathToChangeLog, `## ${trimmedVersion}`);
 				}
 				for (const change of entry.changes.split('\n')) {
 					if (change.match(/^##\s+/i)) continue;
 					if (change.match(/^###\s+(added|fixed|removed|changed)/i))
 						await fs.appendFile(pathToChangeLog, `${change}\n`);
-					else await fs.appendFile(pathToChangeLog, change + '\n');
+					else await fs.appendFile(pathToChangeLog, `${change}\n`);
 				}
 			}
 		}

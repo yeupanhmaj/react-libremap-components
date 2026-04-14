@@ -1,5 +1,5 @@
-import { useState, useEffect, CSSProperties } from 'react';
 import { Box, styled } from '@mui/material';
+import { type CSSProperties, useEffect, useState } from 'react';
 import useMap from '../../hooks/useMap';
 import CompassBackground from './assets/CompassBackground';
 import CompassNeedle from './assets/CompassNeedle';
@@ -111,20 +111,18 @@ const MlNavigationCompass = (props: MlNavigationCompassProps) => {
 	};
 
 	return (
-		<>
-			<BoxStyled sx={{ ...props.style }}>
-				<CompassBox onClick={rotate} sx={{ ...props.backgroundStyle }}>
-					<CompassBackground style={{ position: 'absolute', top: 0, left: 0 }} />
-					<NeedleBox onClick={rotate} sx={{ ...props.needleStyle }}>
-						<CompassNeedle
-							style={{
-								transform: 'rotate(' + (bearing > 0 ? '-' + bearing : -1 * bearing) + 'deg)',
-							}}
-						/>
-					</NeedleBox>
-				</CompassBox>
-			</BoxStyled>
-		</>
+		<BoxStyled sx={{ ...props.style }}>
+			<CompassBox onClick={rotate} sx={{ ...props.backgroundStyle }}>
+				<CompassBackground style={{ position: 'absolute', top: 0, left: 0 }} />
+				<NeedleBox onClick={rotate} sx={{ ...props.needleStyle }}>
+					<CompassNeedle
+						style={{
+							transform: 'rotate(' + (bearing > 0 ? '-' + bearing : -1 * bearing) + 'deg)',
+						}}
+					/>
+				</NeedleBox>
+			</CompassBox>
+		</BoxStyled>
 	);
 };
 

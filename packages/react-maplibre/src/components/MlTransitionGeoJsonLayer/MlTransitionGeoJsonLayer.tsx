@@ -1,10 +1,9 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
 import * as turf from '@turf/turf';
+import type { Feature, FeatureCollection } from 'geojson';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import useMap from '../../hooks/useMap';
+import MlGeoJsonLayer, { type MlGeoJsonLayerProps } from '../MlGeoJsonLayer/MlGeoJsonLayer';
 import { _transitionToGeojson } from './util/transitionFunctions';
-import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
-import { Feature, FeatureCollection } from 'geojson';
-import { MlGeoJsonLayerProps } from '../MlGeoJsonLayer/MlGeoJsonLayer';
 
 const msPerStep = 50;
 

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { MapComponentsProvider } from '../contexts/MapContext';
-import MapLibreMap from '../components/MapLibreMap/MapLibreMap';
 import { render, screen } from '@testing-library/react';
+import React, { useState } from 'react';
+import MapLibreMap from '../components/MapLibreMap/MapLibreMap';
+import { MapComponentsProvider } from '../contexts/MapContext';
 
 import useMap from './useMap';
 

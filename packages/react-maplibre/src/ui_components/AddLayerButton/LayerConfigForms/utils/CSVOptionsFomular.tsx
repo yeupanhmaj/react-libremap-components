@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { List, ListItem, TextField, Typography, Button } from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
+import { Button, List, ListItem, TextField, Typography } from '@mui/material';
+import { useState } from 'react';
 
 interface CSVOptionsFormulaProps {
 	setter: any;

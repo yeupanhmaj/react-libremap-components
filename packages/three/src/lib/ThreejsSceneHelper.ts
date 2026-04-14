@@ -3,18 +3,18 @@
  * https://github.com/yangjs6/mapbox-3d-tiles
  */
 
-import { type Map as MaplibreMap } from 'maplibre-gl';
+import type { Map as MaplibreMap } from 'maplibre-gl';
 import {
-	Scene,
-	PerspectiveCamera,
-	Matrix4,
-	Group,
-	EquirectangularReflectionMapping,
-	DirectionalLight,
 	AmbientLight,
-	Vector3,
-	Quaternion,
+	DirectionalLight,
+	EquirectangularReflectionMapping,
 	Euler,
+	Group,
+	Matrix4,
+	PerspectiveCamera,
+	Quaternion,
+	Scene,
+	Vector3,
 } from 'three';
 import { HDRLoader } from 'three/examples/jsm/loaders/HDRLoader.js';
 import ThreejsUtils from './ThreejsUtils';

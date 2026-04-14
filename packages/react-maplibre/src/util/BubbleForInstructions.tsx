@@ -1,6 +1,6 @@
-import React from 'react';
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 import { Box, Typography } from '@mui/material';
+import type React from 'react';
 
 export interface BubbleForInstructionProps {
 	bubbleRight?: string;

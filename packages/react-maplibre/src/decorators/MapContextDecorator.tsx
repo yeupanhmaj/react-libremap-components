@@ -1,14 +1,13 @@
-import { useMemo, ReactElement, FC } from 'react';
-
+import { type FC, type ReactElement, useMemo } from 'react';
+import MapLibreMap, { type MapLibreMapProps } from '../components/MapLibreMap/MapLibreMap';
 import { MapComponentsProvider } from '../index';
-import MapLibreMap, { MapLibreMapProps } from '../components/MapLibreMap/MapLibreMap';
 import './style.css';
-import MlNavigationTools from '../components/MlNavigationTools/MlNavigationTools';
-import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
-import getTheme from '../ui_components/MapcomponentsTheme';
-import MlScaleReference from '../components/MlScaleReference/MlScaleReference';
-import { Decorator } from '@storybook/react-vite';
 import { Paper } from '@mui/material';
+import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+import type { Decorator } from '@storybook/react-vite';
+import MlNavigationTools from '../components/MlNavigationTools/MlNavigationTools';
+import MlScaleReference from '../components/MlScaleReference/MlScaleReference';
+import getTheme from '../ui_components/MapcomponentsTheme';
 
 interface StoryContext {
 	globals: {
@@ -21,7 +20,7 @@ const makeMapContextDecorators = (options: MapLibreMapProps['options']): Decorat
 	return [
 		(Story: FC, context?: StoryContext): ReactElement => {
 			const theme = useMemo(() => getTheme(context?.globals?.theme), [context?.globals?.theme]);
-			console.log(context?.name);
+
 			return (
 				<div className="fullscreen_map">
 					<MapComponentsProvider>

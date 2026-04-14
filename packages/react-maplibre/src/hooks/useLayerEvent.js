@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import useMapState from './useMapState';
 import useMap from './useMap';
+import useMapState from './useMapState';
 
 const touchEquivalents = {
 	mousedown: 'touchstart',

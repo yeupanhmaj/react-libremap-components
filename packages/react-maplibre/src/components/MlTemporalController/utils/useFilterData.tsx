@@ -1,5 +1,5 @@
 import { featureCollection } from '@turf/turf';
-import { FeatureCollection } from 'geojson';
+import type { FeatureCollection } from 'geojson';
 import { useMemo } from 'react';
 import useMap from '../../../hooks/useMap';
 

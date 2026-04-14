@@ -6,10 +6,10 @@ import {
 	InputLabel,
 	MenuItem,
 	Select,
-	SelectChangeEvent,
+	type SelectChangeEvent,
 } from '@mui/material';
 import React, { useMemo } from 'react';
-import { MlGeoJsonLayerProps } from '../../../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import type { MlGeoJsonLayerProps } from '../../../components/MlGeoJsonLayer/MlGeoJsonLayer';
 
 export interface GeoJsonLayerFormProps {
 	config?: MlGeoJsonLayerProps;

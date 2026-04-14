@@ -1,6 +1,6 @@
+import type { TerrainSpecification } from 'maplibre-gl';
 import { useEffect } from 'react';
 import useMap from '../../hooks/useMap';
-import { TerrainSpecification } from 'maplibre-gl';
 
 interface MlTerrainLayerProps {
 	/**

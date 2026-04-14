@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { MapComponentsProvider } from '../contexts/MapContext';
-import MapLibreMap from '../components/MapLibreMap/MapLibreMap';
-import { waitFor, render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
+import React, { useEffect, useState } from 'react';
+import MapLibreMap from '../components/MapLibreMap/MapLibreMap';
+import { MapComponentsProvider } from '../contexts/MapContext';
+import useLayer, { type useLayerProps } from './useLayer';
 import useMap from './useMap';
 import useSource from './useSource';
-import useLayer, { useLayerProps } from './useLayer';
 
 const UseSourceTestComponent = () => {
 	useSource({

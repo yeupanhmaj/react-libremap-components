@@ -1,9 +1,9 @@
-import { RequestParameters } from 'maplibre-gl';
-import { FeatureCollection } from 'geojson';
 import * as externParser from '@tmcw/togeojson';
+import type { FeatureCollection } from 'geojson';
+import type { RequestParameters } from 'maplibre-gl';
 import toGeoJSON from '../hooks/useGpx/lib/gpxConverter';
-import protocolPathParser from './utils/protocolPathParser';
 import getProtocolData from './utils/getProtocolData';
+import protocolPathParser from './utils/protocolPathParser';
 
 async function convertXML(params: {
 	filename: string;
@@ -48,4 +48,4 @@ const XMLProtocolHandler = async (params: RequestParameters) => {
 	throw new Error('XML not found ' + parsedParams.filename);
 };
 
-export { XMLProtocolHandler, convertXML };
+export { convertXML, XMLProtocolHandler };

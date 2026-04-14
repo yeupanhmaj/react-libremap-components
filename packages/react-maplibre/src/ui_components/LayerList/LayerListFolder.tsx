@@ -1,8 +1,8 @@
-import React, { ReactNode, useMemo, useState } from 'react';
-import { Box, styled } from '@mui/system';
-import { Checkbox, IconButton, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Checkbox, IconButton, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, styled } from '@mui/system';
+import React, { type ReactNode, useMemo, useState } from 'react';
 
 const ListItemStyled = styled(ListItem)({
 	paddingRight: 0,

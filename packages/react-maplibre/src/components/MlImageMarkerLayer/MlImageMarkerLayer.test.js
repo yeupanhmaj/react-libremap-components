@@ -1,5 +1,5 @@
-import { layerRemovalTest, sourceRemovalTest } from '../../util';
 import { uuid_regex } from '../../setupTests';
+import { layerRemovalTest, sourceRemovalTest } from '../../util';
 
 import MlImageMarkerLayer from './MlImageMarkerLayer';
 

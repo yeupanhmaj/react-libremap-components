@@ -1,17 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import type { SxProps, Theme } from '@mui/material';
 import Box from '@mui/material/Box';
-import { Divider, Paper, SxProps, Theme } from '@mui/material';
-import MlNavigationCompass from '../MlNavigationCompass/MlNavigationCompass';
-import MlFollowGps from '../MlFollowGps/MlFollowGps';
+import Button from '@mui/material/Button';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import React, { useCallback, useEffect, useState } from 'react';
 import useMap from '../../hooks/useMap';
 import MlCenterPosition from '../MlCenterPosition/MlCenterPosition';
+import MlFollowGps from '../MlFollowGps/MlFollowGps';
 import MlGlobeButton from '../MlGlobeButton/MlGlobeButton';
-import { useTheme } from '@mui/material';
+import MlNavigationCompass from '../MlNavigationCompass/MlNavigationCompass';
+import MlZoomButton from '../MlZoomButton/MlZoomButton';
 
 export interface MlNavigationToolsProps {
 	/**
@@ -70,8 +67,6 @@ const MlNavigationTools = (props: MlNavigationToolsProps) => {
 	const [pitch, setPitch] = useState(0);
 	const mediaIsMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
 
-	const theme = useTheme();
-
 	useEffect(() => {
 		if (!mapHook.map) return;
 
@@ -86,18 +81,6 @@ const MlNavigationTools = (props: MlNavigationToolsProps) => {
 		);
 		setPitch(mapHook.map.getPitch());
 	}, [mapHook.map, props.mapId]);
-
-	const zoomIn = useCallback(() => {
-		if (!mapHook.map) return;
-
-		mapHook.map.easeTo({ zoom: mapHook.map.getZoom() + 0.5 });
-	}, [mapHook.map]);
-
-	const zoomOut = useCallback(() => {
-		if (!mapHook.map) return;
-
-		mapHook.map.easeTo({ zoom: mapHook.map.getZoom() - 0.5 });
-	}, [mapHook.map]);
 
 	const adjustPitch = useCallback(() => {
 		if (!mapHook.map) return;
@@ -133,54 +116,7 @@ const MlNavigationTools = (props: MlNavigationToolsProps) => {
 			{props.showGlobeButton && <MlGlobeButton />}
 			{props.showFollowGpsButton && <MlFollowGps />}
 			{props.showCenterLocationButton && <MlCenterPosition />}
-			<ButtonGroup
-				orientation="vertical"
-				sx={{
-					border: 'none',
-					Button: { minWidth: '20px !important', color: theme.palette.navigation.buttonColor },
-					'Button:hover': { border: 'none' },
-				}}
-			>
-				{props.showZoomButtons && (
-					<>
-						<Button
-							variant="navtools"
-							onClick={zoomIn}
-							sx={{
-								borderBottomLeftRadius: 0,
-								borderBottomRightRadius: 0,
-								position: 'relative',
-							}}
-						>
-							<AddIcon sx={{ fontSize: { xs: '1.4em', md: '1em' } }} />
-						</Button>
-						<Paper
-							sx={{
-								backgroundColor: '#fff',
-							}}
-						>
-							<Divider
-								sx={{
-									marginLeft: '4px',
-									marginRight: '4px',
-								}}
-							/>
-						</Paper>
-
-						<Button
-							variant="navtools"
-							onClick={zoomOut}
-							sx={{
-								marginTop: 0,
-								borderTopLeftRadius: 0,
-								borderTopRightRadius: 0,
-							}}
-						>
-							<RemoveIcon sx={{ fontSize: { xs: '1.4em', md: '1em' } }} />
-						</Button>
-					</>
-				)}
-			</ButtonGroup>
+			{props.showZoomButtons && <MlZoomButton />}
 			{props.children && React.cloneElement(props.children, {})}
 		</Box>
 	);

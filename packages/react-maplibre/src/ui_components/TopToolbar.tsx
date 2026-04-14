@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { useState } from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
+import Toolbar from '@mui/material/Toolbar';
+import type * as React from 'react';
+import { useState } from 'react';
 
 export interface TopToolbarProps {
 	children?: React.ReactNode;

@@ -1,14 +1,24 @@
-import useSource from './useSource';
+import Button from '@mui/material/Button';
 import { useEffect, useState } from 'react';
+import MlGeojsonLayerWithSource from '../components/MlGeojsonLayerWithSource/MlGeojsonLayerWithSource';
+import mapContextDecoratorHooks from '../decorators/MapContextDecoratorHooks';
+import TopToolbar from '../ui_components/TopToolbar';
+import useLayer from './useLayer';
 import useMap from './useMap';
 import useMapState from './useMapState';
-import useLayer from './useLayer';
-import TopToolbar from '../ui_components/TopToolbar';
-import Button from '@mui/material/Button';
-import MlGeojsonLayerWithSource from '../components/MlGeojsonLayerWithSource/MlGeojsonLayerWithSource';
+import useSource from './useSource';
 
-import mapContextDecoratorHooks from '../decorators/MapContextDecoratorHooks';
-import wg_geojson from './assets/pointWG.json';
+const wg_geojson = {
+	type: 'Feature',
+	geometry: {
+		type: 'Point',
+		coordinates: [7.0851268, 50.73884],
+		properties: {
+			title: 'Bonn',
+		},
+	},
+};
+
 const vectorUrl =
 	'https://wms.wheregroup.com/tileserver/tile/tileserver.php?/europe-0-14/index.json?/europe-0-14/{z}/{x}/{y}.pbf';
 
@@ -82,7 +92,7 @@ const VectorExample: any = (args: any) => {
 				'fill-opacity': 0.4,
 			},
 		});
-	}, [mapHook.map]);
+	}, [mapHook.map, args.sourceId]);
 	return <></>;
 };
 
@@ -100,7 +110,7 @@ const RasterExample: any = (args: any) => {
 			minzoom: 0,
 			maxzoom: 22,
 		});
-	}, [mapHook.map]);
+	}, [mapHook.map, args.sourceId]);
 	return <></>;
 };
 
@@ -129,8 +139,10 @@ const removeExample: any = (args: any) => {
 		}
 
 		mapHook.map.map.on('sourcedata', () => {
-			if (mapHook?.map?.map?.style.sourceCaches) {
-				setActiveSources(Object.keys(mapHook?.map?.map?.style.sourceCaches));
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			const style = mapHook?.map?.map?.style as any;
+			if (style?.sourceCaches) {
+				setActiveSources(Object.keys(style.sourceCaches));
 			}
 		});
 	}, [mapHook.map]);

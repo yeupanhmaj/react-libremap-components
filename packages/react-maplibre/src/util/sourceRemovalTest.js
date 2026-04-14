@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
-import { MapComponentsProvider, MapContext } from '../index';
-import MapLibreMap from './../components/MapLibreMap/MapLibreMap';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { useContext, useState } from 'react';
+import MapLibreMap from './../components/MapLibreMap/MapLibreMap';
+import { MapComponentsProvider, MapContext } from '../index';
 
 const sourceRemovalTest = (
 	ComponentName,
@@ -24,6 +24,7 @@ const sourceRemovalTest = (
 				{layerVisible && Component}
 
 				<button
+					type="button"
 					className="toggle_layer_visible"
 					data-testid="toggle_layer_visible"
 					onClick={() => {
@@ -33,6 +34,7 @@ const sourceRemovalTest = (
 					toggle layer visible
 				</button>
 				<button
+					type="button"
 					className="trigger_refresh"
 					data-testid="trigger_refresh"
 					onClick={() => {
@@ -56,24 +58,21 @@ const sourceRemovalTest = (
 		);
 
 	describe(ComponentName, () => {
-		it(
-			"should add a Source with the id '" + humanReadableLayerName + "' to the MapLibre instance",
-			async () => {
-				if (typeof beforeWrapperInit === 'function') {
-					await beforeWrapperInit();
-				}
-
-				createWrapper();
-
-				if (typeof afterWrapperInit === 'function') {
-					await afterWrapperInit();
-				}
-
-				await userEvent.click(screen.getByTestId('trigger_refresh'));
-
-				expect(regexLayerNameTest.test(screen.getByTestId('sources_json').innerHTML)).toEqual(true);
+		it(`should add a Source with the id '${humanReadableLayerName}' to the MapLibre instance`, async () => {
+			if (typeof beforeWrapperInit === 'function') {
+				await beforeWrapperInit();
 			}
-		);
+
+			createWrapper();
+
+			if (typeof afterWrapperInit === 'function') {
+				await afterWrapperInit();
+			}
+
+			await userEvent.click(screen.getByTestId('trigger_refresh'));
+
+			expect(regexLayerNameTest.test(screen.getByTestId('sources_json').innerHTML)).toEqual(true);
+		});
 
 		it(
 			"should remove a Source with the id '" +

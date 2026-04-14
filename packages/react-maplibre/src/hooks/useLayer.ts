@@ -1,23 +1,18 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-
-import useMap, { useMapType } from './useMap';
-
-import {
+import type { Feature, FeatureCollection, GeoJsonObject } from 'geojson';
+import type {
+	FilterSpecification,
 	GeoJSONSourceSpecification,
 	LayerSpecification,
+	MapEventType,
+	MapGeoJSONFeature,
 	MapMouseEvent,
 	Style,
-	MapEventType,
-	Map,
-	FilterSpecification,
-	MapGeoJSONFeature,
 } from 'maplibre-gl';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-import MapLibreGlWrapper, {
-	MapLibreGlWrapperEventHandlerType,
-} from '../components/MapLibreMap/lib/MapLibreGlWrapper';
-
-import { Feature, FeatureCollection, GeoJsonObject } from 'geojson';
+import type MapLibreGlWrapper from '../components/MapLibreMap/lib/MapLibreGlWrapper';
+import type { MapLibreGlWrapperEventHandlerType } from '../components/MapLibreMap/lib/MapLibreGlWrapper';
+import useMap, { type useMapType } from './useMap';
 
 type getLayerType = Style['getLayer'];
 
@@ -210,7 +205,7 @@ function useLayer(props: useLayerProps): useLayerType {
 		if (mapHook.map?.cancelled === true || !mapHook.map?.map?.getSource?.(layerId.current)) return;
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		//@ts-ignore setData only exists on GeoJsonSource
+		//@ts-expect-error setData only exists on GeoJsonSource
 		mapHook.map.map.getSource(layerId.current)?.setData?.(props.geojson);
 	}, [props.geojson, mapHook.map, props.options.type]);
 

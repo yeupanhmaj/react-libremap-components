@@ -1,11 +1,12 @@
-import MlLayerMagnify from './MlLayerMagnify';
+// we need to import this explicitly, because otherwise it gets mixed up with cypress expect
+import { expect } from '@jest/globals';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React, { useContext, useState } from 'react';
 import MapContext, { MapComponentsProvider } from '../../contexts/MapContext';
 import MapLibreMap from './../MapLibreMap/MapLibreMap';
-import { render, screen } from '@testing-library/react';
-// we need to import this explicitly, because otherwise it gets mixed up with cypress expect
-import { expect } from '@jest/globals';
-import userEvent from '@testing-library/user-event';
+import MlLayerMagnify from './MlLayerMagnify';
+
 // Mapbox sync-move mockup
 const mockSyncMoveMethods = {
 	cleanup: jest.fn(),

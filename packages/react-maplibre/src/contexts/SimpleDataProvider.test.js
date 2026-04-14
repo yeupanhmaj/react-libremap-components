@@ -1,8 +1,8 @@
+import { render, screen, waitFor } from '@testing-library/react';
+import * as d3 from 'd3';
 import React, { useContext } from 'react';
 import SimpleDataContext from './SimpleDataContext';
 import SimpleDataProvider from './SimpleDataProvider';
-import { waitFor, render, screen } from '@testing-library/react';
-import * as d3 from 'd3';
 
 jest.mock('d3');
 

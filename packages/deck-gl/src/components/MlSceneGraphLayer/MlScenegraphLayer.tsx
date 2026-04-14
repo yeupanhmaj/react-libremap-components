@@ -1,6 +1,6 @@
-import { ScenegraphLayer, ScenegraphLayerProps } from '@deck.gl/mesh-layers';
-import { useEffect, useMemo } from 'react';
+import { ScenegraphLayer, type ScenegraphLayerProps } from '@deck.gl/mesh-layers';
 import { useMap } from '@mapcomponents/react-maplibre';
+import { useEffect, useMemo } from 'react';
 import useDeckGl from '../../hooks/useDeckGl';
 
 export interface MlScenegraphLayerProps extends ScenegraphLayerProps {
@@ -38,7 +38,8 @@ const MlScenegraphLayer = (props: MlScenegraphLayerProps) => {
 			scenegraphLayer && deckGlHook.removeLayer(scenegraphLayer);
 		};
 	}, [mapHook.map, scenegraphLayer]);
-	return <></>;
+
+	return null;
 };
 
 export default MlScenegraphLayer;

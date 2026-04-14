@@ -1,6 +1,6 @@
-import MlLayerMagnify from './MlLayerMagnify';
-import MlWmsLayer from '../MlWmsLayer/MlWmsLayer';
 import multiMapContextDecorator from '../../decorators/MultiMapContextDecorator';
+import MlWmsLayer from '../MlWmsLayer/MlWmsLayer';
+import MlLayerMagnify from './MlLayerMagnify';
 
 const storyoptions = {
 	title: 'MapComponents/MlLayerMagnify',

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+import type * as THREE from 'three';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import { useThree } from '../contexts/ThreeContext';
 

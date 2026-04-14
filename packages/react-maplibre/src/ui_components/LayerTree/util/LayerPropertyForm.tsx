@@ -1,28 +1,28 @@
-import React, { useCallback, useMemo, useRef } from 'react';
-import {
-	CircleLayerSpecification,
-	FillLayerSpecification,
-	LineLayerSpecification,
-} from 'maplibre-gl';
 import {
 	Box,
 	ListItem,
 	Paper,
 	Slider,
-	SliderProps,
+	type SliderProps,
 	styled,
 	TextField,
 	Typography,
 } from '@mui/material';
-import ColorPicker from './input/ColorPicker';
+import type {
+	CircleLayerSpecification,
+	FillLayerSpecification,
+	LineLayerSpecification,
+} from 'maplibre-gl';
+import React, { useCallback, useMemo, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import type { MlGeoJsonLayerProps } from '../../../components/MlGeoJsonLayer/MlGeoJsonLayer';
 import {
 	getLayerByUuid,
-	LayerConfig,
-	RootState,
+	type LayerConfig,
+	type RootState,
 	setLayerInMapConfig,
 } from '../../../stores/map.store';
-import { useDispatch, useSelector } from 'react-redux';
-import { MlGeoJsonLayerProps } from '../../../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import ColorPicker from './input/ColorPicker';
 
 const PaperStyled = styled(Paper)({
 	marginLeft: '-100px',

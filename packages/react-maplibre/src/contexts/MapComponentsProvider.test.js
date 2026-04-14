@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import MapContext, { MapComponentsProvider } from './MapContext';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React, { useContext } from 'react';
+import MapContext, { MapComponentsProvider } from './MapContext';
 
 const MapObjectTestBlock = ({ mapId }) => {
 	const mapContext = useContext(MapContext);

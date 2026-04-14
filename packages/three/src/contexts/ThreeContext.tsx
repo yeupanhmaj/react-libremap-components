@@ -1,7 +1,7 @@
+import type { Map as MapboxMap } from 'maplibre-gl';
 import { createContext, useContext } from 'react';
-import { Scene, PerspectiveCamera, Group, Matrix4 } from 'three';
-import { Map as MapboxMap } from 'maplibre-gl';
-import ThreejsSceneRenderer from '../lib/ThreejsSceneRenderer';
+import type { Group, Matrix4, PerspectiveCamera, Scene } from 'three';
+import type ThreejsSceneRenderer from '../lib/ThreejsSceneRenderer';
 
 export interface ThreeContextType {
 	scene: Scene | undefined;

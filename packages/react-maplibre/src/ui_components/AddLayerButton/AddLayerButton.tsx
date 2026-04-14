@@ -1,8 +1,8 @@
-import { Button, SxProps } from '@mui/material';
-import React from 'react';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import { Button, type SxProps } from '@mui/material';
+import React from 'react';
+import type { LayerConfig } from '../../contexts/LayerContext';
 import AddLayerPopup from './AddLayerPopup';
-import { LayerConfig } from '../../contexts/LayerContext';
 //import useAddProtocol, { useAddProtocolProps } from '../../hooks/useAddProtocol/useAddProtocol';
 
 //function AddProtocol(props: useAddProtocolProps) {

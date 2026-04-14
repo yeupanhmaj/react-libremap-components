@@ -1,5 +1,5 @@
-import MlMarker, { MlMarkerProps } from './MlMarker';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlMarker, { type MlMarkerProps } from './MlMarker';
 
 const storyoptions = {
 	title: 'MapComponents/MlMarker',

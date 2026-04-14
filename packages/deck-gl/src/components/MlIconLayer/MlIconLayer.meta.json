@@ -1,0 +1,8 @@
+{
+	"name": "MlIconLayer",
+	"title": "AIS Vessel Tracker (DeckGL Icon Layer)",
+	"description": "Renders live AIS vessel positions from the Digitraffic open API using a deck.gl IconLayer. Vessels are animated between position updates using d3 geo-interpolation.",
+	"tags": ["Map layer", "deckGL", "animation", "AIS"],
+	"category": "Map layer",
+	"type": "component"
+}

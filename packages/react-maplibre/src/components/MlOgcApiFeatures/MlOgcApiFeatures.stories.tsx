@@ -1,15 +1,15 @@
+import { FormControl, Menu, MenuItem, Select, Slider, TextField, Typography } from '@mui/material';
+import Button from '@mui/material/Button';
 import React, { useEffect, useRef, useState } from 'react';
 import MapContextDecorator from '../../decorators/MapContextDecorator';
-import MlOgcApiFeatures, {
-	MlOgcApiFeaturesProps,
-	OgcApiFeaturesParamsTypes,
-} from './MlOgcApiFeatures';
 import useMap from '../../hooks/useMap';
-import TopToolbar from '../../ui_components/TopToolbar';
-import Button from '@mui/material/Button';
-import Sidebar from '../../ui_components/Sidebar';
-import { FormControl, Menu, MenuItem, Select, Slider, TextField, Typography } from '@mui/material';
 import ColorPicker from '../../ui_components/ColorPicker/ColorPicker';
+import Sidebar from '../../ui_components/Sidebar';
+import TopToolbar from '../../ui_components/TopToolbar';
+import MlOgcApiFeatures, {
+	type MlOgcApiFeaturesProps,
+	type OgcApiFeaturesParamsTypes,
+} from './MlOgcApiFeatures';
 
 const storyoptions = {
 	title: 'MapComponents/MlOgcApiFeatures',

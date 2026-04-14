@@ -1,26 +1,22 @@
-import React, { useState, useRef, useEffect, Dispatch, SetStateAction } from 'react';
-import { Feature, FeatureCollection, Geometry, GeometryCollection } from 'geojson';
-import { DataDrivenPropertyValueSpecification, SymbolLayerSpecification } from 'maplibre-gl';
-import { Typography, Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
-import MlGeoJsonLayer, { MlGeoJsonLayerProps } from './MlGeoJsonLayer';
-
+import type { Feature, FeatureCollection, Geometry, GeometryCollection } from 'geojson';
+import type { DataDrivenPropertyValueSpecification, SymbolLayerSpecification } from 'maplibre-gl';
+import React, { type Dispatch, type SetStateAction, useEffect, useRef, useState } from 'react';
+import geoJsonDecorator from '../../decorators/GeoJsonMapDecorator';
+import useAddProtocol from '../../hooks/useAddProtocol/useAddProtocol';
+import useMap from '../../hooks/useMap';
+import { OSMProtocolHandler } from '../../protocol_handlers/osm';
+import TopToolbar from '../../ui_components/TopToolbar';
+import earthquakes from './assets/earthquake.json';
 import sample_geojson_1 from './assets/sample_1.json';
 import sample_geojson_2 from './assets/sample_2.json';
 import wgLocations from './assets/wg_locations.json';
-import earthquakes from './assets/earthquake.json';
 import wgMarker from './assets/wgMarker.png';
-
+import MlGeoJsonLayer, { type MlGeoJsonLayerProps } from './MlGeoJsonLayer';
 import LineStyler from './story_utils/MlGeoJsonLayer.lineStyler';
 import PolygonStyler from './story_utils/MlGeoJsonLayer.polygonStyler';
-
-import TopToolbar from '../../ui_components/TopToolbar';
-import useMap from '../../hooks/useMap';
-import useAddProtocol from '../../hooks/useAddProtocol/useAddProtocol';
-import geoJsonDecorator from '../../decorators/GeoJsonMapDecorator';
-import { OSMProtocolHandler } from '../../protocol_handlers/osm';
 
 const storyoptions = {
 	title: 'MapComponents/MlGeoJsonLayer',
@@ -307,7 +303,7 @@ const SymbolTemplate: any = (props: MlGeoJsonLayerProps) => {
 		mapHook.map.map.flyTo({ center: [10.251805123900311, 51.11826171422632], zoom: 5 });
 	}, [mapHook.map]);
 
-	mapHook.map?.loadImage(wgMarker).then(function (res) {
+	mapHook.map?.loadImage(wgMarker).then((res) => {
 		if (!res?.data) {
 			console.log('image WG Marker could not be loaded');
 			return;

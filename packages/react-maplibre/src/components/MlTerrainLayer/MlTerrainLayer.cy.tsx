@@ -1,8 +1,8 @@
-import React from 'react';
-import { composeStories } from '@storybook/testing-react';
 import { mount } from '@cypress/react';
-import * as stories from './MlTerrainLayer.stories';
+import { composeStories } from '@storybook/testing-react';
 import { expect } from 'chai';
+import React from 'react';
+import * as stories from './MlTerrainLayer.stories';
 
 const { ExampleConfig }: any = composeStories(stories);
 

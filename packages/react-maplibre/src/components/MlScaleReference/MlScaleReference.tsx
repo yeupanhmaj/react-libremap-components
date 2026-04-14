@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import useMap from '../../hooks/useMap';
 
 export interface MlScaleReferenceProps {
@@ -73,12 +73,12 @@ const MlScaleReference = (props: MlScaleReferenceProps) => {
 	};
 
 	const getDecimalRoundNum = (d: number) => {
-		const multiplier = Math.pow(10, Math.ceil(-Math.log(d) / Math.LN10));
+		const multiplier = 10 ** Math.ceil(-Math.log(d) / Math.LN10);
 		return Math.round(d * multiplier) / multiplier;
 	};
 
 	const getRoundNum = (num: number) => {
-		const pow10 = Math.pow(10, `${Math.floor(num)}`.length - 1);
+		const pow10 = 10 ** (`${Math.floor(num)}`.length - 1);
 		let d = num / pow10;
 
 		d = d >= 10 ? 10 : d >= 5 ? 5 : d >= 3 ? 3 : d >= 2 ? 2 : d >= 1 ? 1 : getDecimalRoundNum(d);
@@ -87,22 +87,20 @@ const MlScaleReference = (props: MlScaleReferenceProps) => {
 	};
 
 	return (
-		<>
-			<div
-				style={{
-					backgroundColor: 'hsla(0,0%,100%,.75)',
-					fontSize: '10px',
-					border: '2px solid #333',
-					borderTop: '#333',
-					padding: '0 5px',
-					color: '#333',
-					boxSizing: 'border-box',
-					width: pxWidth + 'px',
-					fontFamily: 'sans-serif',
-				}}
-				dangerouslySetInnerHTML={{ __html: text }}
-			></div>
-		</>
+		<div
+			style={{
+				backgroundColor: 'hsla(0,0%,100%,.75)',
+				fontSize: '10px',
+				border: '2px solid #333',
+				borderTop: '#333',
+				padding: '0 5px',
+				color: '#333',
+				boxSizing: 'border-box',
+				width: `${pxWidth}px`,
+				fontFamily: 'sans-serif',
+			}}
+			dangerouslySetInnerHTML={{ __html: text }}
+		></div>
 	);
 };
 

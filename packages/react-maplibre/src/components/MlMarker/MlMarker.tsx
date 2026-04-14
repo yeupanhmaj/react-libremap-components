@@ -1,9 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import { Box, IconButton, Paper } from '@mui/material';
+import maplibregl from 'maplibre-gl';
+import type React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import useMap from '../../hooks/useMap';
-import maplibregl from 'maplibre-gl';
-import { Box, Paper, IconButton } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
 
 // Constants for popup styling
 const POPUP_PADDING_VERTICAL = 12;

@@ -1,24 +1,23 @@
-import { useEffect, useState } from 'react';
-
-import MlShareMapState from './MlShareMapState';
-import mapContextDecorator from '../../decorators/MapContextDecorator';
-import useMapState from '../../hooks/useMapState';
-import useMap from '../../hooks/useMap';
-import Sidebar from '../../ui_components/Sidebar';
-import ListItem from '@mui/material/ListItem';
-import IconButton from '@mui/material/IconButton';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import ListItemText from '@mui/material/ListItemText';
-import sample_geojson_1 from '../MlGeoJsonLayer/assets/sample_1.json';
-import sample_geojson_2 from '../MlGeoJsonLayer/assets/sample_2.json';
-import List from '@mui/material/List';
-import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
-import { Button, ToggleButton } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { Button, ToggleButton } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import type { Feature } from 'geojson';
+import { useEffect, useState } from 'react';
+import mapContextDecorator from '../../decorators/MapContextDecorator';
+import useMap from '../../hooks/useMap';
+import useMapState from '../../hooks/useMapState';
+import Sidebar from '../../ui_components/Sidebar';
 import TopToolbar from '../../ui_components/TopToolbar';
-import { Feature } from 'geojson';
+import sample_geojson_1 from '../MlGeoJsonLayer/assets/sample_1.json';
+import sample_geojson_2 from '../MlGeoJsonLayer/assets/sample_2.json';
+import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
+import MlShareMapState from './MlShareMapState';
 
 const storyoptions = {
 	title: 'MapComponents/MlShareMapState',

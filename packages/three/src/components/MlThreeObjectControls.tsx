@@ -1,14 +1,14 @@
-import { useRef, useLayoutEffect, useState } from 'react';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import type { LngLatLike } from 'maplibre-gl';
+import { useLayoutEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { LngLatLike } from 'maplibre-gl';
-import MlThreeGizmo from './MlThreeGizmo';
 import { useThree } from '../contexts/ThreeContext';
 import ThreejsUtils from '../lib/ThreejsUtils';
+import MlThreeGizmo from './MlThreeGizmo';
 
 export interface ThreeObjectControlsProps {
 	showLayer: boolean;

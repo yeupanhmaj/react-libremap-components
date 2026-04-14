@@ -1,13 +1,13 @@
+import type { DataDrivenPropertyValueSpecification } from 'maplibre-gl';
 import { useEffect } from 'react';
-import useAddImage from './useAddImage';
-import useMap from '../useMap';
-import mapContextDecorator from '../../decorators/LowZoomDecorator';
-import MlGeoJsonLayer, {
-	MlGeoJsonLayerProps,
-} from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
-import { DataDrivenPropertyValueSpecification } from 'maplibre-gl';
-import wg_locations from '../../components//MlGeoJsonLayer/assets/wg_locations.json';
 import wg_marker from '../../../public/assets/marker.png';
+import wg_locations from '../../components//MlGeoJsonLayer/assets/wg_locations.json';
+import MlGeoJsonLayer, {
+	type MlGeoJsonLayerProps,
+} from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import mapContextDecorator from '../../decorators/LowZoomDecorator';
+import useMap from '../useMap';
+import useAddImage from './useAddImage';
 
 const storyoptions = {
 	title: 'hooks/useAddImage',

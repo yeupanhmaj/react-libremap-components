@@ -1,10 +1,10 @@
-import React, { useRef, useCallback } from 'react';
-import {
+import { Box, ListItem, Paper, Slider, styled, TextField, Typography } from '@mui/material';
+import type {
 	CircleLayerSpecification,
 	FillLayerSpecification,
 	LineLayerSpecification,
 } from 'maplibre-gl';
-import { Box, ListItem, Paper, Slider, TextField, Typography, styled } from '@mui/material';
+import React, { useCallback, useRef } from 'react';
 import ColorPicker from './input/ColorPicker';
 
 const PaperStyled = styled(Paper)({

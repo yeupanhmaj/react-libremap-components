@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import { default as MuiSpeedDial, OpenReason } from '@mui/material/SpeedDial';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import SpeedDialAction from '@mui/material/SpeedDialAction';
 import CloseIcon from '@mui/icons-material/Close';
-import WallpaperIcon from '@mui/icons-material/Wallpaper';
-import LayersIcon from '@mui/icons-material/Layers';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
+import LayersIcon from '@mui/icons-material/Layers';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import WallpaperIcon from '@mui/icons-material/Wallpaper';
+import Box from '@mui/material/Box';
+import { default as MuiSpeedDial, type OpenReason } from '@mui/material/SpeedDial';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import type React from 'react';
+import { useState } from 'react';
 
 const actions = [
 	{ icon: <PictureAsPdfIcon />, name: 'Create PDF' },

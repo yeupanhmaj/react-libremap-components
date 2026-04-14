@@ -1,7 +1,11 @@
 import { useMemo } from 'react';
-import { SplatLoader } from '../../lib/splats/loaders/SplatLoader';
+import {
+	type ModelLoader,
+	type UseThreeModelProps,
+	useThreeModel,
+} from '../../hooks/useThreeModel';
 import { PlySplatLoader } from '../../lib/splats/loaders/PlySplatLoader';
-import { useThreeModel, UseThreeModelProps, ModelLoader } from '../../hooks/useThreeModel';
+import { SplatLoader } from '../../lib/splats/loaders/SplatLoader';
 
 /**
  * Renders splat 3D Models on the MapLibreMap

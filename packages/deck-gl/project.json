@@ -5,8 +5,17 @@
 	"sourceRoot": "packages/deck-gl/src",
 	"targets": {
 		"storybook": {
+			"executor": "nx:run-commands",
 			"options": {
-				"port": 4401
+				"command": "storybook dev --port 4401 --config-dir .storybook",
+				"cwd": "packages/deck-gl"
+			}
+		},
+		"build-storybook": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "storybook build --config-dir .storybook --output-dir storybook-static",
+				"cwd": "packages/deck-gl"
 			}
 		}
 	}

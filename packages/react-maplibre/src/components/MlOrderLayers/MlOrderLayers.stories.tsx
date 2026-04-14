@@ -1,6 +1,5 @@
-import MlOrderLayers from './MlOrderLayers';
-
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlOrderLayers from './MlOrderLayers';
 
 const storyoptions = {
 	title: 'MapComponents/MlOrderLayers',

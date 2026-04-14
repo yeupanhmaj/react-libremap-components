@@ -4,6 +4,7 @@
 		"allowJs": true,
 		"outDir": "../../dist/out-tsc",
 		"module": "commonjs",
+		"moduleResolution": "node",
 		"types": ["cypress", "node"],
 		"sourceMap": false
 	},
@@ -15,7 +16,6 @@
 		"../**/*.cy.tsx",
 		"../**/*.cy.js",
 		"../**/*.cy.jsx",
-		"../**/*.stories.tsx",
 		"../**/*.d.ts"
 	]
 }

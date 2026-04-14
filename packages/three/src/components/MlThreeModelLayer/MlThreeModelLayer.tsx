@@ -1,7 +1,11 @@
 import { useMemo } from 'react';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
-import { useThreeModel, UseThreeModelProps, ModelLoader } from '../../hooks/useThreeModel';
+import {
+	type ModelLoader,
+	type UseThreeModelProps,
+	useThreeModel,
+} from '../../hooks/useThreeModel';
 
 /**
  * Renders obj or gltf 3D Models on the MapLibreMap

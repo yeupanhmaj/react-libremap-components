@@ -1,7 +1,6 @@
-import MlLayerSwipe from './MlLayerSwipe';
-import MlWmsLayer from '../MlWmsLayer/MlWmsLayer';
-
 import multiMapContextDecorator from '../../decorators/MultiMapContextDecorator';
+import MlWmsLayer from '../MlWmsLayer/MlWmsLayer';
+import MlLayerSwipe from './MlLayerSwipe';
 
 const storyoptions = {
 	title: 'MapComponents/MlLayerSwipe',

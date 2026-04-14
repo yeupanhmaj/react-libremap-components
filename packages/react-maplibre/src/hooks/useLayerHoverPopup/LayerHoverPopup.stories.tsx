@@ -1,6 +1,5 @@
-import LayerHoverPopup from './LayerHoverPopup';
-
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import LayerHoverPopup from './LayerHoverPopup';
 
 const storyoptions = {
 	title: 'Hooks/LayerHoverPopup',

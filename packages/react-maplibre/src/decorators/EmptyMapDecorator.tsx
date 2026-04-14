@@ -1,22 +1,18 @@
-import { useMemo, ReactElement, FC } from 'react';
-
-import { MapComponentsProvider } from '../index';
+import { type ReactElement, useMemo } from 'react';
 import MapLibreMap from '../components/MapLibreMap/MapLibreMap';
+import { MapComponentsProvider } from '../index';
 import './style.css';
-import MlNavigationTools from '../components/MlNavigationTools/MlNavigationTools';
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+import type { Decorator, StoryContext } from '@storybook/react-vite';
+import MlNavigationTools from '../components/MlNavigationTools/MlNavigationTools';
 import getTheme from '../ui_components/MapcomponentsTheme';
-import { Decorator } from '@storybook/react-vite';
-
-interface StoryContext {
-	globals: {
-		theme?: 'dark' | 'light';
-	};
-}
 
 const decorators: Decorator[] = [
-	(Story: FC, context?: StoryContext): ReactElement => {
-		const theme = useMemo(() => getTheme(context?.globals?.theme), [context?.globals?.theme]);
+	(Story, context: StoryContext): ReactElement => {
+		const theme = useMemo(
+			() => getTheme(context.globals?.theme as 'dark' | 'light' | undefined),
+			[context.globals?.theme]
+		);
 
 		return (
 			<div className="fullscreen_map">

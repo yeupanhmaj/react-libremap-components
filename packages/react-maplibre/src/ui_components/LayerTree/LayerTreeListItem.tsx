@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import TuneIcon from '@mui/icons-material/Tune';
 import {
 	Box,
 	IconButton,
@@ -6,28 +11,24 @@ import {
 	ListItem,
 	ListItemIcon,
 	ListItemText,
+	type SxProps,
 	styled,
-	SxProps,
 } from '@mui/material';
-import { CheckboxListItemIcon, CheckboxStyled } from '../LayerList/util/LayerListItemVectorLayer';
+import type React from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	getLayerByUuid,
-	LayerConfig,
-	LayerOrderItem,
-	RootState,
+	type LayerConfig,
+	type LayerOrderItem,
+	type RootState,
 	setLayerInMapConfig,
 	setMasterVisible,
 	updateLayerOrder,
-	WmsLayerConfig,
+	type WmsLayerConfig,
 } from '../../stores/map.store';
-import { useDispatch, useSelector } from 'react-redux';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import DeleteIcon from '@mui/icons-material/Delete';
-import TuneIcon from '@mui/icons-material/Tune';
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ConfirmDialog from '../ConfirmDialog';
+import { CheckboxListItemIcon, CheckboxStyled } from '../LayerList/util/LayerListItemVectorLayer';
 import LayerPropertyForm from './util/LayerPropertyForm';
 
 interface LayerTreeListItemProps {

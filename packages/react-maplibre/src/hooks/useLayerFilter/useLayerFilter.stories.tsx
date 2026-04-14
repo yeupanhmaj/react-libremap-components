@@ -1,9 +1,8 @@
-import useLayerFilter from './useLayerFilter';
-
-import mapContextDecorator from '../../decorators/MapContextDecorator';
-import MlGeoJsonLayer from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import type { FeatureCollection } from 'geojson';
 import sample from '../../components/MlGeoJsonLayer/assets/sample_2.json';
-import { FeatureCollection } from 'geojson';
+import MlGeoJsonLayer from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import mapContextDecorator from '../../decorators/MapContextDecorator';
+import useLayerFilter from './useLayerFilter';
 
 const storyoptions = {
 	title: 'hooks/useLayerFilter',

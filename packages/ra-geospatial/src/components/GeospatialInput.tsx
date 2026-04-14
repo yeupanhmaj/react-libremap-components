@@ -1,5 +1,5 @@
 import { MapComponentsProvider } from '@mapcomponents/react-maplibre';
-import GeospatialInputMap, { GeospatialInputMapProps } from './GeospatialInputMap.js';
+import GeospatialInputMap, { type GeospatialInputMapProps } from './GeospatialInputMap.js';
 
 function GeospatialInput(props: GeospatialInputMapProps) {
 	return (

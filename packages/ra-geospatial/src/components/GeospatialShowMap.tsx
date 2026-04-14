@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { InputProps, useRecordContext } from 'react-admin';
-import { parse as wellknownParse } from 'wellknown';
 import { MapLibreMap, MlGeoJsonLayer, useMap } from '@mapcomponents/react-maplibre';
-import { LngLatLike } from 'maplibre-gl';
-import { feature, centroid } from '@turf/turf';
-import { Feature } from '@turf/helpers';
+import type { Feature } from '@turf/helpers';
+import { centroid, type feature } from '@turf/turf';
+import type { LngLatLike } from 'maplibre-gl';
+import type React from 'react';
+import { useEffect, useState } from 'react';
+import { type InputProps, useRecordContext } from 'react-admin';
+import { parse as wellknownParse } from 'wellknown';
 
 export interface GeospatialShowMapProps extends InputProps<any> {
 	MapLibreMapProps?: React.ComponentProps<typeof MapLibreMap>;

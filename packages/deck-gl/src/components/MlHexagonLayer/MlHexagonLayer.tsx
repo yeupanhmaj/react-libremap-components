@@ -1,6 +1,6 @@
-import { useEffect, useMemo } from 'react';
-import { HexagonLayer, HexagonLayerProps } from '@deck.gl/aggregation-layers';
+import { HexagonLayer, type HexagonLayerProps } from '@deck.gl/aggregation-layers';
 import { useMap } from '@mapcomponents/react-maplibre';
+import { useEffect, useMemo } from 'react';
 import useDeckGl from '../../hooks/useDeckGl';
 
 export interface MlHexagonMapProps extends HexagonLayerProps {
@@ -57,22 +57,11 @@ const MlHexagonLayer = (props: MlHexagonMapProps) => {
 	// create deck.gl HexagonLayer once when its props change
 	const hexagonLayer = useMemo(() => {
 		if (!HexagonLayerProps.data) return null;
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
 		return new HexagonLayer({
 			...HexagonLayerProps,
-		} as unknown as HexagonLayerProps);
-	}, [
-		HexagonLayerProps.beforeId,
-		HexagonLayerProps.data,
-		HexagonLayerProps.elevationScale,
-		HexagonLayerProps.extruded,
-		HexagonLayerProps.coverage,
-		HexagonLayerProps.autoHighlight,
-		HexagonLayerProps.material,
-		HexagonLayerProps.radius,
-		HexagonLayerProps.transitions,
-	]);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		} as unknown as any);
+	}, [HexagonLayerProps]);
 
 	// add/remove the memoized layer
 	useEffect(() => {
@@ -82,9 +71,10 @@ const MlHexagonLayer = (props: MlHexagonMapProps) => {
 		return () => {
 			deckGlHook.removeLayer(hexagonLayer);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [mapHook.map, hexagonLayer]);
 
-	return <></>;
+	return null;
 };
 
 export default MlHexagonLayer;

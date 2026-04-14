@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import PentagonIcon from '@mui/icons-material/Pentagon';
-import { Box } from '@mui/system';
-import MlFeatureEditor from '../MlFeatureEditor/MlFeatureEditor';
-import List from '@mui/material/List';
-import EditIcon from '@mui/icons-material/Edit';
-import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
-import useMap from '../../hooks/useMap';
 import DeleteIcon from '@mui/icons-material/Delete';
-import * as turf from '@turf/turf';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Tooltip from '@mui/material/Tooltip';
-import LayerListItem from '../../ui_components/LayerList/LayerListItem';
+import EditIcon from '@mui/icons-material/Edit';
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
-import { Feature, LineString, Point, Polygon } from 'geojson';
-import { LngLatLike } from 'maplibre-gl';
+import PentagonIcon from '@mui/icons-material/Pentagon';
+import PolylineIcon from '@mui/icons-material/Polyline';
+import ScatterPlotIcon from '@mui/icons-material/ScatterPlot';
 import {
 	Button,
 	Checkbox,
 	FormControlLabel,
 	FormGroup,
-	SxProps,
-	Theme,
+	type SxProps,
+	type Theme,
 	Typography,
 } from '@mui/material';
-import ScatterPlotIcon from '@mui/icons-material/ScatterPlot';
-import PolylineIcon from '@mui/icons-material/Polyline';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import List from '@mui/material/List';
+import Tooltip from '@mui/material/Tooltip';
+import { Box } from '@mui/system';
+import * as turf from '@turf/turf';
+import type { Feature, LineString, Point, Polygon } from 'geojson';
+import type { LngLatLike } from 'maplibre-gl';
+import type React from 'react';
+import { useEffect, useState } from 'react';
+import useMap from '../../hooks/useMap';
+import LayerListItem from '../../ui_components/LayerList/LayerListItem';
+import MlFeatureEditor from '../MlFeatureEditor/MlFeatureEditor';
+import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
 
 const sketchTools = [
 	{ name: 'Point', mode: 'draw_point', icon: <ScatterPlotIcon /> },
@@ -108,7 +109,7 @@ const MlSketchTool = (props: MlSketchToolProps) => {
 	// 	}));
 	// };
 	const buttonClickHandler = (buttonDrawMode: keyof MapboxDraw.Modes) => {
-		let modeRef: string | undefined = undefined;
+		let modeRef: string | undefined;
 		setSketchState((prevState) => {
 			modeRef = prevState.drawMode;
 			return {

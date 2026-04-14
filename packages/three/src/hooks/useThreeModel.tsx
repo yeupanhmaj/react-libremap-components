@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
-import * as THREE from 'three';
-import { LngLatLike } from 'maplibre-gl';
+import type { LngLatLike } from 'maplibre-gl';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type * as THREE from 'three';
 import { useThree } from '../contexts/ThreeContext';
 import ThreejsUtils from '../lib/ThreejsUtils';
 

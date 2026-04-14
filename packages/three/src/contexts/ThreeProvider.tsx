@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
 import { useMap } from '@mapcomponents/react-maplibre';
-import { Scene, PerspectiveCamera, Group, Matrix4 } from 'three';
-import { LngLatLike, CustomLayerInterface } from 'maplibre-gl';
+import type { CustomLayerInterface, LngLatLike } from 'maplibre-gl';
+import type React from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { type Group, Matrix4, type PerspectiveCamera, type Scene } from 'three';
 import ThreejsSceneHelper from '../lib/ThreejsSceneHelper';
 import ThreejsSceneRenderer from '../lib/ThreejsSceneRenderer';
 import ThreejsUtils from '../lib/ThreejsUtils';

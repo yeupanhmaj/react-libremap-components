@@ -1,6 +1,6 @@
-import MlCreatePngButton from './MlCreatePngButton';
-import TopToolbar from '../../ui_components/TopToolbar';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import TopToolbar from '../../ui_components/TopToolbar';
+import MlCreatePngButton from './MlCreatePngButton';
 
 const storyoptions = {
 	title: 'MapComponents/MlCreatePngButton',

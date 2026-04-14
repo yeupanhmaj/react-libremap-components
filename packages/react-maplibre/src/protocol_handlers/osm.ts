@@ -1,8 +1,8 @@
-import { RequestParameters } from 'maplibre-gl';
-import { FeatureCollection } from 'geojson';
+import type { FeatureCollection } from 'geojson';
+import type { RequestParameters } from 'maplibre-gl';
 import osm2geojson from 'osm2geojson-lite';
-import protocolPathParser from './utils/protocolPathParser';
 import getProtocolData from './utils/getProtocolData';
+import protocolPathParser from './utils/protocolPathParser';
 
 async function convertOSM(params: {
 	filename: string;
@@ -38,4 +38,4 @@ const OSMProtocolHandler = async (params: RequestParameters) => {
 	throw new Error('OSM File not found ' + parsedParams.filename);
 };
 
-export { OSMProtocolHandler, convertOSM };
+export { convertOSM, OSMProtocolHandler };

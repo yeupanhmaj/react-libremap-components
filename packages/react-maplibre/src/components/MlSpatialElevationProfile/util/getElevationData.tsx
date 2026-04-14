@@ -1,6 +1,6 @@
-import { distance, lineOffset } from '@turf/turf';
 import { featureCollection, lineString, polygon } from '@turf/helpers';
-import { Feature, FeatureCollection } from 'geojson';
+import { distance, lineOffset } from '@turf/turf';
+import type { Feature, FeatureCollection } from 'geojson';
 
 interface geometry {
 	coordinates: Array<number>;

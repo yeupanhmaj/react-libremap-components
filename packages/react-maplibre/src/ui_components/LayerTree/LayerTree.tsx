@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
-import { LayerOrderItem, RootState } from '../../stores/map.store';
-import LayerTreeListItem from './LayerTreeListItem';
 import { List, styled } from '@mui/material';
+import { useSelector } from 'react-redux';
+import type { LayerOrderItem, RootState } from '../../stores/map.store';
+import LayerTreeListItem from './LayerTreeListItem';
 
 interface LayerTreeProps {
 	mapConfigKey: string;

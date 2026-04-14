@@ -1,11 +1,11 @@
-import { useRef, useState, useEffect } from 'react';
+import { Sidebar, TopToolbar, useMap } from '@mapcomponents/react-maplibre';
 import Button from '@mui/material/Button';
-import MlThreeModelLayer from './MlThreeModelLayer';
-import { useMap, TopToolbar, Sidebar } from '@mapcomponents/react-maplibre';
-import ThreejsContextDecorator from '../../decorators/ThreejsContextDecorator';
-import { useThree } from '../../contexts/ThreeContext';
-import { MlThreeObjectControls } from '../MlThreeObjectControls';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
+import { useThree } from '../../contexts/ThreeContext';
+import ThreejsContextDecorator from '../../decorators/ThreejsContextDecorator';
+import { MlThreeObjectControls } from '../MlThreeObjectControls';
+import MlThreeModelLayer from './MlThreeModelLayer';
 
 const storyoptions = {
 	title: 'MapComponents/MlThreeModelLayer',

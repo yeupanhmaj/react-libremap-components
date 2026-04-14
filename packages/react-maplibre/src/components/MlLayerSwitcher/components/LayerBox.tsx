@@ -1,9 +1,9 @@
-import React from 'react';
 import { css } from '@emotion/css';
+import type { SxProps } from '@mui/material';
 import { Box } from '@mui/system';
-import ImageLoader from '../../../ui_components/ImageLoader';
+import type React from 'react';
 import useMapState from '../../../hooks/useMapState';
-import { SxProps } from '@mui/material';
+import ImageLoader from '../../../ui_components/ImageLoader';
 
 interface LayerBoxProps {
 	mapId?: string;

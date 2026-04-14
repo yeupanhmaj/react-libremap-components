@@ -1,6 +1,6 @@
-const glob = require('glob');
-const fs = require('fs');
-const showdown = require('showdown');
+import { readFileSync, writeFileSync } from 'node:fs';
+import glob from 'glob';
+import { Converter } from 'showdown';
 
 const options = {};
 
@@ -11,9 +11,9 @@ function getComponentNameFromPath(path) {
 	return tmp[0];
 }
 
-const converter = new showdown.Converter();
+const converter = new Converter();
 
-glob('src/components/**/*.doc.*.md', options, function (er, files) {
+glob('src/components/**/*.doc.*.md', options, (_er, files) => {
 	console.log(files);
 
 	// eslint-disable-next-line prefer-const
@@ -21,11 +21,8 @@ glob('src/components/**/*.doc.*.md', options, function (er, files) {
 		len = files.length;
 	for (; i < len; i++) {
 		const language = files[i].slice(-5, -3);
-		const rawdata = fs.readFileSync(files[i]);
-		const html = converter.makeHtml(rawdata + '');
-		fs.writeFileSync(
-			'public/catalogue/' + getComponentNameFromPath(files[i]) + '.' + language + '.html',
-			html
-		);
+		const rawdata = readFileSync(files[i]);
+		const html = converter.makeHtml(`${rawdata}`);
+		writeFileSync(`public/catalogue/${getComponentNameFromPath(files[i])}.${language}.html`, html);
 	}
 });

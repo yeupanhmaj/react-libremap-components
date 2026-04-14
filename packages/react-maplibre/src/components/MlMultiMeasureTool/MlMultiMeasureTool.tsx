@@ -1,20 +1,28 @@
-import { Fragment, useEffect, useState } from 'react';
-import { Button, FormControl, InputLabel, MenuItem, Select, SxProps, Tooltip } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import GpsFixedIcon from '@mui/icons-material/GpsFixed';
+import PentagonIcon from '@mui/icons-material/Pentagon';
+import PolylineIcon from '@mui/icons-material/Polyline';
+import {
+	Button,
+	FormControl,
+	InputLabel,
+	MenuItem,
+	Select,
+	type SxProps,
+	Tooltip,
+} from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import * as turf from '@turf/turf';
-import PolylineIcon from '@mui/icons-material/Polyline';
-import PentagonIcon from '@mui/icons-material/Pentagon';
-import { Feature } from 'geojson';
-import MlMeasureTool from '../MlMeasureTool/MlMeasureTool';
+import type { Feature } from 'geojson';
+import type { LngLatLike } from 'maplibre-gl';
+import { Fragment, useEffect, useState } from 'react';
+import useMap from '../../hooks/useMap';
 import LayerList from '../../ui_components/LayerList/LayerList';
 import LayerListItem from '../../ui_components/LayerList/LayerListItem';
 import Sidebar from '../../ui_components/Sidebar';
 import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
-import useMap from '../../hooks/useMap';
-import DeleteIcon from '@mui/icons-material/Delete';
-import GpsFixedIcon from '@mui/icons-material/GpsFixed';
-import { LngLatLike } from 'maplibre-gl';
+import MlMeasureTool from '../MlMeasureTool/MlMeasureTool';
 
 export interface MlMultiMeasureToolProps {
 	/**

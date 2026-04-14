@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
 import FileCopy from '@mui/icons-material/FileCopy';
 import { Button } from '@mui/material';
+import React, { useRef } from 'react';
 
 type Props = {
 	setData: (data: string) => void;

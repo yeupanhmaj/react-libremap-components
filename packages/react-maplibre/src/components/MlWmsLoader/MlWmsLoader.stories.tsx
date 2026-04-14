@@ -1,13 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
-import MlWmsLoader, { WmsConfig } from './MlWmsLoader';
-import { Button, FormControl, List, TextField, Theme, useMediaQuery } from '@mui/material';
+import { Button, FormControl, List, TextField, type Theme, useMediaQuery } from '@mui/material';
+import { useEffect, useRef, useState } from 'react';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import useMap from '../../hooks/useMap';
 import Sidebar from '../../ui_components/Sidebar';
 import TopToolbar from '../../ui_components/TopToolbar';
+import MlWmsLoader, { type WmsConfig } from './MlWmsLoader';
+import wmsConfig from './sample/wms_config_1.json';
 import MlWmsLoaderInstructions from './utils/MlWmsLoaderInstructions';
 import WMSLinks from './utils/WMSLinks';
-import wmsConfig from './sample/wms_config_1.json';
-import useMap from '../../hooks/useMap';
 
 const storyoptions = {
 	title: 'MapComponents/MlWmsLoader',

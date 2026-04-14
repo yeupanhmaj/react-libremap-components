@@ -1,5 +1,5 @@
-import useLayer, { useLayerProps } from '../../hooks/useLayer';
-import { Feature, FeatureCollection } from 'geojson';
+import type { Feature, FeatureCollection } from 'geojson';
+import useLayer, { type useLayerProps } from '../../hooks/useLayer';
 
 interface MlLayerProps {
 	/**

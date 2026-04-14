@@ -1,8 +1,8 @@
-import { useRef, useEffect } from 'react';
-import useMap from '../../hooks/useMap';
+import type { Feature } from 'geojson';
+import { useEffect, useRef } from 'react';
 import useLayer from '../../hooks/useLayer';
+import useMap from '../../hooks/useMap';
 import useSource from '../../hooks/useSource';
-import { Feature } from 'geojson';
 
 export interface MlGeojsonLayerWithSourceProps {
 	/**

@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import PauseIcon from '@mui/icons-material/Pause';
-import StopIcon from '@mui/icons-material/Stop';
 import FastForwardIcon from '@mui/icons-material/FastForward';
 import FastRewindIcon from '@mui/icons-material/FastRewind';
-import { Button, Drawer, Grid, Slider, Theme, Typography, useMediaQuery } from '@mui/material';
+import PauseIcon from '@mui/icons-material/Pause';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import StopIcon from '@mui/icons-material/Stop';
+import { Button, Drawer, Grid, Slider, type Theme, Typography, useMediaQuery } from '@mui/material';
+import React, { useEffect, useRef, useState } from 'react';
 
 export interface TemporalControllerPlayerProps {
 	currentVal: number;
@@ -68,7 +68,7 @@ export default function TemporalControllerPlayer(props: TemporalControllerPlayer
 			clearInterval(intervalRef.current);
 		}
 
-		intervalRef.current = setInterval(function () {
+		intervalRef.current = setInterval(() => {
 			if (counter >= range) {
 				if (intervalRef.current) clearInterval(intervalRef.current);
 				setIsPlaying(false);

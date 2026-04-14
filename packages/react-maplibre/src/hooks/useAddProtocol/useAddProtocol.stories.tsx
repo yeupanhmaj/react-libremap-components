@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import {
+import { Box, Button, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
+import type { StoryFn } from '@storybook/react-vite';
+import type {
 	FlyToOptions,
 	JumpToOptions,
 	LayerSpecification,
@@ -7,34 +8,32 @@ import {
 	StyleSpecification,
 	VectorSourceSpecification,
 } from 'maplibre-gl';
-import { Box, Button, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
-
-import { mbTilesProtocolHandler } from '../../protocol_handlers/mbtiles';
-import { CSVProtocolHandler } from '../../protocol_handlers/csv';
-import { TopojsonProtocolHandler } from '../../protocol_handlers/topojson';
-import { OSMProtocolHandler } from '../../protocol_handlers/osm';
-import { XMLProtocolHandler } from '../../protocol_handlers/xml';
-import useAddProtocol from './useAddProtocol';
-import EmptyMapDecorator from '../../decorators/EmptyMapDecorator';
-import useMap from '../useMap';
-import TopToolbar from '../../ui_components/TopToolbar';
-import Sidebar from '../../ui_components/Sidebar';
-import AddLayerButton from '../../ui_components/AddLayerButton/AddLayerButton';
+import React, { useContext, useEffect, useState } from 'react';
+import type { MlGeoJsonLayerProps } from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import MlLayer from '../../components/MlLayer/MlLayer';
+import MlVectorTileLayer, {
+	type MlVectorTileLayerProps,
+} from '../../components/MlVectorTileLayer/MlVectorTileLayer';
 import LayerContext from '../../contexts/LayerContext';
+import EmptyMapDecorator from '../../decorators/EmptyMapDecorator';
+import bright from '../../omt_styles/bright';
+import { CSVProtocolHandler } from '../../protocol_handlers/csv';
+import type { csvOptions } from '../../protocol_handlers/csv2geojson';
+import { mbTilesProtocolHandler } from '../../protocol_handlers/mbtiles';
+import { OSMProtocolHandler } from '../../protocol_handlers/osm';
+import { TopojsonProtocolHandler } from '../../protocol_handlers/topojson';
+import { XMLProtocolHandler } from '../../protocol_handlers/xml';
+import AddLayerButton from '../../ui_components/AddLayerButton/AddLayerButton';
+import DemoDescriptions from '../../ui_components/DemoDescriptions';
 import LayerList from '../../ui_components/LayerList/LayerList';
 import LayerListItemFactory from '../../ui_components/LayerList/LayerListItemFactory';
-import bright from '../../omt_styles/bright';
-import DemoDescriptions from '../../ui_components/DemoDescriptions';
-import protocolDescriptions from './utils/useAddProtocolTexts.json';
-import { MlGeoJsonLayerProps } from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
-import MlVectorTileLayer, {
-	MlVectorTileLayerProps,
-} from '../../components/MlVectorTileLayer/MlVectorTileLayer';
-import { csvOptions } from '../../protocol_handlers/csv2geojson';
-import MlLayer from '../../components/MlLayer/MlLayer';
-import { useLayerProps } from '../useLayer';
+import Sidebar from '../../ui_components/Sidebar';
+import TopToolbar from '../../ui_components/TopToolbar';
+import type { useLayerProps } from '../useLayer';
+import useMap from '../useMap';
 import useSource from '../useSource';
-import { StoryFn } from '@storybook/react-vite';
+import useAddProtocol from './useAddProtocol';
+import protocolDescriptions from './utils/useAddProtocolTexts.json';
 
 const storyoptions = {
 	title: 'hooks/useAddProtocol',

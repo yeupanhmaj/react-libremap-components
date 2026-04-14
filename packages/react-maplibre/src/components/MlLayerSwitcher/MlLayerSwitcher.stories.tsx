@@ -1,14 +1,14 @@
+import { Button } from '@mui/material';
+import type { Feature } from 'geojson';
 import { useState } from 'react';
-import MlWmsLayer from '../MlWmsLayer/MlWmsLayer';
-import MlLayerSwitcher from './MlLayerSwitcher';
-import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
-import sample_geojson_1 from './assets/sample_1.json';
-import sample_geojson_2 from './assets/sample_2.json';
 import Sidebar from '../../ui_components/Sidebar';
 import TopToolbar from '../../ui_components/TopToolbar';
-import { Button } from '@mui/material';
-import { Feature } from 'geojson';
+import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
+import MlWmsLayer from '../MlWmsLayer/MlWmsLayer';
+import sample_geojson_1 from './assets/sample_1.json';
+import sample_geojson_2 from './assets/sample_2.json';
+import MlLayerSwitcher from './MlLayerSwitcher';
 
 const storyoptions = {
 	title: 'MapComponents/MlLayerSwitcher',

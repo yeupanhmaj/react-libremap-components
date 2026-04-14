@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react';
-import { LayerSpecification } from 'maplibre-gl';
-import { Feature, FeatureCollection } from 'geojson';
 import { Button } from '@mui/material';
-import LayerList from './LayerList';
-import LayerListItem from './LayerListItem';
-import LayerListFolder from './LayerListFolder';
+import type { Feature, FeatureCollection } from 'geojson';
+import type { LayerSpecification } from 'maplibre-gl';
+import { useEffect, useState } from 'react';
+import MlGeoJsonLayer, {
+	type MlGeoJsonLayerProps,
+} from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import MlVectorTileLayer from '../../components/MlVectorTileLayer/MlVectorTileLayer';
+import MlWmsLayer from '../../components/MlWmsLayer/MlWmsLayer';
+import mapContextDecorator from '../../decorators/EmptyMapDecorator';
+import style from '../../omt_styles/monokai';
+import Sidebar from '../Sidebar';
+import TopToolbar from '../TopToolbar';
 import sample_geojson_1 from './assets/sample_1.json';
 import sample_geojson_2 from './assets/sample_2.json';
-import sample_geojson_polygon from './assets/sample_polygon_1.json';
 import sample_geojson_points from './assets/sample_points_1.json';
-import TopToolbar from '../TopToolbar';
-import Sidebar from '../Sidebar';
-import style from '../../omt_styles/monokai';
-import mapContextDecorator from '../../decorators/EmptyMapDecorator';
-import MlGeoJsonLayer, {
-	MlGeoJsonLayerProps,
-} from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
-import MlWmsLayer from '../../components/MlWmsLayer/MlWmsLayer';
-import MlVectorTileLayer from '../../components/MlVectorTileLayer/MlVectorTileLayer';
+import sample_geojson_polygon from './assets/sample_polygon_1.json';
+import LayerList from './LayerList';
+import LayerListFolder from './LayerListFolder';
+import LayerListItem from './LayerListItem';
 
 const storyoptions = {
 	title: 'UiComponents/LayerList',

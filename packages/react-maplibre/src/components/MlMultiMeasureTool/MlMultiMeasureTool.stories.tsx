@@ -1,5 +1,5 @@
-import MlMultiMeasureTool from './MlMultiMeasureTool';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlMultiMeasureTool from './MlMultiMeasureTool';
 
 const storyoptions = {
 	title: 'MapComponents/MlMultiMeasureTool',

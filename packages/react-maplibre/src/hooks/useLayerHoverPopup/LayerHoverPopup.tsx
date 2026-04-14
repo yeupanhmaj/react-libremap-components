@@ -1,7 +1,7 @@
+import type { Feature } from 'geojson';
+import { type LngLatLike, Popup } from 'maplibre-gl';
 import { useEffect, useRef } from 'react';
 import useMap from '../useMap';
-import { LngLatLike, Popup } from 'maplibre-gl';
-import { Feature } from 'geojson';
 
 export interface LayerHoverPopupProps {
 	/**

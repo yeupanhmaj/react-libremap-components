@@ -1,8 +1,9 @@
-import { useContext, useState, useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import MapContext, { MapContextType } from '../contexts/MapContext';
+import type MapLibreGlWrapper from '../components/MapLibreMap/lib/MapLibreGlWrapper';
+import type { LayerState } from '../components/MapLibreMap/lib/MapLibreGlWrapper';
+import MapContext, { type MapContextType } from '../contexts/MapContext';
 import useMapState from './useMapState';
-import MapLibreGlWrapper, { LayerState } from '../components/MapLibreMap/lib/MapLibreGlWrapper';
 
 type useMapType = {
 	map: MapLibreGlWrapper | undefined;
@@ -23,7 +24,7 @@ function useMap(props?: { mapId?: string; waitForLayer?: string }): useMapType {
 		mapId: props?.mapId,
 		watch: {
 			viewport: false,
-			layers: props?.waitForLayer ? true : false,
+			layers: !!props?.waitForLayer,
 			sources: false,
 		},
 		filter: {
@@ -43,7 +44,9 @@ function useMap(props?: { mapId?: string; waitForLayer?: string }): useMapType {
 
 	useEffect(() => {
 		return () => {
-			cleanup();
+			if (mapRef.current) {
+				mapRef.current.cleanup(componentId.current);
+			}
 			mapRef.current = null;
 		};
 	}, []);

@@ -1,7 +1,7 @@
-import {
-	LineLayerSpecification,
+import type {
 	CircleLayerSpecification,
 	FillLayerSpecification,
+	LineLayerSpecification,
 } from 'maplibre-gl';
 
 interface paintPickerProps {

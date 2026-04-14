@@ -1,5 +1,5 @@
-import { paintPropsType } from '../LayerPropertyForm';
 import ColorPicker from '../../../ColorPicker/ColorPicker';
+import type { paintPropsType } from '../LayerPropertyForm';
 
 interface PaintPropsColorPickerProps {
 	key: string;

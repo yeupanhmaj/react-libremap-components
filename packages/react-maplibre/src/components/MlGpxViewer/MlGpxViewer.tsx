@@ -1,13 +1,13 @@
-import { useEffect, useRef } from 'react';
 import { bbox, featureCollection } from '@turf/turf';
-import { FeatureCollection, GeoJSON } from 'geojson';
-import { LngLatBoundsLike } from 'maplibre-gl';
-import useMap from '../../hooks/useMap';
-import useGpx, { MetadataType } from '../../hooks/useGpx/useGpx';
-import useLayerHoverPopup from '../../hooks/useLayerHoverPopup/LayerHoverPopup';
-import useSource from '../../hooks/useSource';
-import useLayer from '../../hooks/useLayer';
+import type { FeatureCollection, GeoJSON } from 'geojson';
+import type { LngLatBoundsLike } from 'maplibre-gl';
+import { useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import useGpx, { type MetadataType } from '../../hooks/useGpx/useGpx';
+import useLayer from '../../hooks/useLayer';
+import useLayerHoverPopup from '../../hooks/useLayerHoverPopup/LayerHoverPopup';
+import useMap from '../../hooks/useMap';
+import useSource from '../../hooks/useSource';
 
 export interface MlGpxViewerProps {
 	/**

@@ -1,4 +1,4 @@
-import { Edit, SimpleForm, TextInput, Show, SimpleShowLayout, TextField } from 'react-admin';
+import { Edit, Show, SimpleForm, SimpleShowLayout, TextField, TextInput } from 'react-admin';
 import GeospatialInput from '../components/GeospatialInput';
 import GeospatialShow from '../components/GeospatialShow';
 import raGeospatialProps from './raGeospatialProps';

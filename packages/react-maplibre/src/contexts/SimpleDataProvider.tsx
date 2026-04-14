@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { SimpleDataContextProvider } from './SimpleDataContext';
 import * as d3 from 'd3';
+import type React from 'react';
+import { useEffect, useState } from 'react';
+import { SimpleDataContextProvider } from './SimpleDataContext';
 
 export interface SimpleDataProviderProps {
 	url: string;

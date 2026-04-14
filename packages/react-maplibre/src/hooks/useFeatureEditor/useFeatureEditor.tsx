@@ -1,13 +1,12 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
-
+import type { Feature } from 'geojson';
+import type { MapEventType } from 'maplibre-gl';
+import type { MapLibreGlEventName } from '../../components/MapLibreMap/lib/MapLibreGlWrapper';
 import useMap from '../useMap';
-import { Feature } from 'geojson';
-import { MapEventType } from 'maplibre-gl';
 import featureEditorStyle from './utils/FeatureEditorStyle';
-import { MapLibreGlEventName } from '../../components/MapLibreMap/lib/MapLibreGlWrapper';
 
 export interface useFeatureEditorProps {
 	/**
@@ -81,7 +80,7 @@ const useFeatureEditor = (props: useFeatureEditorProps) => {
 			) {
 				// remove old Mapbox-gl-Draw from Mapbox instance when hot-reloading this component during development
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore
+				// @ts-expect-error
 				draw.current?.remove();
 			}
 
@@ -89,7 +88,7 @@ const useFeatureEditor = (props: useFeatureEditorProps) => {
 				displayControlsDefault: false,
 				defaultMode: props.mode || 'simple_select',
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore
+				// @ts-expect-error
 				modes: Object.assign({}, MapboxDraw.modes),
 				userProperties: true,
 				styles: style,
@@ -138,7 +137,6 @@ const useFeatureEditor = (props: useFeatureEditorProps) => {
 	useEffect(() => {
 		if (draw.current && props.geojson?.geometry) {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
 			draw.current.set({ type: 'FeatureCollection', features: [props.geojson] });
 		}
 	}, [props.geojson, drawToolsReady]);
@@ -146,7 +144,7 @@ const useFeatureEditor = (props: useFeatureEditorProps) => {
 	useEffect(() => {
 		if (props.mode && draw.current && draw.current?.getMode?.() !== props.mode) {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
+			// @ts-expect-error
 			draw.current?.changeMode?.(props.mode);
 			if (props.mode !== 'simple_select' && props.mode !== 'direct_select') {
 				draw.current.set({ type: 'FeatureCollection', features: [] });

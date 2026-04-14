@@ -1,6 +1,5 @@
-import MlWmsFeatureInfoPopup from './MlWmsFeatureInfoPopup';
-
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlWmsFeatureInfoPopup from './MlWmsFeatureInfoPopup';
 
 const storyoptions = {
 	title: 'MapComponents/MlWmsFeatureInfoPopup',

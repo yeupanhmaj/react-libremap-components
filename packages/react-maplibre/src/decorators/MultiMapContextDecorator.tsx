@@ -1,11 +1,11 @@
-import { useMemo, ReactElement, FC } from 'react';
-import { MapComponentsProvider } from '../index';
+import { type FC, type ReactElement, useMemo } from 'react';
 import MapLibreMap from '../components/MapLibreMap/MapLibreMap';
+import { MapComponentsProvider } from '../index';
 import './style.css';
-import MlNavigationTools from '../components/MlNavigationTools/MlNavigationTools';
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+import type { Decorator } from '@storybook/react-vite'; // Adjust according to your actual import paths
+import MlNavigationTools from '../components/MlNavigationTools/MlNavigationTools';
 import getTheme from '../ui_components/MapcomponentsTheme';
-import { Decorator } from '@storybook/react-vite'; // Adjust according to your actual import paths
 
 interface StoryContext {
 	globals: {

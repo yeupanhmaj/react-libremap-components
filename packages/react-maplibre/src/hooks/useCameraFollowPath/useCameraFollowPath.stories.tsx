@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import useCameraFollowPath from './useCameraFollowPath';
-import TopToolbar from '../../ui_components/TopToolbar';
-import mapContextDecorator from '../../decorators/MapContextDecorator';
 import { Button, MenuItem, Slider, Typography } from '@mui/material';
+import type { Feature } from 'geojson';
+import { useState } from 'react';
 import MlGeoJsonLayer from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
-import { Feature } from 'geojson';
+import mapContextDecorator from '../../decorators/MapContextDecorator';
 import Sidebar from '../../ui_components/Sidebar';
+import TopToolbar from '../../ui_components/TopToolbar';
+import useCameraFollowPath from './useCameraFollowPath';
 
 const storyoptions = {
 	title: 'Hooks/useCameraFollowPath',

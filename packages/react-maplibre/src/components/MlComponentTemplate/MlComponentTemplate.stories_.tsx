@@ -1,6 +1,5 @@
-import MlComponentTemplate from './MlComponentTemplate';
-
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlComponentTemplate from './MlComponentTemplate';
 
 const storyoptions = {
 	title: 'MapComponents/MlComponentTemplate',

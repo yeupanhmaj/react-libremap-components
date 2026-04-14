@@ -1,9 +1,9 @@
-import MlLayerSwipe from './MlLayerSwipe';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React, { useContext, useState } from 'react';
 import MapContext, { MapComponentsProvider } from '../../contexts/MapContext';
 import MapLibreMap from './../MapLibreMap/MapLibreMap';
-import userEvent from '@testing-library/user-event';
-import { render, screen } from '@testing-library/react';
+import MlLayerSwipe from './MlLayerSwipe';
 
 // Mapbox sync-move mockup
 const mockSyncMoveMethods = {

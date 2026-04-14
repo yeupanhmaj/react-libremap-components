@@ -1,6 +1,6 @@
-import React from 'react';
+import type React from 'react';
 import useFeatureEditor, {
-	useFeatureEditorProps,
+	type useFeatureEditorProps,
 } from '../../hooks/useFeatureEditor/useFeatureEditor';
 import './MlFeatureEditor.css';
 

@@ -1,7 +1,6 @@
-import { useRef, useEffect, useCallback } from 'react';
+import type { LayerSpecification, VectorSourceSpecification } from 'maplibre-gl';
+import { useCallback, useEffect, useRef } from 'react';
 import useMap from '../../hooks/useMap';
-import { LayerSpecification } from 'maplibre-gl';
-import { VectorSourceSpecification } from 'maplibre-gl';
 
 export type ExtendedLayerSpecification = LayerSpecification & {
 	masterVisible?: boolean;
@@ -68,7 +67,7 @@ const MlVectorTileLayer = (props: MlVectorTileLayerProps) => {
 					layout: {},
 					paint: {
 						// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-						// @ts-ignore
+						// @ts-expect-error
 						'line-opacity': 0.5,
 						'line-color': 'rgb(80, 80, 80)',
 						'line-width': 2,

@@ -25,7 +25,7 @@ const useAddImage = (props: useAddImageProps) => {
 	useEffect(() => {
 		if (!mapHook.map || initializedRef.current) return;
 
-		mapHook.map?.loadImage(props.imagePath).then(function (res) {
+		mapHook.map?.loadImage(props.imagePath).then((res) => {
 			if (!res?.data) {
 				console.log('image ' + props.imagePath + 'could not be loaded');
 				return;

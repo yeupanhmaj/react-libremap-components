@@ -1,8 +1,6 @@
-import React, { useState, useRef, ReactNode } from 'react';
-import MapLibreGlWrapper from '../components/MapLibreMap/lib/MapLibreGlWrapper';
+import React, { type ReactNode, useRef, useState } from 'react';
+import type MapLibreGlWrapper from '../components/MapLibreMap/lib/MapLibreGlWrapper';
 
-import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
-import getTheme from '../ui_components/MapcomponentsTheme';
 import { LayerContextProvider } from './LayerContext';
 
 export interface MapContextType {
@@ -97,9 +95,7 @@ const MapComponentsProvider = ({ children }: { children: ReactNode }) => {
 
 	return (
 		<MapContext.Provider value={value}>
-			<LayerContextProvider>
-				<MUIThemeProvider theme={getTheme('light')}>{children}</MUIThemeProvider>
-			</LayerContextProvider>
+			<LayerContextProvider>{children}</LayerContextProvider>
 		</MapContext.Provider>
 	);
 };

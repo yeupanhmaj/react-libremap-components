@@ -6,6 +6,15 @@
 		},
 		{
 			"path": "./packages/deck-gl"
+		},
+		{
+			"path": "./packages/react-maplibre"
+		},
+		{
+			"path": "./packages/three"
+		},
+		{
+			"path": "./apps/storybook-composition"
 		}
 	],
 	"extends": "./tsconfig.base.json",

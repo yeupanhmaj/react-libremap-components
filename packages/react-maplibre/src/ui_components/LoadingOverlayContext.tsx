@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { MapContext } from '../index';
 
 const LoadingOverlayContext = React.createContext({});

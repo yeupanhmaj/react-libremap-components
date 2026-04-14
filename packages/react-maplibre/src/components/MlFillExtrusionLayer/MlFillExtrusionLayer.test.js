@@ -1,9 +1,9 @@
 import React from 'react';
-import { layerRemovalTest } from '../../util';
+import useSource from '../../hooks/useSource';
 
 import { uuid_regex } from '../../setupTests';
+import { layerRemovalTest } from '../../util';
 import MlFillExtrusionLayer from './MlFillExtrusionLayer';
-import useSource from '../../hooks/useSource';
 
 const TestComponent = () => {
 	useSource({

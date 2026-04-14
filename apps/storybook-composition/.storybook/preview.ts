@@ -5,7 +5,6 @@ export const parameters = {
 		inlineStories: false,
 	},
 	actions: { argTypesRegex: '^on[A-Z].*' },
-
 };
 
 export const globalTypes = {

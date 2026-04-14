@@ -1,15 +1,15 @@
-import { useEffect, useRef } from 'react';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
+import { Fade, ListItemButton, Paper, type Theme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Grid from '@mui/material/Grid';
-import { Fade, ListItemButton, Paper, Theme } from '@mui/material';
+import { useEffect, useRef } from 'react';
 
 const modalStyle = {
 	position: 'absolute',
@@ -72,10 +72,8 @@ const MlGpxDemoLoader = (props: MlGpxDemoLoaderProps) => {
 
 	const loadSample = (samplePath: string) => {
 		fetch(samplePath)
-			.then(function (response) {
-				return response.blob();
-			})
-			.then(function (gpx) {
+			.then((response) => response.blob())
+			.then((gpx) => {
 				reader.current.readAsText(gpx);
 			})
 			.catch((error) => console.log(error));

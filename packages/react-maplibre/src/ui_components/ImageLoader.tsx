@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
 import ErrorIcon from '@mui/icons-material/Error';
+import type { SxProps } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 import { Box } from '@mui/system';
-import { SxProps } from '@mui/material';
+import { useEffect, useState } from 'react';
 
 interface ImageLoaderProps {
 	src: string;

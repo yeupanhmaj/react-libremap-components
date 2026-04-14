@@ -1,7 +1,6 @@
 import { dirname, join } from 'node:path';
 import type { StorybookConfig } from '@storybook/react-vite';
 
-
 function getAbsolutePath(value: string): string {
 	return dirname(require.resolve(join(value, 'package.json')));
 }
@@ -18,7 +17,7 @@ const config: StorybookConfig = {
 		},
 	},
 	staticDirs: ['../public'],
-	refs: (config, { configType }) => {
+	refs: (_config, { configType }) => {
 		if (configType === 'DEVELOPMENT') {
 			return {
 				'react-maplibre': {
@@ -33,7 +32,7 @@ const config: StorybookConfig = {
 					title: 'Ra Geospatial',
 					url: 'http://localhost:4402',
 				},
-				'three': {
+				three: {
 					title: 'Three',
 					url: 'http://localhost:4403',
 				},
@@ -44,7 +43,7 @@ const config: StorybookConfig = {
 				title: 'React MapLibreMap',
 				url: 'https://mapcomponents.github.io/react-map-components-maplibre/react-maplibre/',
 			},
-			'three': {
+			three: {
 				title: 'three',
 				url: 'https://mapcomponents.github.io/react-map-components-maplibre/three/',
 			},

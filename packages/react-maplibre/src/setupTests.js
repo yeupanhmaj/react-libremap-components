@@ -1,9 +1,10 @@
 import '@testing-library/jest-dom';
-import { TextEncoder, TextDecoder } from 'util';
+import { TextDecoder, TextEncoder } from 'util';
 
 Object.assign(global, { TextDecoder, TextEncoder });
 
 const uuid_regex = '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}';
+
 export { uuid_regex };
 
 // MapLibre-gl mockup
@@ -19,6 +20,7 @@ const mockMapLibreMethods = {
 		style: {},
 	}),
 };
+
 export { mockMapLibreMethods };
 
 jest.mock('maplibre-gl/dist/maplibre-gl', () => {
@@ -28,8 +30,6 @@ jest.mock('maplibre-gl/dist/maplibre-gl', () => {
 		...originalModule,
 		GeolocateControl: jest.fn(),
 		Map: function () {
-			// eslint-disable-next-line @typescript-eslint/no-this-alias
-			const self = this;
 			this.layers = [];
 			this.sources = [];
 			this.style = { sourceCaches: {} };
@@ -38,43 +38,43 @@ jest.mock('maplibre-gl/dist/maplibre-gl', () => {
 				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				addSource: (id, source) => {
 					if (typeof id.id !== 'undefined') {
-						self.sources.push(id);
-						self.style.sourceCaches[id] = {};
+						this.sources.push(id);
+						this.style.sourceCaches[id] = {};
 					} else if (typeof id !== 'undefined') {
-						self.sources.push(id);
+						this.sources.push(id);
 					}
 				},
 				getSource: (id) => {
-					if (self.sources.indexOf(id) !== -1) {
+					if (this.sources.indexOf(id) !== -1) {
 						return { setData: jest.fn() };
 					}
 					return false;
 				},
 				removeSource: (id) => {
-					const sourcePosition = self.sources.indexOf(id);
+					const sourcePosition = this.sources.indexOf(id);
 					if (sourcePosition !== -1) {
-						self.sources.splice(sourcePosition, 1);
-						delete self.style.sourceCaches[id];
+						this.sources.splice(sourcePosition, 1);
+						delete this.style.sourceCaches[id];
 					}
 				},
 				addLayer: (layer) => {
 					if (typeof layer.id !== 'undefined') {
-						self.layers.push(layer.id);
+						this.layers.push(layer.id);
 						if (typeof layer.source !== 'undefined' && typeof layer.source === 'object') {
-							self.sources.push(layer.id);
+							this.sources.push(layer.id);
 						}
 					}
 				},
 				getLayer: (id) => {
-					if (self.layers.indexOf(id) !== -1) {
+					if (this.layers.indexOf(id) !== -1) {
 						return {};
 					}
 					return false;
 				},
 				removeLayer: (id) => {
-					const layerPosition = self.layers.indexOf(id);
+					const layerPosition = this.layers.indexOf(id);
 					if (layerPosition !== -1) {
-						self.layers.splice(layerPosition, 1);
+						this.layers.splice(layerPosition, 1);
 					}
 				},
 			};
@@ -106,5 +106,5 @@ jest.mock('maplibre-gl/dist/maplibre-gl', () => {
 	};
 });
 
-window.URL.createObjectURL = function () {};
+window.URL.createObjectURL = () => {};
 window.HTMLCanvasElement.prototype.getContext = () => {};

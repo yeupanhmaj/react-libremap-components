@@ -1,13 +1,13 @@
-import LayerTree from './LayerTree';
-import LayerOnMap from './LayerOnMap';
-import Sidebar from '../Sidebar';
-import MapContextReduxStoreDecorator from '../../decorators/MapContextReduxStoreDecorator';
-import sample_polygon_1 from '../LayerList/assets/sample_polygon_1.json';
-import sample_points_inside_polygon from '../LayerList/assets/sample_points_inside_polygon.json';
-import { FeatureCollection } from 'geojson';
-import { MapState, setMapConfig } from '../../stores/map.store';
-import { useDispatch } from 'react-redux';
 import { Typography } from '@mui/material';
+import type { FeatureCollection } from 'geojson';
+import { useDispatch } from 'react-redux';
+import MapContextReduxStoreDecorator from '../../decorators/MapContextReduxStoreDecorator';
+import { type MapState, setMapConfig } from '../../stores/map.store';
+import sample_points_inside_polygon from '../LayerList/assets/sample_points_inside_polygon.json';
+import sample_polygon_1 from '../LayerList/assets/sample_polygon_1.json';
+import Sidebar from '../Sidebar';
+import LayerOnMap from './LayerOnMap';
+import LayerTree from './LayerTree';
 
 const storyoptions = {
 	title: 'UiComponents/LayerTree',

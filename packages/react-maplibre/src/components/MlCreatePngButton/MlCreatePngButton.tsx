@@ -1,11 +1,11 @@
-import React from 'react';
-import useMap from '../../hooks/useMap';
 import ImageIcon from '@mui/icons-material/Image';
-import Button from '@mui/material/Button';
 import { CircularProgress } from '@mui/material';
+import Button from '@mui/material/Button';
+import type { BBox } from 'geojson';
+import React from 'react';
 import useExportMap from '../../hooks/useExportMap';
-import { BBox } from 'geojson';
-import { createExportOptions } from '../../hooks/useExportMap/lib';
+import type { createExportOptions } from '../../hooks/useExportMap/lib';
+import useMap from '../../hooks/useMap';
 
 export interface MlCreatePngButtonProps {
 	/**

@@ -1,13 +1,14 @@
 import './MlLayerSwitcher.css';
+import { Box, Typography } from '@mui/material';
+import Divider from '@mui/material/Divider';
 //External
-import React, { useEffect, useContext } from 'react';
+import type React from 'react';
+import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Typography, Box } from '@mui/material';
 //Internal
 import MapContext from '../../contexts/MapContext';
-import LayerBox from './components/LayerBox';
-import Divider from '@mui/material/Divider';
 import useMapState from '../../hooks/useMapState';
+import LayerBox from './components/LayerBox';
 
 type LayerConfig = {
 	layerId: string;

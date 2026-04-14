@@ -1,5 +1,5 @@
-import fakeRestProvider from 'ra-data-fakerest';
 import pullAt from 'lodash/pullAt';
+import fakeRestProvider from 'ra-data-fakerest';
 
 /**
  * Respond to react-admin data queries using a local database persisted in localStorage
@@ -110,7 +110,7 @@ export default function localStorageDataProvider(params) {
 			// we need to call the fakerest provider first to get the generated id
 			return baseDataProvider.create(resource, params).then((response) => {
 				updateLocalStorage(() => {
-					if (!Object.prototype.hasOwnProperty.call(data, resource)) {
+					if (!Object.hasOwn(data, resource)) {
 						data[resource] = [];
 					}
 					data[resource].push(response.data);

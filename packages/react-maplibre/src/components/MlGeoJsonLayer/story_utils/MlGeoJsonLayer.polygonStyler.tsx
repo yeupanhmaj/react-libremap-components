@@ -1,10 +1,12 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
-import Sidebar from '../../../ui_components/Sidebar';
-import { Select, Typography, Slider, Stack, MenuItem, FormControl } from '@mui/material';
-import ColorPicker from '../../../ui_components/ColorPicker/ColorPicker';
-import MlGeoJsonLayer from '../MlGeoJsonLayer';
+import { FormControl, MenuItem, Select, Slider, Stack, Typography } from '@mui/material';
+import type { Feature, FeatureCollection } from 'geojson';
+import type React from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import useMap from '../../../hooks/useMap';
-import { FeatureCollection, Feature } from 'geojson';
+import ColorPicker from '../../../ui_components/ColorPicker/ColorPicker';
+import Sidebar from '../../../ui_components/Sidebar';
+import MlGeoJsonLayer from '../MlGeoJsonLayer';
+
 interface PolygonStylerProps {
 	geojson: FeatureCollection;
 	openSidebar: boolean;

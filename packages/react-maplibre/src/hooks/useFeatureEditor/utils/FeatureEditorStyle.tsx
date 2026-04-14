@@ -1,4 +1,4 @@
-import { Theme, useMediaQuery } from '@mui/material';
+import { type Theme, useMediaQuery } from '@mui/material';
 
 function featureEditorStyle() {
 	const mediaIsMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));

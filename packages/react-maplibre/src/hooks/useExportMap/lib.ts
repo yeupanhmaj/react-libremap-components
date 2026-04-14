@@ -1,8 +1,7 @@
-import { Map, SourceSpecification } from 'maplibre-gl';
+import type { BBox } from 'geojson';
 import jsPDF from 'jspdf';
-import MapLibreGlWrapper from '../../components/MapLibreMap/lib/MapLibreGlWrapper';
-
-import { BBox } from 'geojson';
+import { Map, type SourceSpecification } from 'maplibre-gl';
+import type MapLibreGlWrapper from '../../components/MapLibreMap/lib/MapLibreGlWrapper';
 
 interface createExportOptions {
 	map: MapLibreGlWrapper;
@@ -76,7 +75,7 @@ const createExport = (options: createExportOptions) => {
 	return new Promise<createExportResolverParams>((resolve) => {
 		console.log('before idle');
 
-		renderMap.once('idle', function () {
+		renderMap.once('idle', () => {
 			const params: createExportResolverParams = {
 				...options,
 				renderMap,
@@ -116,9 +115,7 @@ function createJsPdf(options: createJsPdfOptions) {
 		format: options.format,
 	});
 	Object.defineProperty(window, 'devicePixelRatio', {
-		get: function () {
-			return 300 / 96;
-		},
+		get: () => 300 / 96,
 	});
 
 	return new Promise<createPdfResolverParams>((resolve) => {
@@ -162,7 +159,7 @@ interface downloadPdfOptions extends createJsPdfOptions {
 function downloadPdf(options: downloadPdfOptions) {
 	options.pdf.save('Map.pdf');
 
-	return new Promise<downloadPdfOptions>(function (resolve) {
+	return new Promise<downloadPdfOptions>((resolve) => {
 		resolve({ ...options });
 	});
 }
@@ -211,7 +208,7 @@ function downloadPng(options: downloadPngOptions) {
 	_a.click();
 	document.body.removeChild(_a);
 
-	return new Promise<downloadPngOptions>(function (resolve) {
+	return new Promise<downloadPngOptions>((resolve) => {
 		resolve({ ...options });
 	});
 }

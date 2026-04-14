@@ -1,11 +1,10 @@
-import MlSketchTool from './MlSketchTool';
-import { Feature } from 'geojson';
-
+import { Button, Paper, Typography } from '@mui/material';
+import type { Feature } from 'geojson';
+import { useState } from 'react';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
 import Sidebar from '../../ui_components/Sidebar';
 import TopToolbar from '../../ui_components/TopToolbar';
-import { Button, Paper, Typography } from '@mui/material';
-import { useState } from 'react';
+import MlSketchTool from './MlSketchTool';
 
 const storyoptions = {
 	title: 'MapComponents/MlSketchTool',

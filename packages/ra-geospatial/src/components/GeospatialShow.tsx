@@ -1,5 +1,5 @@
 import { MapComponentsProvider } from '@mapcomponents/react-maplibre';
-import GeometryShowMap, { GeospatialShowMapProps } from './GeospatialShowMap.js';
+import GeometryShowMap, { type GeospatialShowMapProps } from './GeospatialShowMap.js';
 
 function GeospatialShow(props: GeospatialShowMapProps) {
 	return (

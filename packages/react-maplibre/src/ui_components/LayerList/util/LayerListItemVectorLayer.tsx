@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { ListItem, IconButton, ListItemIcon, Checkbox, ListItemText, styled } from '@mui/material';
 import TuneIcon from '@mui/icons-material/Tune';
+import { Checkbox, IconButton, ListItem, ListItemIcon, ListItemText, styled } from '@mui/material';
+import { useEffect, useState } from 'react';
+import type { MlVectorTileLayerProps } from '../../../components/MlVectorTileLayer/MlVectorTileLayer';
 import LayerPropertyForm from './LayerPropertyForm';
-import { MlVectorTileLayerProps } from '../../../components/MlVectorTileLayer/MlVectorTileLayer';
 
 export const ListItemStyled = styled(ListItem)((configurable) => ({
 	paddingRight: configurable ? '56px' : 0,

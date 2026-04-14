@@ -1,14 +1,19 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import type React from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { extractUuidsFromLayerOrder, LayerOrderItem, RootState } from '../../stores/map.store';
+import type MapLibreGlWrapper from '../../components/MapLibreMap/lib/MapLibreGlWrapper';
 import MlGeoJsonLayer from '../../components/MlGeoJsonLayer/MlGeoJsonLayer';
-import useMap from '../../hooks/useMap';
-import MlVectorTileLayer, {
-	ExtendedLayerSpecification,
-} from '../../components/MlVectorTileLayer/MlVectorTileLayer';
 import MlOrderLayers from '../../components/MlOrderLayers/MlOrderLayers';
-import MapLibreGlWrapper from '../../components/MapLibreMap/lib/MapLibreGlWrapper';
+import MlVectorTileLayer, {
+	type ExtendedLayerSpecification,
+} from '../../components/MlVectorTileLayer/MlVectorTileLayer';
 import MlWmsLayer from '../../components/MlWmsLayer/MlWmsLayer';
+import useMap from '../../hooks/useMap';
+import {
+	extractUuidsFromLayerOrder,
+	type LayerOrderItem,
+	type RootState,
+} from '../../stores/map.store';
 
 interface LayerOnMapProps {
 	mapConfigKey: string;

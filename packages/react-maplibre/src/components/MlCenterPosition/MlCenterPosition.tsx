@@ -1,7 +1,7 @@
-import { useState, useCallback } from 'react';
-import useMap from '../../hooks/useMap';
-import { Button, SxProps, Theme } from '@mui/material';
 import FilterCenterFocusIcon from '@mui/icons-material/FilterCenterFocus';
+import { Button, type SxProps, type Theme } from '@mui/material';
+import { useCallback, useState } from 'react';
+import useMap from '../../hooks/useMap';
 
 export interface MlCenterPositionProps {
 	/**
@@ -55,21 +55,19 @@ const MlCenterPosition = (props: MlCenterPositionProps) => {
 		setLocationAccessDenied(true);
 	};
 	return (
-		<>
-			<Button
-				variant="navtools"
-				sx={(theme) => ({
-					zIndex: 1002,
-					color: !locationAccessDenied
-						? (props.onColor ?? theme.palette.navigation.buttonColor)
-						: (props.offColor ?? theme.palette.navigation.buttonColor),
-				})}
-				onClick={centerCurrentLocation}
-				disabled={locationAccessDenied}
-			>
-				<FilterCenterFocusIcon sx={{ fontSize: { xs: '1.4em', md: '1em' } }} />
-			</Button>
-		</>
+		<Button
+			variant="navtools"
+			sx={(theme) => ({
+				zIndex: 1002,
+				color: !locationAccessDenied
+					? (props.onColor ?? theme.palette.navigation.buttonColor)
+					: (props.offColor ?? theme.palette.navigation.buttonColor),
+			})}
+			onClick={centerCurrentLocation}
+			disabled={locationAccessDenied}
+		>
+			<FilterCenterFocusIcon sx={{ fontSize: { xs: '1.4em', md: '1em' } }} />
+		</Button>
 	);
 };
 

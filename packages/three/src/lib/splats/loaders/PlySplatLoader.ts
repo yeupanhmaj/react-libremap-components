@@ -5,9 +5,9 @@
  * Source: https://github.com/yangjs6/mapbox-3d-tiles
  */
 
-import { Vector3, FileLoader, Loader, Quaternion, MathUtils } from 'three';
-import { GaussianSplattingMesh } from '../GaussianSplattingMesh';
+import { FileLoader, Loader, MathUtils, Quaternion, Vector3 } from 'three';
 import { createYieldingScheduler, runCoroutineAsync } from '../../utils/coroutine';
+import { GaussianSplattingMesh } from '../GaussianSplattingMesh';
 
 const unpackUnorm = (value: number, bits: number): number => {
 	const t = (1 << bits) - 1;
@@ -57,7 +57,7 @@ interface CompressedPLYChunk {
 	maxScale: Vector3;
 }
 
-const enum PLYType {
+enum PLYType {
 	FLOAT,
 	INT,
 	UINT,
@@ -66,7 +66,7 @@ const enum PLYType {
 	UNDEFINED,
 }
 
-const enum PLYValue {
+enum PLYValue {
 	MIN_X,
 	MIN_Y,
 	MIN_Z,
@@ -490,7 +490,7 @@ export class PlySplatLoader extends Loader {
 			list: 0,
 		};
 
-		const enum ElementMode {
+		enum ElementMode {
 			Vertex,
 			Chunk,
 		}

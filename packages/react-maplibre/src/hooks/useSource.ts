@@ -1,7 +1,7 @@
-import { useEffect, useRef, useCallback, useState } from 'react';
-import useMap, { useMapType } from './useMap';
-import MapLibreGlWrapper from '../components/MapLibreMap/lib/MapLibreGlWrapper';
-import { Source, SourceSpecification } from 'maplibre-gl';
+import type { Source, SourceSpecification } from 'maplibre-gl';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type MapLibreGlWrapper from '../components/MapLibreMap/lib/MapLibreGlWrapper';
+import useMap, { type useMapType } from './useMap';
 
 type useSourceType = {
 	map: MapLibreGlWrapper | undefined;
@@ -27,7 +27,7 @@ function useSource(props: useSourceProps): useSourceType {
 	);
 
 	const removeSource = useCallback(() => {
-		if (mapHook.map && mapHook.map?.style?._layers) {
+		if (mapHook.map?.style?._layers) {
 			for (const [layerId, layer] of Object.entries(mapHook.map.style._layers)) {
 				if (layer.source === sourceId.current) {
 					mapHook.map.removeLayer(layerId);
@@ -59,10 +59,10 @@ function useSource(props: useSourceProps): useSourceType {
 		if (!mapHook.map?.map?.getSource(sourceId.current)) return;
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		//@ts-ignore setData only exists on GeoJsonSource
+		//@ts-expect-error setData only exists on GeoJsonSource
 		mapHook.map.map.getSource(sourceId.current)?.setData?.(props.source.data);
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		//@ts-ignore data only exists on GeoJsonSource
+		//@ts-expect-error data only exists on GeoJsonSource
 	}, [props.source?.data]);
 
 	useEffect(() => {

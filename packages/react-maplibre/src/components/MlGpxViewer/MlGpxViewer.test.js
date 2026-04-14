@@ -1,7 +1,6 @@
-import { layerRemovalTest, sourceRemovalTest } from '../../util';
-
-import MlGpxViewer from './MlGpxViewer';
 import { uuid_regex } from '../../setupTests';
+import { layerRemovalTest, sourceRemovalTest } from '../../util';
+import MlGpxViewer from './MlGpxViewer';
 
 const gpxSample = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gpx version="1.1" creator="outdooractive - http://www.outdooractive.com" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" xmlns:oa="http://www.outdooractive.com/GPX/Extensions/1">

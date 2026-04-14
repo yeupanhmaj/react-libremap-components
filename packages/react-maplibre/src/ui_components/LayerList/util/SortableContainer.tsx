@@ -1,6 +1,6 @@
-import { ReactNode, useRef } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import { type ReactNode, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
 
 interface SortableContainerProps {

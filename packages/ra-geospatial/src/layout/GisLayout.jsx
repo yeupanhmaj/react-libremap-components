@@ -1,8 +1,8 @@
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Box, IconButton, styled } from '@mui/material';
 import * as React from 'react';
 import { useState } from 'react';
-import { Box, IconButton, styled } from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { AppBar, Menu, Sidebar, useSidebarState } from 'react-admin';
 
 const Root = styled('div')(() => ({

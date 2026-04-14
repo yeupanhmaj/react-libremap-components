@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
-import { waitFor, render, screen } from '@testing-library/react';
-import { MapComponentsProvider } from '../../contexts/MapContext';
-import MlNavigationCompass from './MlNavigationCompass';
-import MapLibreMap from './../MapLibreMap/MapLibreMap';
-import { mockMapLibreMethods } from '../../setupTests';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React, { useState } from 'react';
+import { MapComponentsProvider } from '../../contexts/MapContext';
+import { mockMapLibreMethods } from '../../setupTests';
+import MapLibreMap from './../MapLibreMap/MapLibreMap';
+import MlNavigationCompass from './MlNavigationCompass';
 
 jest.mock('@mapbox/mapbox-gl-draw', () => {
-	return function () {
-		return {
-			set: jest.fn(),
-		};
-	};
+	return () => ({
+		set: jest.fn(),
+	});
 });
 
 const MlNavigationCompassTestComponent = (props) => {

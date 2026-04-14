@@ -1,8 +1,8 @@
+import { HexagonLayer } from '@deck.gl/aggregation-layers';
+import { useMap } from '@mapcomponents/react-maplibre';
+import { useEffect, useState } from 'react';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
 import MlHexagonLayer from './MlHexagonLayer';
-import { useEffect, useState } from 'react';
-import { useMap } from '@mapcomponents/react-maplibre';
-import { HexagonLayer } from '@deck.gl/aggregation-layers';
 
 const storyoptions = {
 	title: 'MapComponents/MlHexagonLayer',
@@ -55,14 +55,12 @@ const Template = (context: any) => {
 	mapHook.map?.setZoom(13.5);
 
 	return (
-		<>
-			<MlHexagonLayer
-				data={noiseData.features}
-				getPosition={(d: any) => d.geometry.coordinates}
-				{...context}
-				beforeId={'waterway-name'}
-			/>
-		</>
+		<MlHexagonLayer
+			data={noiseData.features}
+			getPosition={(d: any) => d.geometry.coordinates}
+			{...context}
+			beforeId={'waterway-name'}
+		/>
 	);
 };
 

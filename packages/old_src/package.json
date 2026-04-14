@@ -1,0 +1,56 @@
+{
+	"name": "eag-map-display",
+	"private": false,
+	"version": "0.0.13",
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"contributors": [
+		"Orca Team",
+		"Bittus Team"
+	],
+	"main": "dist/eag-map-display.js",
+	"types": "dist/eag-map-display.d.ts",
+	"author": {
+		"name": "Orca Team",
+		"url": "https://www.galliker.com"
+	},
+	"scripts": {
+		"dev": "vite --force",
+		"build": "tsc -b && vite build",
+		"build-all": "npm run build && npm run copy-types",
+		"lint": "eslint .",
+		"preview": "vite preview",
+		"build:types": "tsc --project tsconfig.app.json",
+		"copy-types": "cpx src/types/eag-map-display.d.ts dist/",
+		"prepublishOnly": "npm run build && npm run copy-types"
+	},
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.30.1",
+		"@geoman-io/leaflet-geoman-free": "^2.18.3",
+		"@types/node": "^24.0.15",
+		"@types/react": "^18.2.43",
+		"@types/react-dom": "^18.2.17",
+		"@vitejs/plugin-react": "^5.0.2",
+		"antd": "^5.26.6",
+		"cpx2": "^8.0.0",
+		"eslint": "^9.30.1",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"eslint-plugin-react-refresh": "^0.4.20",
+		"globals": "^16.3.0",
+		"ol": "^10.6.1",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.35.1",
+		"unplugin-dts": "^1.0.0-beta.6",
+		"vite": "^7.0.4",
+		"vite-plugin-lib-inject-css": "^2.2.2"
+	},
+	"optionalDependencies": {
+		"@rollup/rollup-linux-x64-gnu": "^4.18.0"
+	}
+}

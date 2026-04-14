@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef } from 'react';
-import { Fade, SxProps } from '@mui/material';
+import { Fade, type SxProps } from '@mui/material';
+import { useEffect, useRef, useState } from 'react';
+import type { JSX } from 'react/jsx-runtime';
 import BubbleStyle from './BubbleForInstructions.js';
-import { JSX } from 'react/jsx-runtime';
 
 interface StepObject {
 	duration: number;

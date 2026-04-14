@@ -1,17 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
-
-import SelectStyleButton from '../SelectStyleButton/SelectStyleButton';
-import LayerList from '../LayerList/LayerList';
-
-import mapContextDecorator from '../../decorators/EmptyMapDecorator';
-import Sidebar from '../Sidebar';
-
 import { Button } from '@mui/material';
-import TopToolbar from '../TopToolbar';
-
-import { LayerListItemFactory, MonokaiStyle } from '../../index';
+import type { StyleSpecification } from 'maplibre-gl';
+import { useContext, useEffect, useState } from 'react';
 import LayerContext from '../../contexts/LayerContext';
-import { StyleSpecification } from 'maplibre-gl';
+import mapContextDecorator from '../../decorators/EmptyMapDecorator';
+import { LayerListItemFactory, MonokaiStyle } from '../../index';
+import LayerList from '../LayerList/LayerList';
+import SelectStyleButton from '../SelectStyleButton/SelectStyleButton';
+import Sidebar from '../Sidebar';
+import TopToolbar from '../TopToolbar';
 
 const storyoptions = {
 	title: 'UiComponents/SelectStyleButton',

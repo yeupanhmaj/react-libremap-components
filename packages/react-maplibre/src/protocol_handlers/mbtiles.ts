@@ -1,6 +1,6 @@
-import initSqlJs, { Database } from 'sql.js';
+import type { RequestParameters } from 'maplibre-gl';
 import * as pako from 'pako';
-import { RequestParameters } from 'maplibre-gl';
+import initSqlJs, { type Database } from 'sql.js';
 
 interface MbTilesDbHandlerMap {
 	[filename: string]: Database;
@@ -53,7 +53,7 @@ async function getBufferFromMbtiles(params: { filename: string; z: string; x: st
 		' AND tile_column = ' +
 		params.x +
 		' AND tile_row = ' +
-		(Math.pow(2, parseInt(params.z)) - parseInt(params.y) - 1);
+		(2 ** parseInt(params.z) - parseInt(params.y) - 1);
 	return new Promise((resolve, reject) => {
 		try {
 			// some of the logic here was heavily inspired by
@@ -99,4 +99,4 @@ const mbTilesProtocolHandler = async (params: RequestParameters) => {
 	throw new Error('Tile not found' + parsedParams.filename);
 };
 
-export { mbTilesProtocolHandler, parseTileParams, getBufferFromMbtiles, getMbtilesDbHandler };
+export { getBufferFromMbtiles, getMbtilesDbHandler, mbTilesProtocolHandler, parseTileParams };

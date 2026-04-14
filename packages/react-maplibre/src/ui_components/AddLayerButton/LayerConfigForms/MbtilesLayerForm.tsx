@@ -1,3 +1,5 @@
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {
 	Accordion,
 	AccordionSummary,
@@ -7,13 +9,11 @@ import {
 	DialogTitle,
 	Typography,
 } from '@mui/material';
+import type { LayerSpecification } from 'maplibre-gl';
 import React, { useEffect, useMemo, useState } from 'react';
+import type { MlVectorTileLayerProps } from '../../../components/MlVectorTileLayer/MlVectorTileLayer';
 import useMap from '../../../hooks/useMap';
-import { LayerSpecification } from 'maplibre-gl';
 import MbtilesLayerPropFormular from './utils/MbtilesLayerPropFormular';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { MlVectorTileLayerProps } from '../../../components/MlVectorTileLayer/MlVectorTileLayer';
 
 export interface WmsLayerConfig {
 	url: string;

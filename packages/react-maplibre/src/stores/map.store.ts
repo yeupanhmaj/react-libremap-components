@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Layer } from 'wms-capabilities';
-import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { MlWmsLayerProps } from '../components/MlWmsLayer/MlWmsLayer';
-import { MlGeoJsonLayerProps } from '../components/MlGeoJsonLayer/MlGeoJsonLayer';
-import { MlVectorTileLayerProps } from '../components/MlVectorTileLayer/MlVectorTileLayer';
+
+import { configureStore, createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { Layer } from 'wms-capabilities';
+import type { MlGeoJsonLayerProps } from '../components/MlGeoJsonLayer/MlGeoJsonLayer';
+import type { MlVectorTileLayerProps } from '../components/MlVectorTileLayer/MlVectorTileLayer';
+import type { MlWmsLayerProps } from '../components/MlWmsLayer/MlWmsLayer';
 
 export interface wmsLoaderConfigProps {
 	getFeatureInfoUrl: string;
@@ -103,7 +104,7 @@ function processLayerOrderItems(
 export const initialState: MapState = {
 	mapConfigs: {},
 };
-//@ts-ignore
+//@ts-expect-error
 const mapConfigSlice = createSlice({
 	name: 'mapConfig',
 	initialState,
@@ -112,7 +113,7 @@ const mapConfigSlice = createSlice({
 		setMapConfig: (state, action: PayloadAction<{ key: string; mapConfig: MapConfig }>) => {
 			const mapConfig = action.payload.mapConfig;
 			const key = action.payload.key;
-			//@ts-ignore
+			//@ts-expect-error
 			state.mapConfigs[key] = mapConfig;
 		},
 		// Remove a MapConfig by its uuid
@@ -153,7 +154,7 @@ const mapConfigSlice = createSlice({
 				const targetLayerIndex = mapConfig.layers.findIndex((el) => el.uuid === layerUuid);
 				if (targetLayerIndex !== -1) {
 					delete mapConfig.layers[targetLayerIndex];
-					processLayerOrderItems(function (_, parent?: LayerOrderItem): void {
+					processLayerOrderItems((_, parent?: LayerOrderItem): void => {
 						if (parent && parent.layers) {
 							parent.layers = parent.layers.filter((child) => child.uuid !== layerUuid);
 						}

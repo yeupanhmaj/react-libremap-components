@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
-import { MapComponentsProvider, MapContext } from '../index';
-import MapLibreMap from './../components/MapLibreMap/MapLibreMap';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React, { useContext, useState } from 'react';
+import MapLibreMap from './../components/MapLibreMap/MapLibreMap';
+import { MapComponentsProvider, MapContext } from '../index';
 
 const layerRemovalTest = (
 	ComponentName,

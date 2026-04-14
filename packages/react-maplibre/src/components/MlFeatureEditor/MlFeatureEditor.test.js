@@ -1,17 +1,15 @@
-import React, { useContext, useState } from 'react';
-import { waitFor, render, screen } from '@testing-library/react';
-import MapContext, { MapComponentsProvider } from '../../contexts/MapContext';
-import MlFeatureEditor from './MlFeatureEditor';
-import MapLibreMap from './../MapLibreMap/MapLibreMap';
-import { mockMapLibreMethods } from '../../setupTests';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React, { useContext, useState } from 'react';
+import MapContext, { MapComponentsProvider } from '../../contexts/MapContext';
+import { mockMapLibreMethods } from '../../setupTests';
+import MapLibreMap from './../MapLibreMap/MapLibreMap';
+import MlFeatureEditor from './MlFeatureEditor';
 
 jest.mock('@mapbox/mapbox-gl-draw', () => {
-	return function () {
-		return {
-			set: jest.fn(),
-		};
-	};
+	return () => ({
+		set: jest.fn(),
+	});
 });
 
 const MlFeatureEditorTestComponent = (props) => {

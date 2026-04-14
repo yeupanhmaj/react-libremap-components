@@ -1,10 +1,10 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React, { useContext, useState } from 'react';
 import MapContext, { MapComponentsProvider } from '../../contexts/MapContext';
+import { uuid_regex } from '../../setupTests';
 import MapLibreMap from './../MapLibreMap/MapLibreMap';
 import MlLayer from './MlLayer';
-import { render, screen } from '@testing-library/react';
-import { uuid_regex } from '../../setupTests';
-import userEvent from '@testing-library/user-event';
 
 const MlLayerTestComponent = () => {
 	const [layerVisible, setLayerVisible] = useState(true);

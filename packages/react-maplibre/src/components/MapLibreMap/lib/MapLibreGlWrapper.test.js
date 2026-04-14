@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useContext, useState } from 'react';
-import MapContext, { MapComponentsProvider } from '../../../contexts/MapContext';
-import { v4 as uuidv4 } from 'uuid';
-import MapLibreMap from '../MapLibreMap';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import MapContext, { MapComponentsProvider } from '../../../contexts/MapContext';
+import MapLibreMap from '../MapLibreMap';
 
 // create plain MapLibre mock for this test
 const mockMapLibreMethods = {
@@ -17,7 +17,7 @@ const mockMapLibreMethods = {
 	removeControl: jest.fn(),
 	on: jest.fn(),
 	off: jest.fn(),
-	once: (eventName, callback) => {
+	once: (_eventName, callback) => {
 		callback();
 	},
 	getLayer: () => ({}),
@@ -32,11 +32,9 @@ jest.mock('maplibre-gl', () => {
 
 	return {
 		...originalModule,
-		Map: function () {
-			return {
-				...mockMapLibreMethods,
-			};
-		},
+		Map: () => ({
+			...mockMapLibreMethods,
+		}),
 		NavigationControl: jest.fn(),
 	};
 });
@@ -47,6 +45,7 @@ const MapLibreGlWrapperTestComponent = (props) => {
 	return (
 		<>
 			<button
+				type="button"
 				className="toggle_children_are_visible"
 				data-testid="toggle_children_are_visible"
 				onClick={() => {
@@ -88,9 +87,9 @@ const MlTestComponentTemplate = (props) => {
 		mapRef.current = mapContext.getMap(props.mapId);
 
 		props.afterInit(mapRef.current, componentId.current);
-	}, [mapContext.mapIds, mapContext, props]);
+	}, [mapContext, props]);
 
-	return <></>;
+	return null;
 };
 // add & remove layer tests
 const LayerTestComponent = (props) => {

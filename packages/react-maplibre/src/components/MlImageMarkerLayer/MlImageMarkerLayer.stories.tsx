@@ -1,5 +1,5 @@
-import MlImageMarkerLayer from './MlImageMarkerLayer';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import MlImageMarkerLayer from './MlImageMarkerLayer';
 
 const storyoptions = {
 	title: 'MapComponents/MlImageMarkerLayer',

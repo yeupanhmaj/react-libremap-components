@@ -1,4 +1,4 @@
-import { LayerSpecification, RasterLayerSpecification } from 'maplibre-gl';
+import type { LayerSpecification, RasterLayerSpecification } from 'maplibre-gl';
 
 const getDefaultPaintPropsByType = (
 	type: string,

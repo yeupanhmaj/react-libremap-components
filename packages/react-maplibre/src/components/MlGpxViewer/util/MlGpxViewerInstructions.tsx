@@ -1,5 +1,5 @@
-import Instructions, { InstructionProps } from '../../../util/Instructions';
-import { Theme, useMediaQuery } from '@mui/material';
+import { type Theme, useMediaQuery } from '@mui/material';
+import Instructions, { type InstructionProps } from '../../../util/Instructions';
 
 const bubbleBottomRightStyle = {
 	bubbleTop: '-150px',

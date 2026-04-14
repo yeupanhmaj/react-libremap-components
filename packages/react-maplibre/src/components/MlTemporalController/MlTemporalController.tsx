@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import useMap from '../../hooks/useMap';
-import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
+import { useTheme } from '@mui/material/styles';
 import { bbox } from '@turf/turf';
-import { FeatureCollection } from 'geojson';
-import {
+import type { FeatureCollection } from 'geojson';
+import type {
 	CircleLayerSpecification,
 	FillLayerSpecification,
 	LineLayerSpecification,
 	LngLatBoundsLike,
 	MapEventType,
-	SymbolLayoutProps,
-	SymbolPaintProps,
 } from 'maplibre-gl';
-import usePaintPicker from './utils/paintPicker';
+import type React from 'react';
+import { useEffect, useState } from 'react';
+import type { useLayerProps } from '../../hooks/useLayer';
+import useMap from '../../hooks/useMap';
+import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';
 import MlTemporalControllerLabels from './utils/MlTemporalControllerLabels';
+import usePaintPicker from './utils/paintPicker';
 import TemporalControllerPlayer from './utils/TemporalControllerPlayer';
 import useFilterData from './utils/useFilterData';
-import { useTheme } from '@mui/material/styles';
-import { useLayerProps } from '../../hooks/useLayer';
 
 export interface MlTemporalControllerProps {
 	/**
@@ -130,14 +129,16 @@ export interface MlTemporalControllerProps {
 	 * Layout property object, that is passed to the labels layer.
 	 * https://maplibre.org/maplibre-gl-js-docs/style-spec/layers/#symbol
 	 */
-	labelLayout?: SymbolLayoutProps;
+	labelLayout?: any;
+	// keep as any map to SymbolLayoutProps;
 	//  | SymbolLayoutArray;
 
 	/**
 	 * Paint property object for the features layer.
 	 * https://maplibre.org/maplibre-gl-js-docs/style-spec/layers/#symbol
 	 */
-	labelPaint?: SymbolPaintProps;
+	labelPaint?: any;
+	// keep as any map to SymbolPaintProps;
 	/**
 	 * Hover event handler that is executed whenever a geometry rendered by this component is hovered.
 	 */
@@ -306,17 +307,17 @@ const MlTemporalController = ({
 		return () => {
 			if (_onClick) {
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore ignore supposedly incompatible function definition
+				// @ts-expect-error ignore supposedly incompatible function definition
 				mapHook.map?.off('click', 'timeController', _onClick);
 			}
 			if (_onHover) {
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore ignore supposedly incompatible function definition
+				// @ts-expect-error ignore supposedly incompatible function definition
 				mapHook.map?.off('mouseenter', 'timeController', _onHover);
 			}
 			if (_onLeave) {
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore ignore supposedly incompatible function definition
+				// @ts-expect-error ignore supposedly incompatible function definition
 				mapHook.map?.off('mouseleave', 'timeController', _onLeave);
 			}
 		};

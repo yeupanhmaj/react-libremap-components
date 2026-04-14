@@ -3,8 +3,8 @@
  * https://github.com/yangjs6/mapbox-3d-tiles
  */
 
-import { type Map as MaplibreMap } from 'maplibre-gl';
-import { WebGLRenderer, Scene, Camera } from 'three';
+import type { Map as MaplibreMap } from 'maplibre-gl';
+import { type Camera, type Scene, WebGLRenderer } from 'three';
 import { CSS2DRenderer } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 
 export default class ThreejsSceneRenderer {

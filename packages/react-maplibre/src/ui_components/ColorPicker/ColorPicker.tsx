@@ -1,7 +1,6 @@
-import { useState } from 'react';
-
-import { ChromePicker } from 'react-color';
 import { Button, Grid } from '@mui/material';
+import { useState } from 'react';
+import { ChromePicker } from 'react-color';
 import { converters } from './transformers';
 
 export interface ColorPickerProps {
@@ -10,7 +9,7 @@ export interface ColorPickerProps {
 	value?: string;
 }
 
-const ColorPicker = ({ convert, ...props }: ColorPickerProps) => {
+const ColorPicker = ({ convert = 'hex', ...props }: ColorPickerProps) => {
 	const [showPicker, setShowPicker] = useState(false);
 	const value = props?.value || '';
 

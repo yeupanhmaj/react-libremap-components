@@ -1,10 +1,8 @@
-import { FC, RefObject, useContext, useEffect, useRef } from 'react';
-
-import MapContext, { MapContextType } from '../../contexts/MapContext';
-import MapLibreGlWrapper from './lib/MapLibreGlWrapper';
-
-import { Map, MapOptions as MapOptionsType } from 'maplibre-gl';
+import type { MapOptions as MapOptionsType } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import { type FC, type RefObject, useContext, useEffect, useRef } from 'react';
+import MapContext, { type MapContextType } from '../../contexts/MapContext';
+import MapLibreGlWrapper from './lib/MapLibreGlWrapper';
 
 export type MapLibreMapProps = {
 	/**
@@ -72,6 +70,7 @@ const MapLibreMap: MapLibreMapComponent = (props: MapLibreMapProps) => {
 	const initializedRef = useRef(false);
 	const currentStyle = useRef(props.options?.style);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: expected to run only on unmount, mapContext and props.mapId are not expected to change during the lifecycle of the component
 	useEffect(() => {
 		const mapId = mapIdRef.current;
 
@@ -84,8 +83,10 @@ const MapLibreMap: MapLibreMapComponent = (props: MapLibreMapProps) => {
 				mapRef.current = null;
 			}
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: expected to run only on mount and unmount, props.options and props.mapId are not expected to change during the lifecycle of the component
 	useEffect(() => {
 		if (initializedRef.current) return;
 
@@ -107,7 +108,7 @@ const MapLibreMap: MapLibreMapComponent = (props: MapLibreMapProps) => {
 					map.once('load', () => {
 						if (!wrapper?.cancelled) {
 							// add maplibre instance to window for debugging purposes
-							(window as { [key: string]: any })['_map'] = map;
+							(window as { [key: string]: any })._map = map;
 							if (props.mapId) {
 								mapContext.registerMap(props.mapId, wrapper);
 							} else {
@@ -120,6 +121,7 @@ const MapLibreMap: MapLibreMapComponent = (props: MapLibreMapProps) => {
 				},
 			});
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [props.options, props.mapId]);
 
 	useEffect(() => {

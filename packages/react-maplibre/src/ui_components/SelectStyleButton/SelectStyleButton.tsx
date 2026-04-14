@@ -1,15 +1,14 @@
-import { Button, SxProps } from '@mui/material';
-import React from 'react';
-import SelectStylePopup from './SelectStylePopup';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
+import { Button, type SxProps } from '@mui/material';
+import type { StyleSpecification } from 'maplibre-gl';
+import React from 'react';
 import LayerContext from '../../contexts/LayerContext';
-import MonokaiStyle from '../../omt_styles/monokai';
-import SolarizedStyle from '../../omt_styles/solarized';
-import OceanicNextStyle from '../../omt_styles/oceanic_next';
-import MedievalKingdomStyle from '../../omt_styles/medieval_kingdom';
 import GruvboxStyle from '../../omt_styles/gruvbox';
-
-import { StyleSpecification } from 'maplibre-gl';
+import MedievalKingdomStyle from '../../omt_styles/medieval_kingdom';
+import MonokaiStyle from '../../omt_styles/monokai';
+import OceanicNextStyle from '../../omt_styles/oceanic_next';
+import SolarizedStyle from '../../omt_styles/solarized';
+import SelectStylePopup from './SelectStylePopup';
 
 export interface SelectStyleButtonProps {
 	sx?: SxProps;

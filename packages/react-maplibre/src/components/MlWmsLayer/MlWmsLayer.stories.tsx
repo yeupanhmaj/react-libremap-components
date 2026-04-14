@@ -1,10 +1,8 @@
-import { useState } from 'react';
-
-import MlWmsLayer from './MlWmsLayer';
-import TopToolbar from '../../ui_components/TopToolbar';
 import Button from '@mui/material/Button';
-
+import { useState } from 'react';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
+import TopToolbar from '../../ui_components/TopToolbar';
+import MlWmsLayer from './MlWmsLayer';
 
 import '../../App.css';
 

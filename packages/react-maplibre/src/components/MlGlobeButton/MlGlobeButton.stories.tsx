@@ -1,6 +1,5 @@
-import MlGlobeButton, { MlGlobeButtonProps } from './MlGlobeButton';
-
 import lowZoomDecorator from '../../decorators/LowZoomDecorator';
+import MlGlobeButton, { type MlGlobeButtonProps } from './MlGlobeButton';
 
 const storyoptions = {
 	title: 'MapComponents/MlGlobeButton',
