@@ -1,5 +1,5 @@
 import type React from 'react';
-import { type FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 import mapContextDecoratorHooks from '../decorators/MapContextDecoratorHooks';
 import useMapState from './useMapState';
 

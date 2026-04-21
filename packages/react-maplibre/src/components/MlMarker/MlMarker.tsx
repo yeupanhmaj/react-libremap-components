@@ -72,7 +72,6 @@ const getBoxTransform = (anchor: MlMarkerProps['anchor'] = 'top') => {
 		case 'bottom-right':
 			return 'translate(0%, 0%)';
 		default:
-		case 'top':
 			return 'translate(-50%, -100%)';
 	}
 };
@@ -111,7 +110,6 @@ function getBoxMargins(
 			m.marginTop = `${offset}px`;
 			m.marginLeft = `${w + offset}px`;
 			break;
-		case 'top':
 		default:
 			m.marginTop = `-${h + offset}px`;
 			break;

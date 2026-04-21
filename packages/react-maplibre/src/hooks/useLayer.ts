@@ -7,6 +7,7 @@ import type {
 	MapGeoJSONFeature,
 	MapMouseEvent,
 	Style,
+	Map as MapType,
 } from 'maplibre-gl';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -44,9 +45,9 @@ export interface useLayerProps {
 			filter?: FilterSpecification;
 		}
 	>;
-	onHover?: (ev: MapEventType & unknown) => Map | void;
-	onClick?: (ev: MapEventType & unknown) => Map | void;
-	onLeave?: (ev: MapEventType & unknown) => Map | void;
+	onHover?: (ev: MapEventType & unknown) => MapType;
+	onClick?: (ev: MapEventType & unknown) => MapType;
+	onLeave?: (ev: MapEventType & unknown) => MapType;
 }
 type PaintPropsKeyType = keyof useLayerProps['options']['paint'];
 
@@ -150,6 +151,7 @@ function useLayer(props: useLayerProps): useLayerType {
 				mapHook.componentId
 			);
 		} catch (error) {
+			// biome-ignore lint/suspicious/noConsole: log the error if layer creation fails
 			console.error('Failed to add layer:', error);
 		}
 		setLayer(() => mapHook.map?.map.getLayer(layerId.current));
@@ -218,7 +220,7 @@ function useLayer(props: useLayerProps): useLayerType {
 		)
 			return;
 
-		let key;
+		let key: any;
 
 		const layoutString = JSON.stringify(props.options.layout);
 		if (props.options.layout && layoutString !== layerLayoutConfRef.current) {
@@ -261,8 +263,7 @@ function useLayer(props: useLayerProps): useLayerType {
 	useEffect(() => {
 		if (
 			!props.insertBeforeLayer ||
-			!mapHook.map ||
-			!mapHook.map.getLayer(props.insertBeforeLayer) ||
+			!mapHook?.map?.getLayer(props.insertBeforeLayer) ||
 			!mapHook.map.getLayer(layerId.current)
 		)
 			return;
@@ -323,7 +324,7 @@ function useLayer(props: useLayerProps): useLayerType {
 
 	// Reload onClick-handlers when they change
 	useEffect(() => {
-		if (!props.onClick || !mapHook?.map || !mapHook?.map?.getLayer?.(layerId.current)) return;
+		if (!props.onClick || !mapHook?.map?.getLayer?.(layerId.current)) return;
 
 		const onClickHandler = props.onClick;
 		mapHook.map?.on('click', layerId.current, onClickHandler);
@@ -343,7 +344,7 @@ function useLayer(props: useLayerProps): useLayerType {
 
 	// Reload onHover-handlers when they change
 	useEffect(() => {
-		if (!props.onHover || !mapHook?.map || !mapHook?.map?.getLayer?.(layerId.current)) return;
+		if (!props.onHover || !mapHook?.map?.getLayer?.(layerId.current)) return;
 
 		const onHoverHandler = props.onHover;
 		mapHook.map?.on('mousemove', layerId.current, onHoverHandler);
@@ -363,7 +364,7 @@ function useLayer(props: useLayerProps): useLayerType {
 
 	// Reload onLeave-handlers when they change
 	useEffect(() => {
-		if (!props.onLeave || !mapHook?.map || !mapHook?.map?.getLayer?.(layerId.current)) return;
+		if (!props.onLeave || !mapHook?.map?.getLayer?.(layerId.current)) return;
 
 		const onLeaveHandler = props.onLeave;
 		mapHook.map?.on('mouseleave', layerId.current, onLeaveHandler);

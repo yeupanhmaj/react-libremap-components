@@ -6,10 +6,6 @@ import { mockMapLibreMethods } from '../../setupTests';
 import MapLibreMap from './../MapLibreMap/MapLibreMap';
 import MlNavigationCompass from './MlNavigationCompass';
 
-jest.mock('@mapbox/mapbox-gl-draw', () => {
-	return () => ({
-		set: jest.fn(),
-	});
 });
 
 const MlNavigationCompassTestComponent = (props) => {

@@ -1,19 +1,21 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import {
-	type ControlPosition,
-	type CustomLayerInterface,
-	type IControl,
-	type LayerSpecification,
-	Map,
-	type MapEventType,
-	type MapLayerEventType,
-	type MapOptions as MapOptionsType,
-	type Map as MapType,
-	type SourceSpecification,
-	type Style,
-	type StyleImageInterface,
-	type StyleImageMetadata,
+import type {
+	ControlPosition,
+	CustomLayerInterface,
+	IControl,
+	LayerSpecification,
+	MapEventType,
+	MapLayerEventType,
+	MapOptions as MapOptionsType,
+	Map as MapType,
+	SourceSpecification,
+	Style,
+	StyleImageInterface,
+	StyleImageMetadata,
 } from 'maplibre-gl';
+
+// biome-ignore lint/suspicious/noShadowRestrictedNames: class name is required to be MapLibreGlWrapper for the export
+import { Map } from 'maplibre-gl';
 
 type WrapperEventArgArray = [MapLibreGlWrapperEventName, MapLibreGlWrapperEventHandlerType];
 type EventArgArray = [
@@ -215,7 +217,7 @@ class MapLibreGlWrapper {
 				handler: MapLibreGlWrapperEventHandlerType,
 				options?: object | string,
 				componentId?: string
-			) => {
+			): undefined => {
 				if (!this.eventHandlers[eventName]) return;
 
 				if (typeof options === 'string') {
@@ -318,7 +320,7 @@ class MapLibreGlWrapper {
 				return {
 					id: layer.id,
 					type: layer.type,
-					visible: layer.visibility === 'none' ? false : true,
+					visible: layer.visibility !== 'none',
 					baseLayer: this.baseLayers.indexOf(layer.id) !== -1,
 					//paint,
 					//layout,
@@ -422,7 +424,7 @@ class MapLibreGlWrapper {
 		 * @param {string} beforeId
 		 * @param {string} componentId
 		 */
-		this.addLayer = (layer, beforeId, componentId) => {
+		this.addLayer = (layer: object, beforeId?: string, componentId?: string) => {
 			if (!this.map.style) {
 				return this;
 			}
@@ -442,14 +444,12 @@ class MapLibreGlWrapper {
 
 		/**
 		 * Overrides MapLibre-gl-js addSource function providing an additional componentId parameter for the wrapper element registration.
-		 *
 		 * @param {string} sourceId
 		 * @param {object} source
-		 * @param {object} options
 		 * @param {string} componentId
 		 * @returns {undefined}
 		 */
-		this.addSource = (sourceId, source, componentId) => {
+		this.addSource = (sourceId: string, source: object, componentId: string): undefined => {
 			if (!this.map.style) {
 				return this;
 			}

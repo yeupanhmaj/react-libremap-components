@@ -1,5 +1,4 @@
 import { type FC, useState } from 'react';
-import { API_KEY } from './API_KEY';
 
 import type { GeoJSONStoreFeatures, GeoJSONStoreGeometries } from 'terra-draw';
 import { makeMapContextDecorators } from '../../decorators/MapContextDecorator';
@@ -17,7 +16,7 @@ const storyoptions = {
 				'ptv-maptile': {
 					type: 'raster',
 					tiles: [
-						`https://api.myptv.com/rastermaps/v1/image-tiles/{z}/{x}/{y}?size=512&apiKey=${API_KEY}`,
+						`https://api.myptv.com/rastermaps/v1/image-tiles/{z}/{x}/{y}?size=512&apiKey=${`RVVfM2QxNGY4YjYzYTE4NGE4ZGEzYWVjNTBjNGNiMDYwYjg6NWRlMjNlMTItZDY2MC00MDVkLWIxMzAtM2Y3MDY0MDM5OGZm`}`,
 					],
 					tileSize: 256,
 					attribution: 'PTV Services',
@@ -115,7 +114,7 @@ const default_geo_data: GeoJSONStoreFeatures<GeoJSONStoreGeometries>[] = [
 		properties: {
 			mode: 'circle',
 			radiusKilometers: 2.500397089435825,
-			color: `#ff00ff`,
+			fillColor: `#ff00ff`,
 		},
 	},
 ];
@@ -125,7 +124,7 @@ const Template: FC = () => {
 		useState<GeoJSONStoreFeatures<GeoJSONStoreGeometries>[]>(default_geo_data);
 
 	return (
-		<MlFeatureDraw mapId="map_1" geojson={geoJson} onFinish={(data) => data && setGeoJson(data)} />
+		<MlFeatureDraw mapId="map_1" geojson={geoJson} onChange={(data) => data && setGeoJson(data)} />
 	);
 };
 
