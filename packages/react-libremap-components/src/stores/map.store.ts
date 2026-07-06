@@ -4,7 +4,6 @@ import { configureStore, createSlice, type PayloadAction } from '@reduxjs/toolki
 import type { Layer } from 'wms-capabilities';
 import type { MlGeoJsonLayerProps } from '../components/MlGeoJsonLayer/MlGeoJsonLayer';
 import type { MlVectorTileLayerProps } from '../contexts/LayerContext';
-import type { MlWmsLayerProps } from '../components/MlWmsLayer/MlWmsLayer';
 
 export interface wmsLoaderConfigProps {
 	getFeatureInfoUrl: string;
@@ -26,7 +25,7 @@ export type WmsLayerConfig = {
 	uuid: string;
 	name?: string;
 	id?: string;
-	config?: MlWmsLayerProps;
+	config?: any;
 	masterVisible?: boolean;
 };
 

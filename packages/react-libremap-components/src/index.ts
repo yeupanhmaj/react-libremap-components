@@ -20,13 +20,7 @@ export type {
 	MlTextLayerProps,
 	TextAnnotation,
 } from './components/MlTextLayer/MlTextLayer';
-export { default as MlVehicleLayer } from './components/MlVehicleLayer/MlVehicleLayer';
-export type {
-	MlVehicleLayerProps,
-	VehicleData,
-} from './components/MlVehicleLayer/MlVehicleLayer';
 export { default as MlWmsFeatureInfoPopup } from './components/MlWmsFeatureInfoPopup/MlWmsFeatureInfoPopup';
-export { default as MlWmsLayer } from './components/MlWmsLayer/MlWmsLayer';
 export { default as LayerContext, LayerContextProvider } from './contexts/LayerContext';
 // Context
 export { MapComponentsProvider, default as MapContext } from './contexts/MapContext';
