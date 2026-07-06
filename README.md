@@ -88,6 +88,6 @@ Please take a look at our storybooks and the code examples provided in the {Comp
 ## more links
 
 - react-libremap-components storybook: https://mapcomponents.github.io/mapcomponents/react-maplibre/
-- @mapcomponents/deck-gl storybook: https://mapcomponents.github.io/mapcomponents/deck-gl/
+- react-libremap-deckgl storybook: https://mapcomponents.github.io/mapcomponents/deck-gl/
 - @mapcomponents/ra-geospatial storybook: https://mapcomponents.github.io/mapcomponents/ra-geospatial/
 - react-libremap-components-lab storybook: https://mapcomponents.github.io/react-map-components-maplibre-lab

@@ -1,6 +1,6 @@
 ## [1.8.9] (2026-03-21)
 
-## @mapcomponents/deck-gl
+## react-libremap-deckgl
 
 ### Fixes
 
@@ -14,7 +14,7 @@
 
 ## [1.8.8] (2026-03-18)
 
-## @mapcomponents/deck-gl
+## react-libremap-deckgl
 
 ### Fixes
 
@@ -22,7 +22,7 @@
 
 ## [1.8.7] (2026-03-18)
 
-## @mapcomponents/deck-gl
+## react-libremap-deckgl
 
 ### Fixes
 
@@ -30,7 +30,7 @@
 
 ## [1.8.6] (2026-03-18)
 
-## @mapcomponents/deck-gl
+## react-libremap-deckgl
 
 ### Fixes
 
@@ -66,7 +66,7 @@
 
 ## [v1.8.1] (2026-01-26)
 
-## @mapcomponents/deck-gl
+## react-libremap-deckgl
 
 ## Added
 
@@ -86,7 +86,7 @@
 
 - 447c360: deck-gl package upgrade (#252)
 
-## @mapcomponents/deck-gl
+## react-libremap-deckgl
 
 ### Added
 
@@ -115,7 +115,7 @@
 
 ## [v1.7.5] (2026-01-09)
 
-## @mapcomponents/three
+## react-libremap-threejs
 
 ### Added
 

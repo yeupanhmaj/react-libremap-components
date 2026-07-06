@@ -88,7 +88,7 @@ It should look like this:
 {
 	"compilerOptions": {
 		"paths": {
-			"@mapcomponents/deck-gl": ["packages/deck-gl/src/index.ts"],
+			"react-libremap-deckgl": ["packages/deck-gl/src/index.ts"],
 			"@mapcomponents/ra-geospatial": ["packages/ra-geospatial/src/index.ts"],
 			"@mapcomponents/{app/package name}": ["path/{app/package name}/src/index.ts"]
 		}

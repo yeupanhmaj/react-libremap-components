@@ -1,4 +1,4 @@
-# @mapcomponents/three
+# react-libremap-threejs
 
 This library provides React components to easily integrate [Three.js](https://threejs.org/) 3D content into [MapLibre GL JS](https://maplibre.org/) maps using [react-libremap-components](https://github.com/mapcomponents/react-map-components-maplibre).
 
@@ -7,12 +7,12 @@ This library provides React components to easily integrate [Three.js](https://th
 Install the package and its peer dependencies:
 
 ```bash
-npm install @mapcomponents/three react-libremap-components
+npm install react-libremap-threejs react-libremap-components
 ```
 
 ## Getting Started
 
-To use `@mapcomponents/three`, you need to wrap your 3D layers with the `ThreeProvider` component. This provider initializes the Three.js scene, camera, and renderer, and registers a custom layer within the MapLibre map.
+To use `react-libremap-threejs`, you need to wrap your 3D layers with the `ThreeProvider` component. This provider initializes the Three.js scene, camera, and renderer, and registers a custom layer within the MapLibre map.
 
 ### Basic Usage
 
@@ -21,7 +21,7 @@ Here is a simple example of how to render a 3D model on a map:
 ```tsx
 import React from 'react';
 import { MapComponentsProvider, MapLibreMap } from 'react-libremap-components';
-import { ThreeProvider, MlThreeModelLayer } from '@mapcomponents/three';
+import { ThreeProvider, MlThreeModelLayer } from 'react-libremap-threejs';
 
 const App = () => {
   return (
@@ -51,4 +51,4 @@ export default App;
 
 ## Running unit tests
 
-Run `nx test @mapcomponents/three` to execute the unit tests via [Vitest](https://vitest.dev/).
+Run `nx test react-libremap-threejs` to execute the unit tests via [Vitest](https://vitest.dev/).

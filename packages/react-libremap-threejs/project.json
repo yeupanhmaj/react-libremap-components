@@ -1,10 +1,10 @@
 {
-	"name": "@mapcomponents/three",
+	"name": "react-libremap-threejs",
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "packages/three/src",
 	"projectType": "library",
 	"tags": [],
-	"// targets": "to see all targets run: nx show project @mapcomponents/three --web",
+	"// targets": "to see all targets run: nx show project react-libremap-threejs --web",
 	"targets": {
 		"storybook": {
 			"options": {

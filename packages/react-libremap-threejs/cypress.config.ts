@@ -5,7 +5,7 @@ export default defineConfig({
 	component: {
 		...nxComponentTestingPreset(__filename, {
 			bundler: 'vite',
-			buildTarget: '@mapcomponents/three:build',
+			buildTarget: 'react-libremap-threejs:build',
 		}),
 		supportFile: 'src/cypress/support/component.ts',
 		indexHtmlFile: 'src/cypress/support/component-index.html',

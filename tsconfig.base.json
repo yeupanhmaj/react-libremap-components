@@ -25,10 +25,10 @@
 		"esModuleInterop": true,
 		"target": "ES2023",
 		"paths": {
-			"@mapcomponents/deck-gl": ["packages/deck-gl/src/index.ts"],
+			"react-libremap-deckgl": ["packages/deck-gl/src/index.ts"],
 			"@mapcomponents/ra-geospatial": ["packages/ra-geospatial/src/index.ts"],
 			"react-libremap-components": ["packages/react-maplibre/src/index.ts"],
-			"@mapcomponents/three": ["packages/three/src/index.ts"]
+			"react-libremap-threejs": ["packages/three/src/index.ts"]
 		}
 	}
 }
