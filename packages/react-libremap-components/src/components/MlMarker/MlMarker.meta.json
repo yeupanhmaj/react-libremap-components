@@ -1,0 +1,14 @@
+{
+	"name": "MlMarker",
+	"title": "MlMarker",
+	"description": "A customizable map marker component that renders rich HTML content in a popup via an iframe. Supports custom styling for the marker dot and popup, anchor positioning, pointer-event pass-through, and an optional close button.",
+	"i18n": {
+		"de": {
+			"title": "MlMarker",
+			"description": "Eine anpassbare Kartenmarkierung, die Rich-HTML-Inhalte in einem Popup per iframe darstellt. Unterstützt benutzerdefiniertes Styling für den Marker-Punkt und das Popup, Ankerpositionen, Durchreichen von Zeigerereignissen und eine optionale Schließen-Schaltfläche."
+		}
+	},
+	"tags": ["marker", "popup", "html", "iframe"],
+	"category": "Map Components",
+	"type": "component"
+}

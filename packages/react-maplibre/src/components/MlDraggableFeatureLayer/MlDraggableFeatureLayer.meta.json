@@ -1,8 +1,0 @@
-{
-	"name": "MlDraggableFeatureLayer",
-	"title": "Draggable Feature Layer",
-	"description": "A component that renders an icon marker on the map which can be dragged to a new position.",
-	"tags": ["Map layer", "interaction", "draggable"],
-	"category": "Map layer",
-	"type": "component"
-}

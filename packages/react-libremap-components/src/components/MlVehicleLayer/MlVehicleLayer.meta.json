@@ -1,0 +1,8 @@
+{
+	"name": "MlVehicleLayer",
+	"title": "Vehicle Layer",
+	"description": "Displays tracked vehicles on the map as directional truck icons that rotate to match each vehicle's heading. Supports click/hover callbacks, label visibility, and custom icon colours.",
+	"tags": ["Map add-on", "tracking", "fleet", "icon"],
+	"category": "add-ons",
+	"type": "component"
+}
