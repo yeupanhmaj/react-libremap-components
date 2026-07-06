@@ -70,6 +70,7 @@ const MapLibreMap: MapLibreMapComponent = (props: MapLibreMapProps) => {
 	const initializedRef = useRef(false);
 	const currentStyle = useRef(props.options?.style);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: intended for not recreate map when options change
 	useEffect(() => {
 		const mapId = mapIdRef.current;
 
@@ -82,8 +83,10 @@ const MapLibreMap: MapLibreMapComponent = (props: MapLibreMapProps) => {
 				mapRef.current = null;
 			}
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: intended for not recreate map when options change
 	useEffect(() => {
 		if (initializedRef.current) return;
 
@@ -118,6 +121,7 @@ const MapLibreMap: MapLibreMapComponent = (props: MapLibreMapProps) => {
 				},
 			});
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [props.options, props.mapId]);
 
 	useEffect(() => {

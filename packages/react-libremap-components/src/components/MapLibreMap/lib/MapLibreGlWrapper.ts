@@ -45,6 +45,7 @@ type ViewportState = {
  */
 
 // @ts-expect-error
+// eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 interface IMapLibreGlWrapper extends MapType {
 	addImage: (
 		id: string,
@@ -107,9 +108,9 @@ export type MapLibreGlEventName = keyof MapLayerEventType | keyof MapEventType |
 
 export type MapLibreGlWrapperEventName = keyof MapLibreGlWrapperEventHandlers;
 
-// biome-ignore lint/suspicious/noUnsafeDeclarationMerging: intentional – the interface merges MapType onto the class so TypeScript recognises the MapLibre methods that are copied to `this` at runtime by addNativeMaplibreFunctionsAndProps(). The class itself does not extend Map.
+// eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 class IMapLibreGlWrapper {
-	[key: string]: any;
+	[key: string]: unknown;
 	registeredElements: {
 		[key: string]: {
 			layers: [string?];

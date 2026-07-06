@@ -36,11 +36,12 @@
 			"recommended": true,
 			"suspicious": {
 				"noExplicitAny": "off",
-				"noConsole": "error"
+				"noConsole": "off",
+				"noUnsafeDeclarationMerging": "off"
 			},
 			"correctness": {
-				"noUnusedVariables": "error",
-				"noUnusedImports": "error"
+				"noUnusedVariables": "off",
+				"noUnusedImports": "off"
 			},
 			"style": {}
 		}
