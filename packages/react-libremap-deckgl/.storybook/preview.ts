@@ -4,7 +4,10 @@ import './style.css';
 const preview: Preview = {
 	parameters: {
 		docs: {
-			inlineStories: false,
+			story: {
+				inline: false,
+				iframeHeight: 400,
+			},
 		},
 	},
 	globalTypes: {
@@ -17,8 +20,8 @@ const preview: Preview = {
 				icon: 'paintbrush',
 				dynamicTitle: true,
 				items: [
-					{ value: 'light', left: '☀️', title: 'Light mode' },
-					{ value: 'dark', left: '🌙', title: 'Dark mode' },
+					{ value: 'light', right: '☀️', title: 'Light mode' },
+					{ value: 'dark', right: '🌙', title: 'Dark mode' },
 				],
 			},
 		},

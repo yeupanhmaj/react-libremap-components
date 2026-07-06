@@ -1,4 +1,3 @@
-import { Fade } from '@mui/material';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import BubbleStyle, { type BubbleForInstructionProps } from './BubbleForInstructions';
@@ -46,13 +45,11 @@ const Instructions = (props: InstructionProps) => {
 	return (
 		<>
 			{typeof activeStep !== 'undefined' && (
-				<Fade in={true} timeout={150}>
-					<div>
-						<BubbleStyle {...props.steps[activeStep].props}>
-							{props.steps[activeStep].content}
-						</BubbleStyle>
-					</div>
-				</Fade>
+				<div style={{ transition: 'opacity 150ms ease-in-out', opacity: 1 }}>
+					<BubbleStyle {...props.steps[activeStep].props}>
+						{props.steps[activeStep].content}
+					</BubbleStyle>
+				</div>
 			)}
 		</>
 	);

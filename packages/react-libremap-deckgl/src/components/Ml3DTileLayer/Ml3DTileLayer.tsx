@@ -1,6 +1,6 @@
 import { Tile3DLayer, type Tile3DLayerProps } from '@deck.gl/geo-layers';
-import { useMap } from 'react-libremap-components';
 import { useEffect, useMemo } from 'react';
+import { useMap } from 'react-libremap-components';
 import useDeckGl from '../../hooks/useDeckGl';
 
 export interface Ml3DTileLayerProps extends Tile3DLayerProps {

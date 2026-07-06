@@ -1,11 +1,10 @@
-import { Fade, type SxProps } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
 import type { JSX } from 'react/jsx-runtime';
 import BubbleStyle from './BubbleForInstructions.js';
 
 interface StepObject {
 	duration: number;
-	props: SxProps;
+	props: object;
 	content: JSX.Element;
 }
 
@@ -46,13 +45,11 @@ const Instructions = (props: InstructionProps) => {
 	return (
 		<>
 			{typeof activeStep !== 'undefined' && (
-				<Fade in={true} timeout={150}>
-					<div>
-						<BubbleStyle {...props.steps[activeStep].props}>
-							{props.steps[activeStep].content}
-						</BubbleStyle>
-					</div>
-				</Fade>
+				<div style={{ transition: 'opacity 150ms ease-in-out', opacity: 1 }}>
+					<BubbleStyle {...props.steps[activeStep].props}>
+						{props.steps[activeStep].content}
+					</BubbleStyle>
+				</div>
 			)}
 		</>
 	);

@@ -1,4 +1,3 @@
-import { Button, Grid } from '@mui/material';
 import { useState } from 'react';
 import { ChromePicker } from 'react-color';
 import { converters } from './transformers';
@@ -15,18 +14,25 @@ const ColorPicker = ({ convert = 'hex', ...props }: ColorPickerProps) => {
 
 	return (
 		<>
-			<Grid container sx={{ flexWrap: 'nowrap' }}>
-				<Grid size={12}>
-					<Button
-						variant="outlined"
+			<div style={{ display: 'flex', flexWrap: 'nowrap', width: '100%' }}>
+				<div style={{ width: '100%' }}>
+					<button
+						type="button"
 						onClick={() => setShowPicker(true)}
-						sx={{
+						style={{
 							minWidth: '100%',
 							padding: '5px',
 							marginBottom: '10px',
+							display: 'flex',
+							alignItems: 'center',
 							justifyContent: 'flex-start',
-							borderColor: (theme) => theme.palette.text.primary,
-							color: (theme) => theme.palette.text.primary,
+							border: '1px solid currentColor',
+							backgroundColor: 'transparent',
+							color: 'inherit',
+							cursor: 'pointer',
+							borderRadius: '4px',
+							fontFamily: 'inherit',
+							fontSize: 'inherit',
 						}}
 					>
 						<div
@@ -39,9 +45,9 @@ const ColorPicker = ({ convert = 'hex', ...props }: ColorPickerProps) => {
 						/>
 
 						{value}
-					</Button>
-				</Grid>
-			</Grid>
+					</button>
+				</div>
+			</div>
 			{showPicker && (
 				<div style={{ position: 'relative', marginTop: 0 }}>
 					<div style={{ position: 'absolute', zIndex: 1000 }}>

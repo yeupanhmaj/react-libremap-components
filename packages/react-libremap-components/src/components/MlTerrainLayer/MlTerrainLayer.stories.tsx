@@ -1,4 +1,3 @@
-import { Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import MapContextDecorator from '../../decorators/MapContextDecorator';
 import useMap from '../../hooks/useMap';
@@ -25,13 +24,24 @@ const Template: any = () => {
 
 	return (
 		<>
-			<Button
-				variant={active ? 'contained' : 'outlined'}
+			<button
+				type="button"
 				className="terrainLayerButton"
 				onClick={() => setActive(!active)}
+				style={{
+					padding: '6px 16px',
+					backgroundColor: active ? '#1976d2' : 'transparent',
+					color: active ? '#fff' : '#1976d2',
+					border: '1px solid #1976d2',
+					borderRadius: '4px',
+					cursor: 'pointer',
+					fontFamily: 'inherit',
+					fontSize: '0.875rem',
+					fontWeight: 500,
+				}}
 			>
 				Terrain Layer
-			</Button>
+			</button>
 			{active && (
 				<MlTerrainLayer
 					sourceOptions={{

@@ -14,10 +14,6 @@ export default defineConfig(() => ({
 		dedupe: [
 			'react',
 			'react-dom',
-			'@mui/material',
-			'@mui/system',
-			'@emotion/react',
-			'@emotion/styled',
 		],
 	},
 	plugins: [
@@ -61,11 +57,6 @@ export default defineConfig(() => ({
 				'@deck.gl/geo-layers',
 				'@deck.gl/mapbox',
 				'@deck.gl/mesh-layers',
-				'@mui/material',
-				'@mui/system',
-				'@mui/icons-material',
-				'@emotion/react',
-				'@emotion/styled',
 			],
 		},
 	},

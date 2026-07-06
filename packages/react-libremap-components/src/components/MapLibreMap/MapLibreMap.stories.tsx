@@ -1,6 +1,5 @@
 import type { StoryFn } from '@storybook/react-vite';
 import type { FeatureCollection } from 'geojson';
-import { useState } from 'react';
 import themeDecorator from '../../decorators/ThemeDecorator';
 import sample_geojson_1 from '../MlGeoJsonLayer/assets/sample_1.json';
 import MlGeoJsonLayer from '../MlGeoJsonLayer/MlGeoJsonLayer';

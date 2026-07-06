@@ -1,4 +1,4 @@
-import { Box, IconButton, Paper } from '@mui/material';
+/** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
 import maplibregl from 'maplibre-gl';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
@@ -157,7 +157,7 @@ const MlMarker = ({
 	const [popupVisible, setPopupVisible] = useState(true);
 	const [contentWidth, setContentWidth] = useState<number>(300);
 	const [iframeHeight, setIframeHeight] = useState<string | undefined>(undefined);
-	const container = useRef<HTMLDivElement | null>(null);
+	const [containerEl, setContainerEl] = useState<HTMLDivElement | null>(null);
 	const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
 	const handleClose = (event: React.MouseEvent) => {
@@ -189,7 +189,8 @@ const MlMarker = ({
 			document.head.appendChild(styleEl);
 		}
 
-		container.current = document.createElement('div');
+		const el = document.createElement('div');
+		setContainerEl(el);
 
 		const defaultMarkerStyle = {
 			width: '12px',
@@ -207,7 +208,7 @@ const MlMarker = ({
 		};
 
 		const maplibreMarker = new maplibregl.Marker({
-			element: container.current,
+			element: el,
 			anchor: 'center',
 		})
 			.setLngLat([props.lng, props.lat])
@@ -221,22 +222,16 @@ const MlMarker = ({
 		markerDot.style.cursor = 'pointer';
 		const handleDotClick = () => setPopupVisible((prev) => !prev);
 		markerDot.addEventListener('click', handleDotClick);
-		container.current.appendChild(markerDot);
+		el.appendChild(markerDot);
 
 		return () => {
 			markerDot.removeEventListener('click', handleDotClick);
 			markerDot.remove();
 			maplibreMarker.remove();
-			container.current?.remove();
+			el.remove();
+			setContainerEl(null);
 		};
 	}, [mapHook.map, props.lng, props.lat, props.markerStyle, props.anchor]);
-
-	// Reset iframe dimensions whenever content changes so the popup does not
-	// briefly display at the previous content's size while the new iframe loads.
-	useEffect(() => {
-		setContentWidth(300);
-		setIframeHeight(undefined);
-	}, [props.content]);
 
 	function handleIframeLoad() {
 		const iframeDoc = iframeRef.current?.contentWindow?.document;
@@ -278,12 +273,19 @@ const MlMarker = ({
 		],
 	});
 
+	// Reset iframe dimensions whenever content changes so the popup does not
+	// briefly display at the previous content's size while the new iframe loads.
+	useEffect(() => {
+		setContentWidth(300);
+		setIframeHeight(undefined);
+	}, [props.content]);
+
 	// Dot always stays on the map; popup portal is only rendered when visible.
 	const popupPortal =
-		container.current && popupVisible
+		containerEl && popupVisible
 			? createPortal(
-					<Box
-						sx={{
+					<div
+						style={{
 							position: 'absolute',
 							transform: getBoxTransform(props.anchor),
 							...getBoxMargins(props.anchor, contentOffset, props.markerStyle),
@@ -293,9 +295,8 @@ const MlMarker = ({
 							...props.containerStyle,
 						}}
 					>
-						<Paper
-							elevation={8}
-							sx={{
+						<div
+							style={{
 								width: `${contentWidth}px`,
 								maxWidth: '90vw',
 								// When passEventsThrough is true the popup is slightly transparent and
@@ -304,29 +305,49 @@ const MlMarker = ({
 								pointerEvents: passEventsThrough ? 'none' : 'auto',
 								overflow: 'hidden',
 								position: 'relative',
+								backgroundColor: '#fff',
+								borderRadius: '4px',
+								boxShadow:
+									'0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)',
 								transition: 'opacity 0.2s ease-in-out, width 0.2s ease-in-out',
-								'&:hover': {
-									opacity: 1,
-								},
+							}}
+							onMouseEnter={(e) => {
+								e.currentTarget.style.opacity = '1';
+							}}
+							onMouseLeave={(e) => {
+								if (passEventsThrough) {
+									e.currentTarget.style.opacity = '0.85';
+								}
 							}}
 						>
 							{showCloseButton && (
-								<IconButton
+								<button
+									type="button"
 									onClick={handleClose}
-									sx={{
+									style={{
 										position: 'absolute',
-										top: CLOSE_BUTTON_SPACING,
-										right: CLOSE_BUTTON_OFFSET,
+										top: `${CLOSE_BUTTON_SPACING}px`,
+										right: `${CLOSE_BUTTON_OFFSET}px`,
 										zIndex: 1,
 										padding: '4px',
 										// Always interactive regardless of the parent's pointer-events setting.
 										pointerEvents: 'auto',
 										backgroundColor: 'rgba(255, 255, 255, 0.9)',
-										'&:hover': {
-											backgroundColor: 'rgba(255, 255, 255, 1)',
-										},
+										border: 'none',
+										borderRadius: '50%',
+										cursor: 'pointer',
+										display: 'inline-flex',
+										alignItems: 'center',
+										justifyContent: 'center',
+										color: 'rgba(0, 0, 0, 0.54)',
+										transition: 'background-color 0.2s ease-in-out',
 									}}
-									size="small"
+									onMouseEnter={(e) => {
+										e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+									}}
+									onMouseLeave={(e) => {
+										e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+									}}
 								>
 									<svg
 										focusable="false"
@@ -342,10 +363,10 @@ const MlMarker = ({
 									>
 										<path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
 									</svg>
-								</IconButton>
+								</button>
 							)}
-							<Box
-								sx={{
+							<div
+								style={{
 									maxHeight: `${POPUP_MAX_HEIGHT}px`,
 									overflowY: 'auto',
 									overflowX: 'hidden',
@@ -414,10 +435,10 @@ const MlMarker = ({
 									sandbox="allow-same-origin allow-popups-to-escape-sandbox allow-scripts"
 									title={mapHook.componentId}
 								/>
-							</Box>
-						</Paper>
-					</Box>,
-					container.current
+							</div>
+						</div>
+					</div>,
+					containerEl
 				)
 			: null;
 

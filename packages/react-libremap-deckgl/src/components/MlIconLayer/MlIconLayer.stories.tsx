@@ -1,5 +1,4 @@
 import { MapContext, useMap } from 'react-libremap-components';
-import { Box, Button, Checkbox, Divider, FormControlLabel, Paper, Typography } from '@mui/material';
 import * as turf from '@turf/turf';
 import * as d3 from 'd3';
 import { useContext, useEffect, useRef, useState } from 'react';
@@ -136,94 +135,110 @@ const Template = () => {
 	return (
 		<>
 			{/* Sidebar */}
-			<Paper
-				elevation={3}
-				sx={{
+			<div
+				style={{
 					position: 'absolute',
-					top: 60,
-					right: 10,
+					top: '60px',
+					right: '10px',
 					zIndex: 1000,
-					width: 280,
+					width: '280px',
 					maxHeight: 'calc(100vh - 80px)',
 					overflowY: 'auto',
-					p: 2,
+					padding: '16px',
+					backgroundColor: '#fff',
+					borderRadius: '4px',
+					boxShadow: '0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12)',
+					fontFamily: 'sans-serif',
 				}}
 			>
-				<Typography variant="h6" gutterBottom>
+				<h3 style={{ margin: '0 0 8px 0', fontSize: '1.25rem', fontWeight: 500 }}>
 					AIS Vessel Tracker
-				</Typography>
-				<Typography variant="body2" color="text.secondary" gutterBottom>
+				</h3>
+				<div style={{ fontSize: '0.875rem', color: 'rgba(0,0,0,0.6)', marginBottom: '8px' }}>
 					{vessels.length} vessels loaded
-				</Typography>
+				</div>
 
-				<Divider sx={{ my: 1 }} />
+				<hr style={{ border: 0, borderBottom: '1px solid rgba(0,0,0,0.12)', margin: '8px 0' }} />
 
-				<Typography variant="subtitle2">Filter by speed</Typography>
-				<FormControlLabel
-					control={
-						<Checkbox
-							checked={showStationary}
-							onChange={() => setShowStationary((v) => !v)}
-							size="small"
-						/>
-					}
-					label={<Typography variant="body2">Stationary (0 kn)</Typography>}
-				/>
-				<FormControlLabel
-					control={
-						<Checkbox checked={showMoving} onChange={() => setShowMoving((v) => !v)} size="small" />
-					}
-					label={<Typography variant="body2">{'Moving (> 0 kn)'}</Typography>}
-				/>
+				<div style={{ fontSize: '0.875rem', fontWeight: 'bold', margin: '8px 0' }}>Filter by speed</div>
+				<label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', marginBottom: '4px' }}>
+					<input
+						type="checkbox"
+						checked={showStationary}
+						onChange={() => setShowStationary((v) => !v)}
+						style={{ cursor: 'pointer' }}
+					/>
+					<span style={{ fontSize: '0.875rem' }}>Stationary (0 kn)</span>
+				</label>
+				<label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', marginBottom: '8px' }}>
+					<input
+						type="checkbox"
+						checked={showMoving}
+						onChange={() => setShowMoving((v) => !v)}
+						style={{ cursor: 'pointer' }}
+					/>
+					<span style={{ fontSize: '0.875rem' }}>{'Moving (> 0 kn)'}</span>
+				</label>
 
 				{selectedVessel && (
 					<>
-						<Divider sx={{ my: 1 }} />
-						<Typography variant="subtitle2">Selected vessel</Typography>
-						<Box sx={{ mt: 1 }}>
-							<Typography variant="body2">
+						<hr style={{ border: 0, borderBottom: '1px solid rgba(0,0,0,0.12)', margin: '8px 0' }} />
+						<div style={{ fontSize: '0.875rem', fontWeight: 'bold', margin: '8px 0' }}>Selected vessel</div>
+						<div style={{ marginTop: '8px' }}>
+							<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>
 								<b>MMSI:</b> {selectedVessel.mmsi}
-							</Typography>
-							<Typography variant="body2">
+							</div>
+							<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>
 								<b>Nav status:</b> {NAV_STATS[selectedVessel.navStat] ?? selectedVessel.navStat}
-							</Typography>
-							<Typography variant="body2">
+							</div>
+							<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>
 								<b>Speed:</b> {selectedVessel.velocity} kn (
 								{convertKnotsToKmh(selectedVessel.velocity)} km/h)
-							</Typography>
-							<Typography variant="body2">
+							</div>
+							<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>
 								<b>Accuracy:</b> {selectedVessel.accurancy ? 'high' : 'low'}
-							</Typography>
+							</div>
 							{vesselInfo && (
 								<>
-									<Typography variant="body2">
+									<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>
 										<b>Name:</b> {(vesselInfo.name as string) || '--'}
-									</Typography>
-									<Typography variant="body2">
+									</div>
+									<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>
 										<b>Callsign:</b> {(vesselInfo.callSign as string) || '--'}
-									</Typography>
-									<Typography variant="body2">
+									</div>
+									<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>
 										<b>Destination:</b> {(vesselInfo.destination as string) || '--'}
-									</Typography>
-									<Typography variant="body2">
+									</div>
+									<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>
 										<b>Ship type:</b> {getShipType(vesselInfo.shipType as number) || '--'}
-									</Typography>
+									</div>
 								</>
 							)}
-							<Button
-								size="small"
-								sx={{ mt: 1 }}
+							<button
+								type="button"
+								style={{
+									marginTop: '8px',
+									padding: '4px 8px',
+									border: '1px solid #1976d2',
+									backgroundColor: 'transparent',
+									color: '#1976d2',
+									borderRadius: '4px',
+									cursor: 'pointer',
+									fontSize: '0.75rem',
+									fontWeight: 'bold',
+									fontFamily: 'inherit',
+								}}
 								onClick={() => {
 									setSelectedVessel(null);
 									setVesselInfo(null);
 								}}
 							>
 								Clear selection
-							</Button>
-						</Box>
+							</button>
+						</div>
 					</>
 				)}
-			</Paper>
+			</div>
 
 			<MlIconLayer
 				data={vessels}

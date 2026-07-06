@@ -1,0 +1,1566 @@
+[1mdiff --git a/packages/react-libremap-components/package.json b/packages/react-libremap-components/package.json[m
+[1mindex 822e6477..5421c834 100644[m
+[1m--- a/packages/react-libremap-components/package.json[m
+[1m+++ b/packages/react-libremap-components/package.json[m
+[36m@@ -15,9 +15,6 @@[m
+ 		"build-catalogue-meta": "node scripts/build-catalogue-meta.js"[m
+ 	},[m
+ 	"dependencies": {[m
+[31m-		"@emotion/react": "^11.14.0",[m
+[31m-		"@emotion/styled": "^11.14.1",[m
+[31m-		"@mui/material": "^7.3.2",[m
+ 		"@reduxjs/toolkit": "^2.9.0",[m
+ 		"@testing-library/dom": "^10.4.1",[m
+ 		"@testing-library/jest-dom": "^6.8.0",[m
+[1mdiff --git a/packages/react-libremap-components/src/components/MlFeatureDraw/FeatureColorPanel.tsx b/packages/react-libremap-components/src/components/MlFeatureDraw/FeatureColorPanel.tsx[m
+[1mindex 1ebe2b81..5a1f5709 100644[m
+[1m--- a/packages/react-libremap-components/src/components/MlFeatureDraw/FeatureColorPanel.tsx[m
+[1m+++ b/packages/react-libremap-components/src/components/MlFeatureDraw/FeatureColorPanel.tsx[m
+[36m@@ -1,8 +1,3 @@[m
+[31m-import Box from '@mui/material/Box';[m
+[31m-import Divider from '@mui/material/Divider';[m
+[31m-import IconButton from '@mui/material/IconButton';[m
+[31m-import Paper from '@mui/material/Paper';[m
+[31m-import Typography from '@mui/material/Typography';[m
+ import type { GeoJSONStoreFeatures, TerraDrawExtend } from 'terra-draw';[m
+ import {[m
+ 	DEFAULT_FILL_COLOR,[m
+[36m@@ -46,25 +41,43 @@[m [mexport default function FeatureColorPanel({[m
+ 	const id = feature.id as TerraDrawExtend.FeatureId;[m
+ [m
+ 	return ([m
+[31m-		<Paper[m
+[31m-			elevation={4}[m
+[31m-			sx={{[m
+[32m+[m		[32m<div[m
+[32m+[m			[32mstyle={{[m
+ 				position: 'absolute',[m
+[31m-				right: 16,[m
+[32m+[m				[32mright: '16px',[m
+ 				top: '50%',[m
+ 				transform: 'translateY(-50%)',[m
+ 				zIndex: 1000,[m
+[31m-				width: 240,[m
+[31m-				p: 2,[m
+[32m+[m				[32mwidth: '240px',[m
+[32m+[m				[32mpadding: '16px',[m
+ 				pointerEvents: 'all',[m
+[32m+[m				[32mbackgroundColor: '#fff',[m
+[32m+[m				[32mborderRadius: '4px',[m
+[32m+[m				[32mboxShadow: '0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)', // elevation 4 equivalent[m
+[32m+[m				[32mfontFamily: 'sans-serif',[m
+ 			}}[m
+ 		>[m
+ 			{/* Header */}[m
+[31m-			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>[m
+[31m-				<Typography variant="subtitle2" fontWeight="bold">[m
+[32m+[m			[32m<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>[m
+[32m+[m				[32m<span style={{ fontSize: '0.875rem', fontWeight: 'bold' }}>[m
+ 					{geometryType}[m
+[31m-				</Typography>[m
+[31m-				<IconButton size="small" onClick={onClose} aria-label="close color panel">[m
+[32m+[m				[32m</span>[m
+[32m+[m				[32m<button[m
+[32m+[m					[32mtype="button"[m
+[32m+[m					[32monClick={onClose}[m
+[32m+[m					[32maria-label="close color panel"[m
+[32m+[m					[32mstyle={{[m
+[32m+[m						[32mpadding: '4px',[m
+[32m+[m						[32mbackground: 'none',[m
+[32m+[m						[32mborder: 'none',[m
+[32m+[m						[32mcursor: 'pointer',[m
+[32m+[m						[32mdisplay: 'inline-flex',[m
+[32m+[m						[32malignItems: 'center',[m
+[32m+[m						[32mjustifyContent: 'center',[m
+[32m+[m						[32mcolor: 'inherit',[m
+[32m+[m						[32mborderRadius: '50%',[m
+[32m+[m					[32m}}[m
+[32m+[m				[32m>[m
+ 					<svg[m
+ 						focusable="false"[m
+ 						aria-hidden="true"[m
+[36m@@ -79,38 +92,38 @@[m [mexport default function FeatureColorPanel({[m
+ 					>[m
+ 						<path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>[m
+ 					</svg>[m
+[31m-				</IconButton>[m
+[31m-			</Box>[m
+[32m+[m				[32m</button>[m
+[32m+[m			[32m</div>[m
+ [m
+[31m-			<Divider sx={{ mb: 2 }} />[m
+[32m+[m			[32m<hr style={{ margin: '0 0 16px 0', border: 0, borderBottom: '1px solid rgba(0, 0, 0, 0.12)' }} />[m
+ [m
+ 			{/* Fill color — polygon and point */}[m
+ 			{(isPolygon || isPoint) && ([m
+[31m-				<Box sx={{ mb: 2 }}>[m
+[31m-					<Typography variant="caption" color="text.secondary" display="block" mb={0.5}>[m
+[32m+[m				[32m<div style={{ marginBottom: '16px' }}>[m
+[32m+[m					[32m<span style={{ display: 'block', fontSize: '0.75rem', color: 'rgba(0, 0, 0, 0.6)', marginBottom: '4px' }}>[m
+ 						Fill Color[m
+[31m-					</Typography>[m
+[32m+[m					[32m</span>[m
+ 					<ColorPicker[m
+ 						value={fillColor}[m
+ 						convert="hex"[m
+ 						onChange={(color) => onFillColorChange(id, color)}[m
+ 					/>[m
+[31m-				</Box>[m
+[32m+[m				[32m</div>[m
+ 			)}[m
+ [m
+ 			{/* Outline / line color — polygon and linestring */}[m
+ 			{(isPolygon || isLine) && ([m
+[31m-				<Box>[m
+[31m-					<Typography variant="caption" color="text.secondary" display="block" mb={0.5}>[m
+[32m+[m				[32m<div>[m
+[32m+[m					[32m<span style={{ display: 'block', fontSize: '0.75rem', color: 'rgba(0, 0, 0, 0.6)', marginBottom: '4px' }}>[m
+ 						{isPolygon ? 'Outline Color' : 'Line Color'}[m
+[31m-					</Typography>[m
+[32m+[m					[32m</span>[m
+ 					<ColorPicker[m
+ 						value={outlineColor}[m
+ 						convert="hex"[m
+ 						onChange={(color) => onOutlineColorChange(id, color)}[m
+ 					/>[m
+[31m-				</Box>[m
+[32m+[m				[32m</div>[m
+ 			)}[m
+[31m-		</Paper>[m
+[32m+[m		[32m</div>[m
+ 	);[m
+ }[m
+[1mdiff --git a/packages/react-libremap-components/src/components/MlMarker/MlMarker.tsx b/packages/react-libremap-components/src/components/MlMarker/MlMarker.tsx[m
+[1mindex 0eb868a1..5527eadb 100644[m
+[1m--- a/packages/react-libremap-components/src/components/MlMarker/MlMarker.tsx[m
+[1m+++ b/packages/react-libremap-components/src/components/MlMarker/MlMarker.tsx[m
+[36m@@ -1,4 +1,3 @@[m
+[31m-import { Box, IconButton, Paper } from '@mui/material';[m
+ import maplibregl from 'maplibre-gl';[m
+ import type React from 'react';[m
+ import { useEffect, useRef, useState } from 'react';[m
+[36m@@ -282,8 +281,8 @@[m [mconst MlMarker = ({[m
+ 	const popupPortal =[m
+ 		container.current && popupVisible[m
+ 			? createPortal([m
+[31m-					<Box[m
+[31m-						sx={{[m
+[32m+[m					[32m<div[m
+[32m+[m						[32mstyle={{[m
+ 							position: 'absolute',[m
+ 							transform: getBoxTransform(props.anchor),[m
+ 							...getBoxMargins(props.anchor, contentOffset, props.markerStyle),[m
+[36m@@ -293,9 +292,8 @@[m [mconst MlMarker = ({[m
+ 							...props.containerStyle,[m
+ 						}}[m
+ 					>[m
+[31m-						<Paper[m
+[31m-							elevation={8}[m
+[31m-							sx={{[m
+[32m+[m						[32m<div[m
+[32m+[m							[32mstyle={{[m
+ 								width: `${contentWidth}px`,[m
+ 								maxWidth: '90vw',[m
+ 								// When passEventsThrough is true the popup is slightly transparent and[m
+[36m@@ -304,29 +302,48 @@[m [mconst MlMarker = ({[m
+ 								pointerEvents: passEventsThrough ? 'none' : 'auto',[m
+ 								overflow: 'hidden',[m
+ 								position: 'relative',[m
+[32m+[m								[32mbackgroundColor: '#fff',[m
+[32m+[m								[32mborderRadius: '4px',[m
+[32m+[m								[32mboxShadow: '0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)',[m
+ 								transition: 'opacity 0.2s ease-in-out, width 0.2s ease-in-out',[m
+[31m-								'&:hover': {[m
+[31m-									opacity: 1,[m
+[31m-								},[m
+[32m+[m							[32m}}[m
+[32m+[m							[32monMouseEnter={(e) => {[m
+[32m+[m								[32me.currentTarget.style.opacity = '1';[m
+[32m+[m							[32m}}[m
+[32m+[m							[32monMouseLeave={(e) => {[m
+[32m+[m								[32mif (passEventsThrough) {[m
+[32m+[m									[32me.currentTarget.style.opacity = '0.85';[m
+[32m+[m								[32m}[m
+ 							}}[m
+ 						>[m
+ 							{showCloseButton && ([m
+[31m-								<IconButton[m
+[32m+[m								[32m<button[m
+[32m+[m									[32mtype="button"[m
+ 									onClick={handleClose}[m
+[31m-									sx={{[m
+[32m+[m									[32mstyle={{[m
+ 										position: 'absolute',[m
+[31m-										top: CLOSE_BUTTON_SPACING,[m
+[31m-										right: CLOSE_BUTTON_OFFSET,[m
+[32m+[m										[32mtop: `${CLOSE_BUTTON_SPACING}px`,[m
+[32m+[m										[32mright: `${CLOSE_BUTTON_OFFSET}px`,[m
+ 										zIndex: 1,[m
+ 										padding: '4px',[m
+ 										// Always interactive regardless of the parent's pointer-events setting.[m
+ 										pointerEvents: 'auto',[m
+ 										backgroundColor: 'rgba(255, 255, 255, 0.9)',[m
+[31m-										'&:hover': {[m
+[31m-											backgroundColor: 'rgba(255, 255, 255, 1)',[m
+[31m-										},[m
+[32m+[m										[32mborder: 'none',[m
+[32m+[m										[32mborderRadius: '50%',[m
+[32m+[m										[32mcursor: 'pointer',[m
+[32m+[m										[32mdisplay: 'inline-flex',[m
+[32m+[m										[32malignItems: 'center',[m
+[32m+[m										[32mjustifyContent: 'center',[m
+[32m+[m										[32mcolor: 'rgba(0, 0, 0, 0.54)',[m
+[32m+[m										[32mtransition: 'background-color 0.2s ease-in-out',[m
+[32m+[m									[32m}}[m
+[32m+[m									[32monMouseEnter={(e) => {[m
+[32m+[m										[32me.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 1)';[m
+[32m+[m									[32m}}[m
+[32m+[m									[32monMouseLeave={(e) => {[m
+[32m+[m										[32me.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';[m
+ 									}}[m
+[31m-									size="small"[m
+ 								>[m
+ 									<svg[m
+ 										focusable="false"[m
+[36m@@ -342,10 +359,10 @@[m [mconst MlMarker = ({[m
+ 									>[m
+ 										<path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>[m
+ 									</svg>[m
+[31m-								</IconButton>[m
+[32m+[m								[32m</button>[m
+ 							)}[m
+[31m-							<Box[m
+[31m-								sx={{[m
+[32m+[m							[32m<div[m
+[32m+[m								[32mstyle={{[m
+ 									maxHeight: `${POPUP_MAX_HEIGHT}px`,[m
+ 									overflowY: 'auto',[m
+ 									overflowX: 'hidden',[m
+[36m@@ -414,9 +431,9 @@[m [mconst MlMarker = ({[m
+ 									sandbox="allow-same-origin allow-popups-to-escape-sandbox allow-scripts"[m
+ 									title={mapHook.componentId}[m
+ 								/>[m
+[31m-							</Box>[m
+[31m-						</Paper>[m
+[31m-					</Box>,[m
+[32m+[m							[32m</div>[m
+[32m+[m						[32m</div>[m
+[32m+[m					[32m</div>,[m
+ 					container.current[m
+ 				)[m
+ 			: null;[m
+[1mdiff --git a/packages/react-libremap-components/src/components/MlNavigationControls/MlNavigationControls.tsx b/packages/react-libremap-components/src/components/MlNavigationControls/MlNavigationControls.tsx[m
+[1mindex 27f8c5a5..77130f8a 100644[m
+[1m--- a/packages/react-libremap-components/src/components/MlNavigationControls/MlNavigationControls.tsx[m
+[1m+++ b/packages/react-libremap-components/src/components/MlNavigationControls/MlNavigationControls.tsx[m
+[36m@@ -1,4 +1,3 @@[m
+[31m-import type { SxProps } from '@mui/material';[m
+ import { FullscreenControl, NavigationControl } from 'maplibre-gl';[m
+ import { useEffect } from 'react';[m
+ import useMap from '../../hooks/useMap';[m
+[36m@@ -16,7 +15,7 @@[m [mexport interface MlNavigationControlsProps {[m
+ 	/**[m
+ 	 * Style attribute for NavigationTools container[m
+ 	 */[m
+[31m-	sx?: SxProps;[m
+[32m+[m	[32msx?: object;[m
+ 	/**[m
+ 	 * Style attribute for NavigationTools container[m
+ 	 */[m
+[1mdiff --git a/packages/react-libremap-components/src/components/MlScaleReference/MlScaleReference.stories.tsx b/packages/react-libremap-components/src/components/MlScaleReference/MlScaleReference.stories.tsx[m
+[1mindex dde4c581..5bb76120 100644[m
+[1m--- a/packages/react-libremap-components/src/components/MlScaleReference/MlScaleReference.stories.tsx[m
+[1m+++ b/packages/react-libremap-components/src/components/MlScaleReference/MlScaleReference.stories.tsx[m
+[36m@@ -1,9 +1,24 @@[m
+[31m-import { type Theme, useMediaQuery } from '@mui/material';[m
+[31m-import Box from '@mui/material/Box';[m
+ import { useEffect, useState } from 'react';[m
+ import mapContextDecorator from '../../decorators/MapContextDecorator';[m
+ import MlScaleReference, { type MlScaleReferenceProps } from './MlScaleReference';[m
+ [m
+[32m+[m[32m// Custom lightweight media query hook[m
+[32m+[m[32mconst useMediaQuery = (query: string) => {[m
+[32m+[m	[32mconst [matches, setMatches] = useState(false);[m
+[32m+[m
+[32m+[m	[32museEffect(() => {[m
+[32m+[m		[32mconst media = window.matchMedia(query);[m
+[32m+[m		[32mif (media.matches !== matches) {[m
+[32m+[m			[32msetMatches(media.matches);[m
+[32m+[m		[32m}[m
+[32m+[m		[32mconst listener = () => setMatches(media.matches);[m
+[32m+[m		[32mmedia.addEventListener('change', listener);[m
+[32m+[m		[32mreturn () => media.removeEventListener('change', listener);[m
+[32m+[m	[32m}, [matches, query]);[m
+[32m+[m
+[32m+[m	[32mreturn matches;[m
+[32m+[m[32m};[m
+[32m+[m
+ const storyoptions = {[m
+ 	title: 'MapComponents/MlScaleReference',[m
+ 	component: MlScaleReference,[m
+[36m@@ -17,7 +32,7 @@[m [mexport default storyoptions;[m
+ [m
+ const catalgoueTemplate: any = (props: MlScaleReferenceProps) => {[m
+ 	const [showTooltip, setShowTooltip] = useState(true);[m
+[31m-	const mediaIsMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));[m
+[32m+[m	[32mconst mediaIsMobile = useMediaQuery('(max-width: 900px)');[m
+ [m
+ 	useEffect(() => {[m
+ 		const timeout = setTimeout(() => {[m
+[36m@@ -29,13 +44,13 @@[m [mconst catalgoueTemplate: any = (props: MlScaleReferenceProps) => {[m
+ 	return ([m
+ 		<>[m
+ 			{showTooltip && ([m
+[31m-				<Box[m
+[31m-					sx={{[m
+[32m+[m				[32m<div[m
+[32m+[m					[32mstyle={{[m
+ 						position: 'fixed',[m
+[31m-						right: { xs: '105px', md: '175px' },[m
+[32m+[m						[32mright: mediaIsMobile ? '105px' : '175px',[m
+ 						color: '#009ee0',[m
+ 						backgroundColor: '#fff',[m
+[31m-						top: { xs: '20px', md: '22px' },[m
+[32m+[m						[32mtop: mediaIsMobile ? '20px' : '22px',[m
+ 						fontSize: '16px',[m
+ 						fontFamily: 'sans-serif',[m
+ 						display: 'flex',[m
+[36m@@ -47,14 +62,14 @@[m [mconst catalgoueTemplate: any = (props: MlScaleReferenceProps) => {[m
+ 					{mediaIsMobile[m
+ 						? 'Use Zoom to view functionality ➤'[m
+ 						: 'Use Zoom to explore functionality ➤'}[m
+[31m-				</Box>[m
+[32m+[m				[32m</div>[m
+ 			)}[m
+ 		</>[m
+ 	);[m
+ };[m
+ [m
+ const OverlayTemplate: any = (props: MlScaleReferenceProps) => {[m
+[31m-	const mediaIsMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));[m
+[32m+[m	[32mconst mediaIsMobile = useMediaQuery('(max-width: 900px)');[m
+ [m
+ 	return ([m
+ 		<div[m
+[1mdiff --git a/packages/react-libremap-components/src/components/MlTerrainLayer/MlTerrainLayer.stories.tsx b/packages/react-libremap-components/src/components/MlTerrainLayer/MlTerrainLayer.stories.tsx[m
+[1mindex 43f0ed0b..c456b24d 100644[m
+[1m--- a/packages/react-libremap-components/src/components/MlTerrainLayer/MlTerrainLayer.stories.tsx[m
+[1m+++ b/packages/react-libremap-components/src/components/MlTerrainLayer/MlTerrainLayer.stories.tsx[m
+[36m@@ -1,4 +1,3 @@[m
+[31m-import { Button } from '@mui/material';[m
+ import { useEffect, useState } from 'react';[m
+ import MapContextDecorator from '../../decorators/MapContextDecorator';[m
+ import useMap from '../../hooks/useMap';[m
+[36m@@ -25,13 +24,24 @@[m [mconst Template: any = () => {[m
+ [m
+ 	return ([m
+ 		<>[m
+[31m-			<Button[m
+[31m-				variant={active ? 'contained' : 'outlined'}[m
+[32m+[m			[32m<button[m
+[32m+[m				[32mtype="button"[m
+ 				className="terrainLayerButton"[m
+ 				onClick={() => setActive(!active)}[m
+[32m+[m				[32mstyle={{[m
+[32m+[m					[32mpadding: '6px 16px',[m
+[32m+[m					[32mbackgroundColor: active ? '#1976d2' : 'transparent',[m
+[32m+[m					[32mcolor: active ? '#fff' : '#1976d2',[m
+[32m+[m					[32mborder: '1px solid #1976d2',[m
+[32m+[m					[32mborderRadius: '4px',[m
+[32m+[m					[32mcursor: 'pointer',[m
+[32m+[m					[32mfontFamily: 'inherit',[m
+[32m+[m					[32mfontSize: '0.875rem',[m
+[32m+[m					[32mfontWeight: 500,[m
+[32m+[m				[32m}}[m
+ 			>[m
+ 				Terrain Layer[m
+[31m-			</Button>[m
+[32m+[m			[32m</button>[m
+ 			{active && ([m
+ 				<MlTerrainLayer[m
+ 					sourceOptions={{[m
+[1mdiff --git a/packages/react-libremap-components/src/decorators/MapContextDecorator.tsx b/packages/react-libremap-components/src/decorators/MapContextDecorator.tsx[m
+[1mindex 2c90d8f8..9263728a 100644[m
+[1m--- a/packages/react-libremap-components/src/decorators/MapContextDecorator.tsx[m
+[1m+++ b/packages/react-libremap-components/src/decorators/MapContextDecorator.tsx[m
+[36m@@ -1,4 +1,3 @@[m
+[31m-import { Paper } from '@mui/material';[m
+ import type { Decorator } from '@storybook/react-vite';[m
+ import type { FC, ReactElement } from 'react';[m
+ import MapLibreMap, { type MapLibreMapProps } from '../components/MapLibreMap/MapLibreMap';[m
+[36m@@ -22,16 +21,19 @@[m [mconst makeMapContextDecorators = (options: MapLibreMapProps['options']): Decorat[m
+ 					<MapComponentsProvider>[m
+ 						<MapContextMenuProvider mapId="map_1">[m
+ 							{(context?.name === 'Example Config' || context?.name === 'Catalogue Demo') && ([m
+[31m-								<Paper[m
+[31m-									sx={{[m
+[32m+[m								[32m<div[m
+[32m+[m									[32mstyle={{[m
+ 										position: 'fixed',[m
+ 										top: '70px',[m
+ 										right: '20px',[m
+ 										zIndex: 1300,[m
+[32m+[m										[32mbackgroundColor: '#fff',[m
+[32m+[m										[32mborderRadius: '4px',[m
+[32m+[m										[32mboxShadow: '0px 2px 4px rgba(0,0,0,0.15)',[m
+ 									}}[m
+ 								>[m
+ 									<MlScaleReference />[m
+[31m-								</Paper>[m
+[32m+[m								[32m</div>[m
+ 							)}[m
+ 							<Story />[m
+ 							<MapLibreMap[m
+[1mdiff --git a/packages/react-libremap-components/src/ui_components/ColorPicker/ColorPicker.tsx b/packages/react-libremap-components/src/ui_components/ColorPicker/ColorPicker.tsx[m
+[1mindex 00a62e1a..cdcea38d 100644[m
+[1m--- a/packages/react-libremap-components/src/ui_components/ColorPicker/ColorPicker.tsx[m
+[1m+++ b/packages/react-libremap-components/src/ui_components/ColorPicker/ColorPicker.tsx[m
+[36m@@ -1,4 +1,3 @@[m
+[31m-import { Button, Grid } from '@mui/material';[m
+ import { useState } from 'react';[m
+ import { ChromePicker } from 'react-color';[m
+ import { converters } from './transformers';[m
+[36m@@ -15,18 +14,25 @@[m [mconst ColorPicker = ({ convert = 'hex', ...props }: ColorPickerProps) => {[m
+ [m
+ 	return ([m
+ 		<>[m
+[31m-			<Grid container sx={{ flexWrap: 'nowrap' }}>[m
+[31m-				<Grid size={12}>[m
+[31m-					<Button[m
+[31m-						variant="outlined"[m
+[32m+[m			[32m<div style={{ display: 'flex', flexWrap: 'nowrap', width: '100%' }}>[m
+[32m+[m				[32m<div style={{ width: '100%' }}>[m
+[32m+[m					[32m<button[m
+[32m+[m						[32mtype="button"[m
+ 						onClick={() => setShowPicker(true)}[m
+[31m-						sx={{[m
+[32m+[m						[32mstyle={{[m
+ 							minWidth: '100%',[m
+ 							padding: '5px',[m
+ 							marginBottom: '10px',[m
+[32m+[m							[32mdisplay: 'flex',[m
+[32m+[m							[32malignItems: 'center',[m
+ 							justifyContent: 'flex-start',[m
+[31m-							borderColor: (theme) => theme.palette.text.primary,[m
+[31m-							color: (theme) => theme.palette.text.primary,[m
+[32m+[m							[32mborder: '1px solid currentColor',[m
+[32m+[m							[32mbackgroundColor: 'transparent',[m
+[32m+[m							[32mcolor: 'inherit',[m
+[32m+[m							[32mcursor: 'pointer',[m
+[32m+[m							[32mborderRadius: '4px',[m
+[32m+[m							[32mfontFamily: 'inherit',[m
+[32m+[m							[32mfontSize: 'inherit',[m
+ 						}}[m
+ 					>[m
+ 						<div[m
+[36m@@ -39,9 +45,9 @@[m [mconst ColorPicker = ({ convert = 'hex', ...props }: ColorPickerProps) => {[m
+ 						/>[m
+ [m
+ 						{value}[m
+[31m-					</Button>[m
+[31m-				</Grid>[m
+[31m-			</Grid>[m
+[32m+[m					[32m</button>[m
+[32m+[m				[32m</div>[m
+[32m+[m			[32m</div>[m
+ 			{showPicker && ([m
+ 				<div style={{ position: 'relative', marginTop: 0 }}>[m
+ 					<div style={{ position: 'absolute', zIndex: 1000 }}>[m
+[1mdiff --git a/packages/react-libremap-components/src/util/BubbleForInstructions.tsx b/packages/react-libremap-components/src/util/BubbleForInstructions.tsx[m
+[1mindex 67f601fc..6b2d4860 100644[m
+[1m--- a/packages/react-libremap-components/src/util/BubbleForInstructions.tsx[m
+[1m+++ b/packages/react-libremap-components/src/util/BubbleForInstructions.tsx[m
+[36m@@ -1,4 +1,3 @@[m
+[31m-import { Box, Typography } from '@mui/material';[m
+ import type React from 'react';[m
+ [m
+ export interface BubbleForInstructionProps {[m
+[36m@@ -17,24 +16,26 @@[m [mexport interface BubbleForInstructionProps {[m
+ [m
+ function BubbleForInstruction(props: BubbleForInstructionProps) {[m
+ 	return ([m
+[31m-		<Box[m
+[31m-			sx={{[m
+[32m+[m		[32m<div[m
+[32m+[m			[32mstyle={{[m
+ 				width: '475px',[m
+ 				height: '475px',[m
+ 				position: 'fixed',[m
+ 				display: 'block',[m
+ 				borderRadius: '360px',[m
+[31m-				bgcolor: 'primary.main',[m
+[32m+[m				[32mbackgroundColor: '#1976d2',[m
+ 				right: props.bubbleRight,[m
+ 				bottom: props.bubbleBottom,[m
+ 				left: props.bubbleLeft,[m
+ 				top: props.bubbleTop,[m
+[31m-				zIndex: props.zIndex,[m
+[32m+[m				[32mzIndex: Number.parseInt(props.zIndex) || 1000,[m
+ 			}}[m
+ 		>[m
+[31m-			<Typography[m
+[31m-				variant="h5"[m
+[31m-				sx={{[m
+[32m+[m			[32m<h5[m
+[32m+[m				[32mstyle={{[m
+[32m+[m					[32mfontSize: '1.5rem',[m
+[32m+[m					[32mfontWeight: 'inherit',[m
+[32m+[m					[32mmargin: 0,[m
+ 					marginTop: props.textMarginTop,[m
+ 					marginLeft: props.textMarginLeft,[m
+ 					color: '#fff',[m
+[36m@@ -42,9 +43,9 @@[m [mfunction BubbleForInstruction(props: BubbleForInstructionProps) {[m
+ 				}}[m
+ 			>[m
+ 				<b>{props.children}</b>[m
+[31m-			</Typography>[m
+[32m+[m			[32m</h5>[m
+ 			{/* TODO: add icon*/}[m
+[31m-		</Box>[m
+[32m+[m		[32m</div>[m
+ 	);[m
+ }[m
+ export default BubbleForInstruction;[m
+[1mdiff --git a/packages/react-libremap-components/src/util/Instructions.tsx b/packages/react-libremap-components/src/util/Instructions.tsx[m
+[1mindex bb7d0498..434e5013 100644[m
+[1m--- a/packages/react-libremap-components/src/util/Instructions.tsx[m
+[1m+++ b/packages/react-libremap-components/src/util/Instructions.tsx[m
+[36m@@ -1,4 +1,3 @@[m
+[31m-import { Fade } from '@mui/material';[m
+ import type React from 'react';[m
+ import { useEffect, useRef, useState } from 'react';[m
+ import BubbleStyle, { type BubbleForInstructionProps } from './BubbleForInstructions';[m
+[36m@@ -46,13 +45,11 @@[m [mconst Instructions = (props: InstructionProps) => {[m
+ 	return ([m
+ 		<>[m
+ 			{typeof activeStep !== 'undefined' && ([m
+[31m-				<Fade in={true} timeout={150}>[m
+[31m-					<div>[m
+[31m-						<BubbleStyle {...props.steps[activeStep].props}>[m
+[31m-							{props.steps[activeStep].content}[m
+[31m-						</BubbleStyle>[m
+[31m-					</div>[m
+[31m-				</Fade>[m
+[32m+[m				[32m<div style={{ transition: 'opacity 150ms ease-in-out', opacity: 1 }}>[m
+[32m+[m					[32m<BubbleStyle {...props.steps[activeStep].props}>[m
+[32m+[m						[32m{props.steps[activeStep].content}[m
+[32m+[m					[32m</BubbleStyle>[m
+[32m+[m				[32m</div>[m
+ 			)}[m
+ 		</>[m
+ 	);[m
+[1mdiff --git a/packages/react-libremap-deckgl/package.json b/packages/react-libremap-deckgl/package.json[m
+[1mindex 30010e77..cb11dc1b 100644[m
+[1m--- a/packages/react-libremap-deckgl/package.json[m
+[1m+++ b/packages/react-libremap-deckgl/package.json[m
+[36m@@ -10,11 +10,6 @@[m
+ 		"test": "echo \"Error: no test specified\" && exit 1"[m
+ 	},[m
+ 	"dependencies": {[m
+[31m-		"@emotion/react": "^11.14.0",[m
+[31m-		"@emotion/styled": "^11.14.1",[m
+[31m-		"@mui/icons-material": "^7.3.2",[m
+[31m-		"@mui/system": "^7.3.2",[m
+[31m-		"@mui/material": "^7.3.2",[m
+ 		"@storybook/react": "^10.3.3",[m
+ 		"@turf/turf": "^7.2.0",[m
+ 		"d3": "^7.9.0",[m
+[1mdiff --git a/packages/react-libremap-deckgl/src/components/Ml3DTileLayer/Ml3DTileLayer.tsx b/packages/react-libremap-deckgl/src/components/Ml3DTileLayer/Ml3DTileLayer.tsx[m
+[1mindex 35bffb20..d28dc987 100644[m
+[1m--- a/packages/react-libremap-deckgl/src/components/Ml3DTileLayer/Ml3DTileLayer.tsx[m
+[1m+++ b/packages/react-libremap-deckgl/src/components/Ml3DTileLayer/Ml3DTileLayer.tsx[m
+[36m@@ -1,6 +1,6 @@[m
+ import { Tile3DLayer, type Tile3DLayerProps } from '@deck.gl/geo-layers';[m
+[31m-import { useMap } from 'react-libremap-components';[m
+ import { useEffect, useMemo } from 'react';[m
+[32m+[m[32mimport { useMap } from 'react-libremap-components';[m
+ import useDeckGl from '../../hooks/useDeckGl';[m
+ [m
+ export interface Ml3DTileLayerProps extends Tile3DLayerProps {[m
+[1mdiff --git a/packages/react-libremap-deckgl/src/components/MlIconLayer/MlIconLayer.stories.tsx b/packages/react-libremap-deckgl/src/components/MlIconLayer/MlIconLayer.stories.tsx[m
+[1mindex 91372b7a..bfc0f329 100644[m
+[1m--- a/packages/react-libremap-deckgl/src/components/MlIconLayer/MlIconLayer.stories.tsx[m
+[1m+++ b/packages/react-libremap-deckgl/src/components/MlIconLayer/MlIconLayer.stories.tsx[m
+[36m@@ -1,5 +1,4 @@[m
+ import { MapContext, useMap } from 'react-libremap-components';[m
+[31m-import { Box, Button, Checkbox, Divider, FormControlLabel, Paper, Typography } from '@mui/material';[m
+ import * as turf from '@turf/turf';[m
+ import * as d3 from 'd3';[m
+ import { useContext, useEffect, useRef, useState } from 'react';[m
+[36m@@ -136,94 +135,110 @@[m [mconst Template = () => {[m
+ 	return ([m
+ 		<>[m
+ 			{/* Sidebar */}[m
+[31m-			<Paper[m
+[31m-				elevation={3}[m
+[31m-				sx={{[m
+[32m+[m			[32m<div[m
+[32m+[m				[32mstyle={{[m
+ 					position: 'absolute',[m
+[31m-					top: 60,[m
+[31m-					right: 10,[m
+[32m+[m					[32mtop: '60px',[m
+[32m+[m					[32mright: '10px',[m
+ 					zIndex: 1000,[m
+[31m-					width: 280,[m
+[32m+[m					[32mwidth: '280px',[m
+ 					maxHeight: 'calc(100vh - 80px)',[m
+ 					overflowY: 'auto',[m
+[31m-					p: 2,[m
+[32m+[m					[32mpadding: '16px',[m
+[32m+[m					[32mbackgroundColor: '#fff',[m
+[32m+[m					[32mborderRadius: '4px',[m
+[32m+[m					[32mboxShadow: '0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12)',[m
+[32m+[m					[32mfontFamily: 'sans-serif',[m
+ 				}}[m
+ 			>[m
+[31m-				<Typography variant="h6" gutterBottom>[m
+[32m+[m				[32m<h3 style={{ margin: '0 0 8px 0', fontSize: '1.25rem', fontWeight: 500 }}>[m
+ 					AIS Vessel Tracker[m
+[31m-				</Typography>[m
+[31m-				<Typography variant="body2" color="text.secondary" gutterBottom>[m
+[32m+[m				[32m</h3>[m
+[32m+[m				[32m<div style={{ fontSize: '0.875rem', color: 'rgba(0,0,0,0.6)', marginBottom: '8px' }}>[m
+ 					{vessels.length} vessels loaded[m
+[31m-				</Typography>[m
+[31m-[m
+[31m-				<Divider sx={{ my: 1 }} />[m
+[31m-[m
+[31m-				<Typography variant="subtitle2">Filter by speed</Typography>[m
+[31m-				<FormControlLabel[m
+[31m-					control={[m
+[31m-						<Checkbox[m
+[31m-							checked={showStationary}[m
+[31m-							onChange={() => setShowStationary((v) => !v)}[m
+[31m-							size="small"[m
+[31m-						/>[m
+[31m-					}[m
+[31m-					label={<Typography variant="body2">Stationary (0 kn)</Typography>}[m
+[31m-				/>[m
+[31m-				<FormControlLabel[m
+[31m-					control={[m
+[31m-						<Checkbox checked={showMoving} onChange={() => setShowMoving((v) => !v)} size="small" />[m
+[31m-					}[m
+[31m-					label={<Typography variant="body2">{'Moving (> 0 kn)'}</Typography>}[m
+[31m-				/>[m
+[32m+[m				[32m</div>[m
+[32m+[m
+[32m+[m				[32m<hr style={{ border: 0, borderBottom: '1px solid rgba(0,0,0,0.12)', margin: '8px 0' }} />[m
+[32m+[m
+[32m+[m				[32m<div style={{ fontSize: '0.875rem', fontWeight: 'bold', margin: '8px 0' }}>Filter by speed</div>[m
+[32m+[m				[32m<label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', marginBottom: '4px' }}>[m
+[32m+[m					[32m<input[m
+[32m+[m						[32mtype="checkbox"[m
+[32m+[m						[32mchecked={showStationary}[m
+[32m+[m						[32monChange={() => setShowStationary((v) => !v)}[m
+[32m+[m						[32mstyle={{ cursor: 'pointer' }}[m
+[32m+[m					[32m/>[m
+[32m+[m					[32m<span style={{ fontSize: '0.875rem' }}>Stationary (0 kn)</span>[m
+[32m+[m				[32m</label>[m
+[32m+[m				[32m<label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', marginBottom: '8px' }}>[m
+[32m+[m					[32m<input[m
+[32m+[m						[32mtype="checkbox"[m
+[32m+[m						[32mchecked={showMoving}[m
+[32m+[m						[32monChange={() => setShowMoving((v) => !v)}[m
+[32m+[m						[32mstyle={{ cursor: 'pointer' }}[m
+[32m+[m					[32m/>[m
+[32m+[m					[32m<span style={{ fontSize: '0.875rem' }}>{'Moving (> 0 kn)'}</span>[m
+[32m+[m				[32m</label>[m
+ [m
+ 				{selectedVessel && ([m
+ 					<>[m
+[31m-						<Divider sx={{ my: 1 }} />[m
+[31m-						<Typography variant="subtitle2">Selected vessel</Typography>[m
+[31m-						<Box sx={{ mt: 1 }}>[m
+[31m-							<Typography variant="body2">[m
+[32m+[m						[32m<hr style={{ border: 0, borderBottom: '1px solid rgba(0,0,0,0.12)', margin: '8px 0' }} />[m
+[32m+[m						[32m<div style={{ fontSize: '0.875rem', fontWeight: 'bold', margin: '8px 0' }}>Selected vessel</div>[m
+[32m+[m						[32m<div style={{ marginTop: '8px' }}>[m
+[32m+[m							[32m<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>[m
+ 								<b>MMSI:</b> {selectedVessel.mmsi}[m
+[31m-							</Typography>[m
+[31m-							<Typography variant="body2">[m
+[32m+[m							[32m</div>[m
+[32m+[m							[32m<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>[m
+ 								<b>Nav status:</b> {NAV_STATS[selectedVessel.navStat] ?? selectedVessel.navStat}[m
+[31m-							</Typography>[m
+[31m-							<Typography variant="body2">[m
+[32m+[m							[32m</div>[m
+[32m+[m							[32m<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>[m
+ 								<b>Speed:</b> {selectedVessel.velocity} kn ([m
+ 								{convertKnotsToKmh(selectedVessel.velocity)} km/h)[m
+[31m-							</Typography>[m
+[31m-							<Typography variant="body2">[m
+[32m+[m							[32m</div>[m
+[32m+[m							[32m<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>[m
+ 								<b>Accuracy:</b> {selectedVessel.accurancy ? 'high' : 'low'}[m
+[31m-							</Typography>[m
+[32m+[m							[32m</div>[m
+ 							{vesselInfo && ([m
+ 								<>[m
+[31m-									<Typography variant="body2">[m
+[32m+[m									[32m<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>[m
+ 										<b>Name:</b> {(vesselInfo.name as string) || '--'}[m
+[31m-									</Typography>[m
+[31m-									<Typography variant="body2">[m
+[32m+[m									[32m</div>[m
+[32m+[m									[32m<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>[m
+ 										<b>Callsign:</b> {(vesselInfo.callSign as string) || '--'}[m
+[31m-									</Typography>[m
+[31m-									<Typography variant="body2">[m
+[32m+[m									[32m</div>[m
+[32m+[m									[32m<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>[m
+ 										<b>Destination:</b> {(vesselInfo.destination as string) || '--'}[m
+[31m-									</Typography>[m
+[31m-									<Typography variant="body2">[m
+[32m+[m									[32m</div>[m
+[32m+[m									[32m<div style={{ fontSize: '0.875rem', marginBottom: '4px' }}>[m
+ 										<b>Ship type:</b> {getShipType(vesselInfo.shipType as number) || '--'}[m
+[31m-									</Typography>[m
+[32m+[m									[32m</div>[m
+ 								</>[m
+ 							)}[m
+[31m-							<Button[m
+[31m-								size="small"[m
+[31m-								sx={{ mt: 1 }}[m
+[32m+[m							[32m<button[m
+[32m+[m								[32mtype="button"[m
+[32m+[m								[32mstyle={{[m
+[32m+[m									[32mmarginTop: '8px',[m
+[32m+[m									[32mpadding: '4px 8px',[m
+[32m+[m									[32mborder: '1px solid #1976d2',[m
+[32m+[m									[32mbackgroundColor: 'transparent',[m
+[32m+[m									[32mcolor: '#1976d2',[m
+[32m+[m									[32mborderRadius: '4px',[m
+[32m+[m									[32mcursor: 'pointer',[m
+[32m+[m									[32mfontSize: '0.75rem',[m
+[32m+[m									[32mfontWeight: 'bold',[m
+[32m+[m									[32mfontFamily: 'inherit',[m
+[32m+[m								[32m}}[m
+ 								onClick={() => {[m
+ 									setSelectedVessel(null);[m
+ 									setVesselInfo(null);[m
+ 								}}[m
+ 							>[m
+ 								Clear selection[m
+[31m-							</Button>[m
+[31m-						</Box>[m
+[32m+[m							[32m</button>[m
+[32m+[m						[32m</div>[m
+ 					</>[m
+ 				)}[m
+[31m-			</Paper>[m
+[32m+[m			[32m</div>[m
+ [m
+ 			<MlIconLayer[m
+ 				data={vessels}[m
+[1mdiff --git a/packages/react-libremap-deckgl/src/decorators/MapContextDecorator.tsx b/packages/react-libremap-deckgl/src/decorators/MapContextDecorator.tsx[m
+[1mindex 40758fff..acfd1757 100644[m
+[1m--- a/packages/react-libremap-deckgl/src/decorators/MapContextDecorator.tsx[m
+[1m+++ b/packages/react-libremap-deckgl/src/decorators/MapContextDecorator.tsx[m
+[36m@@ -1,36 +1,30 @@[m
+[31m-import { getTheme, MapComponentsProvider, MapLibreMap } from 'react-libremap-components';[m
+[31m-import { useMemo } from 'react';[m
+[32m+[m[32mimport { MapComponentsProvider, MapLibreMap } from 'react-libremap-components';[m
+ import './style.css';[m
+[31m-import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';[m
+ import { DeckGlContextProvider } from '../contexts/DeckGlContext';[m
+ [m
+ const decorators = [[m
+ 	(Story: any, context: any) => {[m
+[31m-		const theme = useMemo(() => getTheme(context?.globals?.theme), [context?.globals?.theme]);[m
+[31m-[m
+ 		return ([m
+ 			<div className="fullscreen_map">[m
+ 				<MapComponentsProvider>[m
+[31m-					<MUIThemeProvider theme={theme}>[m
+[31m-						<DeckGlContextProvider mapId={context.mapId}>[m
+[31m-							<Story />[m
+[31m-						</DeckGlContextProvider>[m
+[31m-						<MapLibreMap[m
+[31m-							options={[m
+[31m-								context?.parameters?.mapOptions[m
+[31m-									? {[m
+[31m-											style: 'https://wms.wheregroup.com/tileserver/style/osm-bright.json',[m
+[31m-											...context.parameters.mapOptions,[m
+[31m-										}[m
+[31m-									: {[m
+[31m-											zoom: 14.5,[m
+[31m-											style: 'https://wms.wheregroup.com/tileserver/style/osm-bright.json',[m
+[31m-											center: [7.0851268, 50.73884],[m
+[31m-										}[m
+[31m-							}[m
+[31m-							mapId={context.mapId}[m
+[31m-						/>[m
+[31m-					</MUIThemeProvider>[m
+[32m+[m					[32m<DeckGlContextProvider mapId={context.mapId}>[m
+[32m+[m						[32m<Story />[m
+[32m+[m					[32m</DeckGlContextProvider>[m
+[32m+[m					[32m<MapLibreMap[m
+[32m+[m						[32moptions={[m
+[32m+[m							[32mcontext?.parameters?.mapOptions[m
+[32m+[m								[32m? {[m
+[32m+[m										[32mstyle: 'https://wms.wheregroup.com/tileserver/style/osm-bright.json',[m
+[32m+[m										[32m...context.parameters.mapOptions,[m
+[32m+[m									[32m}[m
+[32m+[m								[32m: {[m
+[32m+[m										[32mzoom: 14.5,[m
+[32m+[m										[32mstyle: 'https://wms.wheregroup.com/tileserver/style/osm-bright.json',[m
+[32m+[m										[32mcenter: [7.0851268, 50.73884],[m
+[32m+[m									[32m}[m
+[32m+[m						[32m}[m
+[32m+[m						[32mmapId={context.mapId}[m
+[32m+[m					[32m/>[m
+ 				</MapComponentsProvider>[m
+ 			</div>[m
+ 		);[m
+[1mdiff --git a/packages/react-libremap-deckgl/src/util/BubbleForInstructions.js b/packages/react-libremap-deckgl/src/util/BubbleForInstructions.js[m
+[1mindex 882ea49f..7b423780 100644[m
+[1m--- a/packages/react-libremap-deckgl/src/util/BubbleForInstructions.js[m
+[1m+++ b/packages/react-libremap-deckgl/src/util/BubbleForInstructions.js[m
+[36m@@ -1,45 +1,50 @@[m
+[31m-import ReplyAllIcon from '@mui/icons-material/ReplyAll';[m
+[31m-import { Box, Typography } from '@mui/material';[m
+[31m-[m
+ function BubbleForInstruction(props) {[m
+ 	return ([m
+[31m-		<Box[m
+[31m-			sx={{[m
+[32m+[m		[32m<div[m
+[32m+[m			[32mstyle={{[m
+ 				width: '475px',[m
+ 				height: '475px',[m
+ 				position: 'fixed',[m
+ 				display: 'block',[m
+ 				borderRadius: '360px',[m
+[31m-				bgcolor: 'primary.main',[m
+[32m+[m				[32mbackgroundColor: '#1976d2',[m
+ 				right: props.bubbleRight,[m
+ 				bottom: props.bubbleBottom,[m
+ 				left: props.bubbleLeft,[m
+ 				top: props.bubbleTop,[m
+[31m-				zIndex: props.zIndex,[m
+[32m+[m				[32mzIndex: Number.parseInt(props.zIndex) || 1000,[m
+ 			}}[m
+ 		>[m
+[31m-			<Typography[m
+[31m-				variant="h5"[m
+[31m-				sx={{[m
+[32m+[m			[32m<h5[m
+[32m+[m				[32mstyle={{[m
+[32m+[m					[32mfontSize: '1.5rem',[m
+[32m+[m					[32mfontWeight: 'inherit',[m
+[32m+[m					[32mmargin: 0,[m
+ 					marginTop: props.textMarginTop,[m
+ 					marginLeft: props.textMarginLeft,[m
+[31m-					color: 'text.contrast',[m
+[32m+[m					[32mcolor: '#fff',[m
+ 					textAlign: 'left',[m
+ 				}}[m
+ 			>[m
+ 				<b>{props.children}</b>[m
+[31m-			</Typography>[m
+[31m-			<ReplyAllIcon[m
+[31m-				sx={{[m
+[31m-					color: 'text.contrast',[m
+[31m-					fontSize: '80px',[m
+[32m+[m			[32m</h5>[m
+[32m+[m			[32m<svg[m
+[32m+[m				[32mviewBox="0 0 24 24"[m
+[32m+[m				[32mstyle={{[m
+[32m+[m					[32mcolor: '#fff',[m
+[32m+[m					[32mwidth: '80px',[m
+[32m+[m					[32mheight: '80px',[m
+ 					position: 'absolute',[m
+ 					transform: props.iconTransform,[m
+ 					marginTop: props.iconMarginTop,[m
+ 					marginLeft: props.iconMarginLeft,[m
+[32m+[m					[32mfill: 'currentColor',[m
+[32m+[m					[32mdisplay: 'inline-block',[m
+ 				}}[m
+[31m-			/>[m
+[31m-		</Box>[m
+[32m+[m			[32m>[m
+[32m+[m				[32m<path d="M7 8V5l-7 7 7 7v-3l-4-4 4-4zm11 2.4V7l-7 7 7 7v-3.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z" />[m
+[32m+[m			[32m</svg>[m
+[32m+[m		[32m</div>[m
+ 	);[m
+ }[m
+ export default BubbleForInstruction;[m
+[1mdiff --git a/packages/react-libremap-deckgl/src/util/Instructions.tsx b/packages/react-libremap-deckgl/src/util/Instructions.tsx[m
+[1mindex 0c700462..c75aed95 100644[m
+[1m--- a/packages/react-libremap-deckgl/src/util/Instructions.tsx[m
+[1m+++ b/packages/react-libremap-deckgl/src/util/Instructions.tsx[m
+[36m@@ -1,11 +1,10 @@[m
+[31m-import { Fade, type SxProps } from '@mui/material';[m
+ import { useEffect, useRef, useState } from 'react';[m
+ import type { JSX } from 'react/jsx-runtime';[m
+ import BubbleStyle from './BubbleForInstructions.js';[m
+ [m
+ interface StepObject {[m
+ 	duration: number;[m
+[31m-	props: SxProps;[m
+[32m+[m	[32mprops: object;[m
+ 	content: JSX.Element;[m
+ }[m
+ [m
+[36m@@ -46,13 +45,11 @@[m [mconst Instructions = (props: InstructionProps) => {[m
+ 	return ([m
+ 		<>[m
+ 			{typeof activeStep !== 'undefined' && ([m
+[31m-				<Fade in={true} timeout={150}>[m
+[31m-					<div>[m
+[31m-						<BubbleStyle {...props.steps[activeStep].props}>[m
+[31m-							{props.steps[activeStep].content}[m
+[31m-						</BubbleStyle>[m
+[31m-					</div>[m
+[31m-				</Fade>[m
+[32m+[m				[32m<div style={{ transition: 'opacity 150ms ease-in-out', opacity: 1 }}>[m
+[32m+[m					[32m<BubbleStyle {...props.steps[activeStep].props}>[m
+[32m+[m						[32m{props.steps[activeStep].content}[m
+[32m+[m					[32m</BubbleStyle>[m
+[32m+[m				[32m</div>[m
+ 			)}[m
+ 		</>[m
+ 	);[m
+[1mdiff --git a/packages/react-libremap-deckgl/vite.config.ts b/packages/react-libremap-deckgl/vite.config.ts[m
+[1mindex 573a7326..544bb628 100644[m
+[1m--- a/packages/react-libremap-deckgl/vite.config.ts[m
+[1m+++ b/packages/react-libremap-deckgl/vite.config.ts[m
+[36m@@ -14,10 +14,6 @@[m [mexport default defineConfig(() => ({[m
+ 		dedupe: [[m
+ 			'react',[m
+ 			'react-dom',[m
+[31m-			'@mui/material',[m
+[31m-			'@mui/system',[m
+[31m-			'@emotion/react',[m
+[31m-			'@emotion/styled',[m
+ 		],[m
+ 	},[m
+ 	plugins: [[m
+[36m@@ -61,11 +57,6 @@[m [mexport default defineConfig(() => ({[m
+ 				'@deck.gl/geo-layers',[m
+ 				'@deck.gl/mapbox',[m
+ 				'@deck.gl/mesh-layers',[m
+[31m-				'@mui/material',[m
+[31m-				'@mui/system',[m
+[31m-				'@mui/icons-material',[m
+[31m-				'@emotion/react',[m
+[31m-				'@emotion/styled',[m
+ 			],[m
+ 		},[m
+ 	},[m
+[1mdiff --git a/packages/react-libremap-threejs/package.json b/packages/react-libremap-threejs/package.json[m
+[1mindex dda9d395..da5710a6 100644[m
+[1m--- a/packages/react-libremap-threejs/package.json[m
+[1m+++ b/packages/react-libremap-threejs/package.json[m
+[36m@@ -21,10 +21,6 @@[m
+ 		"react-dom": "^19.1.0"[m
+ 	},[m
+ 	"dependencies": {[m
+[31m-		"@emotion/react": "^11.14.0",[m
+[31m-		"@emotion/styled": "^11.14.1",[m
+[31m-		"@mui/material": "^7.3.2",[m
+[31m-		"@mui/system": "^7.3.2",[m
+ 		"maplibre-gl": "^5.16.0",[m
+ 		"three": "^0.182.0"[m
+ 	},[m
+[1mdiff --git a/packages/react-libremap-threejs/src/components/MlThreeModelLayer/MlThreeModelLayer.stories.tsx b/packages/react-libremap-threejs/src/components/MlThreeModelLayer/MlThreeModelLayer.stories.tsx[m
+[1mindex 5fc5efbf..c93d3db9 100644[m
+[1m--- a/packages/react-libremap-threejs/src/components/MlThreeModelLayer/MlThreeModelLayer.stories.tsx[m
+[1m+++ b/packages/react-libremap-threejs/src/components/MlThreeModelLayer/MlThreeModelLayer.stories.tsx[m
+[36m@@ -1,5 +1,4 @@[m
+[31m-import { Sidebar, TopToolbar, useMap } from 'react-libremap-components';[m
+[31m-import Button from '@mui/material/Button';[m
+[32m+[m[32mimport { useMap } from 'react-libremap-components';[m
+ import { useEffect, useRef, useState } from 'react';[m
+ import * as THREE from 'three';[m
+ import { useThree } from '../../contexts/ThreeContext';[m
+[36m@@ -7,6 +6,39 @@[m [mimport ThreejsContextDecorator from '../../decorators/ThreejsContextDecorator';[m
+ import { MlThreeObjectControls } from '../MlThreeObjectControls';[m
+ import MlThreeModelLayer from './MlThreeModelLayer';[m
+ [m
+[32m+[m[32m// Local lightweight UI components to replace missing component library exports[m
+[32m+[m[32mconst TopToolbar = ({ unmovableButtons }: { unmovableButtons: React.ReactNode }) => ([m
+[32m+[m	[32m<div style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1000, display: 'flex', gap: '10px' }}>[m
+[32m+[m		[32m{unmovableButtons}[m
+[32m+[m	[32m</div>[m
+[32m+[m[32m);[m
+[32m+[m
+[32m+[m[32mconst Sidebar = ({ open, setOpen, name, children }: { open: boolean; setOpen: (open: boolean) => void; name: string; children: React.ReactNode }) => {[m
+[32m+[m	[32mif (!open) return null;[m
+[32m+[m	[32mreturn ([m
+[32m+[m		[32m<div style={{[m
+[32m+[m			[32mposition: 'absolute',[m
+[32m+[m			[32mtop: '60px',[m
+[32m+[m			[32mleft: '10px',[m
+[32m+[m			[32mzIndex: 1000,[m
+[32m+[m			[32mwidth: '320px',[m
+[32m+[m			[32mmaxHeight: 'calc(100vh - 80px)',[m
+[32m+[m			[32moverflowY: 'auto',[m
+[32m+[m			[32mbackgroundColor: '#fff',[m
+[32m+[m			[32mboxShadow: '0 4px 12px rgba(0,0,0,0.15)',[m
+[32m+[m			[32mborderRadius: '8px',[m
+[32m+[m			[32mpadding: '16px',[m
+[32m+[m			[32mfontFamily: 'sans-serif'[m
+[32m+[m		[32m}}>[m
+[32m+[m			[32m<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>[m
+[32m+[m				[32m<h3 style={{ margin: 0, fontSize: '1.1rem' }}>{name}</h3>[m
+[32m+[m				[32m<button type="button" onClick={() => setOpen(false)} style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '1.2rem', fontWeight: 'bold' }}>✕</button>[m
+[32m+[m			[32m</div>[m
+[32m+[m			[32m{children}[m
+[32m+[m		[32m</div>[m
+[32m+[m	[32m);[m
+[32m+[m[32m};[m
+[32m+[m
+ const storyoptions = {[m
+ 	title: 'MapComponents/MlThreeModelLayer',[m
+ 	component: MlThreeModelLayer,[m
+[36m@@ -85,12 +117,23 @@[m [mconst Template: any = () => {[m
+ [m
+ 			<TopToolbar[m
+ 				unmovableButtons={[m
+[31m-					<Button[m
+[31m-						variant={sidebarOpen ? 'contained' : 'outlined'}[m
+[32m+[m					[32m<button[m
+[32m+[m						[32mtype="button"[m
+[32m+[m						[32mstyle={{[m
+[32m+[m							[32mpadding: '6px 16px',[m
+[32m+[m							[32mbackgroundColor: sidebarOpen ? '#1976d2' : 'transparent',[m
+[32m+[m							[32mcolor: sidebarOpen ? '#fff' : '#1976d2',[m
+[32m+[m							[32mborder: '1px solid #1976d2',[m
+[32m+[m							[32mborderRadius: '4px',[m
+[32m+[m							[32mcursor: 'pointer',[m
+[32m+[m							[32mfontFamily: 'inherit',[m
+[32m+[m							[32mfontSize: '0.875rem',[m
+[32m+[m							[32mfontWeight: 500,[m
+[32m+[m						[32m}}[m
+ 						onClick={() => setSidebarOpen(!sidebarOpen)}[m
+ 					>[m
+ 						Sidebar[m
+[31m-					</Button>[m
+[32m+[m					[32m</button>[m
+ 				}[m
+ 			/>[m
+ 			<Sidebar open={sidebarOpen} setOpen={setSidebarOpen} name="3D Model Config">[m
+[1mdiff --git a/packages/react-libremap-threejs/src/components/MlThreeObjectControls.tsx b/packages/react-libremap-threejs/src/components/MlThreeObjectControls.tsx[m
+[1mindex c9ec3762..5022e20d 100644[m
+[1m--- a/packages/react-libremap-threejs/src/components/MlThreeObjectControls.tsx[m
+[1m+++ b/packages/react-libremap-threejs/src/components/MlThreeObjectControls.tsx[m
+[36m@@ -1,8 +1,3 @@[m
+[31m-import Box from '@mui/material/Box';[m
+[31m-import Button from '@mui/material/Button';[m
+[31m-import ButtonGroup from '@mui/material/ButtonGroup';[m
+[31m-import Slider from '@mui/material/Slider';[m
+[31m-import Typography from '@mui/material/Typography';[m
+ import type { LngLatLike } from 'maplibre-gl';[m
+ import { useLayoutEffect, useRef, useState } from 'react';[m
+ import * as THREE from 'three';[m
+[36m@@ -152,6 +147,31 @@[m [mexport const MlThreeObjectControls = ({[m
+ 		setScale(object.scale.x);[m
+ 	};[m
+ [m
+[32m+[m	[32mconst buttonStyle = (active: boolean) => ({[m
+[32m+[m		[32mpadding: '6px 12px',[m
+[32m+[m		[32mborder: '1px solid #1976d2',[m
+[32m+[m		[32mbackgroundColor: active ? '#1976d2' : 'transparent',[m
+[32m+[m		[32mcolor: active ? '#fff' : '#1976d2',[m
+[32m+[m		[32mcursor: 'pointer',[m
+[32m+[m		[32mfontFamily: 'inherit',[m
+[32m+[m		[32mfontSize: '0.875rem',[m
+[32m+[m		[32mfontWeight: 500,[m
+[32m+[m		[32mborderRadius: '4px',[m
+[32m+[m	[32m});[m
+[32m+[m
+[32m+[m	[32mconst typographyStyle = {[m
+[32m+[m		[32mmargin: '8px 0 4px 0',[m
+[32m+[m		[32mfontSize: '0.875rem',[m
+[32m+[m		[32mfontWeight: 'bold',[m
+[32m+[m		[32mfontFamily: 'sans-serif',[m
+[32m+[m	[32m};[m
+[32m+[m
+[32m+[m	[32mconst sliderStyle = {[m
+[32m+[m		[32mwidth: '100%',[m
+[32m+[m		[32mmarginBottom: '12px',[m
+[32m+[m		[32maccentColor: '#1976d2',[m
+[32m+[m	[32m};[m
+[32m+[m
+ 	return ([m
+ 		<>[m
+ 			{dummyMeshReady && dummyMeshRef.current && enableTransformControls && ([m
+[36m@@ -162,128 +182,154 @@[m [mexport const MlThreeObjectControls = ({[m
+ 					onObjectChange={handleObjectChange}[m
+ 				/>[m
+ 			)}[m
+[31m-			<Box sx={{ padding: '10px' }}>[m
+[31m-				<Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', marginBottom: 2 }}>[m
+[31m-					<Button[m
+[31m-						color="primary"[m
+[31m-						variant={showLayer ? 'contained' : 'outlined'}[m
+[32m+[m			[32m<div style={{ padding: '10px', fontFamily: 'sans-serif' }}>[m
+[32m+[m				[32m<div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>[m
+[32m+[m					[32m<button[m
+[32m+[m						[32mtype="button"[m
+[32m+[m						[32mstyle={buttonStyle(showLayer)}[m
+ 						onClick={() => setShowLayer(!showLayer)}[m
+[31m-						size="small"[m
+ 					>[m
+ 						{showLayer ? 'Hide' : 'Show'} {layerName}[m
+[31m-					</Button>[m
+[32m+[m					[32m</button>[m
+ 					{setEnableTransformControls && ([m
+[31m-						<Button[m
+[31m-							color="info"[m
+[31m-							variant={enableTransformControls ? 'contained' : 'outlined'}[m
+[32m+[m						[32m<button[m
+[32m+[m							[32mtype="button"[m
+[32m+[m							[32mstyle={buttonStyle(!!enableTransformControls)}[m
+ 							onClick={() => setEnableTransformControls(!enableTransformControls)}[m
+[31m-							size="small"[m
+ 						>[m
+ 							3D Gizmo[m
+[31m-						</Button>[m
+[32m+[m						[32m</button>[m
+ 					)}[m
+[31m-				</Box>[m
+[32m+[m				[32m</div>[m
+ [m
+ 				{setTransformMode && enableTransformControls && ([m
+[31m-					<Box sx={{ marginBottom: 2 }}>[m
+[31m-						<ButtonGroup variant="outlined" size="small" fullWidth aria-label="transform mode">[m
+[31m-							<Button[m
+[31m-								variant={transformMode === 'translate' ? 'contained' : 'outlined'}[m
+[32m+[m					[32m<div style={{ marginBottom: '16px' }}>[m
+[32m+[m						[32m<div style={{ display: 'flex', width: '100%' }}>[m
+[32m+[m							[32m<button[m
+[32m+[m								[32mtype="button"[m
+[32m+[m								[32mstyle={{[m
+[32m+[m									[32m...buttonStyle(transformMode === 'translate'),[m
+[32m+[m									[32mflex: 1,[m
+[32m+[m									[32mborderTopRightRadius: 0,[m
+[32m+[m									[32mborderBottomRightRadius: 0,[m
+[32m+[m								[32m}}[m
+ 								onClick={() => setTransformMode('translate')}[m
+ 							>[m
+ 								Move[m
+[31m-							</Button>[m
+[31m-							<Button[m
+[31m-								variant={transformMode === 'rotate' ? 'contained' : 'outlined'}[m
+[32m+[m							[32m</button>[m
+[32m+[m							[32m<button[m
+[32m+[m								[32mtype="button"[m
+[32m+[m								[32mstyle={{[m
+[32m+[m									[32m...buttonStyle(transformMode === 'rotate'),[m
+[32m+[m									[32mflex: 1,[m
+[32m+[m									[32mborderRadius: 0,[m
+[32m+[m									[32mborderLeft: 'none',[m
+[32m+[m									[32mborderRight: 'none',[m
+[32m+[m								[32m}}[m
+ 								onClick={() => setTransformMode('rotate')}[m
+ 							>[m
+ 								Rotate[m
+[31m-							</Button>[m
+[31m-							<Button[m
+[31m-								variant={transformMode === 'scale' ? 'contained' : 'outlined'}[m
+[32m+[m							[32m</button>[m
+[32m+[m							[32m<button[m
+[32m+[m								[32mtype="button"[m
+[32m+[m								[32mstyle={{[m
+[32m+[m									[32m...buttonStyle(transformMode === 'scale'),[m
+[32m+[m									[32mflex: 1,[m
+[32m+[m									[32mborderTopLeftRadius: 0,[m
+[32m+[m									[32mborderBottomLeftRadius: 0,[m
+[32m+[m								[32m}}[m
+ 								onClick={() => setTransformMode('scale')}[m
+ 							>[m
+ 								Scale[m
+[31m-							</Button>[m
+[31m-						</ButtonGroup>[m
+[31m-					</Box>[m
+[32m+[m							[32m</button>[m
+[32m+[m						[32m</div>[m
+[32m+[m					[32m</div>[m
+ 				)}[m
+[31m-				<Typography gutterBottom>Scale: {scale.toFixed(2)}</Typography>[m
+[31m-				<Slider[m
+[32m+[m				[32m<div style={typographyStyle}>Scale: {scale.toFixed(2)}</div>[m
+[32m+[m				[32m<input[m
+[32m+[m					[32mtype="range"[m
+ 					value={scale}[m
+[31m-					onChange={(e, newValue) => setScale(newValue as number)}[m
+[32m+[m					[32monChange={(e) => setScale(Number.parseFloat(e.target.value))}[m
+ 					min={0.01}[m
+ 					max={150}[m
+ 					step={0.01}[m
+[31m-					valueLabelDisplay="auto"[m
+[32m+[m					[32mstyle={sliderStyle}[m
+ 				/>[m
+[31m-				<Typography gutterBottom>Rotation X: {rotation.x}°</Typography>[m
+[31m-				<Slider[m
+[32m+[m				[32m<div style={typographyStyle}>Rotation X: {rotation.x}°</div>[m
+[32m+[m				[32m<input[m
+[32m+[m					[32mtype="range"[m
+ 					value={rotation.x}[m
+[31m-					onChange={(e, newValue) => setRotation({ ...rotation, x: newValue as number })}[m
+[32m+[m					[32monChange={(e) => setRotation({ ...rotation, x: Number.parseInt(e.target.value) })}[m
+ 					min={0}[m
+ 					max={360}[m
+[31m-					valueLabelDisplay="auto"[m
+[32m+[m					[32mstyle={sliderStyle}[m
+ 				/>[m
+[31m-				<Typography gutterBottom>Rotation Y: {rotation.y}°</Typography>[m
+[31m-				<Slider[m
+[32m+[m				[32m<div style={typographyStyle}>Rotation Y: {rotation.y}°</div>[m
+[32m+[m				[32m<input[m
+[32m+[m					[32mtype="range"[m
+ 					value={rotation.y}[m
+[31m-					onChange={(e, newValue) => setRotation({ ...rotation, y: newValue as number })}[m
+[32m+[m					[32monChange={(e) => setRotation({ ...rotation, y: Number.parseInt(e.target.value) })}[m
+ 					min={0}[m
+ 					max={360}[m
+[31m-					valueLabelDisplay="auto"[m
+[32m+[m					[32mstyle={sliderStyle}[m
+ 				/>[m
+[31m-				<Typography gutterBottom>Rotation Z: {rotation.z}°</Typography>[m
+[31m-				<Slider[m
+[32m+[m				[32m<div style={typographyStyle}>Rotation Z: {rotation.z}°</div>[m
+[32m+[m				[32m<input[m
+[32m+[m					[32mtype="range"[m
+ 					value={rotation.z}[m
+[31m-					onChange={(e, newValue) => setRotation({ ...rotation, z: newValue as number })}[m
+[32m+[m					[32monChange={(e) => setRotation({ ...rotation, z: Number.parseInt(e.target.value) })}[m
+ 					min={0}[m
+ 					max={360}[m
+[31m-					valueLabelDisplay="auto"[m
+[32m+[m					[32mstyle={sliderStyle}[m
+ 				/>[m
+[31m-				<Typography gutterBottom>Longitude: {mapPosition.lng.toFixed(6)}</Typography>[m
+[31m-				<Slider[m
+[32m+[m				[32m<div style={typographyStyle}>Longitude: {mapPosition.lng.toFixed(6)}</div>[m
+[32m+[m				[32m<input[m
+[32m+[m					[32mtype="range"[m
+ 					value={mapPosition.lng}[m
+[31m-					onChange={(e, newValue) => setMapPosition({ ...mapPosition, lng: newValue as number })}[m
+[32m+[m					[32monChange={(e) => setMapPosition({ ...mapPosition, lng: Number.parseFloat(e.target.value) })}[m
+ 					min={7.09}[m
+ 					max={7.11}[m
+ 					step={0.0001}[m
+[31m-					valueLabelDisplay="auto"[m
+[32m+[m					[32mstyle={sliderStyle}[m
+ 				/>[m
+[31m-				<Typography gutterBottom>Latitude: {mapPosition.lat.toFixed(6)}</Typography>[m
+[31m-				<Slider[m
+[32m+[m				[32m<div style={typographyStyle}>Latitude: {mapPosition.lat.toFixed(6)}</div>[m
+[32m+[m				[32m<input[m
+[32m+[m					[32mtype="range"[m
+ 					value={mapPosition.lat}[m
+[31m-					onChange={(e, newValue) => setMapPosition({ ...mapPosition, lat: newValue as number })}[m
+[32m+[m					[32monChange={(e) => setMapPosition({ ...mapPosition, lat: Number.parseFloat(e.target.value) })}[m
+ 					min={50.73}[m
+ 					max={50.74}[m
+ 					step={0.0001}[m
+[31m-					valueLabelDisplay="auto"[m
+[32m+[m					[32mstyle={sliderStyle}[m
+ 				/>[m
+[31m-				<Typography gutterBottom>Position X: {position.x}</Typography>[m
+[31m-				<Slider[m
+[32m+[m				[32m<div style={typographyStyle}>Position X: {position.x}</div>[m
+[32m+[m				[32m<input[m
+[32m+[m					[32mtype="range"[m
+ 					value={position.x}[m
+[31m-					onChange={(e, newValue) => setPosition({ ...position, x: newValue as number })}[m
+[32m+[m					[32monChange={(e) => setPosition({ ...position, x: Number.parseInt(e.target.value) })}[m
+ 					min={-100}[m
+ 					max={100}[m
+[31m-					valueLabelDisplay="auto"[m
+[32m+[m					[32mstyle={sliderStyle}[m
+ 				/>[m
+[31m-				<Typography gutterBottom>Position Y: {position.y}</Typography>[m
+[31m-				<Slider[m
+[32m+[m				[32m<div style={typographyStyle}>Position Y: {position.y}</div>[m
+[32m+[m				[32m<input[m
+[32m+[m					[32mtype="range"[m
+ 					value={position.y}[m
+[31m-					onChange={(e, newValue) => setPosition({ ...position, y: newValue as number })}[m
+[32m+[m					[32monChange={(e) => setPosition({ ...position, y: Number.parseInt(e.target.value) })}[m
+ 					min={-100}[m
+ 					max={100}[m
+[31m-					valueLabelDisplay="auto"[m
+[32m+[m					[32mstyle={sliderStyle}[m
+ 				/>[m
+[31m-				<Typography gutterBottom>Position Z: {position.z}</Typography>[m
+[31m-				<Slider[m
+[32m+[m				[32m<div style={typographyStyle}>Position Z: {position.z}</div>[m
+[32m+[m				[32m<input[m
+[32m+[m					[32mtype="range"[m
+ 					value={position.z}[m
+[31m-					onChange={(e, newValue) => setPosition({ ...position, z: newValue as number })}[m
+[32m+[m					[32monChange={(e) => setPosition({ ...position, z: Number.parseInt(e.target.value) })}[m
+ 					min={-500}[m
+ 					max={100}[m
+[31m-					valueLabelDisplay="auto"[m
+[32m+[m					[32mstyle={sliderStyle}[m
+ 				/>[m
+[31m-			</Box>[m
+[32m+[m			[32m</div>[m
+ 		</>[m
+ 	);[m
+ };[m
+[1mdiff --git a/packages/react-libremap-threejs/src/components/MlThreeSplatLayer/MlThreeSplatLayer.stories.tsx b/packages/react-libremap-threejs/src/components/MlThreeSplatLayer/MlThreeSplatLayer.stories.tsx[m
+[1mindex d2e96227..9735fb41 100644[m
+[1m--- a/packages/react-libremap-threejs/src/components/MlThreeSplatLayer/MlThreeSplatLayer.stories.tsx[m
+[1m+++ b/packages/react-libremap-threejs/src/components/MlThreeSplatLayer/MlThreeSplatLayer.stories.tsx[m
+[36m@@ -1,12 +1,42 @@[m
+[31m-import { Sidebar, TopToolbar, useMap } from 'react-libremap-components';[m
+[31m-import Button from '@mui/material/Button';[m
+[31m-import Link from '@mui/material/Link';[m
+[31m-import Typography from '@mui/material/Typography';[m
+[32m+[m[32mimport { useMap } from 'react-libremap-components';[m
+ import { useEffect, useState } from 'react';[m
+ import MlThreeJsContextDecorator from '../../decorators/ThreejsContextDecorator';[m
+ import { MlThreeObjectControls } from '../MlThreeObjectControls';[m
+ import MlThreeSplatLayer from './MlThreeSplatLayer';[m
+ [m
+[32m+[m[32m// Local lightweight UI components to replace missing component library exports[m
+[32m+[m[32mconst TopToolbar = ({ unmovableButtons }: { unmovableButtons: React.ReactNode }) => ([m
+[32m+[m	[32m<div style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1000, display: 'flex', gap: '10px' }}>[m
+[32m+[m		[32m{unmovableButtons}[m
+[32m+[m	[32m</div>[m
+[32m+[m[32m);[m
+[32m+[m
+[32m+[m[32mconst Sidebar = ({ open, setOpen, name, children }: { open: boolean; setOpen: (open: boolean) => void; name: string; children: React.ReactNode }) => {[m
+[32m+[m	[32mif (!open) return null;[m
+[32m+[m	[32mreturn ([m
+[32m+[m		[32m<div style={{[m
+[32m+[m			[32mposition: 'absolute',[m
+[32m+[m			[32mtop: '60px',[m
+[32m+[m			[32mleft: '10px',[m
+[32m+[m			[32mzIndex: 1000,[m
+[32m+[m			[32mwidth: '320px',[m
+[32m+[m			[32mmaxHeight: 'calc(100vh - 80px)',[m
+[32m+[m			[32moverflowY: 'auto',[m
+[32m+[m			[32mbackgroundColor: '#fff',[m
+[32m+[m			[32mboxShadow: '0 4px 12px rgba(0,0,0,0.15)',[m
+[32m+[m			[32mborderRadius: '8px',[m
+[32m+[m			[32mpadding: '16px',[m
+[32m+[m			[32mfontFamily: 'sans-serif'[m
+[32m+[m		[32m}}>[m
+[32m+[m			[32m<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>[m
+[32m+[m				[32m<h3 style={{ margin: 0, fontSize: '1.1rem' }}>{name}</h3>[m
+[32m+[m				[32m<button type="button" onClick={() => setOpen(false)} style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '1.2rem', fontWeight: 'bold' }}>✕</button>[m
+[32m+[m			[32m</div>[m
+[32m+[m			[32m{children}[m
+[32m+[m		[32m</div>[m
+[32m+[m	[32m);[m
+[32m+[m[32m};[m
+[32m+[m
+ const storyoptions = {[m
+ 	title: 'MapComponents/MlThreeSplatLayer',[m
+ 	component: MlThreeSplatLayer,[m
+[36m@@ -58,12 +88,23 @@[m [mconst Template: any = () => {[m
+ 			)}[m
+ 			<TopToolbar[m
+ 				unmovableButtons={[m
+[31m-					<Button[m
+[31m-						variant={sidebarOpen ? 'contained' : 'outlined'}[m
+[32m+[m					[32m<button[m
+[32m+[m						[32mtype="button"[m
+[32m+[m						[32mstyle={{[m
+[32m+[m							[32mpadding: '6px 16px',[m
+[32m+[m							[32mbackgroundColor: sidebarOpen ? '#1976d2' : 'transparent',[m
+[32m+[m							[32mcolor: sidebarOpen ? '#fff' : '#1976d2',[m
+[32m+[m							[32mborder: '1px solid #1976d2',[m
+[32m+[m							[32mborderRadius: '4px',[m
+[32m+[m							[32mcursor: 'pointer',[m
+[32m+[m							[32mfontFamily: 'inherit',[m
+[32m+[m							[32mfontSize: '0.875rem',[m
+[32m+[m							[32mfontWeight: 500,[m
+[32m+[m						[32m}}[m
+ 						onClick={() => setSidebarOpen(!sidebarOpen)}[m
+ 					>[m
+ 						Sidebar[m
+[31m-					</Button>[m
+[32m+[m					[32m</button>[m
+ 				}[m
+ 			/>[m
+ 			<Sidebar open={sidebarOpen} setOpen={setSidebarOpen} name="Splat Config">[m
+[36m@@ -84,20 +125,27 @@[m [mconst Template: any = () => {[m
+ 					transformMode={transformMode}[m
+ 					setTransformMode={setTransformMode}[m
+ 				/>[m
+[31m-				<Typography[m
+[31m-					variant="body2"[m
+[31m-					sx={{ mt: 2, p: 1, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 1 }}[m
+[32m+[m				[32m<div[m
+[32m+[m					[32mstyle={{[m
+[32m+[m						[32mmarginTop: '16px',[m
+[32m+[m						[32mpadding: '8px',[m
+[32m+[m						[32mbackgroundColor: 'rgba(0,0,0,0.05)',[m
+[32m+[m						[32mborderRadius: '4px',[m
+[32m+[m						[32mfontSize: '0.875rem',[m
+[32m+[m						[32mlineHeight: '1.4',[m
+[32m+[m					[32m}}[m
+ 				>[m
+ 					The splat used is from{' '}[m
+[31m-					<Link[m
+[32m+[m					[32m<a[m
+ 						href="https://www.patreon.com/posts/cluster-fly-141866089"[m
+ 						target="_blank"[m
+ 						rel="noopener"[m
+[32m+[m						[32mstyle={{ color: '#1976d2', textDecoration: 'none' }}[m
+ 					>[m
+ 						Cluster Fly[m
+[31m-					</Link>{' '}[m
+[32m+[m					[32m</a>{' '}[m
+ 					by Dany Bittel published under CC.[m
+[31m-				</Typography>[m
+[32m+[m				[32m</div>[m
+ 			</Sidebar>[m
+ 		</>[m
+ 	);[m
+[1mdiff --git a/packages/react-libremap-threejs/src/decorators/ThreejsContextDecorator.tsx b/packages/react-libremap-threejs/src/decorators/ThreejsContextDecorator.tsx[m
+[1mindex e30de1ff..06e3d8c6 100644[m
+[1m--- a/packages/react-libremap-threejs/src/decorators/ThreejsContextDecorator.tsx[m
+[1m+++ b/packages/react-libremap-threejs/src/decorators/ThreejsContextDecorator.tsx[m
+[36m@@ -1,38 +1,27 @@[m
+ import {[m
+[31m-	getTheme,[m
+ 	MapComponentsProvider,[m
+ 	MapLibreMap,[m
+[31m-	MlNavigationTools,[m
+ } from 'react-libremap-components';[m
+[31m-import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';[m
+[31m-import React, { useMemo } from 'react';[m
+[32m+[m[32mimport React from 'react';[m
+ import { ThreeProvider } from '../contexts/ThreeProvider';[m
+ import './style.css';[m
+ [m
+ const decorators = [[m
+ 	(Story: any, context: any) => {[m
+[31m-		const theme = useMemo(() => getTheme(context?.globals?.theme), [context?.globals?.theme]);[m
+ 		return ([m
+ 			<div className="fullscreen_map">[m
+ 				<MapComponentsProvider>[m
+[31m-					<MUIThemeProvider theme={theme}>[m
+[31m-						<ThreeProvider mapId="map_1" id="three-scene-layer" beforeId="water_name_line">[m
+[31m-							<Story />[m
+[31m-						</ThreeProvider>[m
+[31m-						<MapLibreMap[m
+[31m-							options={{[m
+[31m-								zoom: 14.5,[m
+[31m-								style: 'https://wms.wheregroup.com/tileserver/style/osm-liberty.json',[m
+[31m-								center: [7.099771581806502, 50.73395746209983],[m
+[31m-							}}[m
+[31m-							mapId="map_1"[m
+[31m-						/>[m
+[31m-						<MlNavigationTools[m
+[31m-							sx={{ bottom: '25px', right: '5px' }}[m
+[31m-							showZoomButtons={false}[m
+[31m-							mapId="map_1"[m
+[31m-						/>[m
+[31m-					</MUIThemeProvider>[m
+[32m+[m					[32m<ThreeProvider mapId="map_1" id="three-scene-layer" beforeId="water_name_line">[m
+[32m+[m						[32m<Story />[m
+[32m+[m					[32m</ThreeProvider>[m
+[32m+[m					[32m<MapLibreMap[m
+[32m+[m						[32moptions={{[m
+[32m+[m							[32mzoom: 14.5,[m
+[32m+[m							[32mstyle: 'https://wms.wheregroup.com/tileserver/style/osm-liberty.json',[m
+[32m+[m							[32mcenter: [7.099771581806502, 50.73395746209983],[m
+[32m+[m						[32m}}[m
+[32m+[m						[32mmapId="map_1"[m
+[32m+[m					[32m/>[m
+ 				</MapComponentsProvider>[m
+ 			</div>[m
+ 		);[m
+[1mdiff --git a/packages/react-libremap-threejs/vite.config.ts b/packages/react-libremap-threejs/vite.config.ts[m
+[1mindex a2146d7b..9445dd21 100644[m
+[1m--- a/packages/react-libremap-threejs/vite.config.ts[m
+[1m+++ b/packages/react-libremap-threejs/vite.config.ts[m
+[36m@@ -14,10 +14,6 @@[m [mexport default defineConfig(() => ({[m
+ 		dedupe: [[m
+ 			'react',[m
+ 			'react-dom',[m
+[31m-			'@mui/material',[m
+[31m-			'@mui/system',[m
+[31m-			'@emotion/react',[m
+[31m-			'@emotion/styled',[m
+ 		],[m
+ 	},[m
+ 	plugins: [[m
+[36m@@ -61,10 +57,6 @@[m [mexport default defineConfig(() => ({[m
+ 				'react-libremap-components',[m
+ 				'three',[m
+ 				'maplibre-gl',[m
+[31m-				'@mui/material',[m
+[31m-				'@mui/system',[m
+[31m-				'@emotion/react',[m
+[31m-				'@emotion/styled',[m
+ 			],[m
+ 		},[m
+ 	},[m
+[1mdiff --git a/pnpm-lock.yaml b/pnpm-lock.yaml[m
+[1mindex 723ab27c..6bd68e69 100644[m
+[1m--- a/pnpm-lock.yaml[m
+[1m+++ b/pnpm-lock.yaml[m
+[36m@@ -185,15 +185,6 @@[m [mimporters:[m
+ [m
+   packages/react-libremap-components:[m
+     dependencies:[m
+[31m-      '@emotion/react':[m
+[31m-        specifier: ^11.14.0[m
+[31m-        version: 11.14.0(@types/react@19.1.12)(react@19.1.0)[m
+[31m-      '@emotion/styled':[m
+[31m-        specifier: ^11.14.1[m
+[31m-        version: 11.14.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react@19.1.0)[m
+[31m-      '@mui/material':[m
+[31m-        specifier: ^7.3.2[m
+[31m-        version: 7.3.2(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)[m
+       '@reduxjs/toolkit':[m
+         specifier: ^2.9.0[m
+         version: 2.9.0(react-redux@9.2.0(@types/react@19.1.12)(react@19.1.0)(redux@5.0.1))(react@19.1.0)[m
+[36m@@ -322,15 +313,6 @@[m [mimporters:[m
+ [m
+   packages/react-libremap-components/dist:[m
+     dependencies:[m
+[31m-      '@emotion/react':[m
+[31m-        specifier: ^11.14.0[m
+[31m-        version: 11.14.0(@types/react@19.1.12)(react@19.1.0)[m
+[31m-      '@emotion/styled':[m
+[31m-        specifier: ^11.14.1[m
+[31m-        version: 11.14.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react@19.1.0)[m
+[31m-      '@mui/material':[m
+[31m-        specifier: ^7.3.2[m
+[31m-        version: 7.3.2(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)[m
+       '@reduxjs/toolkit':[m
+         specifier: ^2.9.0[m
+         version: 2.9.0(react-redux@9.2.0(@types/react@19.1.12)(react@19.1.0)(redux@5.0.1))(react@19.1.0)[m
+[36m@@ -433,21 +415,6 @@[m [mimporters:[m
+       '@deck.gl/mesh-layers':[m
+         specifier: ^9.2.6[m
+         version: 9.2.6(@deck.gl/core@9.2.6)(@loaders.gl/core@4.3.4)(@luma.gl/core@9.2.6)(@luma.gl/engine@9.2.6(@luma.gl/core@9.2.6)(@luma.gl/shadertools@9.2.6(@luma.gl/core@9.2.6)))(@luma.gl/gltf@9.2.6(@luma.gl/constants@9.2.6)(@luma.gl/core@9.2.6)(@luma.gl/engine@9.2.6(@luma.gl/core@9.2.6)(@luma.gl/shadertools@9.2.6(@luma.gl/core@9.2.6)))(@luma.gl/shadertools@9.2.6(@luma.gl/core@9.2.6)))(@luma.gl/shadertools@9.2.6(@luma.gl/core@9.2.6))[m
+[31m-      '@emotion/react':[m
+[31m-        specifier: ^11.14.0[m
+[31m-        version: 11.14.0(@types/react@19.1.12)(react@19.1.0)[m
+[31m-      '@emotion/styled':[m
+[31m-        specifier: ^11.14.1[m
+[31m-        version: 11.14.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react@19.1.0)[m
+[31m-      '@mui/icons-material':[m
+[31m-        specifier: ^7.3.2[m
+[31m-        version: 7.3.2(@mui/material@7.3.2(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react@19.1.12)(react@19.1.0)[m
+[31m-      '@mui/material':[m
+[31m-        specifier: ^7.3.2[m
+[31m-        version: 7.3.2(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)[m
+[31m-      '@mui/system':[m
+[31m-        specifier: ^7.3.2[m
+[31m-        version: 7.3.2(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react@19.1.0))(@types/react@19.1.12)(react@19.1.0)[m
+       '@storybook/react':[m
+         specifier: ^10.3.3[m
+         version: 10.3.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@10.3.3(@testing-library/dom@10.4.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)[m
+[36m@@ -476,18 +443,6 @@[m [mimporters:[m
+ [m
+   packages/react-libremap-threejs:[m
+     dependencies:[m
+[31m-      '@emotion/react':[m
+[31m-        specifier: ^11.14.0[m
+[31m-        version: 11.

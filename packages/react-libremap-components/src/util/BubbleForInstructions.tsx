@@ -1,4 +1,3 @@
-import { Box, Typography } from '@mui/material';
 import type React from 'react';
 
 export interface BubbleForInstructionProps {
@@ -17,24 +16,26 @@ export interface BubbleForInstructionProps {
 
 function BubbleForInstruction(props: BubbleForInstructionProps) {
 	return (
-		<Box
-			sx={{
+		<div
+			style={{
 				width: '475px',
 				height: '475px',
 				position: 'fixed',
 				display: 'block',
 				borderRadius: '360px',
-				bgcolor: 'primary.main',
+				backgroundColor: '#1976d2',
 				right: props.bubbleRight,
 				bottom: props.bubbleBottom,
 				left: props.bubbleLeft,
 				top: props.bubbleTop,
-				zIndex: props.zIndex,
+				zIndex: Number.parseInt(props.zIndex) || 1000,
 			}}
 		>
-			<Typography
-				variant="h5"
-				sx={{
+			<h5
+				style={{
+					fontSize: '1.5rem',
+					fontWeight: 'inherit',
+					margin: 0,
 					marginTop: props.textMarginTop,
 					marginLeft: props.textMarginLeft,
 					color: '#fff',
@@ -42,9 +43,9 @@ function BubbleForInstruction(props: BubbleForInstructionProps) {
 				}}
 			>
 				<b>{props.children}</b>
-			</Typography>
+			</h5>
 			{/* TODO: add icon*/}
-		</Box>
+		</div>
 	);
 }
 export default BubbleForInstruction;

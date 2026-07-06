@@ -50,7 +50,7 @@ const MlLayer = (props: MlLayerProps) => {
 		insertBeforeLayer: props.insertBeforeLayer,
 	});
 
-	return <></>;
+	return null;
 };
 
 export default MlLayer;

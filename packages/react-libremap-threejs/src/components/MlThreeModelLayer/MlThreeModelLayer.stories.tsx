@@ -1,11 +1,43 @@
-import { Sidebar, TopToolbar, useMap } from 'react-libremap-components';
-import Button from '@mui/material/Button';
+import { useMap } from 'react-libremap-components';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useThree } from '../../contexts/ThreeContext';
 import ThreejsContextDecorator from '../../decorators/ThreejsContextDecorator';
 import { MlThreeObjectControls } from '../MlThreeObjectControls';
 import MlThreeModelLayer from './MlThreeModelLayer';
+
+// Local lightweight UI components to replace missing component library exports
+const TopToolbar = ({ unmovableButtons }: { unmovableButtons: React.ReactNode }) => (
+	<div style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1000, display: 'flex', gap: '10px' }}>
+		{unmovableButtons}
+	</div>
+);
+
+const Sidebar = ({ open, setOpen, name, children }: { open: boolean; setOpen: (open: boolean) => void; name: string; children: React.ReactNode }) => {
+	if (!open) return null;
+	return (
+		<div style={{
+			position: 'absolute',
+			top: '60px',
+			left: '10px',
+			zIndex: 1000,
+			width: '320px',
+			maxHeight: 'calc(100vh - 80px)',
+			overflowY: 'auto',
+			backgroundColor: '#fff',
+			boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+			borderRadius: '8px',
+			padding: '16px',
+			fontFamily: 'sans-serif'
+		}}>
+			<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+				<h3 style={{ margin: 0, fontSize: '1.1rem' }}>{name}</h3>
+				<button type="button" onClick={() => setOpen(false)} style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '1.2rem', fontWeight: 'bold' }}>✕</button>
+			</div>
+			{children}
+		</div>
+	);
+};
 
 const storyoptions = {
 	title: 'MapComponents/MlThreeModelLayer',
@@ -85,12 +117,23 @@ const Template: any = () => {
 
 			<TopToolbar
 				unmovableButtons={
-					<Button
-						variant={sidebarOpen ? 'contained' : 'outlined'}
+					<button
+						type="button"
+						style={{
+							padding: '6px 16px',
+							backgroundColor: sidebarOpen ? '#1976d2' : 'transparent',
+							color: sidebarOpen ? '#fff' : '#1976d2',
+							border: '1px solid #1976d2',
+							borderRadius: '4px',
+							cursor: 'pointer',
+							fontFamily: 'inherit',
+							fontSize: '0.875rem',
+							fontWeight: 500,
+						}}
 						onClick={() => setSidebarOpen(!sidebarOpen)}
 					>
 						Sidebar
-					</Button>
+					</button>
 				}
 			/>
 			<Sidebar open={sidebarOpen} setOpen={setSidebarOpen} name="3D Model Config">

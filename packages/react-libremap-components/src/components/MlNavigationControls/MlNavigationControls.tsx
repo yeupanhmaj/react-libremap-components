@@ -1,4 +1,3 @@
-import type { SxProps } from '@mui/material';
 import { FullscreenControl, NavigationControl } from 'maplibre-gl';
 import { useEffect } from 'react';
 import useMap from '../../hooks/useMap';
@@ -16,7 +15,7 @@ export interface MlNavigationControlsProps {
 	/**
 	 * Style attribute for NavigationTools container
 	 */
-	sx?: SxProps;
+	sx?: object;
 	/**
 	 * Style attribute for NavigationTools container
 	 */

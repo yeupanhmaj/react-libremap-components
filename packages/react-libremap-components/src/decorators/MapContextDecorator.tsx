@@ -1,4 +1,3 @@
-import { Paper } from '@mui/material';
 import type { Decorator } from '@storybook/react-vite';
 import type { FC, ReactElement } from 'react';
 import MapLibreMap, { type MapLibreMapProps } from '../components/MapLibreMap/MapLibreMap';
@@ -22,16 +21,19 @@ const makeMapContextDecorators = (options: MapLibreMapProps['options']): Decorat
 					<MapComponentsProvider>
 						<MapContextMenuProvider mapId="map_1">
 							{(context?.name === 'Example Config' || context?.name === 'Catalogue Demo') && (
-								<Paper
-									sx={{
+								<div
+									style={{
 										position: 'fixed',
 										top: '70px',
 										right: '20px',
 										zIndex: 1300,
+										backgroundColor: '#fff',
+										borderRadius: '4px',
+										boxShadow: '0px 2px 4px rgba(0,0,0,0.15)',
 									}}
 								>
 									<MlScaleReference />
-								</Paper>
+								</div>
 							)}
 							<Story />
 							<MapLibreMap

@@ -14,10 +14,6 @@ export default defineConfig(() => ({
 		dedupe: [
 			'react',
 			'react-dom',
-			'@mui/material',
-			'@mui/system',
-			'@emotion/react',
-			'@emotion/styled',
 		],
 	},
 	plugins: [
@@ -61,10 +57,6 @@ export default defineConfig(() => ({
 				'react-libremap-components',
 				'three',
 				'maplibre-gl',
-				'@mui/material',
-				'@mui/system',
-				'@emotion/react',
-				'@emotion/styled',
 			],
 		},
 	},

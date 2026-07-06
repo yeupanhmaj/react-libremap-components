@@ -1,8 +1,23 @@
-import { type Theme, useMediaQuery } from '@mui/material';
-import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
 import MlScaleReference, { type MlScaleReferenceProps } from './MlScaleReference';
+
+// Custom lightweight media query hook
+const useMediaQuery = (query: string) => {
+	const [matches, setMatches] = useState(false);
+
+	useEffect(() => {
+		const media = window.matchMedia(query);
+		if (media.matches !== matches) {
+			setMatches(media.matches);
+		}
+		const listener = () => setMatches(media.matches);
+		media.addEventListener('change', listener);
+		return () => media.removeEventListener('change', listener);
+	}, [matches, query]);
+
+	return matches;
+};
 
 const storyoptions = {
 	title: 'MapComponents/MlScaleReference',
@@ -17,7 +32,7 @@ export default storyoptions;
 
 const catalgoueTemplate: any = (props: MlScaleReferenceProps) => {
 	const [showTooltip, setShowTooltip] = useState(true);
-	const mediaIsMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
+	const mediaIsMobile = useMediaQuery('(max-width: 900px)');
 
 	useEffect(() => {
 		const timeout = setTimeout(() => {
@@ -29,13 +44,13 @@ const catalgoueTemplate: any = (props: MlScaleReferenceProps) => {
 	return (
 		<>
 			{showTooltip && (
-				<Box
-					sx={{
+				<div
+					style={{
 						position: 'fixed',
-						right: { xs: '105px', md: '175px' },
+						right: mediaIsMobile ? '105px' : '175px',
 						color: '#009ee0',
 						backgroundColor: '#fff',
-						top: { xs: '20px', md: '22px' },
+						top: mediaIsMobile ? '20px' : '22px',
 						fontSize: '16px',
 						fontFamily: 'sans-serif',
 						display: 'flex',
@@ -47,14 +62,14 @@ const catalgoueTemplate: any = (props: MlScaleReferenceProps) => {
 					{mediaIsMobile
 						? 'Use Zoom to view functionality ➤'
 						: 'Use Zoom to explore functionality ➤'}
-				</Box>
+				</div>
 			)}
 		</>
 	);
 };
 
 const OverlayTemplate: any = (props: MlScaleReferenceProps) => {
-	const mediaIsMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
+	const mediaIsMobile = useMediaQuery('(max-width: 900px)');
 
 	return (
 		<div

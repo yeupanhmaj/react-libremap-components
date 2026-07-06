@@ -2,7 +2,10 @@ import './style.css';
 
 export const parameters = {
 	docs: {
-		inlineStories: false,
+		story: {
+			inline: false,
+			iframeHeight: 400,
+		},
 	},
 	actions: { argTypesRegex: '^on[A-Z].*' },
 };
