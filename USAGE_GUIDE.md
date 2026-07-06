@@ -34,7 +34,7 @@ To run a task (like `build`, `test`, or `storybook`) for a specific package:
 ```bash
 nx run <project-name>:<task-name>
 # Example:
-nx run react-maplibre:storybook
+nx run react-libremap-components:storybook
 ```
 
 ### Running Tasks in Parallel
@@ -48,14 +48,14 @@ nx run-many -t storybook
 ## 📂 Project Structure
 
 -   `apps/`: Contains runnable applications or complex compositions (e.g., `storybook-composition`).
--   `packages/`: Contains reusable libraries and components (e.g., `react-maplibre`, `deck-gl`).
+-   `packages/`: Contains reusable libraries and components (e.g., `react-libremap-components`, `deck-gl`).
 -   `nx.json`: Configuration for the Nx workspace.
 -   `pnpm-workspace.yaml`: Defines the workspace roots for pnpm.
 -   `MonorepoNX-cheatsheet.md`: A detailed local guide with more advanced commands.
 
 ## 🎨 Storybook & Decorators
 
-When working with Storybook in `packages/react-maplibre`, you might notice that many components (like `MlSketchTool`) don't explicitly include a `<MapLibreMap />` in their stories, yet a map appears in the preview.
+When working with Storybook in `packages/react-libremap-components`, you might notice that many components (like `MlSketchTool`) don't explicitly include a `<MapLibreMap />` in their stories, yet a map appears in the preview.
 
 This is handled by **Storybook Decorators**:
 - **`MapContextDecorator.tsx`**: This decorator wraps stories with the necessary `MapComponentsProvider` and a `MapLibreMap` component.

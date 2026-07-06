@@ -15,7 +15,7 @@
 		"src/**/*.spec.jsx",
 		"src/**/*.test.js"
 	],
-	"include": ["src/**/*", "../react-maplibre/src/**/*"],
+	"include": ["src/**/*", "../react-libremap-components/src/**/*"],
 	"files": [
 		"../../node_modules/@nx/react/typings/styled-jsx.d.ts",
 		"../../node_modules/@nx/react/typings/cssmodule.d.ts",

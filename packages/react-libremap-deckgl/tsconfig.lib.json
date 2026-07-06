@@ -9,7 +9,7 @@
 			"vite/client"
 		]
 	},
-	"include": ["src/**/*", "../react-maplibre/src/**/*"],
+	"include": ["src/**/*", "../react-libremap-components/src/**/*"],
 	"exclude": [
 		"**/*.spec.ts",
 		"**/*.test.ts",
@@ -34,7 +34,7 @@
 	],
 	"references": [
 		{
-			"path": "../react-maplibre/tsconfig.lib.json"
+			"path": "../react-libremap-components/tsconfig.lib.json"
 		}
 	]
 }

@@ -1,17 +1,15 @@
 {
 	"files": [],
 	"references": [
+	
 		{
-			"path": "./packages/ra-geospatial"
+			"path": "./packages/react-libremap-deckgl"
 		},
 		{
-			"path": "./packages/deck-gl"
+			"path": "./packages/react-libremap-components"
 		},
 		{
-			"path": "./packages/react-maplibre"
-		},
-		{
-			"path": "./packages/three"
+			"path": "./packages/react-libremap-threejs"
 		},
 		{
 			"path": "./apps/storybook-composition"

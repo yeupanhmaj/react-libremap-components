@@ -13,7 +13,7 @@
 					"nx storybook deck-gl",
 					"nx storybook three",
 					"nx storybook ra-geospatial",
-					"nx storybook react-maplibre"
+					"nx storybook react-libremap-components"
 				],
 				"parallel": true
 			}

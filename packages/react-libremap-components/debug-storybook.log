@@ -9,7 +9,7 @@ Please consider updating your packages or contacting the maintainers for compati
 
 For more details on compatibility guidance, see:
 https://github.com/storybookjs/storybook/issues/32836
-[10:41:07.743] [DEBUG] Serving static files from [36mpackages/react-maplibre/public[39m at [36m/[39m
+[10:41:07.743] [DEBUG] Serving static files from [36mpackages/react-libremap-components/public[39m at [36m/[39m
 [10:41:07.747] [INFO] Starting...
 [10:41:08.324] [ERROR] [38;2;241;97;97mError: Build failed with 1 error:
 .storybook/manager.js:1:23: ERROR: Could not resolve "@storybook/manager-api"[39m

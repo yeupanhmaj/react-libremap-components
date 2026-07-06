@@ -20,7 +20,7 @@ const config: StorybookConfig = {
 	refs: (_config, { configType }) => {
 		if (configType === 'DEVELOPMENT') {
 			return {
-				'react-maplibre': {
+				'react-libremap-components': {
 					title: 'React MapLibreMap',
 					url: 'http://localhost:4400',
 				},
@@ -39,9 +39,9 @@ const config: StorybookConfig = {
 			};
 		}
 		return {
-			'react-maplibre': {
+			'react-libremap-components': {
 				title: 'React MapLibreMap',
-				url: 'https://mapcomponents.github.io/react-map-components-maplibre/react-maplibre/',
+				url: 'https://mapcomponents.github.io/react-map-components-maplibre/react-libremap-components/',
 			},
 			three: {
 				title: 'three',

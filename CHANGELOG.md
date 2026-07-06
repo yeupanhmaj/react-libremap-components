@@ -179,7 +179,7 @@
 - add [Storybook Composition](https://mapcomponents.github.io/mapcomponents/storybook-composition/)
 - add mapcomponents/deck-gl
 - add mapcomponents/ra-geospatial
-- add mapcomponents/react-maplibre
+- add mapcomponents/react-libremap-components
 - add create-mapcomponents-app
 
 ---

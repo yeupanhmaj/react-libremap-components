@@ -32,10 +32,10 @@ To run any task from any package, run:
 nx run {package-name}:{task-name}
 ```
 
-E.g. to start the dev environment of the react-maplibre project run:
+E.g. to start the dev environment of the react-libremap-components project run:
 
 ```sh
-nx run react-maplibre:storybook
+nx run react-libremap-components:storybook
 ```
 
 Alternatively, you can also use:
@@ -139,7 +139,7 @@ You can adjust the composition based on the current development environment (e.g
 	refs: (config, { configType }) => {
 		if (configType === 'DEVELOPMENT') {
 			return {
-				'react-maplibre': {
+				'react-libremap-components': {
 					title: 'React MapLibreMap',
 					url: 'http://localhost:4400',
 				},
@@ -154,9 +154,9 @@ You can adjust the composition based on the current development environment (e.g
 			};
 		}
 		return {
-			'react-maplibre': {
+			'react-libremap-components': {
 				title: 'React MapLibreMap',
-				url: 'https://mapcomponents.github.io/react-map-components-maplibre/react-maplibre/',
+				url: 'https://mapcomponents.github.io/react-map-components-maplibre/react-libremap-components/',
 			},
 			'deck-gl': {
 				title: 'Deck.gl',

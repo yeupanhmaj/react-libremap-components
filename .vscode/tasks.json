@@ -27,9 +27,9 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "Biome: Check react-maplibre",
+			"label": "Biome: Check react-libremap-components",
 			"type": "shell",
-			"command": "pnpm biome check --write --assist-enabled=true packages/react-maplibre",
+			"command": "pnpm biome check --write --assist-enabled=true packages/react-libremap-components",
 			"group": "build",
 			"presentation": { "reveal": "always", "panel": "shared" },
 			"problemMatcher": []
@@ -68,9 +68,9 @@
 			"problemMatcher": ["$eslint-stylish"]
 		},
 		{
-			"label": "ESLint: Lint react-maplibre",
+			"label": "ESLint: Lint react-libremap-components",
 			"type": "shell",
-			"command": "pnpm nx lint react-maplibre",
+			"command": "pnpm nx lint react-libremap-components",
 			"group": "test",
 			"presentation": { "reveal": "always", "panel": "shared" },
 			"problemMatcher": ["$eslint-stylish"]
@@ -93,9 +93,9 @@
 		},
 		// ─── Storybook ────────────────────────────────────────────────────────
 		{
-			"label": "Storybook: react-maplibre (port 4400)",
+			"label": "Storybook: react-libremap-components (port 4400)",
 			"type": "shell",
-			"command": "pnpm nx storybook react-maplibre",
+			"command": "pnpm nx storybook react-libremap-components",
 			"group": "build",
 			"isBackground": true,
 			"presentation": { "reveal": "always", "panel": "dedicated" },
@@ -138,9 +138,9 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "Storybook: Build react-maplibre",
+			"label": "Storybook: Build react-libremap-components",
 			"type": "shell",
-			"command": "pnpm nx build-storybook react-maplibre",
+			"command": "pnpm nx build-storybook react-libremap-components",
 			"group": "build",
 			"presentation": { "reveal": "always", "panel": "shared" },
 			"problemMatcher": []
@@ -163,9 +163,9 @@
 			"problemMatcher": ["$tsc"]
 		},
 		{
-			"label": "Build: react-maplibre",
+			"label": "Build: react-libremap-components",
 			"type": "shell",
-			"command": "pnpm nx build react-maplibre",
+			"command": "pnpm nx build react-libremap-components",
 			"group": "build",
 			"presentation": { "reveal": "always", "panel": "shared" },
 			"problemMatcher": ["$tsc"]

@@ -2,7 +2,7 @@
 
 # [MapComponents](https://mapcomponents.org/)
 
-[![npm version](https://badge.fury.io/js/@mapcomponents%2Freact-maplibre.svg)](https://badge.fury.io/js/@mapcomponents%2Freact-maplibre) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![downloads](https://img.shields.io/npm/dt/@mapcomponents%2Freact-maplibre.svg) ![downloads](https://img.shields.io/npm/dm/@mapcomponents%2Freact-maplibre.svg)
+[![npm version](https://badge.fury.io/js/@mapcomponents%2Freact-libremap-components.svg)](https://badge.fury.io/js/@mapcomponents%2Freact-libremap-components) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![downloads](https://img.shields.io/npm/dt/@mapcomponents%2Freact-libremap-components.svg) ![downloads](https://img.shields.io/npm/dm/@mapcomponents%2Freact-libremap-components.svg)
 
 ![Tests](https://github.com/mapcomponents/react-map-components-maplibre/actions/workflows/node-version-test.yml/badge.svg)
 
@@ -33,12 +33,12 @@ npm i
 npm run dev
 ```
 
-<img src="https://github.com/mapcomponents/react-map-components-maplibre/blob/main/packages/react-maplibre/docs_md/initial_0.gif"/>
+<img src="https://github.com/mapcomponents/react-map-components-maplibre/blob/main/packages/react-libremap-components/docs_md/initial_0.gif"/>
 
 
 This will start a development server that serves the mapcomponents app on port 5174 of your local machine as well as a browser tab with live reload enabled. This reloads the affected parts of the application if changes are detected to the corresponding files in the filesystem. Open the project folder in the IDE of your choice and start building your map client.
 
-<img src="https://github.com/mapcomponents/react-map-components-maplibre/blob/main/packages/react-maplibre/docs_md/initial_3.gif" width="400" />
+<img src="https://github.com/mapcomponents/react-map-components-maplibre/blob/main/packages/react-libremap-components/docs_md/initial_3.gif" width="400" />
 
 ## Adding data to the map
 
@@ -73,7 +73,7 @@ And add the following within the JSX.
 <MlGeoJsonLayer geojson={geojson_data} />
 ```
 
-<img src="https://github.com/mapcomponents/react-map-components-maplibre/blob/main/packages/react-maplibre/docs_md/sample_screenshot.png" />
+<img src="https://github.com/mapcomponents/react-map-components-maplibre/blob/main/packages/react-libremap-components/docs_md/sample_screenshot.png" />
 
 ## **Add any of our packages to your project**
 
@@ -87,7 +87,7 @@ Please take a look at our storybooks and the code examples provided in the {Comp
 
 ## more links
 
-- react-libremap-components storybook: https://mapcomponents.github.io/mapcomponents/react-maplibre/
+- react-libremap-components storybook: https://mapcomponents.github.io/mapcomponents/react-libremap-components/
 - react-libremap-deckgl storybook: https://mapcomponents.github.io/mapcomponents/deck-gl/
 - @mapcomponents/ra-geospatial storybook: https://mapcomponents.github.io/mapcomponents/ra-geospatial/
 - react-libremap-components-lab storybook: https://mapcomponents.github.io/react-map-components-maplibre-lab

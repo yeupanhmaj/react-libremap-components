@@ -23,10 +23,10 @@
 		"**/*.stories.jsx",
 		"**/*.stories.tsx"
 	],
-	"include": ["src/**/*", "../react-maplibre/src/**/*"],
+	"include": ["src/**/*", "../react-libremap-components/src/**/*"],
 	"references": [
 		{
-			"path": "../react-maplibre/tsconfig.lib.json"
+			"path": "../react-libremap-components/tsconfig.lib.json"
 		}
 	]
 }
