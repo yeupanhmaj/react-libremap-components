@@ -1,3 +1,3 @@
 # DeckGl Components
 
-A custom `useDeckGl` hook and components showing the usage of deckGL within [@mapcomponents/react-maplibre](https://www.npmjs.com/package/@mapcomponents/react-maplibre)
+A custom `useDeckGl` hook and components showing the usage of deckGL within [react-libremap-components](https://www.npmjs.com/package/react-libremap-components)

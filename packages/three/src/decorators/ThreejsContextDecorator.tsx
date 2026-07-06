@@ -3,7 +3,7 @@ import {
 	MapComponentsProvider,
 	MapLibreMap,
 	MlNavigationTools,
-} from '@mapcomponents/react-maplibre';
+} from 'react-libremap-components';
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import React, { useMemo } from 'react';
 import { ThreeProvider } from '../contexts/ThreeProvider';

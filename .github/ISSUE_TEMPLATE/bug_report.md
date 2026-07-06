@@ -9,10 +9,10 @@ labels: 'Status: Unconfirmed'
 <!--
   Please provide a clear and concise description of what the bug is. Include
   screenshots if needed. Please test using the latest version of the relevant
-  @mapcomponents/react-maplibre package to make sure your issue has not already been fixed.
+  react-libremap-components package to make sure your issue has not already been fixed.
 -->
 
-@mapcomponents/react-maplibre version:
+react-libremap-components version:
 
 ## Steps To Reproduce
 

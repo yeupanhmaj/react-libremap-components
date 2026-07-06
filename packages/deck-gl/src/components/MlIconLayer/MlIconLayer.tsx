@@ -1,5 +1,5 @@
 import { IconLayer } from '@deck.gl/layers';
-import { useMap, useMapState } from '@mapcomponents/react-maplibre';
+import { useMap, useMapState } from 'react-libremap-components';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import useDeckGl from '../../hooks/useDeckGl';
 import ShipsPng from './assets/Ships.png';

@@ -1,5 +1,5 @@
 import { ScenegraphLayer, type ScenegraphLayerProps } from '@deck.gl/mesh-layers';
-import { useMap } from '@mapcomponents/react-maplibre';
+import { useMap } from 'react-libremap-components';
 import { useEffect, useMemo } from 'react';
 import useDeckGl from '../../hooks/useDeckGl';
 

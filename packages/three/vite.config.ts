@@ -58,7 +58,7 @@ export default defineConfig(() => ({
 				'react',
 				'react-dom',
 				'react/jsx-runtime',
-				'@mapcomponents/react-maplibre',
+				'react-libremap-components',
 				'three',
 				'maplibre-gl',
 				'@mui/material',

@@ -54,7 +54,7 @@ export default defineConfig(() => ({
 				'react',
 				'react-dom',
 				'react/jsx-runtime',
-				'@mapcomponents/react-maplibre',
+				'react-libremap-components',
 				'maplibre-gl',
 				'@deck.gl/aggregation-layers',
 				'@deck.gl/core',

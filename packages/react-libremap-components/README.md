@@ -6,7 +6,7 @@
 
 ![Tests](https://github.com/mapcomponents/react-map-components-maplibre/actions/workflows/node-version-test.yml/badge.svg)
 
-@mapcomponents/react-maplibre is a react component library for declarative GIS application development.
+react-libremap-components is a react component library for declarative GIS application development.
 ## Links
 
 - Documentation: https://mapcomponents.github.io/react-map-components-maplibre/
@@ -16,7 +16,7 @@
 
 Use our Codesandbox template to quickly try out this library without any setup required. https://codesandbox.io/s/base-template-n0vp9
 
-### **How to use @mapcomponents/react-maplibre in ...**
+### **How to use react-libremap-components in ...**
 
 ### **... a new project**
 
@@ -47,7 +47,7 @@ This will start a development server that serves the mapcomponents app on port 5
 
 In this case, navigate to your project folder in a terminal and execute the following steps:
 
-1. Add @mapcomponents/react-maplibre as a dependency to your project using `npm i @mapcomponents/react-maplibre`.
+1. Add react-libremap-components as a dependency to your project using `npm i react-libremap-components`.
 2. Add the MapComponentsProvider (named export of this module) to your applications react-DOM where it makes sense. Only children of this component will be able to render a map canvas or interact with a maplibre-gl instance. Place it in the index.js entrypoint if your application is a dedicated map app and all components have a high probability to interact with the maplibre-gl instance. Place it somewhere higher in the JSX tree if the map constitutes only a small portion of your app and components outside of the MapComponentsProvider have no need to interact with the map instance.
 3. Add a MapLibreMap component to the react-DOM wherever the map canvas is supposed to be placed.
 
@@ -58,7 +58,7 @@ The easiest way to add data to the map is using GeoJSON data and the MlGeoJsonLa
 Insert the following code in your app below index.tsx to add a GeoJSON layer to your map.
 
 ```JSX
-import MlGeoJsonLayer from '@mapcomponents/react-maplibre';
+import MlGeoJsonLayer from 'react-libremap-components';
 
 const geojson_data = {
 	"type": "Feature",
@@ -90,5 +90,5 @@ Please take a look at our storybooks and the code examples provided in the {Comp
 
 ## more links
 
-- @mapcomponents/react-maplibre storybook: https://mapcomponents.github.io/react-map-components-maplibre
-- @mapcomponents/react-maplibre-lab storybook: https://mapcomponents.github.io/react-map-components-maplibre-lab
+- react-libremap-components storybook: https://mapcomponents.github.io/react-map-components-maplibre
+- react-libremap-components-lab storybook: https://mapcomponents.github.io/react-map-components-maplibre-lab

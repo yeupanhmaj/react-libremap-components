@@ -6,7 +6,7 @@
 
 - 00f9417: Fix/deckgl scenegraphlayer (#264) …
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixes
 
@@ -41,7 +41,7 @@
 
 ## [1.8.5] (2026-02-04)
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixes
 
@@ -49,7 +49,7 @@
 
 ## [1.8.3] (2026-01-29)
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixes
 
@@ -57,7 +57,7 @@
 
 ## [1.8.2] (2026-01-28)
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -103,7 +103,7 @@
 
 ## [v1.7.6] (2026-01-18)
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -134,7 +134,7 @@
 
 - b7a8b16: Add/three js package including MlThreeModelLayer and MlThreeSplatLayer (#249)
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Removed
 
@@ -148,7 +148,7 @@
 
 ## [v1.6.3] (2025-11-01)
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixes
 
@@ -156,7 +156,7 @@
 
 ## [v1.6.2]
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixes
 
@@ -164,7 +164,7 @@
 
 ## [v1.6.1]
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -188,7 +188,7 @@
 
 ## [v1.3.3]
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -210,7 +210,7 @@
 
 ## [v1.3.2]
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -219,7 +219,7 @@
 
 ## [v1.3.1]
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -227,7 +227,7 @@
 
 ## [v1.3.0]
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -244,7 +244,7 @@
 
 ## [v1.2.0]
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -253,7 +253,7 @@
 
 ## [v1.1.0] - 2025-03-21
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -273,7 +273,7 @@
 
 ## [v1.0.11] - 2025-02-14
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -281,7 +281,7 @@
 
 ## [v1.0.10] - 2025-02-13
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -295,7 +295,7 @@
 
 ## [v1.0.9] - 2024-11-20
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -308,7 +308,7 @@
 
 ## [v1.0.8] - 2024-09-16
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -316,7 +316,7 @@
 
 ## [v1.0.7] - 2024-07-30
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -328,7 +328,7 @@
 
 ## [v1.0.6] - 2024-07-30
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -336,7 +336,7 @@
 
 ## [v1.0.5] - 2024-06-21
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -348,7 +348,7 @@
 
 ## [v1.0.4] - 2024-06-21
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -372,7 +372,7 @@
 
 ## [v1.0.3] - 2024-02-22
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -380,7 +380,7 @@
 
 ## [v1.0.1] - 2024-02-16
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -388,7 +388,7 @@
 
 ## [v1.0.1] - 2024-02-16
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -396,7 +396,7 @@
 
 ## [v1.0.0] - 2024-02-15 (broken)
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -405,7 +405,7 @@
 
 ## [v0.1.96] - 2024-01-29
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -413,7 +413,7 @@
 
 ## [v0.1.95] - 2024-01-23
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -423,7 +423,7 @@
 
 ## [v0.1.94] - 2024-01-17
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -433,7 +433,7 @@
 
 ## [v0.1.92] - 2024-01-16
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -449,7 +449,7 @@
 
 ## [v0.1.91] - 2024-01-16
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -457,7 +457,7 @@
 
 ## [v0.1.90] - 2024-01-16 (broken)
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -465,7 +465,7 @@
 
 ## [v0.1.89] - 2024-01-02 (broken)
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -473,7 +473,7 @@
 
 ## [v0.1.88] - 2023-12-22
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -488,7 +488,7 @@
 
 ## [v0.1.87] - 2023-10-25
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -501,7 +501,7 @@
 
 ## [v0.1.86] - 2023-09-13
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -519,7 +519,7 @@
 
 ## [v0.1.85] - 2023-07-14
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -539,7 +539,7 @@
 
 ## [v0.1.84] - 2023-06-29
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -547,7 +547,7 @@
 
 ## [v0.1.83] - 2023-06-28
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -555,7 +555,7 @@
 
 ## [v0.1.82] - 2023-06-12
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -563,7 +563,7 @@
 
 ## [v0.1.81] - 2023-06-12
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -572,7 +572,7 @@
 
 ## [v0.1.80] - 2023-06-01
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -584,7 +584,7 @@
 
 ## [v0.1.79] - 2023-05-31
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -605,7 +605,7 @@
 
 ## [v0.1.78] - 2023-04-28
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -613,7 +613,7 @@
 
 ## [v0.1.77] - 2023-04-05
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -633,7 +633,7 @@
 
 ## [v0.1.76] - 2023-04-04
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -645,7 +645,7 @@
 
 ## [v0.1.75] - 2023-04-04
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -653,7 +653,7 @@
 
 ## [v0.1.74] - 2023-04-03
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -677,7 +677,7 @@
 
 ## [v0.1.73] - 2023-03-11
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -685,7 +685,7 @@
 
 ## [v0.1.72] - 2023-03-08
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -699,7 +699,7 @@
 
 ## [v0.1.71] - 2023-03-04
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -707,7 +707,7 @@
 
 ## [v0.1.70] - 2023-03-03
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -725,7 +725,7 @@
 
 ## [v0.1.69] - 2023-02-07
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -733,7 +733,7 @@
 
 ## [v0.1.68] - 2023-02-07
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -746,7 +746,7 @@
 
 ## [v0.1.67] - 2023-01-30
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -763,7 +763,7 @@
 
 ## [v0.1.66] - 2023-01-23
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -771,7 +771,7 @@
 
 ## [v0.1.65] - 2023-01-23
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -785,7 +785,7 @@
 
 ## [v0.1.64] - 2023-01-15
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -815,7 +815,7 @@
 
 ## [v0.1.63] - 2022-12-16
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -836,7 +836,7 @@
 
 ## [v0.1.62] - 2022-11-26
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -844,7 +844,7 @@
 
 ## [v0.1.61] - 2022-11-16
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -852,7 +852,7 @@
 
 ## [v0.1.60] - 2022-11-04
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -864,7 +864,7 @@
 
 ## [v0.1.59] - 2022-10-04
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -872,7 +872,7 @@
 
 ## [v0.1.58] - 2022-10-04
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -887,7 +887,7 @@
 
 ## [v0.1.57] - 2022-08-30
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -895,7 +895,7 @@
 
 ## [v0.1.56] - 2022-08-11
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -910,7 +910,7 @@
 
 ## [v0.1.55] - 2022-07-18
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -918,7 +918,7 @@
 
 ## [v0.1.54] - 2022-07-18
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -926,7 +926,7 @@
 
 ## [v0.1.53] - 2022-07-18
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -934,7 +934,7 @@
 
 ## [v0.1.52] - 2022-07-18
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -942,7 +942,7 @@
 
 ## [v0.1.51] - 2022-07-12
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -951,7 +951,7 @@
 
 ## [v0.1.49] - 2022-07-11
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -969,7 +969,7 @@
 
 ## [v0.1.48] - 2022-06-15
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -981,7 +981,7 @@
 
 ## [v0.1.47] (broken build) - 2022-06-15
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -989,7 +989,7 @@
 
 ## [v0.1.46] - 2022-06-09
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1002,7 +1002,7 @@
 
 ## [v0.1.45] - 2022-05-10
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1010,7 +1010,7 @@
 
 ## [v0.1.44] - 2022-05-10
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1018,7 +1018,7 @@
 
 ## [v0.1.42] - 2022-05-10
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1026,7 +1026,7 @@
 
 ## [v0.1.41] - 2022-05-10
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1035,7 +1035,7 @@
 
 ## [v0.1.39] - 2022-04-21
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -1043,7 +1043,7 @@
 
 ## [v0.1.38] - 2022-04-21
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -1051,15 +1051,15 @@
 
 ## [v0.1.37] (broken build) - 2022-04-20
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ## [v0.1.36] (broken build) - 2022-04-20
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ## [v0.1.35] (broken build) - 2022-04-20
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -1067,7 +1067,7 @@
 
 ## [v0.1.34] - 2022-03-24
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1075,7 +1075,7 @@
 
 ## [v0.1.33] - 2022-03-24
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1083,7 +1083,7 @@
 
 ## [v0.1.32] - 2022-03-15
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -1091,7 +1091,7 @@
 
 ## [v0.1.31] - 2022-02-24
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -1099,7 +1099,7 @@
 
 ## [v0.1.30] - 2022-02-20
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1107,7 +1107,7 @@
 
 ## [v0.1.28] - 2022-02-20
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -1132,7 +1132,7 @@
 
 ## [v0.1.27] - 2022-02-05
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1144,7 +1144,7 @@
 
 ## [v0.1.26] - 2022-02-02
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1153,7 +1153,7 @@
 
 ## [v0.1.25] - 2022-01-31
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1161,7 +1161,7 @@
 
 ## [v0.1.24] - 2022-01-23
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1169,7 +1169,7 @@
 
 ## [v0.1.23] - 2022-01-23
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -1177,7 +1177,7 @@
 
 ## [v0.1.22] - 2022-01-23
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -1185,7 +1185,7 @@
 
 ## [v0.1.21] - 2022-01-21
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Fixed
 
@@ -1193,7 +1193,7 @@
 
 ## [v0.1.20] - 2022-01-17
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Changed
 
@@ -1213,7 +1213,7 @@
 
 ## [v0.1.19] - 2022-01-09
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -1221,7 +1221,7 @@
 
 ## [v0.1.18] - 2022-01-09
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -1229,7 +1229,7 @@
 
 ## [v0.1.17] - 2022-01-09
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -1243,7 +1243,7 @@
 
 ## [v0.1.16] - 2021-12-23
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 
@@ -1260,7 +1260,7 @@
 
 ## [v0.1.15] - 2021-12-21
 
-## @mapcomponents/react-maplibre
+## react-libremap-components
 
 ### Added
 

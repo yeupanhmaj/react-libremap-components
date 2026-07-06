@@ -1,13 +1,13 @@
 # @mapcomponents/three
 
-This library provides React components to easily integrate [Three.js](https://threejs.org/) 3D content into [MapLibre GL JS](https://maplibre.org/) maps using [@mapcomponents/react-maplibre](https://github.com/mapcomponents/react-map-components-maplibre).
+This library provides React components to easily integrate [Three.js](https://threejs.org/) 3D content into [MapLibre GL JS](https://maplibre.org/) maps using [react-libremap-components](https://github.com/mapcomponents/react-map-components-maplibre).
 
 ## Installation
 
 Install the package and its peer dependencies:
 
 ```bash
-npm install @mapcomponents/three @mapcomponents/react-maplibre
+npm install @mapcomponents/three react-libremap-components
 ```
 
 ## Getting Started
@@ -20,7 +20,7 @@ Here is a simple example of how to render a 3D model on a map:
 
 ```tsx
 import React from 'react';
-import { MapComponentsProvider, MapLibreMap } from '@mapcomponents/react-maplibre';
+import { MapComponentsProvider, MapLibreMap } from 'react-libremap-components';
 import { ThreeProvider, MlThreeModelLayer } from '@mapcomponents/three';
 
 const App = () => {

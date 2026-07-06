@@ -1,5 +1,5 @@
 import { TerrainLayer, type TerrainLayerProps } from '@deck.gl/geo-layers';
-import { useMap } from '@mapcomponents/react-maplibre';
+import { useMap } from 'react-libremap-components';
 import { useEffect, useMemo } from 'react';
 import useDeckGl from '../../hooks/useDeckGl';
 

@@ -1,4 +1,4 @@
-import { Sidebar, TopToolbar, useMap } from '@mapcomponents/react-maplibre';
+import { Sidebar, TopToolbar, useMap } from 'react-libremap-components';
 import Button from '@mui/material/Button';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';

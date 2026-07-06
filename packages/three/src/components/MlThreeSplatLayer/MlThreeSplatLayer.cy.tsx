@@ -1,4 +1,4 @@
-import { MapComponentsProvider, MapLibreMap, useMap } from '@mapcomponents/react-maplibre';
+import { MapComponentsProvider, MapLibreMap, useMap } from 'react-libremap-components';
 import React, { useEffect } from 'react';
 import { ThreeProvider } from '../../contexts/ThreeProvider';
 import MlThreeSplatLayer from './MlThreeSplatLayer';

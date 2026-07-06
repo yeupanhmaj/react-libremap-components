@@ -1,4 +1,4 @@
-import { useMap } from '@mapcomponents/react-maplibre';
+import { useMap } from 'react-libremap-components';
 import type { CustomLayerInterface, LngLatLike } from 'maplibre-gl';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';

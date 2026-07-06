@@ -1,6 +1,6 @@
 ---
 name: "💕 Feature request"
-about: Suggest a new idea for @mapcomponents/react-maplibre.
+about: Suggest a new idea for react-libremap-components.
 title: 'Feature: '
 labels: 'Status: needs print'
 Assignees: ''
@@ -11,7 +11,7 @@ Assignees: ''
 -->
 
 
-@mapcomponents/react-maplibre version:
+react-libremap-components version:
 
 ## Feature description
 

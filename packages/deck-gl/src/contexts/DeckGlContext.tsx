@@ -1,6 +1,6 @@
 import type { Effect, Layer } from '@deck.gl/core';
 import { MapboxOverlay } from '@deck.gl/mapbox';
-import { useMap } from '@mapcomponents/react-maplibre';
+import { useMap } from 'react-libremap-components';
 import React, { type ReactNode, useEffect, useRef, useState } from 'react';
 
 export interface DeckGlContextType {

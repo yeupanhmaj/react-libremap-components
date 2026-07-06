@@ -1,4 +1,4 @@
-import { Sidebar, TopToolbar, useMap } from '@mapcomponents/react-maplibre';
+import { Sidebar, TopToolbar, useMap } from 'react-libremap-components';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';

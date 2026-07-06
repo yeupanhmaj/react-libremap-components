@@ -17,7 +17,7 @@
 Use our Codesandbox template to quickly try out this library without any setup required. https://codesandbox.io/s/base-template-n0vp9
 
 
-## **How to use @mapcomponents/react-maplibre in a new project**
+## **How to use react-libremap-components in a new project**
 
 The easiest way to start a new project using this framework is to bootstrap a react application using our [vite-template](https://github.com/mapcomponents/template).
 
@@ -47,7 +47,7 @@ The easiest way to add data to the map is using GeoJSON data and the MlGeoJsonLa
 Insert the following code in your app below index.tsx to add a GeoJSON layer to your map.
 
 ```JSX
-import MlGeoJsonLayer from '@mapcomponents/react-maplibre';
+import MlGeoJsonLayer from 'react-libremap-components';
 
 const geojson_data = {
 	"type": "Feature",
@@ -87,7 +87,7 @@ Please take a look at our storybooks and the code examples provided in the {Comp
 
 ## more links
 
-- @mapcomponents/react-maplibre storybook: https://mapcomponents.github.io/mapcomponents/react-maplibre/
+- react-libremap-components storybook: https://mapcomponents.github.io/mapcomponents/react-maplibre/
 - @mapcomponents/deck-gl storybook: https://mapcomponents.github.io/mapcomponents/deck-gl/
 - @mapcomponents/ra-geospatial storybook: https://mapcomponents.github.io/mapcomponents/ra-geospatial/
-- @mapcomponents/react-maplibre-lab storybook: https://mapcomponents.github.io/react-map-components-maplibre-lab
+- react-libremap-components-lab storybook: https://mapcomponents.github.io/react-map-components-maplibre-lab

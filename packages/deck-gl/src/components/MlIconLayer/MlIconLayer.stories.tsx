@@ -1,4 +1,4 @@
-import { MapContext, useMap } from '@mapcomponents/react-maplibre';
+import { MapContext, useMap } from 'react-libremap-components';
 import { Box, Button, Checkbox, Divider, FormControlLabel, Paper, Typography } from '@mui/material';
 import * as turf from '@turf/turf';
 import * as d3 from 'd3';

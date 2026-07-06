@@ -1,4 +1,4 @@
-import { getTheme, MapComponentsProvider, MapLibreMap } from '@mapcomponents/react-maplibre';
+import { getTheme, MapComponentsProvider, MapLibreMap } from 'react-libremap-components';
 import { useMemo } from 'react';
 import './style.css';
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';

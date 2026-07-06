@@ -1,5 +1,5 @@
 import { HexagonLayer } from '@deck.gl/aggregation-layers';
-import { useMap } from '@mapcomponents/react-maplibre';
+import { useMap } from 'react-libremap-components';
 import { useEffect, useState } from 'react';
 import mapContextDecorator from '../../decorators/MapContextDecorator';
 import MlHexagonLayer from './MlHexagonLayer';
